@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[اسم الشخصية] — كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:920px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Lora',serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  body.lang-ar{font-family:'Amiri','Lora',serif;}
+  body.lang-ar h1, body.lang-ar h2, body.lang-ar h3, body.lang-ar .eyebrow, body.lang-ar .btn, body.lang-ar nav{
+    font-family:'Amiri',serif;
+  }
+
+  body{
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* ===== Top bar / language switch ===== */
+  .topbar{
+    background:var(--olive-deep);
+    color:var(--parchment);
+    padding:10px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:0.85rem;
+    letter-spacing:0.02em;
+  }
+  .topbar .brandmark{
+    display:flex; align-items:center; gap:8px;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button{
+    background:transparent;
+    border:1px solid rgba(245,239,224,0.35);
+    color:var(--parchment);
+    padding:5px 12px;
+    border-radius:3px;
+    font-size:0.8rem;
+    cursor:pointer;
+    font-family:'Lora',serif;
+    transition:background 0.2s, color 0.2s;
+  }
+  .langswitch button.active{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:var(--olive-deep);
+    font-weight:600;
+  }
+  .langswitch button:hover:not(.active){
+    background:rgba(245,239,224,0.12);
+  }
+
+  /* ===== Section navigation bar (same as homepage) + back-link ===== */
+  .navbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--olive);
+    border-bottom:2px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12);
+    flex-wrap:wrap;
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85);
+    text-decoration:none;
+    font-size:0.92rem;
+    padding:13px 18px;
+    display:inline-block;
+    border-bottom:3px solid transparent;
+    transition:color 0.2s, border-color 0.2s, background 0.2s;
+    white-space:nowrap;
+  }
+  .navbar a:hover{
+    color:var(--gold);
+    background:rgba(245,239,224,0.06);
+  }
+  .navbar a.active-link{
+    color:var(--gold);
+    border-bottom-color:var(--gold);
+    font-weight:600;
+  }
+  .navbar a.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    color:var(--gold);
+    border-inline-end:1px solid rgba(245,239,224,0.25);
+    margin-inline-end:6px;
+  }
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0;}
+  .lang-ar .navbar a.back-link svg{transform:scaleX(-1);} /* arrow flips direction for RTL */
+  @media (max-width:700px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+    .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
+  }
+
+  /* ===== Figure header ===== */
+  header.figure-hero{
+    padding:56px 24px 46px;
+    text-align:center;
+    background:linear-gradient(180deg, var(--olive) 0%, var(--olive-deep) 100%);
+    color:var(--parchment);
+    position:relative;
+    overflow:hidden;
+  }
+  header.figure-hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(201,162,39,0.045) 0 2px, transparent 2px 38px),
+      repeating-linear-gradient(-45deg, rgba(201,162,39,0.045) 0 2px, transparent 2px 38px);
+    pointer-events:none;
+  }
+  .figure-hero-inner{position:relative; max-width:var(--max-w); margin:0 auto;}
+  .figure-hero .eyebrow{
+    display:inline-block;
+    color:var(--gold);
+    font-size:0.9rem;
+    letter-spacing:0.05em;
+    margin-bottom:14px;
+    border:1px solid rgba(201,162,39,0.5);
+    padding:4px 16px;
+    border-radius:2px;
+  }
+  h1.figure-name{
+    font-size:clamp(1.9rem, 4.5vw, 2.8rem);
+    margin:0 0 10px;
+    font-weight:700;
+    color:#FBF6E9;
+  }
+  .figure-meta{
+    font-size:1rem;
+    color:rgba(245,239,224,0.8);
+  }
+
+  /* ===== Ornamental divider ===== */
+  .ornament{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin:40px auto;
+    max-width:var(--max-w);
+    padding:0 24px;
+    color:var(--copper);
+    opacity:0.85;
+  }
+  .ornament .line{
+    flex:1;
+    height:1px;
+    background:linear-gradient(to right, transparent, var(--copper) 50%, transparent);
+  }
+  .ornament svg{width:26px; height:26px; flex-shrink:0;}
+
+  /* ===== Main content shell ===== */
+  main{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:0 24px 60px;
+  }
+
+  .charges-intro{
+    background:var(--parchment-deep);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:22px 28px;
+    margin-bottom:30px;
+    font-size:0.95rem;
+    color:#3c3226;
+  }
+  .charges-intro strong{color:var(--olive-deep);}
+
+  /* ===== Merit section (one per figure, distinct icon color from charges) ===== */
+  .charge.merit-block .charge-icon{background:var(--olive);}
+  .charge.merit-block .charge-trigger{background:#eef2ec;}
+  .charge.merit-block .charge-trigger:hover{background:#e2e9dd;}
+
+  /* ===== Charge accordion (top-level: one per accusation) ===== */
+  .charge{
+    border:1px solid var(--line);
+    border-radius:6px;
+    margin-bottom:18px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .charge-trigger{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:20px 24px;
+    background:var(--parchment-deep);
+    border:none;
+    text-align:inherit;
+    cursor:pointer;
+    font-family:inherit;
+    color:inherit;
+  }
+  .charge-trigger:hover{background:#e4d9bb;}
+  .charge-trigger:focus-visible{outline:2px solid var(--copper); outline-offset:-2px;}
+  .charge-icon{
+    flex-shrink:0;
+    width:40px; height:40px;
+    border-radius:50%;
+    background:var(--copper);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem;
+  }
+  .charge-title{flex:1; min-width:0;}
+  .charge-title h3{margin:0; color:var(--olive-deep); font-size:1.15rem;}
+  .charge-title .charge-sub{font-size:0.85rem; color:var(--copper); margin-top:3px;}
+  .charge-chevron{
+    flex-shrink:0;
+    width:24px; height:24px;
+    color:var(--olive-deep);
+    transition:transform 0.25s ease;
+  }
+  .charge-trigger[aria-expanded="true"] .charge-chevron{transform:rotate(180deg);}
+
+  .charge-panel{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.35s ease;
+  }
+  .charge-panel-inner{
+    padding:28px 28px 30px;
+  }
+
+  /* ===== Sub-sections inside an opened charge (second-level accordion) ===== */
+  .subsection{
+    margin-bottom:16px;
+    border:1px solid var(--line);
+    border-radius:5px;
+    overflow:hidden;
+    background:var(--parchment);
+  }
+  .subsection:last-of-type{margin-bottom:0;}
+
+  .subsection-trigger{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 18px;
+    background:none;
+    border:none;
+    text-align:inherit;
+    cursor:pointer;
+    font-family:inherit;
+    color:inherit;
+  }
+  .subsection-trigger:hover{background:rgba(27,58,47,0.04);}
+  .subsection-trigger:focus-visible{outline:2px solid var(--copper); outline-offset:-2px;}
+
+  .subsection-num{
+    flex-shrink:0;
+    width:28px; height:28px;
+    border-radius:50%;
+    background:var(--olive);
+    color:var(--parchment);
+    font-size:0.85rem;
+    font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .subsection-trigger h4{margin:0; color:var(--olive-deep); font-size:1.02rem; flex:1; text-align:start;}
+
+  .subsection-chevron{
+    flex-shrink:0;
+    width:19px; height:19px;
+    color:var(--copper);
+    transition:transform 0.25s ease;
+  }
+  .subsection-trigger[aria-expanded="true"] .subsection-chevron{transform:rotate(180deg);}
+
+  .subsection-panel{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s ease;
+  }
+  .subsection-body{
+    font-size:0.95rem;
+    color:#3c3226;
+    padding:2px 18px 18px 56px;
+  }
+  .lang-en .subsection-body, .lang-tr .subsection-body{padding:2px 56px 18px 18px;}
+  .subsection-body p{margin:0 0 10px;}
+  .subsection-body p:last-child{margin-bottom:0;}
+  .placeholder-text{color:#9c8f78; font-style:italic;}
+  .lang-ar .placeholder-text{font-style:normal;}
+
+  /* Sub-section 3: PDF download — stays a direct, non-collapsible row */
+  .subsection.subsection-direct{
+    background:none;
+    border:none;
+    padding:6px 0 0;
+  }
+  .subsection-direct-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .subsection-direct-head h4{margin:0; color:var(--olive-deep); font-size:1.02rem;}
+  .subsection-direct-body{padding-inline-start:40px;}
+
+  /* Sub-section 3: PDF download */
+  .pdf-download{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--olive);
+    color:var(--parchment) !important;
+    padding:11px 22px;
+    border-radius:5px;
+    font-size:0.92rem;
+    font-weight:600;
+    text-decoration:none !important;
+    transition:background 0.2s;
+  }
+  .pdf-download:hover{background:var(--olive-deep);}
+  .pdf-download svg{width:18px; height:18px; flex-shrink:0;}
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--olive-deep);
+    color:rgba(245,239,224,0.75);
+    padding:40px 24px 28px;
+    margin-top:30px;
+    text-align:center;
+    font-size:0.88rem;
+  }
+  footer .verse{
+    color:var(--gold);
+    font-size:1rem;
+    margin-bottom:14px;
+  }
+  footer .meta{opacity:0.7; margin-top:10px;}
+
+  @media (max-width:600px){
+    header.figure-hero{padding:42px 18px 36px;}
+    .charge-trigger{padding:16px 18px; gap:12px;}
+    .charge-panel-inner{padding:20px 18px 24px;}
+    .subsection-body{padding-inline-start:0; margin-top:6px;}
+  }
+</style>
+</head>
+<body class="lang-ar">
+
+<div class="topbar">
+  <div class="brandmark" data-i18n="brand">كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</div>
+  <div class="langswitch">
+    <button data-lang="ar" class="active">العربية</button>
+    <button data-lang="en">English</button>
+    <button data-lang="tr">Türkçe</button>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="../index.html#figures" class="back-link" data-i18n="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span data-i18n="back-text">عودة لقائمة الشخصيات</span>
+  </a>
+  <a href="../index.html#intro" data-i18n="nav-intro">لِمَ هَذَا الْمَوْقِعُ؟</a>
+  <a href="../index.html#criteria" data-i18n="nav-criteria">الْمَعَايِيرُ وَالضَّوَابِطُ</a>
+  <a href="../index.html#figures" data-i18n="nav-figures">الشَّخْصِيَّاتُ</a>
+  <a href="../index.html#contact" data-i18n="nav-contact">تَوَاصَلْ مَعَنَا</a>
+</nav>
+
+<header class="figure-hero">
+  <div class="figure-hero-inner">
+    <span class="eyebrow" data-i18n="figure-eyebrow">[تصنيف الشخصية — مثال: قائد، خليفة، صحابي]</span>
+    <h1 class="figure-name" data-i18n="figure-name">[اسم الشخصية الكامل]</h1>
+    <p class="figure-meta" data-i18n="figure-meta">[فترة حياته أو سنوات الميلاد والوفاة، إن وُجدت]</p>
+  </div>
+</header>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<main>
+  <div class="charges-intro">
+    <p data-i18n="charges-intro-text"><strong data-i18n="charges-intro-bold">ملاحظة:</strong> [نص تمهيدي قصير اختياري عن هذه الشخصية بشكل عام، قبل عرض التهم الفردية. مثال: عدد التهم الملصقة، أو ملاحظة عامة عن السياق التاريخي]</p>
+  </div>
+
+  <!-- ============ قسم إثبات فضل الشخصية (مرة واحدة فقط، قبل التهم) ============ -->
+  <div class="charge merit-block">
+    <button class="charge-trigger" aria-expanded="false" aria-controls="merit-panel">
+      <span class="charge-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;"><path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/></svg>
+      </span>
+      <span class="charge-title">
+        <h3 data-i18n="merit-title">إثبات فضل الشخصية بالأدلة المادية</h3>
+        <span class="charge-sub" data-i18n="merit-sub">[تُذكر مرة واحدة هنا، وتنطبق على جميع التهم الواردة أدناه]</span>
+      </span>
+      <svg class="charge-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="charge-panel" id="merit-panel">
+      <div class="charge-panel-inner">
+        <div class="subsection-body" style="padding:0;">
+          <p class="placeholder-text" data-i18n="merit-placeholder">[هنا توضع الأدلة المادية والأثرية والمصادر الموثوقة التي تثبت فضل الشخصية وإنجازاتها بشكل عام، بصرف النظر عن أي تهمة معينة.]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CHARGE TEMPLATE — يُكرَّر هذا البلوك لكل تهمة جديدة ============ -->
+  <div class="charge">
+    <button class="charge-trigger" aria-expanded="false" aria-controls="charge-panel-1">
+      <span class="charge-icon">١</span>
+      <span class="charge-title">
+        <h3 data-i18n="charge1-title">[نص التهمة الأولى — مثال: "اتهامه بقتل فلان غدراً"]</h3>
+        <span class="charge-sub" data-i18n="charge1-sub">[تصنيف مختصر اختياري — مثال: حادثة سياسية / رواية تاريخية]</span>
+      </span>
+      <svg class="charge-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+
+    <div class="charge-panel" id="charge-panel-1">
+      <div class="charge-panel-inner">
+
+        <!-- Sub-section 1: تفنيد التهمة والروايات وفق المعايير (أكورديون فرعي) -->
+        <div class="subsection">
+          <button class="subsection-trigger" aria-expanded="false" aria-controls="sub-panel-1-1">
+            <span class="subsection-num">١</span>
+            <h4 data-i18n="sub1-title">تفنيد التهمة والروايات وفق المعايير</h4>
+            <svg class="subsection-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="subsection-panel" id="sub-panel-1-1">
+            <div class="subsection-body">
+              <p class="placeholder-text" data-i18n="sub1-placeholder">[هنا يوضع التحليل الكامل: ذكر الروايات التي تحمل هذه التهمة، تطبيق سلّم المعايير العشرة على كل رواية، وبيان أين سقطت كل رواية من السلّم.]</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-section 2: تحميل ملف PDF (مباشر، بلا انبساط) -->
+        <div class="subsection subsection-direct">
+          <div class="subsection-direct-head">
+            <span class="subsection-num">٢</span>
+            <h4 data-i18n="sub3-title">تحميل البحث الكامل</h4>
+          </div>
+          <div class="subsection-direct-body">
+            <a class="pdf-download" href="#" data-i18n="sub3-button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3M6 9l6 6 6-6M5 21h14"/></svg>
+              <span data-i18n="sub3-button-text">تحميل البحث الكامل (PDF)</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- ============ نهاية قالب التهمة — كرّر البلوك أعلاه لكل تهمة إضافية، مع تغيير الرقم وid ============ -->
+
+  <!-- ============ مثال: التهمة الثانية (بلوك مستقل تماماً عن الأولى) ============ -->
+  <div class="charge">
+    <button class="charge-trigger" aria-expanded="false" aria-controls="charge-panel-2">
+      <span class="charge-icon">٢</span>
+      <span class="charge-title">
+        <h3 data-i18n="charge2-title">[نص التهمة الثانية — مثال آخر منفصل تماماً عن الأولى]</h3>
+        <span class="charge-sub" data-i18n="charge2-sub">[تصنيف مختصر اختياري لهذه التهمة بالذات]</span>
+      </span>
+      <svg class="charge-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+
+    <div class="charge-panel" id="charge-panel-2">
+      <div class="charge-panel-inner">
+
+        <div class="subsection">
+          <button class="subsection-trigger" aria-expanded="false" aria-controls="sub-panel-2-1">
+            <span class="subsection-num">١</span>
+            <h4 data-i18n="sub1-title">تفنيد التهمة والروايات وفق المعايير</h4>
+            <svg class="subsection-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="subsection-panel" id="sub-panel-2-1">
+            <div class="subsection-body">
+              <p class="placeholder-text" data-i18n="sub1-placeholder">[تحليل مستقل خاص بهذه التهمة الثانية فقط — لا علاقة له بتحليل التهمة الأولى.]</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection subsection-direct">
+          <div class="subsection-direct-head">
+            <span class="subsection-num">٢</span>
+            <h4 data-i18n="sub3-title">تحميل البحث الكامل</h4>
+          </div>
+          <div class="subsection-direct-body">
+            <a class="pdf-download" href="#" data-i18n="sub3-button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3M6 9l6 6 6-6M5 21h14"/></svg>
+              <span data-i18n="sub3-button-text">تحميل البحث الكامل (PDF)</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- ============ نهاية مثال التهمة الثانية ============ -->
+
+</main>
+
+
+<footer>
+  <p class="verse" data-i18n="footer-verse">«وَلَكُمْ فِي الْأَرْضِ مُسْتَقَرٌّ وَمَتَاعٌ إِلَىٰ حِينٍ»</p>
+  <p data-i18n="footer-line">مَوْقِعٌ عِلْمِيٌّ مُسْتَقِلٌّ، يَهْدِفُ لِإِعَادَةِ الْحَقِّ إِلَى أَهْلِهِ بِمِيزَانِ السَّنَدِ وَالدَّلِيلِ.</p>
+  <p class="meta" data-i18n="footer-meta">© كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ — جميع الأبحاث مرجعة ومحدّثة باستمرار.</p>
+</footer>
+
+<script>
+const translations = {
+  ar: {
+    brand:"كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ",
+    "back-text":"عودة لقائمة الشخصيات",
+    "nav-intro":"لِمَ هَذَا الْمَوْقِعُ؟",
+    "nav-criteria":"الْمَعَايِيرُ وَالضَّوَابِطُ",
+    "nav-figures":"الشَّخْصِيَّاتُ",
+    "nav-contact":"تَوَاصَلْ مَعَنَا",
+    "figure-eyebrow":"[تصنيف الشخصية — مثال: قائد، خليفة، صحابي]",
+    "figure-name":"[اسم الشخصية الكامل]",
+    "figure-meta":"[فترة حياته أو سنوات الميلاد والوفاة، إن وُجدت]",
+    "charges-intro-bold":"ملاحظة:",
+    "charges-intro-text":'<strong>ملاحظة:</strong> [نص تمهيدي قصير اختياري عن هذه الشخصية بشكل عام، قبل عرض التهم الفردية.]',
+    "charge1-title":'[نص التهمة الأولى — مثال: "اتهامه بقتل فلان غدراً"]',
+    "charge1-sub":"[تصنيف مختصر اختياري — مثال: حادثة سياسية / رواية تاريخية]",
+    "charge2-title":"[نص التهمة الثانية — مثال آخر منفصل تماماً عن الأولى]",
+    "charge2-sub":"[تصنيف مختصر اختياري لهذه التهمة بالذات]",
+    "sub1-title":"تفنيد التهمة والروايات وفق المعايير",
+    "sub1-placeholder":"[هنا يوضع التحليل الكامل: ذكر الروايات التي تحمل هذه التهمة، تطبيق سلّم المعايير العشرة على كل رواية، وبيان أين سقطت كل رواية من السلّم.]",
+    "merit-title":"إثبات فضل الشخصية بالأدلة المادية",
+    "merit-sub":"[تُذكر مرة واحدة هنا، وتنطبق على جميع التهم الواردة أدناه]",
+    "merit-placeholder":"[هنا توضع الأدلة المادية والأثرية والمصادر الموثوقة التي تثبت فضل الشخصية وإنجازاتها بشكل عام، بصرف النظر عن أي تهمة معينة.]",
+    "sub3-title":"تحميل البحث الكامل",
+    "sub3-button-text":"تحميل البحث الكامل (PDF)",
+    "footer-verse":"«وَلَكُمْ فِي الْأَرْضِ مُسْتَقَرٌّ وَمَتَاعٌ إِلَىٰ حِينٍ»",
+    "footer-line":"مَوْقِعٌ عِلْمِيٌّ مُسْتَقِلٌّ، يَهْدِفُ لِإِعَادَةِ الْحَقِّ إِلَى أَهْلِهِ بِمِيزَانِ السَّنَدِ وَالدَّلِيلِ.",
+    "footer-meta":"© كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ — جميع الأبحاث مرجعة ومحدّثة باستمرار."
+  },
+  en: {
+    brand:"Hold Your Tongues",
+    "back-text":"Back to figures list",
+    "nav-intro":"Why This Site?",
+    "nav-criteria":"Criteria & Standards",
+    "nav-figures":"Figures",
+    "nav-contact":"Contact",
+    "figure-eyebrow":"[Figure category — e.g. commander, caliph, companion]",
+    "figure-name":"[Full name of the figure]",
+    "figure-meta":"[Lifespan or birth/death years, if known]",
+    "charges-intro-bold":"Note:",
+    "charges-intro-text":'<strong>Note:</strong> [Optional short introductory text about this figure in general, before the individual accusations.]',
+    "charge1-title":'[First accusation — e.g. "Accused of treacherously killing so-and-so"]',
+    "charge1-sub":"[Optional short tag — e.g. political incident / historical narrative]",
+    "charge2-title":"[Second accusation — a separate example, unrelated to the first]",
+    "charge2-sub":"[Optional short tag specific to this accusation]",
+    "sub1-title":"Refuting the Accusation and Its Reports per the Criteria",
+    "sub1-placeholder":"[Full analysis goes here: the reports carrying this accusation, applying the ten-criteria ladder to each, and showing where each report failed.]",
+    "merit-title":"Proving the Figure's Merit Through Material Evidence",
+    "merit-sub":"[Stated once here, and applies to all accusations listed below]",
+    "merit-placeholder":"[General material, archaeological evidence and reliable sources proving the figure's merit and achievements go here, independent of any specific accusation.]",
+    "sub3-title":"Download the Full Research",
+    "sub3-button-text":"Download Full Research (PDF)",
+    "footer-verse":'"And for you on earth is a place of settlement and provision for a time."',
+    "footer-line":"An independent scholarly site, dedicated to restoring rightful due through chain-of-transmission and evidence.",
+    "footer-meta":"© Hold Your Tongues — all research reviewed and continuously updated."
+  },
+  tr: {
+    brand:"Dillerinizi Tutun",
+    "back-text":"Şahsiyetler listesine dön",
+    "nav-intro":"Bu Site Neden Var?",
+    "nav-criteria":"Ölçütler ve Şartlar",
+    "nav-figures":"Şahsiyetler",
+    "nav-contact":"İletişim",
+    "figure-eyebrow":"[Şahsiyet kategorisi — örn. komutan, halife, sahabi]",
+    "figure-name":"[Şahsiyetin tam adı]",
+    "figure-meta":"[Yaşam süresi veya doğum/ölüm yılları, biliniyorsa]",
+    "charges-intro-bold":"Not:",
+    "charges-intro-text":'<strong>Not:</strong> [Bireysel ithamlardan önce bu şahsiyet hakkında genel, isteğe bağlı kısa bir giriş metni.]',
+    "charge1-title":'[İlk itham — örn. "Falancayı hile ile öldürmekle itham edilmesi"]',
+    "charge1-sub":"[İsteğe bağlı kısa etiket — örn. siyasi olay / tarihî rivayet]",
+    "charge2-title":"[İkinci itham — ilkinden tamamen ayrı, bağımsız bir örnek]",
+    "charge2-sub":"[Bu ithama özel, isteğe bağlı kısa etiket]",
+    "sub1-title":"İthamın ve Rivayetlerinin Ölçütlere Göre Çürütülmesi",
+    "sub1-placeholder":"[Tam analiz buraya: bu ithamı taşıyan rivayetler, her birine on ölçüt merdiveninin uygulanması ve her rivayetin nerede elendiğinin gösterilmesi.]",
+    "merit-title":"Şahsiyetin Meziyetinin Maddi Delille İspatı",
+    "merit-sub":"[Burada bir kez belirtilir ve aşağıdaki tüm ithamlar için geçerlidir]",
+    "merit-placeholder":"[Belirli bir itham olmaksızın, şahsiyetin meziyetini ve başarılarını genel olarak ispatlayan maddi, arkeolojik deliller ve güvenilir kaynaklar buraya eklenecektir.]",
+    "sub3-title":"Tam Araştırmayı İndir",
+    "sub3-button-text":"Tam Araştırmayı İndir (PDF)",
+    "footer-verse":"\"Sizin için yerde bir süre konaklama ve geçim yeri vardır.\"",
+    "footer-line":"Hakkı sahibine sened ve delil ölçüsüyle geri vermeyi amaçlayan bağımsız ilmî bir site.",
+    "footer-meta":"© Dillerinizi Tutun — tüm araştırmalar gözden geçirilir ve sürekli güncellenir."
+  }
+};
+
+function setLang(lang){
+  const dict = translations[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.body.className = 'lang-' + lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[key] !== undefined){
+      el.innerHTML = dict[key];
+    }
+  });
+
+  document.querySelectorAll('.langswitch button').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  localStorage.setItem('preferredLang', lang);
+}
+
+document.querySelectorAll('.langswitch button').forEach(btn=>{
+  btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
+});
+
+// Two-level accordion behavior (charge accordion + nested sub-section accordion)
+function toggleAccordion(trigger, parentPanelToUpdate){
+  const expanded = trigger.getAttribute('aria-expanded') === 'true';
+  const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+  trigger.setAttribute('aria-expanded', String(!expanded));
+
+  if(expanded){
+    panel.style.maxHeight = null;
+  } else {
+    panel.style.maxHeight = panel.scrollHeight + 'px';
+  }
+
+  // If this trigger lives inside an already-open parent charge panel,
+  // recalculate the parent's max-height so the new content isn't clipped.
+  if(parentPanelToUpdate && parentPanelToUpdate.style.maxHeight){
+    // wait one tick so the child panel's height transition has started
+    requestAnimationFrame(()=>{
+      parentPanelToUpdate.style.maxHeight = parentPanelToUpdate.scrollHeight + 'px';
+    });
+  }
+}
+
+document.querySelectorAll('.charge-trigger').forEach(trigger=>{
+  trigger.addEventListener('click', ()=> toggleAccordion(trigger, null));
+});
+
+document.querySelectorAll('.subsection-trigger').forEach(trigger=>{
+  const parentChargePanel = trigger.closest('.charge-panel');
+  trigger.addEventListener('click', ()=> toggleAccordion(trigger, parentChargePanel));
+});
+
+const stored = localStorage.getItem('preferredLang');
+if(stored && translations[stored]) setLang(stored);
+</script>
+
+</body>
+</html>
