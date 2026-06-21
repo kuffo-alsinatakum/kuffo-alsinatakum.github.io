@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:920px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Lora',serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  body.lang-ar{font-family:'Amiri','Lora',serif;}
+  body.lang-ar h1, body.lang-ar h2, body.lang-ar h3, body.lang-ar .eyebrow, body.lang-ar .btn, body.lang-ar nav{
+    font-family:'Amiri',serif;
+  }
+
+  /* subtle paper texture via layered radial gradients */
+  body{
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* ===== Top bar / language switch ===== */
+  .topbar{
+    background:var(--olive-deep);
+    color:var(--parchment);
+    padding:10px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:0.85rem;
+    letter-spacing:0.02em;
+  }
+  .topbar .brandmark{
+    display:flex; align-items:center; gap:8px;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button{
+    background:transparent;
+    border:1px solid rgba(245,239,224,0.35);
+    color:var(--parchment);
+    padding:5px 12px;
+    border-radius:3px;
+    font-size:0.8rem;
+    cursor:pointer;
+    font-family:'Lora',serif;
+    transition:background 0.2s, color 0.2s;
+  }
+  .langswitch button.active{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:var(--olive-deep);
+    font-weight:600;
+  }
+  .langswitch button:hover:not(.active){
+    background:rgba(245,239,224,0.12);
+  }
+
+  /* ===== Section navigation bar ===== */
+  .navbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--olive);
+    border-bottom:2px solid var(--gold);
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12);
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85);
+    text-decoration:none;
+    font-size:0.92rem;
+    padding:13px 18px;
+    display:inline-block;
+    border-bottom:3px solid transparent;
+    transition:color 0.2s, border-color 0.2s, background 0.2s;
+    white-space:nowrap;
+  }
+  .navbar a:hover{
+    color:var(--gold);
+    background:rgba(245,239,224,0.06);
+  }
+  .navbar a.active-link{
+    color:var(--gold);
+    border-bottom-color:var(--gold);
+    font-weight:600;
+  }
+  @media (max-width:600px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+  }
+
+  /* ===== Ornamental divider (signature element) ===== */
+  .ornament{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin:48px auto;
+    max-width:var(--max-w);
+    padding:0 24px;
+    color:var(--copper);
+    opacity:0.85;
+  }
+  .ornament .line{
+    flex:1;
+    height:1px;
+    background:linear-gradient(to var(--fade-dir,right), transparent, var(--copper) 50%, transparent);
+  }
+  .ornament svg{width:28px; height:28px; flex-shrink:0;}
+
+  /* ===== Hero ===== */
+  header.hero{
+    position:relative;
+    padding:90px 24px 70px;
+    text-align:center;
+    background:linear-gradient(180deg, var(--olive) 0%, var(--olive-deep) 100%);
+    color:var(--parchment);
+    overflow:hidden;
+  }
+  header.hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(201,162,39,0.045) 0 2px, transparent 2px 38px),
+      repeating-linear-gradient(-45deg, rgba(201,162,39,0.045) 0 2px, transparent 2px 38px);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative; max-width:var(--max-w); margin:0 auto;}
+  .eyebrow{
+    display:inline-block;
+    color:var(--gold);
+    font-size:0.95rem;
+    letter-spacing:0.08em;
+    margin-bottom:18px;
+    border:1px solid rgba(201,162,39,0.5);
+    padding:5px 18px;
+    border-radius:2px;
+  }
+  h1.title{
+    font-size:clamp(2.1rem, 5vw, 3.4rem);
+    margin:0 0 20px;
+    font-weight:700;
+    color:#FBF6E9;
+    text-shadow:0 1px 0 rgba(0,0,0,0.2);
+  }
+  .subtitle{
+    font-size:1.15rem;
+    color:rgba(245,239,224,0.88);
+    max-width:640px;
+    margin:0 auto;
+    font-style:italic;
+  }
+  .lang-ar .subtitle{font-style:normal;}
+
+  /* ===== Section shell ===== */
+  section{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:10px 24px 50px;
+  }
+  h2.section-title{
+    font-size:1.7rem;
+    color:var(--olive-deep);
+    margin-bottom:6px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  h2.section-title .num{
+    color:var(--gold);
+    font-size:1rem;
+    border:1.5px solid var(--gold);
+    width:34px; height:34px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  p.lede{
+    color:var(--copper);
+    font-size:1.02rem;
+    margin:0 0 26px;
+  }
+
+  /* ===== Intro / why this site ===== */
+  .intro-card{
+    background:var(--parchment-deep);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:32px 34px;
+    margin-bottom:18px;
+  }
+  .intro-card p{margin:0 0 16px;}
+  .intro-card p:last-child{margin-bottom:0;}
+
+  .example-box{
+    background:#fff;
+    border-right:4px solid var(--olive);
+    padding:20px 24px;
+    margin:22px 0;
+    border-radius:4px;
+    font-size:0.97rem;
+  }
+  .lang-en .example-box, .lang-tr .example-box{border-right:none; border-left:4px solid var(--olive);}
+  .example-box .label{
+    display:block;
+    color:var(--olive);
+    font-weight:600;
+    margin-bottom:8px;
+    font-size:0.85rem;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+  }
+  .lang-ar .example-box .label{text-transform:none; font-size:0.95rem;}
+
+  .pull-term{
+    color:var(--olive-deep);
+    font-weight:700;
+    background:rgba(201,162,39,0.18);
+    padding:1px 6px;
+    border-radius:3px;
+  }
+
+  /* ===== Criteria ladder (accordion) ===== */
+  .ladder{
+    list-style:none;
+    margin:0; padding:0;
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+  }
+  .ladder li{
+    background:#fff;
+    border-bottom:1px solid var(--line);
+  }
+  .ladder li:last-child{border-bottom:none;}
+  .ladder li:nth-child(even){background:var(--parchment-deep);}
+
+  .ladder-trigger{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:18px 22px;
+    background:none;
+    border:none;
+    text-align:inherit;
+    cursor:pointer;
+    font-family:inherit;
+    color:inherit;
+  }
+  .ladder-trigger:hover{background:rgba(27,58,47,0.045);}
+  .ladder-trigger:focus-visible{outline:2px solid var(--copper); outline-offset:-2px;}
+
+  .rank{
+    flex-shrink:0;
+    width:38px; height:38px;
+    border-radius:50%;
+    background:var(--olive);
+    color:var(--parchment);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700;
+    font-size:0.95rem;
+  }
+  .ladder-head{flex:1; min-width:0;}
+  .ladder h4{margin:0 0 5px; color:var(--olive-deep); font-size:1.04rem;}
+  .ladder-trigger p{margin:0; font-size:0.93rem; color:#3c3226;}
+
+  .chevron{
+    flex-shrink:0;
+    width:22px; height:22px;
+    color:var(--copper);
+    transition:transform 0.25s ease;
+  }
+  .ladder-trigger[aria-expanded="true"] .chevron{transform:rotate(180deg);}
+
+  .ladder-panel{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s ease;
+  }
+  .ladder-panel-inner{
+    padding:0 22px 20px 76px;
+    font-size:0.93rem;
+    color:#3c3226;
+    line-height:1.85;
+  }
+  .lang-en .ladder-panel-inner, .lang-tr .ladder-panel-inner{padding:0 76px 20px 22px;}
+  .ladder-panel-inner p{margin:0 0 10px;}
+  .ladder-panel-inner p:last-child{margin-bottom:0;}
+  .ladder-panel-placeholder{
+    color:#8a7d68;
+    font-style:italic;
+  }
+  .lang-ar .ladder-panel-placeholder{font-style:normal;}
+
+  /* ===== Nested term accordion (inside "تعريفات هامة" panel) ===== */
+  .term-list{margin:0; padding:0;}
+  .term-item{
+    border:1px solid var(--line);
+    border-radius:5px;
+    margin-bottom:12px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .term-item:last-child{margin-bottom:0;}
+
+  .term-trigger{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:13px 16px;
+    background:none;
+    border:none;
+    text-align:inherit;
+    cursor:pointer;
+    font-family:inherit;
+    color:inherit;
+  }
+  .term-trigger:hover{background:rgba(27,58,47,0.04);}
+  .term-trigger:focus-visible{outline:2px solid var(--copper); outline-offset:-2px;}
+
+  .term-num{
+    flex-shrink:0;
+    width:26px; height:26px;
+    border-radius:50%;
+    background:var(--copper);
+    color:#fff;
+    font-size:0.8rem;
+    font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .term-trigger h5{margin:0; color:var(--olive-deep); font-size:0.98rem; flex:1; text-align:start; font-weight:600;}
+
+  .term-chevron{
+    flex-shrink:0;
+    width:18px; height:18px;
+    color:var(--copper);
+    transition:transform 0.25s ease;
+  }
+  .term-trigger[aria-expanded="true"] .term-chevron{transform:rotate(180deg);}
+
+  .term-panel{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s ease;
+  }
+  .term-panel-body{
+    font-size:0.92rem;
+    color:#3c3226;
+    padding:0 16px 16px 50px;
+  }
+  .lang-en .term-panel-body, .lang-tr .term-panel-body{padding:0 50px 16px 16px;}
+  .term-panel-body p{margin:0;}
+
+  /* ===== Figures (people) grid ===== */
+  .figures-intro{
+    background:var(--olive);
+    color:var(--parchment);
+    border-radius:6px;
+    padding:26px 30px;
+    margin-bottom:26px;
+  }
+  .figures-intro h3{margin:0 0 10px; color:var(--gold); font-size:1.1rem;}
+  .figures-intro p{margin:0; opacity:0.92;}
+  .figures-intro ol{margin:14px 0 0; padding-inline-start:22px; opacity:0.92;}
+  .figures-intro li{margin-bottom:6px;}
+
+  .figure-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:18px;
+  }
+  .figure-card{
+    border:1px solid var(--line);
+    background:#fff;
+    border-radius:6px;
+    padding:22px;
+    position:relative;
+    transition:transform 0.18s, box-shadow 0.18s;
+  }
+  .figure-card.soon{opacity:0.6;}
+  .figure-card:not(.soon):hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 22px rgba(27,58,47,0.13);
+  }
+  .figure-card h4{
+    margin:0 0 8px;
+    color:var(--olive-deep);
+    font-size:1.12rem;
+  }
+  .figure-card .tag{
+    display:inline-block;
+    font-size:0.74rem;
+    color:var(--copper);
+    border:1px solid var(--copper);
+    padding:2px 9px;
+    border-radius:10px;
+    margin-bottom:10px;
+  }
+  .figure-card .soon-tag{
+    color:#999; border-color:#ccc;
+  }
+  .figure-card p{margin:0; font-size:0.9rem; color:#4a4030;}
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--olive-deep);
+    color:rgba(245,239,224,0.75);
+    padding:40px 24px 28px;
+    margin-top:30px;
+    text-align:center;
+    font-size:0.88rem;
+  }
+  footer .verse{
+    color:var(--gold);
+    font-size:1rem;
+    margin-bottom:14px;
+    font-style:italic;
+  }
+  .lang-ar footer .verse{font-style:normal;}
+  footer .meta{opacity:0.7; margin-top:10px;}
+
+  /* ===== Contact section ===== */
+  .contact-shell{
+    background:var(--parchment-deep);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:34px;
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:36px;
+  }
+  .contact-note h3{margin:0 0 12px; color:var(--olive-deep); font-size:1.1rem;}
+  .contact-note p{margin:0 0 14px; font-size:0.95rem; color:#4a4030;}
+  .contact-note ul{margin:0; padding-inline-start:20px; font-size:0.92rem; color:#4a4030;}
+  .contact-note li{margin-bottom:6px;}
+
+  form.contact-form{display:flex; flex-direction:column; gap:14px;}
+  form.contact-form label{
+    font-size:0.85rem;
+    color:var(--olive-deep);
+    font-weight:600;
+    margin-bottom:5px;
+    display:block;
+  }
+  form.contact-form input,
+  form.contact-form select,
+  form.contact-form textarea{
+    width:100%;
+    padding:11px 13px;
+    border:1px solid var(--line);
+    border-radius:4px;
+    background:#fff;
+    color:var(--ink);
+    font-family:'Lora',serif;
+    font-size:0.95rem;
+  }
+  .lang-ar form.contact-form input,
+  .lang-ar form.contact-form select,
+  .lang-ar form.contact-form textarea{font-family:'Amiri',serif;}
+  form.contact-form input:focus,
+  form.contact-form select:focus,
+  form.contact-form textarea:focus{
+    outline:none;
+    border-color:var(--copper);
+    box-shadow:0 0 0 3px rgba(139,90,43,0.12);
+  }
+  form.contact-form textarea{resize:vertical; min-height:120px;}
+  .form-row{display:flex; flex-direction:column;}
+  .btn-submit{
+    align-self:flex-start;
+    background:var(--olive);
+    color:var(--parchment);
+    border:none;
+    padding:12px 30px;
+    border-radius:4px;
+    font-size:0.95rem;
+    font-weight:600;
+    cursor:pointer;
+    font-family:'Lora',serif;
+    transition:background 0.2s;
+  }
+  .lang-ar .btn-submit{font-family:'Amiri',serif;}
+  .btn-submit:hover{background:var(--olive-deep);}
+  .form-status{font-size:0.88rem; margin-top:4px; display:none;}
+  .form-status.success{color:var(--olive-deep); display:block;}
+  .form-status.error{color:#9c3b2e; display:block;}
+
+  @media (max-width:700px){
+    .contact-shell{grid-template-columns:1fr; padding:24px;}
+  }
+
+  @media (max-width:600px){
+    header.hero{padding:64px 18px 48px;}
+    .intro-card{padding:24px 20px;}
+    .ladder li{flex-direction:column; gap:8px;}
+  }
+</style>
+</head>
+<body class="lang-ar">
+
+<div class="topbar">
+  <div class="brandmark" data-i18n="brand">كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</div>
+  <div class="langswitch">
+    <button data-lang="ar" class="active">العربية</button>
+    <button data-lang="en">English</button>
+    <button data-lang="tr">Türkçe</button>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="#intro" data-i18n="nav-intro">لِمَ هَذَا الْمَوْقِعُ؟</a>
+  <a href="#criteria" data-i18n="nav-criteria">الْمَعَايِيرُ وَالضَّوَابِطُ</a>
+  <a href="#figures" data-i18n="nav-figures">الشَّخْصِيَّاتُ</a>
+  <a href="#contact" data-i18n="nav-contact">تَوَاصَلْ مَعَنَا</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow" data-i18n="eyebrow">مَنْهَجٌ عِلْمِيٌّ فِي الدِّفَاعِ عَنْ أَعْلَامِ الْأُمَّةِ</span>
+    <h1 class="title" data-i18n="h1">كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</h1>
+    <p class="subtitle" data-i18n="subtitle">مَوْقِعٌ يُعِيدُ لِأَعْلَامِ الْمُسْلِمِينَ الَّذِينَ شُوِّهَتْ سِيرَتُهُمْ حَقَّهُمْ، بِمِيزَانِ السَّنَدِ وَالدَّلِيلِ، لَا بِالْهَوَى وَالظَّنِّ.</p>
+  </div>
+</header>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<!-- ===================== SECTION 1 : INTRO ===================== -->
+<section id="intro">
+  <h2 class="section-title"><span class="num">١</span><span data-i18n="s1-title">لِمَ هَذَا الْمَوْقِعُ؟</span></h2>
+  <p class="lede" data-i18n="s1-lede">قَبْلَ أَنْ نَتَحَدَّثَ عَنْ أَيِّ شَخْصِيَّةٍ، يَجِبُ أَنْ نَتَحَدَّثَ عَنِ الْمِيزَانِ الَّذِي نَزِنُ بِهِ الْأَخْبَارَ</p>
+
+  <div class="intro-card">
+    <p data-i18n="s1-p1">كثير من الأحكام التي نسمعها على أعلام تاريخنا الإسلامي - من الصحابة إلى القادة والفاتحين - لا تستند إلى دليل صحيح، بل إلى روايات متناقلة لم يتحقق أحد من صحتها. هذا الموقع لا يدافع عن أحد بالعاطفة، بل بإعادة فحص كل دعوى وفق ضوابط علمية صارمة، يعرفها أهل الحديث منذ قرون، ونحاول هنا تبسيطها لكل قارئ. اقرأ الأقسام التالية لتفهم الأساس الذي يقوم عليه هذا المنهج.</p>
+  </div>
+
+  <ol class="ladder intro-ladder">
+    <!-- ============ القسم الفرعي ١: تعريفات هامة ============ -->
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-i1">
+        <span class="rank">١</span>
+        <span class="ladder-head">
+          <h4 data-i18n="i1-h">تَعْرِيفَاتٌ هَامَّةٌ</h4>
+          <p data-i18n="i1-p">السَّنَدُ، الرُّوَاةُ، شُرُوطُ قَبُولِ الرِّوَايَاتِ، وَأَسْبَابُ رَفْضِهَا — الْمُصْطَلَحَاتُ الَّتِي سَتُرَافِقُكَ فِي كُلِّ صَفْحَةٍ مِنْ هَذَا الْمَوْقِعِ.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-i1">
+        <div class="ladder-panel-inner">
+          <ol class="term-list">
+            <li class="term-item">
+              <button class="term-trigger" aria-expanded="false" aria-controls="term-panel-1">
+                <span class="term-num">١</span>
+                <h5 data-i18n="term1-h">السَّنَدُ</h5>
+                <svg class="term-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="term-panel" id="term-panel-1">
+                <div class="term-panel-body">
+                  <p class="placeholder-text" data-i18n="term1-detail">[سيُضاف هنا تعريف مفصّل لمعنى "السند".]</p>
+                </div>
+              </div>
+            </li>
+            <li class="term-item">
+              <button class="term-trigger" aria-expanded="false" aria-controls="term-panel-2">
+                <span class="term-num">٢</span>
+                <h5 data-i18n="term2-h">الرُّوَاةُ</h5>
+                <svg class="term-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="term-panel" id="term-panel-2">
+                <div class="term-panel-body">
+                  <p class="placeholder-text" data-i18n="term2-detail">[سيُضاف هنا تعريف مفصّل لمعنى "الراوي".]</p>
+                </div>
+              </div>
+            </li>
+            <li class="term-item">
+              <button class="term-trigger" aria-expanded="false" aria-controls="term-panel-3">
+                <span class="term-num">٣</span>
+                <h5 data-i18n="term3-h">شُرُوطُ قَبُولِ الرِّوَايَاتِ</h5>
+                <svg class="term-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="term-panel" id="term-panel-3">
+                <div class="term-panel-body">
+                  <p class="placeholder-text" data-i18n="term3-detail">[سيُضاف هنا تفصيل شروط قبول الرواية.]</p>
+                </div>
+              </div>
+            </li>
+            <li class="term-item">
+              <button class="term-trigger" aria-expanded="false" aria-controls="term-panel-4">
+                <span class="term-num">٤</span>
+                <h5 data-i18n="term4-h">أَسْبَابُ رَفْضِ الرِّوَايَاتِ</h5>
+                <svg class="term-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="term-panel" id="term-panel-4">
+                <div class="term-panel-body">
+                  <p class="placeholder-text" data-i18n="term4-detail">[سيُضاف هنا تفصيل أسباب رفض الرواية.]</p>
+                </div>
+              </div>
+            </li>
+            <!-- ============ يمكن إضافة بنود جديدة هنا لاحقاً بتكرار نفس بنية li.term-item أعلاه، مع تغيير الرقم وid ============ -->
+          </ol>
+        </div>
+      </div>
+    </li>
+
+    <!-- ============ القسم الفرعي ٢: التدليس والسم البطيء (يحتوي المثالين الأصليين) ============ -->
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-i2">
+        <span class="rank">٢</span>
+        <span class="ladder-head">
+          <h4 data-i18n="i2-h">التَّدْلِيسُ وَالسُّمُّ الْبَطِيءُ فِي حَيَاتِنَا</h4>
+          <p data-i18n="i2-p">كَيْفَ يَنْتَشِرُ الْخَبَرُ غَيْرُ الدَّقِيقِ يَوْمِيّاً مِنْ حَوْلِنَا، وَلِمَ يُعَدُّ التَّدْلِيسُ أَخْطَرَ مِمَّا نَظُنُّ.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-i2">
+        <div class="ladder-panel-inner">
+          <p data-i18n="i2-detail-p1">أَوَّلُ مَا يَجِبُ فَهْمُهُ هُوَ مَعْنَى <span class="pull-term" data-i18n="term-sanad">السَّنَدِ</span>: هُوَ سِلْسِلَةُ الرُّوَاةِ الَّذِينَ نَقَلَ كُلُّ وَاحِدٍ مِنْهُمُ الْخَبَرَ عَنِ الَّذِي قَبْلَهُ، حَتَّى يَصِلَ إِلَيْنَا. وَكَمَا لَا تَقْبَلُ الْمَحْكَمَةُ شَهَادَةً بِلَا شَاهِدٍ مَوْثُوقٍ، لَا يُقْبَلُ خَبَرٌ تَارِيخِيٌّ بِلَا سَنَدٍ يُمْكِنُ تَفْنِيدُ كُلِّ حَلْقَةٍ فِيهِ عَلَى حِدَةٍ.</p>
+
+          <div class="example-box copper-tone">
+            <span class="label" data-i18n="ex1-label">مِثَالٌ: الرَّاوِي الْمُتَشَيِّعُ وَالنَّصُّ الَّذِي يَخْدُمُ مَذْهَبَهُ</span>
+            <p data-i18n="ex1-body">لَوْ وَجَدْنَا خَبَراً يُعَظِّمُ شَخْصِيَّةً يُغَالِي فِيهَا أَتْبَاعُ مَذْهَبٍ مُعَيَّنٍ، وَكَانَ أَحَدُ رُوَاةِ هَذَا الْخَبَرِ مَعْرُوفاً بِالِانْتِمَاءِ لِذَلِكَ الْمَذْهَبِ نَفْسِهِ، فَهُنَا تَحْدِيداً يَجِبُ التَّوَقُّفُ: لَيْسَ لِأَنَّ الرَّاوِيَ بِالضَّرُورَةِ كَاذِبٌ، بَلْ لِأَنَّ مَصْلَحَتَهُ الْمَذْهَبِيَّةَ فِي تَمْرِيرِ هَذَا الْخَبَرِ تَجْعَلُ شَهَادَتَهُ بِحَاجَةٍ لِتَدْقِيقٍ أَشَدَّ. هَذَا مَا يُسَمِّيهِ عُلَمَاءُ الْحَدِيثِ "جَرْحَ الرَّاوِي بِمَا يُوَافِقُ بِدْعَتَهُ"، وَهُوَ مِعْيَارٌ غَابَ عَنْ كَثِيرٍ مِنْ كُتُبِ التَّارِيخِ الْمُتَأَخِّرَةِ.</p>
+          </div>
+
+          <div class="example-box amber-tone">
+            <span class="label" data-i18n="ex2-label">مِثَالٌ مِنْ حَيَاتِنَا الْيَوْمِيَّةِ: التَّدْلِيسُ - السُّمُّ الْبَطِيءُ</span>
+            <p data-i18n="ex2-body">يَأْتِيكَ شَخْصٌ تَثِقُ بِهِ وَيَقُولُ: "قَالَ فُلَانٌ إِنَّ الْيَوْمَ عُطْلَةٌ فِي الْعَمَلِ". لَاحِظْ صِيغَةَ "قَالَ" - فَهِيَ تَجْعَلُكَ تَظُنُّ أَنَّ الْمُخْبِرَ سَمِعَ الْخَبَرَ مُبَاشَرَةً. لَكِنْ لَوْ سَأَلْتَهُ: "هَلْ سَمِعْتَ هَذَا بِنَفْسِكَ؟" فَقَدْ يُجِيبُ: "لَا، سَمِعْتُهُ مِنْ شَخْصٍ آخَرَ". هَذَا بِالضَّبْطِ مَا يُسَمِّيهِ عُلَمَاءُ الْحَدِيثِ <span class="pull-term" data-i18n="term-tadlis">التَّدْلِيسَ</span>: أَنْ يَرْوِيَ الرَّاوِي خَبَراً بِصِيغَةٍ تَحْتَمِلُ السَّمَاعَ الْمُبَاشِرَ، وَهُوَ لَمْ يَسْمَعْهُ كَذَلِكَ، فَيَظُنُّ السَّامِعُ خِلَافَ الْحَقِيقَةِ. وَقَدْ يَكُونُ الْمُدَلِّسُ عَدْلاً صَادِقاً لَمْ يَقْصِدِ الْكَذِبَ، وَقَدْ يَكُونُ مُتَعَمِّداً لِيُغَطِّيَ عَلَى ضَعْفِ مَنْ حَدَّثَهُ. وَفِي الْحَالَتَيْنِ، الْخَبَرُ بِحَاجَةٍ لِتَتَبُّعٍ: هَلْ صَرَّحَ هَذَا الرَّاوِي - فِي مَوْضِعٍ آخَرَ - بِأَنَّهُ سَمِعَ هَذَا الْخَبَرَ بِنَفْسِهِ أَمْ لَا؟ هَذِهِ الظَّاهِرَةُ - وَهِيَ مَرَضٌ يَوْمِيٌّ نَعِيشُهُ فِي الْإِشَاعَاتِ وَالْأَخْبَارِ الْمُتَنَاقَلَةِ - هِيَ تَمَاماً مَا يَهْدِمُ صِحَّةَ كَثِيرٍ مِنَ الْقَصَصِ التَّارِيخِيَّةِ الْمُتَدَاوَلَةِ.</p>
+          </div>
+
+          <p data-i18n="i2-detail-p2">إِذَا فَهِمْتَ هَذَيْنِ الْمِثَالَيْنِ، فَهِمْتَ جَوْهَرَ مَنْهَجِ هَذَا الْمَوْقِعِ: لَا نَرْفُضُ خَبَراً لِأَنَّهُ لَا يُعْجِبُنَا، وَلَا نَقْبَلُهُ لِأَنَّهُ يُعْجِبُنَا، بَلْ نَسْأَلُ دَائِماً: مَنْ رَوَاهُ؟ هَلْ سَمِعَ مِمَّنْ رَوَى عَنْهُ؟ هَلْ فِي الْخَبَرِ مَا يَخْدُمُ هَوَى الرَّاوِي؟ وَهَلْ عَاصَرَ الْوَاقِعَةَ شُهُودٌ عُدُولٌ وَاحْتَجُّوا بِهَا؟</p>
+        </div>
+      </div>
+    </li>
+
+    <!-- ============ القسم الفرعي ٣: تعريف البخاري ============ -->
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-i3">
+        <span class="rank">٣</span>
+        <span class="ladder-head">
+          <h4 data-i18n="i3-h">تَعْرِيفُ الْبُخَارِيِّ وَلِمَ هُوَ أَصَحُّ كِتَابٍ بَعْدَ الْقُرْآنِ</h4>
+          <p data-i18n="i3-p">مَنْ هُوَ الْإِمَامُ الْبُخَارِيُّ، وَمَا الَّذِي جَعَلَ صَحِيحَهُ يَتَفَرَّدُ بِهَذِهِ الْمَكَانَةِ بَيْنَ كُتُبِ الْحَدِيثِ.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-i3">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="i3-detail">سَيُضَافُ هُنَا تَعْرِيفٌ بِالْإِمَامِ الْبُخَارِيِّ وَمَنْهَجِهِ فِي الِانْتِقَاءِ، وَبَيَانُ أَسْبَابِ تَقَدُّمِ صَحِيحِهِ عَلَى سَائِرِ كُتُبِ الْحَدِيثِ.</p>
+        </div>
+      </div>
+    </li>
+
+    <!-- ============ القسم الفرعي ٤: التعريف بالإمام مالك ============ -->
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-i4">
+        <span class="rank">٤</span>
+        <span class="ladder-head">
+          <h4 data-i18n="i4-h">التَّعْرِيفُ بِالْإِمَامِ مَالِكٍ وَلِمَ اخْتَرْنَاهُ قَبْلَ الْإِمَامِ مُسْلِمٍ</h4>
+          <p data-i18n="i4-p">مَكَانَةُ الْإِمَامِ مَالِكٍ وَمُوَطَّئِهِ، وَالسَّبَبُ الْمَنْهَجِيُّ فِي تَقْدِيمِهِ عَلَى صَحِيحِ مُسْلِمٍ فِي سُلَّمِ هَذَا الْمَوْقِعِ.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-i4">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="i4-detail">سَيُضَافُ هُنَا تَعْرِيفٌ بِالْإِمَامِ مَالِكٍ وَمَنْهَجِهِ فِي الْمُوَطَّأِ، وَبَيَانُ أَسْبَابِ تَقْدِيمِهِ عَلَى صَحِيحِ مُسْلِمٍ فِي مَنْهَجِ هَذَا الْمَوْقِعِ.</p>
+        </div>
+      </div>
+    </li>
+
+    <!-- ============ القسم الفرعي ٥: إذا أنكرت السند ============ -->
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-i5">
+        <span class="rank">٥</span>
+        <span class="ladder-head">
+          <h4 data-i18n="i5-h">إِذَا أَنْكَرْتَ السَّنَدَ فَسَتُنْكِرُ الْقُرْآنَ حَتْماً</h4>
+          <p data-i18n="i5-p">السَّنَدُ لَيْسَ تَفْصِيلاً تَقْنِيّاً، بَلْ هُوَ الْمِيزَةُ الَّتِي تَفَرَّدَ بِهَا الْإِسْلَامُ عَنْ سَائِرِ الْأُمَمِ فِي حِفْظِ نُصُوصِهِ.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-i5">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="i5-detail">سَيُضَافُ هُنَا بَيَانٌ لِلْعَلَاقَةِ بَيْنَ سَنَدِ الْحَدِيثِ وَسَنَدِ نَقْلِ الْقُرْآنِ، وَلِمَ يُعَدُّ التَّشْكِيكُ فِي مَبْدَأِ السَّنَدِ نَفْسِهِ تَشْكِيكاً فِي أَصْلِ حِفْظِ الْوَحْيِ.</p>
+        </div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<!-- ===================== SECTION 2 : CRITERIA ===================== -->
+<section id="criteria">
+  <h2 class="section-title"><span class="num">٢</span><span data-i18n="s2-title">الْمَعَايِيرُ وَالضَّوَابِطُ لِقَبُولِ الْأَخْبَارِ</span></h2>
+  <p class="lede" data-i18n="s2-lede">سُلَّمٌ مُتَدَرِّجٌ مِنَ الْمَصَافِي: مَا نَجَا مِنْهَا كُلِّهَا قُبِلَ، وَمَا سَقَطَ فِي وَاحِدٍ مِنْهَا رُدَّ</p>
+
+  <ol class="ladder">
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-c1">
+        <span class="rank">١</span>
+        <span class="ladder-head">
+          <h4 data-i18n="c1-h">صَحِيحُ الْبُخَارِيِّ (رِوَايَةُ أَبِي ذَرٍّ الْهَرَوِيِّ)</h4>
+          <p data-i18n="c1-p">المصدر الأعلى. النسخة المعتمدة هي رواية أبي ذر الهروي عن شيوخه الثلاثة عن الفِرَبري، أوثق تلاميذ البخاري.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-c1">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="c1-detail">سيُضاف هنا شرح ميسّر مفصّل لهذا الضابط.</p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-c2">
+        <span class="rank">٢</span>
+        <span class="ladder-head">
+          <h4 data-i18n="c2-h">مُوَطَّأُ الْإِمَامِ مَالِكٍ (رِوَايَةُ الْقَعْنَبِيِّ)</h4>
+          <p data-i18n="c2-p">المصدر الثاني، بشرط تحليل السند كاملاً وعدم تعارضه مع نص صريح في صحيح البخاري.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-c2">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="c2-detail">سيُضاف هنا شرح ميسّر مفصّل لهذا الضابط.</p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-c3">
+        <span class="rank">٣</span>
+        <span class="ladder-head">
+          <h4 data-i18n="c3-h">بَقِيَّةُ الْكُتُبِ السِّتَّةِ وَالْمُسْنَدِ</h4>
+          <p data-i18n="c3-p">مسلم وأبو داود والترمذي والنسائي وابن ماجه ومسند أحمد، بشرط ذكر السند كاملاً وتحليل كل راوٍ: تشيعاً وكذباً وضعفاً وتدليساً وثبوت السماع.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-c3">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="c3-detail">سيُضاف هنا شرح ميسّر مفصّل لهذا الضابط.</p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-c4">
+        <span class="rank">٤</span>
+        <span class="ladder-head">
+          <h4 data-i18n="c4-h">الْمُؤَرِّخُونَ (الطَّبَرِيُّ، الذَّهَبِيُّ، ابْنُ كَثِيرٍ...)</h4>
+          <p data-i18n="c4-p">يُعتبر منهج المؤرخ وزمنه والدولة التي ألّف في ظلها، مع أقوال المحققين المعاصرين كالدكتور بشار عواد معروف.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-c4">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="c4-detail">سيُضاف هنا شرح ميسّر مفصّل لهذا الضابط.</p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-c5">
+        <span class="rank">٥</span>
+        <span class="ladder-head">
+          <h4 data-i18n="c5-h">شَهَادَةُ الْمُعَاصِرِينَ لِلْوَاقِعَةِ</h4>
+          <p data-i18n="c5-p">يُشترط معاصرة الشاهد للواقعة وعدالته وخلوّه من بدعة تدعمها الرواية ذاتها - وفق معيار المحاكم الشرعية: شاهدان عدلان فيما دون الزنا.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-c5">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="c5-detail">سيُضاف هنا شرح ميسّر مفصّل لهذا الضابط.</p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-c6">
+        <span class="rank">٦</span>
+        <span class="ladder-head">
+          <h4 data-i18n="c6-h">حُجَّةُ الصَّمْتِ الْعِلْمِيِّ</h4>
+          <p data-i18n="c6-p">إن لم يُنكر علماء العصر العدول - كابن عمر وابن مسعود ونظرائهم - واقعةً جسيمة، فهذا دليل سلبي قوي على عدم وقوعها كما زُعم.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-c6">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="c6-detail">سيُضاف هنا شرح ميسّر مفصّل لهذا الضابط.</p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-c7">
+        <span class="rank">٧</span>
+        <span class="ladder-head">
+          <h4 data-i18n="c7-h">عَدَمُ احْتِجَاجِ الْمُعَارِضِينَ بِالرِّوَايَةِ</h4>
+          <p data-i18n="c7-p">لو كانت الرواية صحيحة لاحتج بها خصوم المدّعى عليه في حياته. غيابها عن أرشيف خصومه دليل قوي على عدم ثبوتها.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-c7">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="c7-detail">سيُضاف هنا شرح ميسّر مفصّل لهذا الضابط.</p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-c8">
+        <span class="rank">٨</span>
+        <span class="ladder-head">
+          <h4 data-i18n="c8-h">الْأَدِلَّةُ الْمَادِّيَّةُ وَالْأَثَرِيَّةُ</h4>
+          <p data-i18n="c8-p">ما تركه الزمن من آثار ومخطوطات وعمران يؤيد الواقعة أو ينفيها، بصرف النظر عن الروايات المتضاربة.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-c8">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="c8-detail">سيُضاف هنا شرح ميسّر مفصّل لهذا الضابط.</p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-c9">
+        <span class="rank">٩</span>
+        <span class="ladder-head">
+          <h4 data-i18n="c9-h">التَّزْكِيَةُ النَّبَوِيَّةُ أَوِ الْقُرْآنِيَّةُ</h4>
+          <p data-i18n="c9-p">إن وردت تزكية صريحة في القرآن أو صحيح الحديث لشخصٍ، فالروايات المشبوهة المعارضة لها تزداد ضعفاً وردّاً.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-c9">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="c9-detail">سيُضاف هنا شرح ميسّر مفصّل لهذا الضابط.</p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-c10">
+        <span class="rank">١٠</span>
+        <span class="ladder-head">
+          <h4 data-i18n="c10-h">رِوَايَاتُ الْمَعْلُومِ عِدَاؤُهُمْ</h4>
+          <p data-i18n="c10-p">ما يرويه أعداء الشخص المعروفون بعدائه - كالمؤرخين الخصوم - لا يُقبل وحده ما لم تدعمه رواية صحيحة وفق الشروط السابقة.</p>
+        </span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="ladder-panel" id="panel-c10">
+        <div class="ladder-panel-inner">
+          <p class="ladder-panel-placeholder" data-i18n="c10-detail">سيُضاف هنا شرح ميسّر مفصّل لهذا الضابط.</p>
+        </div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<!-- ===================== SECTION 3 : FIGURES ===================== -->
+<section id="figures">
+  <h2 class="section-title"><span class="num">٣</span><span data-i18n="s3-title">الشَّخْصِيَّاتُ</span></h2>
+  <p class="lede" data-i18n="s3-lede">لِكُلِّ شَخْصِيَّةٍ: التُّهْمَةُ، التَّفْنِيدُ وَفْقَ الْمَعَايِيرِ، ثُمَّ الْإِثْبَاتُ بِالدَّلِيلِ الْمَادِّيِّ</p>
+
+  <div class="figures-intro">
+    <h3 data-i18n="fi-h">كَيْفَ نَتَعَامَلُ مَعَ كُلِّ شَخْصِيَّةٍ؟</h3>
+    <p data-i18n="fi-p">كل صفحة شخصية في هذا الموقع تتبع البنية التالية بدقة:</p>
+    <ol>
+      <li data-i18n="fi-l1">التهمة الملصقة بالشخصية كما تُتداول شعبياً أو في كتب التاريخ.</li>
+      <li data-i18n="fi-l2">تفنيد التهمة بتطبيق سلّم المعايير العشرة المذكورة أعلاه، خطوة بخطوة.</li>
+      <li data-i18n="fi-l3">إثبات فضل الشخصية وإنجازاتها الثابتة بالدليل المادي والمصادر الموثوقة.</li>
+    </ol>
+  </div>
+
+  <div class="figure-grid">
+    <div class="figure-card soon">
+      <span class="tag soon-tag" data-i18n="tag-soon">قريباً</span>
+      <h4 data-i18n="fig1-name">الْحَجَّاجُ بْنُ يُوسُفَ الثَّقَفِيُّ</h4>
+      <p data-i18n="fig1-desc">صفحة قيد الإعداد</p>
+    </div>
+    <div class="figure-card soon">
+      <span class="tag soon-tag" data-i18n="tag-soon">قريباً</span>
+      <h4 data-i18n="fig2-name">يَزِيدُ بْنُ مُعَاوِيَةَ</h4>
+      <p data-i18n="fig2-desc">صفحة قيد الإعداد</p>
+    </div>
+    <div class="figure-card soon">
+      <span class="tag soon-tag" data-i18n="tag-soon">قريباً</span>
+      <h4 data-i18n="fig3-name">عَمْرُو بْنُ الْعَاصِ</h4>
+      <p data-i18n="fig3-desc">صفحة قيد الإعداد</p>
+    </div>
+  </div>
+</section>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<!-- ===================== SECTION 4 : CONTACT ===================== -->
+<section id="contact">
+  <h2 class="section-title"><span class="num">٤</span><span data-i18n="s4-title">تَوَاصَلْ مَعَنَا</span></h2>
+  <p class="lede" data-i18n="s4-lede">مُلَاحَظَةٌ عِلْمِيَّةٌ، تَصْحِيحٌ، أَوِ اسْتِفْسَارٌ؟ يَسْعَدُنَا أَنْ نَسْمَعَ مِنْكَ</p>
+
+  <div class="contact-shell">
+    <div class="contact-note">
+      <h3 data-i18n="cn-h">قَبْلَ أَنْ تَكْتُبَ</h3>
+      <p data-i18n="cn-p">نرحّب بشكل خاص بالملاحظات التي تحمل تصحيحاً علمياً موثّقاً بمصدر، أو إشارة لخطأ في سند أو نص. هذا يساعدنا في مراجعة المحتوى باستمرار.</p>
+      <ul>
+        <li data-i18n="cn-l1">إن كانت ملاحظتك بخصوص سند أو رواية، اذكر المصدر بدقة (الكتاب، الجزء، الصفحة إن أمكن).</li>
+        <li data-i18n="cn-l2">إن كانت استفساراً عاماً، سنحاول الرد في أقرب وقت ممكن.</li>
+        <li data-i18n="cn-l3">لا نلتزم بالرد على كل رسالة، لكننا نقرأ كل ما يصلنا.</li>
+      </ul>
+    </div>
+
+    <!--
+      ملاحظة للمطوّر (أنت): هذا النموذج يحتاج خدمة استقبال خارجية مجانية.
+      الخطوات:
+      1) سجّل حساباً مجانياً على https://formspree.io
+      2) أنشئ نموذجاً جديداً (New Form) واحصل على رابط بالشكل:
+         https://formspree.io/f/xxxxxxxx
+      3) استبدل القيمة "YOUR_FORMSPREE_ID" أدناه في خاصية action بهذا الرابط كاملاً.
+      الخدمة المجانية تتيح حتى 50 رسالة شهرياً، وترسل كل رسالة مباشرة إلى بريدك.
+    -->
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" id="contactForm">
+      <div class="form-row">
+        <label for="cf-name" data-i18n="cf-name-label">الاسم</label>
+        <input type="text" id="cf-name" name="name" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-email" data-i18n="cf-email-label">البريد الإلكتروني</label>
+        <input type="email" id="cf-email" name="email" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-subject" data-i18n="cf-subject-label">موضوع الرسالة</label>
+        <select id="cf-subject" name="subject">
+          <option value="correction" data-i18n="cf-opt-correction">تصحيح علمي / ملاحظة على سند</option>
+          <option value="question" data-i18n="cf-opt-question">استفسار عام</option>
+          <option value="suggestion" data-i18n="cf-opt-suggestion">اقتراح شخصية للموقع</option>
+          <option value="other" data-i18n="cf-opt-other">أخرى</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="cf-message" data-i18n="cf-message-label">الرسالة</label>
+        <textarea id="cf-message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit" data-i18n="cf-submit">إرسال الرسالة</button>
+      <p class="form-status" id="formStatus"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p class="verse" data-i18n="footer-verse">«وَلَكُمْ فِي الْأَرْضِ مُسْتَقَرٌّ وَمَتَاعٌ إِلَىٰ حِينٍ»</p>
+  <p data-i18n="footer-line">مَوْقِعٌ عِلْمِيٌّ مُسْتَقِلٌّ، يَهْدِفُ لِإِعَادَةِ الْحَقِّ إِلَى أَهْلِهِ بِمِيزَانِ السَّنَدِ وَالدَّلِيلِ.</p>
+  <p class="meta" data-i18n="footer-meta">© كفّوا ألسنتكم عنهم — جميع الأبحاث مرجعة ومحدّثة باستمرار.</p>
+</footer>
+
+<script>
+const translations = {
+  ar: {
+    brand:"كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ",
+    "nav-intro":"لِمَ هَذَا الْمَوْقِعُ؟",
+    "nav-criteria":"الْمَعَايِيرُ وَالضَّوَابِطُ",
+    "nav-figures":"الشَّخْصِيَّاتُ",
+    eyebrow:"مَنْهَجٌ عِلْمِيٌّ فِي الدِّفَاعِ عَنْ أَعْلَامِ الْأُمَّةِ",
+    h1:"كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ",
+    subtitle:"مَوْقِعٌ يُعِيدُ لِأَعْلَامِ الْمُسْلِمِينَ الَّذِينَ شُوِّهَتْ سِيرَتُهُمْ حَقَّهُمْ، بِمِيزَانِ السَّنَدِ وَالدَّلِيلِ، لَا بِالْهَوَى وَالظَّنِّ.",
+    "s1-title":"لِمَ هَذَا الْمَوْقِعُ؟",
+    "s1-lede":"قَبْلَ أَنْ نَتَحَدَّثَ عَنْ أَيِّ شَخْصِيَّةٍ، يَجِبُ أَنْ نَتَحَدَّثَ عَنِ الْمِيزَانِ الَّذِي نَزِنُ بِهِ الْأَخْبَارَ",
+    "s1-p1":"كَثِيرٌ مِنَ الْأَحْكَامِ الَّتِي نَسْمَعُهَا عَلَى أَعْلَامِ تَارِيخِنَا الْإِسْلَامِيِّ - مِنَ الصَّحَابَةِ إِلَى الْقَادَةِ وَالْفَاتِحِينَ - لَا تَسْتَنِدُ إِلَى دَلِيلٍ صَحِيحٍ، بَلْ إِلَى رِوَايَاتٍ مُتَنَاقَلَةٍ لَمْ يَتَحَقَّقْ أَحَدٌ مِنْ صِحَّتِهَا. هَذَا الْمَوْقِعُ لَا يُدَافِعُ عَنْ أَحَدٍ بِالْعَاطِفَةِ، بَلْ بِإِعَادَةِ فَحْصِ كُلِّ دَعْوَى وَفْقَ ضَوَابِطَ عِلْمِيَّةٍ صَارِمَةٍ، يَعْرِفُهَا أَهْلُ الْحَدِيثِ مُنْذُ قُرُونٍ، وَنُحَاوِلُ هُنَا تَبْسِيطَهَا لِكُلِّ قَارِئٍ. اقْرَأِ الْأَقْسَامَ التَّالِيَةَ لِتَفْهَمَ الْأَسَاسَ الَّذِي يَقُومُ عَلَيْهِ هَذَا الْمَنْهَجُ.",
+    "i1-h":"تَعْرِيفَاتٌ هَامَّةٌ",
+    "i1-p":"السَّنَدُ، الرُّوَاةُ، شُرُوطُ قَبُولِ الرِّوَايَاتِ، وَأَسْبَابُ رَفْضِهَا — الْمُصْطَلَحَاتُ الَّتِي سَتُرَافِقُكَ فِي كُلِّ صَفْحَةٍ مِنْ هَذَا الْمَوْقِعِ.",
+    "i1-detail":"سَيُضَافُ هُنَا شَرْحٌ مُفَصَّلٌ لِمَعْنَى السَّنَدِ، وَالرَّاوِي، وَشُرُوطِ قَبُولِ الرِّوَايَةِ، وَأَسْبَابِ رَدِّهَا.",
+    "term1-h":"السَّنَدُ",
+    "term1-detail":"[سَيُضَافُ هُنَا تَعْرِيفٌ مُفَصَّلٌ لِمَعْنَى \"السَّنَدِ\".]",
+    "term2-h":"الرُّوَاةُ",
+    "term2-detail":"[سَيُضَافُ هُنَا تَعْرِيفٌ مُفَصَّلٌ لِمَعْنَى \"الرَّاوِي\".]",
+    "term3-h":"شُرُوطُ قَبُولِ الرِّوَايَاتِ",
+    "term3-detail":"[سَيُضَافُ هُنَا تَفْصِيلُ شُرُوطِ قَبُولِ الرِّوَايَةِ.]",
+    "term4-h":"أَسْبَابُ رَفْضِ الرِّوَايَاتِ",
+    "term4-detail":"[سَيُضَافُ هُنَا تَفْصِيلُ أَسْبَابِ رَفْضِ الرِّوَايَةِ.]",
+    "i2-h":"التَّدْلِيسُ وَالسُّمُّ الْبَطِيءُ فِي حَيَاتِنَا",
+    "i2-p":"كَيْفَ يَنْتَشِرُ الْخَبَرُ غَيْرُ الدَّقِيقِ يَوْمِيّاً مِنْ حَوْلِنَا، وَلِمَ يُعَدُّ التَّدْلِيسُ أَخْطَرَ مِمَّا نَظُنُّ.",
+    "term-sanad":"السَّنَدِ",
+    "term-tadlis":"التَّدْلِيسَ",
+    "i2-detail-p1":'أَوَّلُ مَا يَجِبُ فَهْمُهُ هُوَ مَعْنَى <span class="pull-term">السَّنَدِ</span>: هُوَ سِلْسِلَةُ الرُّوَاةِ الَّذِينَ نَقَلَ كُلُّ وَاحِدٍ مِنْهُمُ الْخَبَرَ عَنِ الَّذِي قَبْلَهُ، حَتَّى يَصِلَ إِلَيْنَا. وَكَمَا لَا تَقْبَلُ الْمَحْكَمَةُ شَهَادَةً بِلَا شَاهِدٍ مَوْثُوقٍ، لَا يُقْبَلُ خَبَرٌ تَارِيخِيٌّ بِلَا سَنَدٍ يُمْكِنُ تَفْنِيدُ كُلِّ حَلْقَةٍ فِيهِ عَلَى حِدَةٍ.',
+    "ex1-label":"مِثَالٌ: الرَّاوِي الْمُتَشَيِّعُ وَالنَّصُّ الَّذِي يَخْدُمُ مَذْهَبَهُ",
+    "ex1-body":'لَوْ وَجَدْنَا خَبَراً يُعَظِّمُ شَخْصِيَّةً يُغَالِي فِيهَا أَتْبَاعُ مَذْهَبٍ مُعَيَّنٍ، وَكَانَ أَحَدُ رُوَاةِ هَذَا الْخَبَرِ مَعْرُوفاً بِالِانْتِمَاءِ لِذَلِكَ الْمَذْهَبِ نَفْسِهِ، فَهُنَا تَحْدِيداً يَجِبُ التَّوَقُّفُ: لَيْسَ لِأَنَّ الرَّاوِيَ بِالضَّرُورَةِ كَاذِبٌ، بَلْ لِأَنَّ مَصْلَحَتَهُ الْمَذْهَبِيَّةَ فِي تَمْرِيرِ هَذَا الْخَبَرِ تَجْعَلُ شَهَادَتَهُ بِحَاجَةٍ لِتَدْقِيقٍ أَشَدَّ. هَذَا مَا يُسَمِّيهِ عُلَمَاءُ الْحَدِيثِ "جَرْحَ الرَّاوِي بِمَا يُوَافِقُ بِدْعَتَهُ"، وَهُوَ مِعْيَارٌ غَابَ عَنْ كَثِيرٍ مِنْ كُتُبِ التَّارِيخِ الْمُتَأَخِّرَةِ.',
+    "ex2-label":"مِثَالٌ مِنْ حَيَاتِنَا الْيَوْمِيَّةِ: التَّدْلِيسُ - السُّمُّ الْبَطِيءُ",
+    "ex2-body":'يَأْتِيكَ شَخْصٌ تَثِقُ بِهِ وَيَقُولُ: "قَالَ فُلَانٌ إِنَّ الْيَوْمَ عُطْلَةٌ فِي الْعَمَلِ". لَاحِظْ صِيغَةَ "قَالَ" - فَهِيَ تَجْعَلُكَ تَظُنُّ أَنَّ الْمُخْبِرَ سَمِعَ الْخَبَرَ مُبَاشَرَةً. لَكِنْ لَوْ سَأَلْتَهُ: "هَلْ سَمِعْتَ هَذَا بِنَفْسِكَ؟" فَقَدْ يُجِيبُ: "لَا، سَمِعْتُهُ مِنْ شَخْصٍ آخَرَ". هَذَا بِالضَّبْطِ مَا يُسَمِّيهِ عُلَمَاءُ الْحَدِيثِ <span class="pull-term">التَّدْلِيسَ</span>: أَنْ يَرْوِيَ الرَّاوِي خَبَراً بِصِيغَةٍ تَحْتَمِلُ السَّمَاعَ الْمُبَاشِرَ، وَهُوَ لَمْ يَسْمَعْهُ كَذَلِكَ، فَيَظُنُّ السَّامِعُ خِلَافَ الْحَقِيقَةِ. وَقَدْ يَكُونُ الْمُدَلِّسُ عَدْلاً صَادِقاً لَمْ يَقْصِدِ الْكَذِبَ، وَقَدْ يَكُونُ مُتَعَمِّداً لِيُغَطِّيَ عَلَى ضَعْفِ مَنْ حَدَّثَهُ. وَفِي الْحَالَتَيْنِ، الْخَبَرُ بِحَاجَةٍ لِتَتَبُّعٍ: هَلْ صَرَّحَ هَذَا الرَّاوِي - فِي مَوْضِعٍ آخَرَ - بِأَنَّهُ سَمِعَ هَذَا الْخَبَرَ بِنَفْسِهِ أَمْ لَا؟ هَذِهِ الظَّاهِرَةُ - وَهِيَ مَرَضٌ يَوْمِيٌّ نَعِيشُهُ فِي الْإِشَاعَاتِ وَالْأَخْبَارِ الْمُتَنَاقَلَةِ - هِيَ تَمَاماً مَا يَهْدِمُ صِحَّةَ كَثِيرٍ مِنَ الْقَصَصِ التَّارِيخِيَّةِ الْمُتَدَاوَلَةِ.',
+    "i2-detail-p2":"إِذَا فَهِمْتَ هَذَيْنِ الْمِثَالَيْنِ، فَهِمْتَ جَوْهَرَ مَنْهَجِ هَذَا الْمَوْقِعِ: لَا نَرْفُضُ خَبَراً لِأَنَّهُ لَا يُعْجِبُنَا، وَلَا نَقْبَلُهُ لِأَنَّهُ يُعْجِبُنَا، بَلْ نَسْأَلُ دَائِماً: مَنْ رَوَاهُ؟ هَلْ سَمِعَ مِمَّنْ رَوَى عَنْهُ؟ هَلْ فِي الْخَبَرِ مَا يَخْدُمُ هَوَى الرَّاوِي؟ وَهَلْ عَاصَرَ الْوَاقِعَةَ شُهُودٌ عُدُولٌ وَاحْتَجُّوا بِهَا؟",
+    "i3-h":"تَعْرِيفُ الْبُخَارِيِّ وَلِمَ هُوَ أَصَحُّ كِتَابٍ بَعْدَ الْقُرْآنِ",
+    "i3-p":"مَنْ هُوَ الْإِمَامُ الْبُخَارِيُّ، وَمَا الَّذِي جَعَلَ صَحِيحَهُ يَتَفَرَّدُ بِهَذِهِ الْمَكَانَةِ بَيْنَ كُتُبِ الْحَدِيثِ.",
+    "i3-detail":"سَيُضَافُ هُنَا تَعْرِيفٌ بِالْإِمَامِ الْبُخَارِيِّ وَمَنْهَجِهِ فِي الِانْتِقَاءِ، وَبَيَانُ أَسْبَابِ تَقَدُّمِ صَحِيحِهِ عَلَى سَائِرِ كُتُبِ الْحَدِيثِ.",
+    "i4-h":"التَّعْرِيفُ بِالْإِمَامِ مَالِكٍ وَلِمَ اخْتَرْنَاهُ قَبْلَ الْإِمَامِ مُسْلِمٍ",
+    "i4-p":"مَكَانَةُ الْإِمَامِ مَالِكٍ وَمُوَطَّئِهِ، وَالسَّبَبُ الْمَنْهَجِيُّ فِي تَقْدِيمِهِ عَلَى صَحِيحِ مُسْلِمٍ فِي سُلَّمِ هَذَا الْمَوْقِعِ.",
+    "i4-detail":"سَيُضَافُ هُنَا تَعْرِيفٌ بِالْإِمَامِ مَالِكٍ وَمَنْهَجِهِ فِي الْمُوَطَّأِ، وَبَيَانُ أَسْبَابِ تَقْدِيمِهِ عَلَى صَحِيحِ مُسْلِمٍ فِي مَنْهَجِ هَذَا الْمَوْقِعِ.",
+    "i5-h":"إِذَا أَنْكَرْتَ السَّنَدَ فَسَتُنْكِرُ الْقُرْآنَ حَتْماً",
+    "i5-p":"السَّنَدُ لَيْسَ تَفْصِيلاً تَقْنِيّاً، بَلْ هُوَ الْمِيزَةُ الَّتِي تَفَرَّدَ بِهَا الْإِسْلَامُ عَنْ سَائِرِ الْأُمَمِ فِي حِفْظِ نُصُوصِهِ.",
+    "i5-detail":"سَيُضَافُ هُنَا بَيَانٌ لِلْعَلَاقَةِ بَيْنَ سَنَدِ الْحَدِيثِ وَسَنَدِ نَقْلِ الْقُرْآنِ، وَلِمَ يُعَدُّ التَّشْكِيكُ فِي مَبْدَأِ السَّنَدِ نَفْسِهِ تَشْكِيكاً فِي أَصْلِ حِفْظِ الْوَحْيِ.",
+    "s2-title":"الْمَعَايِيرُ وَالضَّوَابِطُ لِقَبُولِ الْأَخْبَارِ",
+    "s2-lede":"سُلَّمٌ مُتَدَرِّجٌ مِنَ الْمَصَافِي: مَا نَجَا مِنْهَا كُلِّهَا قُبِلَ، وَمَا سَقَطَ فِي وَاحِدٍ مِنْهَا رُدَّ",
+    "c1-h":"صَحِيحُ الْبُخَارِيِّ (رِوَايَةُ أَبِي ذَرٍّ الْهَرَوِيِّ)",
+    "c1-p":"الْمَصْدَرُ الْأَعْلَى. النُّسْخَةُ الْمُعْتَمَدَةُ هِيَ رِوَايَةُ أَبِي ذَرٍّ الْهَرَوِيِّ عَنْ شُيُوخِهِ الثَّلَاثَةِ عَنِ الْفِرَبْرِيِّ، أَوْثَقِ تَلَامِيذِ الْبُخَارِيِّ.",
+    "c2-h":"مُوَطَّأُ الْإِمَامِ مَالِكٍ (رِوَايَةُ الْقَعْنَبِيِّ)",
+    "c2-p":"الْمَصْدَرُ الثَّانِي، بِشَرْطِ تَحْلِيلِ السَّنَدِ كَامِلاً وَعَدَمِ تَعَارُضِهِ مَعَ نَصٍّ صَرِيحٍ فِي صَحِيحِ الْبُخَارِيِّ.",
+    "c3-h":"بَقِيَّةُ الْكُتُبِ السِّتَّةِ وَالْمُسْنَدِ",
+    "c3-p":"مُسْلِمٌ وَأَبُو دَاوُدَ وَالتِّرْمِذِيُّ وَالنَّسَائِيُّ وَابْنُ مَاجَهْ وَمُسْنَدُ أَحْمَدَ، بِشَرْطِ ذِكْرِ السَّنَدِ كَامِلاً وَتَحْلِيلِ كُلِّ رَاوٍ: تَشَيُّعاً وَكَذِباً وَضَعْفاً وَتَدْلِيساً وَثُبُوتَ السَّمَاعِ.",
+    "c4-h":"الْمُؤَرِّخُونَ (الطَّبَرِيُّ، الذَّهَبِيُّ، ابْنُ كَثِيرٍ...)",
+    "c4-p":"يُعْتَبَرُ مَنْهَجُ الْمُؤَرِّخِ وَزَمَنُهُ وَالدَّوْلَةُ الَّتِي أَلَّفَ فِي ظِلِّهَا، مَعَ أَقْوَالِ الْمُحَقِّقِينَ الْمُعَاصِرِينَ كَالدُّكْتُورِ بَشَّارٍ عَوَّادٍ مَعْرُوفٍ.",
+    "c5-h":"شَهَادَةُ الْمُعَاصِرِينَ لِلْوَاقِعَةِ",
+    "c5-p":"يُشْتَرَطُ مُعَاصَرَةُ الشَّاهِدِ لِلْوَاقِعَةِ وَعَدَالَتُهُ وَخُلُوُّهُ مِنْ بِدْعَةٍ تَدْعَمُهَا الرِّوَايَةُ ذَاتُهَا - وَفْقَ مِعْيَارِ الْمَحَاكِمِ الشَّرْعِيَّةِ: شَاهِدَانِ عَدْلَانِ فِيمَا دُونَ الزِّنَا.",
+    "c6-h":"حُجَّةُ الصَّمْتِ الْعِلْمِيِّ",
+    "c6-p":"إِنْ لَمْ يُنْكِرْ عُلَمَاءُ الْعَصْرِ الْعُدُولُ - كَابْنِ عُمَرَ وَابْنِ مَسْعُودٍ وَنَظَائِرِهِمْ - وَاقِعَةً جَسِيمَةً، فَهَذَا دَلِيلٌ سَلْبِيٌّ قَوِيٌّ عَلَى عَدَمِ وُقُوعِهَا كَمَا زُعِمَ.",
+    "c7-h":"عَدَمُ احْتِجَاجِ الْمُعَارِضِينَ بِالرِّوَايَةِ",
+    "c7-p":"لَوْ كَانَتِ الرِّوَايَةُ صَحِيحَةً لَاحْتَجَّ بِهَا خُصُومُ الْمُدَّعَى عَلَيْهِ فِي حَيَاتِهِ. غِيَابُهَا عَنْ أَرْشِيفِ خُصُومِهِ دَلِيلٌ قَوِيٌّ عَلَى عَدَمِ ثُبُوتِهَا.",
+    "c8-h":"الْأَدِلَّةُ الْمَادِّيَّةُ وَالْأَثَرِيَّةُ",
+    "c8-p":"مَا تَرَكَهُ الزَّمَنُ مِنْ آثَارٍ وَمَخْطُوطَاتٍ وَعُمْرَانٍ يُؤَيِّدُ الْوَاقِعَةَ أَوْ يَنْفِيهَا، بِصَرْفِ النَّظَرِ عَنِ الرِّوَايَاتِ الْمُتَضَارِبَةِ.",
+    "c9-h":"التَّزْكِيَةُ النَّبَوِيَّةُ أَوِ الْقُرْآنِيَّةُ",
+    "c9-p":"إِنْ وَرَدَتْ تَزْكِيَةٌ صَرِيحَةٌ فِي الْقُرْآنِ أَوْ صَحِيحِ الْحَدِيثِ لِشَخْصٍ، فَالرِّوَايَاتُ الْمَشْبُوهَةُ الْمُعَارِضَةُ لَهَا تَزْدَادُ ضَعْفاً وَرَدّاً.",
+    "c10-h":"رِوَايَاتُ الْمَعْلُومِ عِدَاؤُهُمْ",
+    "c10-p":"مَا يَرْوِيهِ أَعْدَاءُ الشَّخْصِ الْمَعْرُوفُونَ بِعِدَائِهِ - كَالْمُؤَرِّخِينَ الْخُصُومِ - لَا يُقْبَلُ وَحْدَهُ مَا لَمْ تَدْعَمْهُ رِوَايَةٌ صَحِيحَةٌ وَفْقَ الشُّرُوطِ السَّابِقَةِ.",
+    "c1-detail":"سَيُضَافُ هُنَا شَرْحٌ مُيَسَّرٌ مُفَصَّلٌ لِهَذَا الضَّابِطِ.",
+    "c2-detail":"سَيُضَافُ هُنَا شَرْحٌ مُيَسَّرٌ مُفَصَّلٌ لِهَذَا الضَّابِطِ.",
+    "c3-detail":"سَيُضَافُ هُنَا شَرْحٌ مُيَسَّرٌ مُفَصَّلٌ لِهَذَا الضَّابِطِ.",
+    "c4-detail":"سَيُضَافُ هُنَا شَرْحٌ مُيَسَّرٌ مُفَصَّلٌ لِهَذَا الضَّابِطِ.",
+    "c5-detail":"سَيُضَافُ هُنَا شَرْحٌ مُيَسَّرٌ مُفَصَّلٌ لِهَذَا الضَّابِطِ.",
+    "c6-detail":"سَيُضَافُ هُنَا شَرْحٌ مُيَسَّرٌ مُفَصَّلٌ لِهَذَا الضَّابِطِ.",
+    "c7-detail":"سَيُضَافُ هُنَا شَرْحٌ مُيَسَّرٌ مُفَصَّلٌ لِهَذَا الضَّابِطِ.",
+    "c8-detail":"سَيُضَافُ هُنَا شَرْحٌ مُيَسَّرٌ مُفَصَّلٌ لِهَذَا الضَّابِطِ.",
+    "c9-detail":"سَيُضَافُ هُنَا شَرْحٌ مُيَسَّرٌ مُفَصَّلٌ لِهَذَا الضَّابِطِ.",
+    "c10-detail":"سَيُضَافُ هُنَا شَرْحٌ مُيَسَّرٌ مُفَصَّلٌ لِهَذَا الضَّابِطِ.",
+    "s3-title":"الشَّخْصِيَّاتُ",
+    "s3-lede":"لِكُلِّ شَخْصِيَّةٍ: التُّهْمَةُ، التَّفْنِيدُ وَفْقَ الْمَعَايِيرِ، ثُمَّ الْإِثْبَاتُ بِالدَّلِيلِ الْمَادِّيِّ",
+    "fi-h":"كَيْفَ نَتَعَامَلُ مَعَ كُلِّ شَخْصِيَّةٍ؟",
+    "fi-p":"كُلُّ صَفْحَةِ شَخْصِيَّةٍ فِي هَذَا الْمَوْقِعِ تَتْبَعُ الْبِنْيَةَ التَّالِيَةَ بِدِقَّةٍ:",
+    "fi-l1":"التُّهْمَةُ الْمُلْصَقَةُ بِالشَّخْصِيَّةِ كَمَا تُتَدَاوَلُ شَعْبِيّاً أَوْ فِي كُتُبِ التَّارِيخِ.",
+    "fi-l2":"تَفْنِيدُ التُّهْمَةِ بِتَطْبِيقِ سُلَّمِ الْمَعَايِيرِ الْعَشَرَةِ الْمَذْكُورَةِ أَعْلَاهُ، خُطْوَةً بِخُطْوَةٍ.",
+    "fi-l3":"إِثْبَاتُ فَضْلِ الشَّخْصِيَّةِ وَإِنْجَازَاتِهَا الثَّابِتَةِ بِالدَّلِيلِ الْمَادِّيِّ وَالْمَصَادِرِ الْمَوْثُوقَةِ.",
+    "tag-soon":"قَرِيباً",
+    "fig1-name":"الْحَجَّاجُ بْنُ يُوسُفَ الثَّقَفِيُّ",
+    "fig1-desc":"صَفْحَةٌ قَيْدَ الْإِعْدَادِ",
+    "fig2-name":"يَزِيدُ بْنُ مُعَاوِيَةَ",
+    "fig2-desc":"صَفْحَةٌ قَيْدَ الْإِعْدَادِ",
+    "fig3-name":"عَمْرُو بْنُ الْعَاصِ",
+    "fig3-desc":"صَفْحَةٌ قَيْدَ الْإِعْدَادِ",
+    "s4-title":"تَوَاصَلْ مَعَنَا",
+    "s4-lede":"مُلَاحَظَةٌ عِلْمِيَّةٌ، تَصْحِيحٌ، أَوِ اسْتِفْسَارٌ؟ يَسْعَدُنَا أَنْ نَسْمَعَ مِنْكَ",
+    "nav-contact":"تَوَاصَلْ مَعَنَا",
+    "cn-h":"قَبْلَ أَنْ تَكْتُبَ",
+    "cn-p":"نُرَحِّبُ بِشَكْلٍ خَاصٍّ بِالْمُلَاحَظَاتِ الَّتِي تَحْمِلُ تَصْحِيحاً عِلْمِيّاً مُوَثَّقاً بِمَصْدَرٍ، أَوْ إِشَارَةً لِخَطَأٍ فِي سَنَدٍ أَوْ نَصٍّ. هَذَا يُسَاعِدُنَا فِي مُرَاجَعَةِ الْمُحْتَوَى بِاسْتِمْرَارٍ.",
+    "cn-l1":"إِنْ كَانَتْ مُلَاحَظَتُكَ بِخُصُوصِ سَنَدٍ أَوْ رِوَايَةٍ، اذْكُرِ الْمَصْدَرَ بِدِقَّةٍ (الْكِتَابُ، الْجُزْءُ، الصَّفْحَةُ إِنْ أَمْكَنَ).",
+    "cn-l2":"إِنْ كَانَتِ اسْتِفْسَاراً عَامّاً، سَنُحَاوِلُ الرَّدَّ فِي أَقْرَبِ وَقْتٍ مُمْكِنٍ.",
+    "cn-l3":"لَا نَلْتَزِمُ بِالرَّدِّ عَلَى كُلِّ رِسَالَةٍ، لَكِنَّنَا نَقْرَأُ كُلَّ مَا يَصِلُنَا.",
+    "cf-name-label":"الِاسْمُ",
+    "cf-email-label":"الْبَرِيدُ الْإِلِكْتِرُونِيُّ",
+    "cf-subject-label":"مَوْضُوعُ الرِّسَالَةِ",
+    "cf-opt-correction":"تَصْحِيحٌ عِلْمِيٌّ / مُلَاحَظَةٌ عَلَى سَنَدٍ",
+    "cf-opt-question":"اسْتِفْسَارٌ عَامٌّ",
+    "cf-opt-suggestion":"اقْتِرَاحُ شَخْصِيَّةٍ لِلْمَوْقِعِ",
+    "cf-opt-other":"أُخْرَى",
+    "cf-message-label":"الرِّسَالَةُ",
+    "cf-submit":"إِرْسَالُ الرِّسَالَةِ",
+    "cf-success":"تَمَّ إِرْسَالُ رِسَالَتِكَ بِنَجَاحٍ، شُكْراً لِتَوَاصُلِكَ مَعَنَا.",
+    "cf-error":"حَدَثَ خَطَأٌ أَثْنَاءَ الْإِرْسَالِ، يُرْجَى الْمُحَاوَلَةُ مَرَّةً أُخْرَى.",
+    "footer-verse":"«وَلَكُمْ فِي الْأَرْضِ مُسْتَقَرٌّ وَمَتَاعٌ إِلَىٰ حِينٍ»",
+    "footer-line":"مَوْقِعٌ عِلْمِيٌّ مُسْتَقِلٌّ، يَهْدِفُ لِإِعَادَةِ الْحَقِّ إِلَى أَهْلِهِ بِمِيزَانِ السَّنَدِ وَالدَّلِيلِ.",
+    "footer-meta":"© كفّوا ألسنتكم عنهم — جميع الأبحاث مرجعة ومحدّثة باستمرار."
+  },
+  en: {
+    brand:"Hold Your Tongues",
+    "nav-intro":"Why This Site?",
+    "nav-criteria":"Criteria & Standards",
+    "nav-figures":"Figures",
+    eyebrow:"A scholarly method for defending the falsely accused",
+    h1:"Hold Your Tongues About Them",
+    subtitle:"A site that restores the dignity of Muslim figures whose legacies were distorted — weighed by chain-of-transmission and evidence, not by bias or assumption.",
+    "s1-title":"Why This Site?",
+    "s1-lede":"Before discussing any figure, we must discuss the scale by which we weigh historical reports",
+    "s1-p1":"Many judgments passed on figures of Islamic history — from the Companions to later commanders and conquerors — rest not on sound evidence, but on reports nobody verified. This site does not defend anyone out of sentiment, but by re-examining every claim against rigorous scholarly criteria long used by hadith scholars, simplified here for every reader. Read the sections below to understand the foundation this method rests on.",
+    "i1-h":"Important Definitions",
+    "i1-p":"The chain of transmission, the narrators, the conditions for accepting reports, and the reasons for rejecting them — the terms that will accompany you throughout this site.",
+    "i1-detail":"A detailed explanation of the sanad, the narrator, the conditions for accepting a report, and the reasons for rejecting one will be added here.",
+    "term1-h":"The Sanad (Chain of Transmission)",
+    "term1-detail":"[A detailed definition of \"the sanad\" will be added here.]",
+    "term2-h":"The Narrators (Ruwāt)",
+    "term2-detail":"[A detailed definition of \"the narrator\" will be added here.]",
+    "term3-h":"Conditions for Accepting Reports",
+    "term3-detail":"[A detailed breakdown of the conditions for accepting a report will be added here.]",
+    "term4-h":"Reasons for Rejecting Reports",
+    "term4-detail":"[A detailed breakdown of the reasons for rejecting a report will be added here.]",
+    "i2-h":"Tadlis: The Slow Poison in Our Lives",
+    "i2-p":"How inaccurate information spreads daily around us, and why concealment in narration is more dangerous than we think.",
+    "term-sanad":"chain of transmission (sanad)",
+    "term-tadlis":"tadlis",
+    "i2-detail-p1":'The first concept to grasp is the <span class="pull-term">chain of transmission (sanad)</span>: the sequence of narrators who passed a report from one to the next until it reached us. Just as a court will not accept testimony without a credible witness, no historical report should be accepted without a sanad whose every link can be individually examined.',
+    "ex1-label":"Example: A narrator with sectarian bias, in a text that serves that bias",
+    "ex1-body":"If we find a report glorifying a figure venerated by a particular sect, and one of its narrators is known to belong to that very sect, this is exactly where we must pause: not because the narrator is necessarily lying, but because his sectarian interest in spreading this report demands sharper scrutiny of his testimony. Classical scholars call this \"criticizing a narrator for reports that align with his own innovation\" — a standard largely absent from later popular history books.",
+    "ex2-label":"An everyday example: tadlis — the slow poison",
+    "ex2-body":'Someone you trust tells you: "So-and-so said today is a holiday at work." Notice the word "said" — it implies the informant heard this directly. But if you ask, "Did you hear this yourself?" they might answer, "No, I heard it from someone else." This is precisely what hadith scholars call <span class="pull-term">tadlis</span> (concealment): narrating a report in a form that implies direct hearing, when in fact it was not heard that way — leaving the listener with a false impression. The one who conceals may be an honest person with no intent to deceive, or may deliberately do so to cover for a weak source. Either way, the report needs tracing: did this narrator elsewhere explicitly state he heard it himself? This phenomenon — a daily affliction in rumors and circulating news — is exactly what undermines the authenticity of many circulated historical stories.',
+    "i2-detail-p2":"Understanding these two examples is understanding the core of this site's method: we do not reject a report because we dislike it, nor accept it because we like it. We always ask: who narrated it? Did he hear it from the one before him? Does the report serve the narrator's own interest? And did upright contemporaries witness the event and cite it as evidence?",
+    "i3-h":"Defining al-Bukhari and Why His Book Is the Most Authentic After the Qur'an",
+    "i3-p":"Who Imam al-Bukhari was, and what made his Sahih stand uniquely above all other hadith collections.",
+    "i3-detail":"A definition of Imam al-Bukhari and his methodology of selection, along with the reasons his Sahih is given precedence over all other hadith books, will be added here.",
+    "i4-h":"Defining Imam Malik and Why We Chose Him Before Imam Muslim",
+    "i4-p":"The standing of Imam Malik and his al-Muwatta, and the methodological reason for placing him ahead of Sahih Muslim in this site's ladder.",
+    "i4-detail":"A definition of Imam Malik and his methodology in al-Muwatta, along with the reasons for placing him ahead of Sahih Muslim in this site's method, will be added here.",
+    "i5-h":"If You Deny the Sanad, You Will Inevitably Deny the Qur'an",
+    "i5-p":"The sanad is not a technical detail — it is the very feature that sets Islam apart from every other nation in preserving its texts.",
+    "i5-detail":"An explanation of the relationship between the hadith's chain of transmission and the Qur'an's chain of transmission, and why doubting the very principle of the sanad amounts to doubting the preservation of revelation itself, will be added here.",
+    "s2-title":"Criteria for Accepting Historical Reports",
+    "s2-lede":"A graduated ladder of filters: what survives all of them is accepted; what fails even one is rejected",
+    "c1-h":"Sahih al-Bukhari (Abu Dharr al-Harawi's transmission)",
+    "c1-p":"The highest source. The authoritative version is Abu Dharr al-Harawi's transmission through his three teachers from al-Firabri, al-Bukhari's most reliable student.",
+    "c2-h":"Al-Muwatta (al-Qa'nabi's transmission)",
+    "c2-p":"The second source, conditional on full chain analysis and non-contradiction with an explicit text in Sahih al-Bukhari.",
+    "c3-h":"The remaining Six Books and the Musnad",
+    "c3-p":"Muslim, Abu Dawud, al-Tirmidhi, al-Nasa'i, Ibn Majah, and Musnad Ahmad — conditional on citing the full chain and analyzing every narrator for sectarian bias, lying, weakness, concealment (tadlis), and confirmed hearing.",
+    "c4-h":"Historians (al-Tabari, al-Dhahabi, Ibn Kathir...)",
+    "c4-p":"The historian's methodology, era, and the state under whose patronage he wrote are weighed, alongside contemporary verifiers such as Dr. Bashar Awad Maarouf.",
+    "c5-h":"Testimony of contemporaries to the event",
+    "c5-p":"The witness must be contemporary to the event, of upright character, and free of any bias the report itself would support — per the standard of Islamic courts: two upright witnesses for matters short of accusations of adultery.",
+    "c6-h":"The argument from scholarly silence",
+    "c6-p":"If upright scholars of the era — such as Ibn Umar and Ibn Mas'ud and their peers — did not denounce a grave event, this is strong negative evidence it did not occur as claimed.",
+    "c7-h":"The opponents' failure to invoke the report",
+    "c7-p":"Had the report been true, the accused's own rivals would have invoked it during his lifetime. Its absence from their record is strong evidence against its authenticity.",
+    "c8-h":"Physical and archaeological evidence",
+    "c8-p":"What time has left behind — ruins, manuscripts, architecture — either supports or refutes the event, regardless of conflicting reports.",
+    "c9-h":"Prophetic or Qur'anic commendation",
+    "c9-p":"If a person received explicit commendation in the Qur'an or authentic hadith, suspicious reports contradicting it are further weakened and rejected.",
+    "c10-h":"Reports from known adversaries",
+    "c10-p":"What is narrated by a person's known enemies — such as rival historians — is not accepted alone unless corroborated by an authentic report meeting the prior conditions.",
+    "c1-detail":"A detailed, simplified explanation of this criterion will be added here.",
+    "c2-detail":"A detailed, simplified explanation of this criterion will be added here.",
+    "c3-detail":"A detailed, simplified explanation of this criterion will be added here.",
+    "c4-detail":"A detailed, simplified explanation of this criterion will be added here.",
+    "c5-detail":"A detailed, simplified explanation of this criterion will be added here.",
+    "c6-detail":"A detailed, simplified explanation of this criterion will be added here.",
+    "c7-detail":"A detailed, simplified explanation of this criterion will be added here.",
+    "c8-detail":"A detailed, simplified explanation of this criterion will be added here.",
+    "c9-detail":"A detailed, simplified explanation of this criterion will be added here.",
+    "c10-detail":"A detailed, simplified explanation of this criterion will be added here.",
+    "s3-title":"Figures",
+    "s3-lede":"For each figure: the accusation, the refutation per the criteria, then the proof by material evidence",
+    "fi-h":"How do we approach each figure?",
+    "fi-p":"Every figure page on this site follows this exact structure:",
+    "fi-l1":"The accusation as popularly circulated or recorded in history books.",
+    "fi-l2":"Refutation of the accusation by applying the ten criteria above, step by step.",
+    "fi-l3":"Proof of the figure's merit and established achievements through material evidence and reliable sources.",
+    "tag-soon":"Coming soon",
+    "fig1-name":"Al-Hajjaj ibn Yusuf al-Thaqafi",
+    "fig1-desc":"Page in progress",
+    "fig2-name":"Yazid ibn Mu'awiya",
+    "fig2-desc":"Page in progress",
+    "fig3-name":"Amr ibn al-As",
+    "fig3-desc":"Page in progress",
+    "s4-title":"Contact Us",
+    "s4-lede":"A scholarly note, a correction, or a question? We'd love to hear from you",
+    "nav-contact":"Contact",
+    "cn-h":"Before you write",
+    "cn-p":"We especially welcome feedback that includes a documented scholarly correction, or points out an error in a chain of transmission or text. This helps us continuously review our content.",
+    "cn-l1":"If your note concerns a sanad or report, please cite the source precisely (book, volume, page if possible).",
+    "cn-l2":"For general inquiries, we will try to respond as soon as possible.",
+    "cn-l3":"We cannot guarantee a reply to every message, but we read everything we receive.",
+    "cf-name-label":"Name",
+    "cf-email-label":"Email",
+    "cf-subject-label":"Subject",
+    "cf-opt-correction":"Scholarly correction / note on a chain",
+    "cf-opt-question":"General inquiry",
+    "cf-opt-suggestion":"Suggest a figure for the site",
+    "cf-opt-other":"Other",
+    "cf-message-label":"Message",
+    "cf-submit":"Send Message",
+    "cf-success":"Your message has been sent successfully. Thank you for reaching out.",
+    "cf-error":"An error occurred while sending. Please try again.",
+    "footer-verse":'"And for you on earth is a place of settlement and provision for a time."',
+    "footer-line":"An independent scholarly site, dedicated to restoring rightful due through chain-of-transmission and evidence.",
+    "footer-meta":"© Hold Your Tongues — all research reviewed and continuously updated."
+  },
+  tr: {
+    brand:"Dillerinizi Tutun",
+    "nav-intro":"Bu Site Neden Var?",
+    "nav-criteria":"Ölçütler ve Şartlar",
+    "nav-figures":"Şahsiyetler",
+    eyebrow:"İtham edilen büyükleri savunmada ilmî bir yöntem",
+    h1:"Onlar Hakkında Dillerinizi Tutun",
+    subtitle:"İtibarı zedelenmiş İslam büyüklerinin haklarını, his ve zandan değil, sened ve delilden geçirerek geri veren bir site.",
+    "s1-title":"Bu Site Neden Var?",
+    "s1-lede":"Herhangi bir şahsiyetten bahsetmeden önce, haberleri tarttığımız ölçüyü konuşmalıyız",
+    "s1-p1":"İslam tarihindeki şahsiyetler hakkında - sahabeden komutanlara ve fetih önderlerine kadar - verilen birçok hüküm, sağlam delile değil, kimsenin doğrulamadığı rivayetlere dayanır. Bu site kimseyi duygusallıkla savunmaz; her iddiayı, hadis âlimlerinin asırlardır bildiği ve burada her okuyucu için sadeleştirdiğimiz titiz ilmî ölçütlerle yeniden inceler. Bu yöntemin temelini anlamak için aşağıdaki bölümleri okuyun.",
+    "i1-h":"Önemli Tanımlar",
+    "i1-p":"Sened, raviler, rivayetlerin kabul şartları ve reddedilme sebepleri — bu sitenin her sayfasında size eşlik edecek terimler.",
+    "i1-detail":"Sened, ravi, bir rivayetin kabul şartları ve reddedilme sebeplerinin ayrıntılı açıklaması buraya eklenecektir.",
+    "term1-h":"Sened",
+    "term1-detail":"[\"Sened\"in ayrıntılı tanımı buraya eklenecektir.]",
+    "term2-h":"Raviler",
+    "term2-detail":"[\"Ravi\"nin ayrıntılı tanımı buraya eklenecektir.]",
+    "term3-h":"Rivayetlerin Kabul Şartları",
+    "term3-detail":"[Bir rivayetin kabul şartlarının ayrıntılı açıklaması buraya eklenecektir.]",
+    "term4-h":"Rivayetlerin Reddedilme Sebepleri",
+    "term4-detail":"[Bir rivayetin reddedilme sebeplerinin ayrıntılı açıklaması buraya eklenecektir.]",
+    "i2-h":"Tedlis: Hayatımızdaki Yavaş Zehir",
+    "i2-p":"Yanlış bilginin günlük hayatımızda etrafımızda nasıl yayıldığı ve rivayette gizlemenin (tedlis) düşündüğümüzden neden daha tehlikeli olduğu.",
+    "term-sanad":"sened",
+    "term-tadlis":"tedlis",
+    "i2-detail-p1":'Anlaşılması gereken ilk kavram <span class="pull-term">sened</span>dir: haberi birbirinden nakleden ravilerin, bize ulaşana dek oluşturduğu zincirdir. Bir mahkeme güvenilir bir şahit olmadan ifadeyi kabul etmediği gibi, her halkası tek tek incelenebilen bir sened olmadan tarihî bir haber kabul edilmemelidir.',
+    "ex1-label":"Örnek: Şiî bir ravi ve onun mezhebine hizmet eden metin",
+    "ex1-body":"Belirli bir mezhebin aşırı yücelttiği bir şahsiyeti yücelten bir haber bulduğumuzda ve bu haberin ravilerinden biri tam da o mezhebe ait olarak biliniyorsa, işte burada durmak gerekir: ravi mutlaka yalan söylüyor demek değildir, ancak bu haberi yaymadaki mezhebî çıkarı, ifadesinin daha sıkı incelenmesini gerektirir. Klasik âlimler bunu \"ravinin kendi bidatini destekleyen rivayetler konusunda cerh edilmesi\" olarak adlandırır - sonraki popüler tarih kitaplarında büyük ölçüde kaybolmuş bir ölçüt.",
+    "ex2-label":"Günlük hayattan bir örnek: Tedlis - yavaş zehir",
+    "ex2-body":'Güvendiğiniz biri size der: "Falanca dedi ki bugün işyerinde tatil." "Dedi" ifadesine dikkat edin - bu, muhabirin haberi doğrudan işittiğini düşündürür. Ama "Bunu kendin mi işittin?" diye sorsanız, "Hayır, başka birinden işittim" diyebilir. Hadis âlimlerinin <span class="pull-term">tedlis</span> dediği şey kesinlikle budur: ravinin, doğrudan işitmeyi çağrıştıran bir biçimde haber nakletmesi, halbuki öyle işitmemiş olması - dinleyicide gerçeğin tersi bir izlenim bırakması. Tedlis yapan kişi, aldatma kastı olmayan dürüst biri olabilir veya zayıf bir kaynağı örtmek için kasıtlı yapabilir. Her iki durumda da haberin izi sürülmelidir: bu ravi başka bir yerde bunu bizzat işittiğini açıkça belirtmiş mi? Söylenti ve dolaşan haberlerde günlük yaşadığımız bu hastalık, tam olarak dolaşımdaki birçok tarihî hikâyenin sıhhatini çökerten şeydir.',
+    "i2-detail-p2":"Bu iki örneği anlarsanız, bu sitenin yönteminin özünü anlamış olursunuz: bir haberi beğenmediğimiz için reddetmeyiz, beğendiğimiz için kabul etmeyiz. Her zaman şunu sorarız: kim rivayet etti? Kendisinden rivayet ettiği kişiden işitti mi? Haberde ravinin kendi çıkarına hizmet eden bir şey var mı? Olaya çağdaş, dürüst şahitler var mıydı ve bunu delil olarak kullandılar mı?",
+    "i3-h":"Buhârî'nin Tanımı ve Kur'an'dan Sonra En Sahih Kitap Olmasının Sebebi",
+    "i3-p":"İmam Buhârî kimdir ve Sahih'ini diğer tüm hadis kitapları arasında benzersiz bir konuma taşıyan nedir.",
+    "i3-detail":"İmam Buhârî'nin ve onun seçim yöntemindeki titizliğinin tanıtımı ile Sahih'inin diğer tüm hadis kitaplarına neden öncelikli tutulduğunun açıklaması buraya eklenecektir.",
+    "i4-h":"İmam Mâlik'in Tanıtımı ve Onu İmam Müslim'den Önce Seçmemizin Sebebi",
+    "i4-p":"İmam Mâlik'in ve Muvatta'ının konumu, ve bu sitenin ölçütler merdiveninde onu Sahih-i Müslim'in önüne koymamızın metodolojik sebebi.",
+    "i4-detail":"İmam Mâlik'in ve Muvatta'daki yönteminin tanıtımı ile onu bu sitenin yönteminde Sahih-i Müslim'in önüne koymamızın sebeplerinin açıklaması buraya eklenecektir.",
+    "i5-h":"Senedi İnkâr Edersen Kur'an'ı da Kaçınılmaz Olarak İnkâr Edersin",
+    "i5-p":"Sened teknik bir ayrıntı değildir; İslam'ı metinlerini koruma konusunda diğer tüm milletlerden ayıran asıl özelliktir.",
+    "i5-detail":"Hadisin senedi ile Kur'an'ın nakil senedi arasındaki ilişkinin ve sened ilkesinin kendisinden şüphe etmenin neden vahyin korunmasının aslından şüphe etmek anlamına geldiğinin açıklaması buraya eklenecektir.",
+    "s2-title":"Tarihî Haberlerin Kabulü İçin Ölçütler",
+    "s2-lede":"Kademeli bir süzgeçler merdiveni: hepsinden geçen kabul edilir, birinden bile geçemeyen reddedilir",
+    "c1-h":"Sahih-i Buhârî (Ebû Zer el-Herevî rivayeti)",
+    "c1-p":"En üst kaynak. Muteber nüsha, Buhârî'nin en güvenilir öğrencisi Firebrî'den üç şeyhi yoluyla Ebû Zer el-Herevî'nin rivayetidir.",
+    "c2-h":"İmam Mâlik'in Muvatta'ı (Ka'nebî rivayeti)",
+    "c2-p":"İkinci kaynak; senedin tam analiz edilmesi ve Sahih-i Buhârî'deki açık bir nasla çatışmaması şartıyla.",
+    "c3-h":"Diğer Altı Kitap ve Müsned",
+    "c3-p":"Müslim, Ebû Dâvûd, Tirmizî, Nesâî, İbn Mâce ve Müsned-i Ahmed; senedin tam zikredilmesi ve her ravinin Şiîlik, yalancılık, zayıflık, tedlis ve işitmenin sübutu yönünden incelenmesi şartıyla.",
+    "c4-h":"Tarihçiler (Taberî, Zehebî, İbn Kesîr...)",
+    "c4-p":"Tarihçinin yöntemi, yaşadığı dönem ve eserini yazdığı devlet, Dr. Beşşar Avvâd Ma'rûf gibi çağdaş tahkik âlimlerinin görüşleriyle birlikte değerlendirilir.",
+    "c5-h":"Olaya çağdaş şahitlik",
+    "c5-p":"Şahidin olaya çağdaş, dürüst ve rivayetin desteklediği bir bidatten arınmış olması şarttır - İslam mahkemeleri ölçütüne göre: zina dışındaki konularda iki dürüst şahit.",
+    "c6-h":"İlmî sükût delili",
+    "c6-p":"İbn Ömer ve İbn Mes'ûd gibi dönemin dürüst âlimleri ağır bir olayı kınamamışsa, bu, olayın iddia edildiği şekilde gerçekleşmediğine dair güçlü bir olumsuz delildir.",
+    "c7-h":"Muhaliflerin rivayeti delil olarak kullanmaması",
+    "c7-p":"Rivayet doğru olsaydı, itham edilenin rakipleri onu kendi yaşamında delil olarak kullanırdı. Rakiplerinin kayıtlarında bulunmaması, sıhhatine karşı güçlü bir delildir.",
+    "c8-h":"Maddi ve arkeolojik deliller",
+    "c8-p":"Zamanın bıraktığı kalıntılar, yazmalar ve mimari - çatışan rivayetlerden bağımsız olarak - olayı destekler veya çürütür.",
+    "c9-h":"Peygamber veya Kur'an'dan gelen takdir",
+    "c9-p":"Bir kişi hakkında Kur'an'da veya sahih hadiste açık bir takdir varsa, buna aykırı şüpheli rivayetler daha da zayıflar ve reddedilir.",
+    "c10-h":"Bilinen düşmanların rivayetleri",
+    "c10-p":"Bir kişinin bilinen düşmanlarının - rakip tarihçiler gibi - naklettiği, önceki şartları taşıyan sahih bir rivayetle desteklenmedikçe tek başına kabul edilmez.",
+    "c1-detail":"Bu ölçütün ayrıntılı ve sadeleştirilmiş açıklaması buraya eklenecektir.",
+    "c2-detail":"Bu ölçütün ayrıntılı ve sadeleştirilmiş açıklaması buraya eklenecektir.",
+    "c3-detail":"Bu ölçütün ayrıntılı ve sadeleştirilmiş açıklaması buraya eklenecektir.",
+    "c4-detail":"Bu ölçütün ayrıntılı ve sadeleştirilmiş açıklaması buraya eklenecektir.",
+    "c5-detail":"Bu ölçütün ayrıntılı ve sadeleştirilmiş açıklaması buraya eklenecektir.",
+    "c6-detail":"Bu ölçütün ayrıntılı ve sadeleştirilmiş açıklaması buraya eklenecektir.",
+    "c7-detail":"Bu ölçütün ayrıntılı ve sadeleştirilmiş açıklaması buraya eklenecektir.",
+    "c8-detail":"Bu ölçütün ayrıntılı ve sadeleştirilmiş açıklaması buraya eklenecektir.",
+    "c9-detail":"Bu ölçütün ayrıntılı ve sadeleştirilmiş açıklaması buraya eklenecektir.",
+    "c10-detail":"Bu ölçütün ayrıntılı ve sadeleştirilmiş açıklaması buraya eklenecektir.",
+    "s3-title":"Şahsiyetler",
+    "s3-lede":"Her şahsiyet için: itham, ölçütlere göre çürütme, ardından maddi delille ispat",
+    "fi-h":"Her şahsiyeti nasıl ele alıyoruz?",
+    "fi-p":"Bu sitedeki her şahsiyet sayfası şu yapıyı titizlikle takip eder:",
+    "fi-l1":"Şahsiyete halk arasında veya tarih kitaplarında yakıştırılan itham.",
+    "fi-l2":"Yukarıdaki on ölçütü adım adım uygulayarak ithamın çürütülmesi.",
+    "fi-l3":"Şahsiyetin meziyetinin ve sabit başarılarının maddi delil ve güvenilir kaynaklarla ispatı.",
+    "tag-soon":"Yakında",
+    "fig1-name":"Haccâc bin Yûsuf es-Sekafî",
+    "fig1-desc":"Sayfa hazırlanıyor",
+    "fig2-name":"Yezîd bin Muâviye",
+    "fig2-desc":"Sayfa hazırlanıyor",
+    "fig3-name":"Amr bin el-Âs",
+    "fig3-desc":"Sayfa hazırlanıyor",
+    "s4-title":"Bize Ulaşın",
+    "s4-lede":"İlmî bir not, düzeltme veya soru mu? Sizden haber almaktan mutluluk duyarız",
+    "nav-contact":"İletişim",
+    "cn-h":"Yazmadan önce",
+    "cn-p":"Kaynağa dayalı ilmî bir düzeltme içeren veya bir sened/metin hatasına işaret eden geri bildirimleri özellikle memnuniyetle karşılıyoruz. Bu, içeriğimizi sürekli gözden geçirmemize yardımcı olur.",
+    "cn-l1":"Notunuz bir sened veya rivayetle ilgiliyse, kaynağı tam olarak belirtin (kitap, cilt, mümkünse sayfa).",
+    "cn-l2":"Genel bir soru ise, mümkün olan en kısa sürede yanıtlamaya çalışacağız.",
+    "cn-l3":"Her mesaja yanıt vereceğimizi garanti edemeyiz, ancak gelen her şeyi okuyoruz.",
+    "cf-name-label":"Ad",
+    "cf-email-label":"E-posta",
+    "cf-subject-label":"Konu",
+    "cf-opt-correction":"İlmî düzeltme / sened notu",
+    "cf-opt-question":"Genel soru",
+    "cf-opt-suggestion":"Site için şahsiyet önerisi",
+    "cf-opt-other":"Diğer",
+    "cf-message-label":"Mesaj",
+    "cf-submit":"Mesajı Gönder",
+    "cf-success":"Mesajınız başarıyla gönderildi. Bizimle iletişime geçtiğiniz için teşekkür ederiz.",
+    "cf-error":"Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin.",
+    "footer-verse":"\"Sizin için yerde bir süre konaklama ve geçim yeri vardır.\"",
+    "footer-line":"Hakkı sahibine sened ve delil ölçüsüyle geri vermeyi amaçlayan bağımsız ilmî bir site.",
+    "footer-meta":"© Dillerinizi Tutun — tüm araştırmalar gözden geçirilir ve sürekli güncellenir."
+  }
+};
+
+function setLang(lang){
+  const dict = translations[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.body.className = 'lang-' + lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[key] !== undefined){
+      el.innerHTML = dict[key];
+    }
+  });
+
+  document.querySelectorAll('.langswitch button').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  document.title = dict.h1 || dict.brand;
+  localStorage.setItem('preferredLang', lang);
+}
+
+document.querySelectorAll('.langswitch button').forEach(btn=>{
+  btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
+});
+
+// Highlight active nav link based on scroll position
+const navLinks = document.querySelectorAll('.navbar a');
+const sections = document.querySelectorAll('section[id]');
+
+function updateActiveNav(){
+  let current = sections[0]?.id;
+  const offset = 90; // navbar height buffer
+  sections.forEach(sec=>{
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= offset) current = sec.id;
+  });
+  navLinks.forEach(link=>{
+    link.classList.toggle('active-link', link.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateActiveNav);
+window.addEventListener('load', updateActiveNav);
+
+// Two-level accordion behavior (criteria/intro ladder + nested term/example accordion)
+function toggleAccordion(trigger, parentPanelToUpdate){
+  const expanded = trigger.getAttribute('aria-expanded') === 'true';
+  const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+  trigger.setAttribute('aria-expanded', String(!expanded));
+
+  if(expanded){
+    panel.style.maxHeight = null;
+  } else {
+    panel.style.maxHeight = panel.scrollHeight + 'px';
+  }
+
+  if(parentPanelToUpdate && parentPanelToUpdate.style.maxHeight){
+    requestAnimationFrame(()=>{
+      parentPanelToUpdate.style.maxHeight = parentPanelToUpdate.scrollHeight + 'px';
+    });
+  }
+}
+
+document.querySelectorAll('.ladder-trigger').forEach(trigger=>{
+  trigger.addEventListener('click', ()=> toggleAccordion(trigger, null));
+});
+
+document.querySelectorAll('.term-trigger').forEach(trigger=>{
+  const parentLadderPanel = trigger.closest('.ladder-panel');
+  trigger.addEventListener('click', ()=> toggleAccordion(trigger, parentLadderPanel));
+});
+
+// Contact form submission (Formspree-compatible AJAX handler)
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+if(contactForm){
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const currentLang = document.documentElement.lang || 'ar';
+    const dict = translations[currentLang];
+
+    fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { 'Accept': 'application/json' }
+    }).then(response=>{
+      if(response.ok){
+        formStatus.textContent = dict['cf-success'];
+        formStatus.className = 'form-status success';
+        contactForm.reset();
+      } else {
+        formStatus.textContent = dict['cf-error'];
+        formStatus.className = 'form-status error';
+      }
+    }).catch(()=>{
+      formStatus.textContent = dict['cf-error'];
+      formStatus.className = 'form-status error';
+    });
+  });
+}
+
+// initialize with stored preference if present, else Arabic default
+const stored = localStorage.getItem('preferredLang');
+if(stored && translations[stored]) setLang(stored);
+</script>
+
+</body>
+</html>
