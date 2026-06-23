@@ -1565,7 +1565,7 @@ if(contactForm){
   if(!counterEl) return;
   const namespace = 'kuffo-alsinatakum-github-io';
   const key = 'site-visits';
-  fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+  fetch(`https://countapi.mileshilliard.com/api/v1/hit/${namespace}_${key}`)
     .then(res => res.json())
     .then(data => {
       if(data && typeof data.value === 'number'){
