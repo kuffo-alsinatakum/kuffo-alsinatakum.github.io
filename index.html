@@ -85,6 +85,34 @@
     background:rgba(245,239,224,0.12);
   }
 
+  .topbar-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+  .visitor-counter{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    color:rgba(245,239,224,0.75);
+    font-size:0.8rem;
+    white-space:nowrap;
+  }
+  .visitor-counter svg{
+    width:15px; height:15px;
+    flex-shrink:0;
+    color:var(--gold);
+  }
+  .visitor-counter #visitorCount{
+    color:var(--gold);
+    font-weight:700;
+  }
+  @media (max-width:600px){
+    .topbar{flex-wrap:wrap; gap:8px;}
+    .topbar-right{flex-wrap:wrap; gap:10px;}
+    .visitor-counter{font-size:0.74rem;}
+  }
+
   /* ===== Section navigation bar ===== */
   .navbar{
     position:sticky;
@@ -602,10 +630,17 @@
 
 <div class="topbar">
   <div class="brandmark" data-i18n="brand">كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</div>
-  <div class="langswitch">
-    <button data-lang="ar" class="active">العربية</button>
-    <button data-lang="en">English</button>
-    <button data-lang="tr">Türkçe</button>
+  <div class="topbar-right">
+    <div class="langswitch">
+      <button data-lang="ar" class="active">العربية</button>
+      <button data-lang="en">English</button>
+      <button data-lang="tr">Türkçe</button>
+    </div>
+    <div class="visitor-counter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span data-i18n="visitor-label">زوار الموقع:</span>
+      <span id="visitorCount">···</span>
+    </div>
   </div>
 </div>
 
@@ -1191,6 +1226,7 @@ const translations = {
     "footer-verse":"«وَلَكُمْ فِي الْأَرْضِ مُسْتَقَرٌّ وَمَتَاعٌ إِلَىٰ حِينٍ»",
     "footer-line":"مَوْقِعٌ عِلْمِيٌّ مُسْتَقِلٌّ، يَهْدِفُ لِإِعَادَةِ الْحَقِّ إِلَى أَهْلِهِ بِمِيزَانِ السَّنَدِ وَالدَّلِيلِ.",
     "footer-meta":"© كفّوا ألسنتكم عنهم — جميع الأبحاث مرجعة ومحدّثة باستمرار.",
+    "visitor-label":"زوار الموقع:",
     "verse1":"﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ — سورة الحجرات: ٦",
     "verse2":"﴿لَّوْلَا إِذْ سَمِعْتُمُوهُ ظَنَّ الْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بِأَنفُسِهِمْ خَيْرًا وَقَالُوا هَـٰذَا إِفْكٌ مُّبِينٌ﴾ — سورة النور: ١٢"
   },
@@ -1303,6 +1339,7 @@ const translations = {
     "footer-verse":'"And for you on earth is a place of settlement and provision for a time."',
     "footer-line":"An independent scholarly site, dedicated to restoring rightful due through chain-of-transmission and evidence.",
     "footer-meta":"© Hold Your Tongues — all research reviewed and continuously updated.",
+    "visitor-label":"Site visitors:",
     "verse1":"Qur'an, Surat al-Hujurat 49:6 — believers are commanded to verify any report before acting on it, lest they wrong people out of ignorance and come to regret it.",
     "verse2":"Qur'an, Surat an-Nur 24:12 — believers should assume the best of one another and recognize baseless slander for what it is, rather than rushing to believe it."
   },
@@ -1415,6 +1452,7 @@ const translations = {
     "footer-verse":"\"Sizin için yerde bir süre konaklama ve geçim yeri vardır.\"",
     "footer-line":"Hakkı sahibine sened ve delil ölçüsüyle geri vermeyi amaçlayan bağımsız ilmî bir site.",
     "footer-meta":"© Dillerinizi Tutun — tüm araştırmalar gözden geçirilir ve sürekli güncellenir.",
+    "visitor-label":"Site ziyaretçileri:",
     "verse1":"Kur'an, Hucurât Suresi 49:6 — müminlere, bir habere göre hareket etmeden önce onu araştırmaları emredilir; aksi halde bilmeden bir topluluğa zulmedip sonra pişman olabilirler.",
     "verse2":"Kur'an, Nûr Suresi 24:12 — müminler birbirleri hakkında hayırlı zan beslemeli ve asılsız iftirayı hemen inanmak yerine olduğu gibi tanımalıdır."
   }
@@ -1520,6 +1558,26 @@ if(contactForm){
     });
   });
 }
+
+// Visitor counter (real count via free CountAPI service)
+(function(){
+  const counterEl = document.getElementById('visitorCount');
+  if(!counterEl) return;
+  const namespace = 'kuffo-alsinatakum-github-io';
+  const key = 'site-visits';
+  fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+    .then(res => res.json())
+    .then(data => {
+      if(data && typeof data.value === 'number'){
+        counterEl.textContent = data.value.toLocaleString();
+      } else {
+        counterEl.textContent = '—';
+      }
+    })
+    .catch(() => {
+      counterEl.textContent = '—';
+    });
+})();
 
 // initialize with stored preference if present, else Arabic default
 const stored = localStorage.getItem('preferredLang');
