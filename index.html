@@ -287,14 +287,23 @@
     margin:0; padding:0;
     border:1px solid var(--line);
     border-radius:6px;
-    overflow:hidden;
+    overflow:visible;
   }
   .ladder li{
     background:#fff;
     border-bottom:1px solid var(--line);
+    border-radius:6px;
+    margin-bottom:14px;
+    overflow:hidden;
+    transition:box-shadow 0.25s ease, border-color 0.25s ease;
   }
-  .ladder li:last-child{border-bottom:none;}
+  .ladder li:last-child{margin-bottom:0; border-bottom:none;}
   .ladder li:nth-child(even){background:var(--parchment-deep);}
+  .ladder li.is-open{
+    border:2px solid var(--gold);
+    box-shadow:0 6px 22px rgba(27,58,47,0.16);
+    background:#fff;
+  }
 
   .ladder-trigger{
     width:100%;
@@ -311,6 +320,20 @@
   }
   .ladder-trigger:hover{background:rgba(27,58,47,0.045);}
   .ladder-trigger:focus-visible{outline:2px solid var(--copper); outline-offset:-2px;}
+  .ladder li.is-open .ladder-trigger{
+    background:var(--olive);
+  }
+  .ladder li.is-open .ladder-trigger h4,
+  .ladder li.is-open .ladder-trigger p{
+    color:#FBF6E9;
+  }
+  .ladder li.is-open .ladder-trigger .rank{
+    background:var(--gold);
+    color:var(--olive-deep);
+  }
+  .ladder li.is-open .ladder-trigger .chevron{
+    color:var(--gold);
+  }
 
   .rank{
     flex-shrink:0;
@@ -321,16 +344,17 @@
     display:flex; align-items:center; justify-content:center;
     font-weight:700;
     font-size:0.95rem;
+    transition:background 0.25s ease, color 0.25s ease;
   }
   .ladder-head{flex:1; min-width:0;}
-  .ladder h4{margin:0 0 5px; color:var(--olive-deep); font-size:1.04rem;}
-  .ladder-trigger p{margin:0; font-size:0.93rem; color:#3c3226;}
+  .ladder h4{margin:0 0 5px; color:var(--olive-deep); font-size:1.04rem; transition:color 0.25s ease;}
+  .ladder-trigger p{margin:0; font-size:0.93rem; color:#3c3226; transition:color 0.25s ease;}
 
   .chevron{
     flex-shrink:0;
     width:22px; height:22px;
     color:var(--copper);
-    transition:transform 0.25s ease;
+    transition:transform 0.25s ease, color 0.25s ease;
   }
   .ladder-trigger[aria-expanded="true"] .chevron{transform:rotate(180deg);}
 
@@ -338,14 +362,16 @@
     max-height:0;
     overflow:hidden;
     transition:max-height 0.3s ease;
+    background:#fff;
+    border-top:1px solid rgba(201,162,39,0.3);
   }
   .ladder-panel-inner{
-    padding:0 22px 20px 76px;
+    padding:22px 22px 26px 76px;
     font-size:0.93rem;
     color:#3c3226;
     line-height:1.85;
   }
-  .lang-en .ladder-panel-inner, .lang-tr .ladder-panel-inner{padding:0 76px 20px 22px;}
+  .lang-en .ladder-panel-inner, .lang-tr .ladder-panel-inner{padding:22px 76px 26px 22px;}
   .ladder-panel-inner p{margin:0 0 10px;}
   .ladder-panel-inner p:last-child{margin-bottom:0;}
   .ladder-panel-placeholder{
@@ -354,16 +380,76 @@
   }
   .lang-ar .ladder-panel-placeholder{font-style:normal;}
 
+  /* ===== Illustrative diagram cards (e.g. sanad diagrams) ===== */
+  .diagram-gallery{
+    margin-top:22px;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+  .diagram-card{
+    background:var(--parchment-deep);
+    border:1px solid rgba(201,162,39,0.45);
+    border-radius:8px;
+    padding:18px;
+    box-shadow:0 4px 14px rgba(27,58,47,0.08);
+    position:relative;
+    overflow:hidden;
+  }
+  .diagram-card::before{
+    content:"";
+    position:absolute;
+    top:0; right:0; left:0;
+    height:4px;
+    background:linear-gradient(90deg, var(--copper), var(--gold), var(--copper));
+  }
+  .diagram-card-label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+    color:var(--olive-deep);
+    font-weight:700;
+    font-size:0.98rem;
+  }
+  .diagram-card-label svg{
+    width:22px; height:22px;
+    color:var(--gold);
+    flex-shrink:0;
+  }
+  .diagram-card img{
+    width:100%;
+    height:auto;
+    border-radius:5px;
+    display:block;
+    border:1px solid rgba(42,33,24,0.12);
+  }
+  .diagram-card-caption{
+    margin-top:12px;
+    font-size:0.85rem;
+    color:var(--copper);
+    text-align:center;
+  }
+  .lang-ar .diagram-card-caption{font-style:normal;}
+  @media (max-width:600px){
+    .diagram-card{padding:12px;}
+  }
+
   /* ===== Nested term accordion (inside "تعريفات هامة" panel) ===== */
   .term-list{margin:0; padding:0;}
   .term-item{
     border:1px solid var(--line);
     border-radius:5px;
-    margin-bottom:12px;
+    margin-bottom:14px;
     overflow:hidden;
     background:#fff;
+    transition:box-shadow 0.25s ease, border-color 0.25s ease;
   }
   .term-item:last-child{margin-bottom:0;}
+  .term-item.is-open{
+    border:2px solid var(--copper);
+    box-shadow:0 4px 16px rgba(27,58,47,0.12);
+  }
 
   .term-trigger{
     width:100%;
@@ -380,6 +466,7 @@
   }
   .term-trigger:hover{background:rgba(27,58,47,0.04);}
   .term-trigger:focus-visible{outline:2px solid var(--copper); outline-offset:-2px;}
+  .term-item.is-open .term-trigger{background:var(--parchment-deep);}
 
   .term-num{
     flex-shrink:0;
@@ -405,13 +492,14 @@
     max-height:0;
     overflow:hidden;
     transition:max-height 0.3s ease;
+    border-top:1px solid rgba(139,90,43,0.25);
   }
   .term-panel-body{
     font-size:0.92rem;
     color:#3c3226;
-    padding:0 16px 16px 50px;
+    padding:16px 16px 18px 50px;
   }
-  .lang-en .term-panel-body, .lang-tr .term-panel-body{padding:0 50px 16px 16px;}
+  .lang-en .term-panel-body, .lang-tr .term-panel-body{padding:16px 50px 18px 16px;}
   .term-panel-body p{margin:0;}
 
   /* ===== Figures (people) grid ===== */
@@ -695,8 +783,8 @@
       <button class="ladder-trigger" aria-expanded="false" aria-controls="panel-i1">
         <span class="rank">١</span>
         <span class="ladder-head">
-          <h4 data-i18n="i1-h">تَعْرِيفَاتٌ هَامَّةٌ</h4>
-          <p data-i18n="i1-p">السَّنَدُ، الرُّوَاةُ، شُرُوطُ قَبُولِ الرِّوَايَاتِ، وَأَسْبَابُ رَفْضِهَا — الْمُصْطَلَحَاتُ الَّتِي سَتُرَافِقُكَ فِي كُلِّ صَفْحَةٍ مِنْ هَذَا الْمَوْقِعِ.</p>
+          <h4 data-i18n="i1-h">مُصْطَلَحَاتٌ هَامَّةٌ</h4>
+          <p data-i18n="i1-p">السَّنَدُ، أَهْلُ الْبَيْتِ، وَالْآلُ — الْمُصْطَلَحَاتُ الَّتِي سَتُرَافِقُكَ فِي كُلِّ صَفْحَةٍ مِنْ هَذَا الْمَوْقِعِ.</p>
         </span>
         <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
@@ -706,48 +794,70 @@
             <li class="term-item">
               <button class="term-trigger" aria-expanded="false" aria-controls="term-panel-1">
                 <span class="term-num">١</span>
-                <h5 data-i18n="term1-h">السَّنَدُ</h5>
+                <h5 data-i18n="term1-h">مَا هُوَ السَّنَدُ</h5>
                 <svg class="term-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
               <div class="term-panel" id="term-panel-1">
                 <div class="term-panel-body">
-                  <p class="placeholder-text" data-i18n="term1-detail">[سيُضاف هنا تعريف مفصّل لمعنى "السند".]</p>
+                  <p data-i18n="term1-detail-p1">هُوَ سِلْسِلَةُ الرِّجَالِ (الرُّوَاةِ) الْمُوصِلَةُ لِلْمَتْنِ. وَمِنْ عَظَمَةِ هَذَا الْعِلْمِ أَنَّ الْعُلَمَاءَ الْمُتَخَصِّصِينَ يَدْرُسُونَ السَّنَدَ رَاوِياً رَاوِياً، فَيَتَأَكَّدُونَ مِنْ عَدَالَتِهِ، وَأَخْلَاقِهِ، وَصِفَاتِهِ، وَقُوَّةِ حِفْظِهِ، وَهَلْ سَمِعَ أَمْ لَا، وَهَلْ دَلَّسَ أَمْ لَا، وَهَلْ خَالَفَ غَيْرَهُ مِنَ الرُّوَاةِ الَّذِينَ سَمِعُوا نَفْسَ الْحَدِيثِ أَمْ لَا. عِلْمٌ مُتَخَصِّصٌ فِي تَمْحِيصِ وَتَنْقِيَةِ السَّنَدِ مِنْ كَافَّةِ عَوَامِلِ الضَّعْفِ وَالْكَذِبِ.</p>
+                  <p data-i18n="term1-detail-p2">وَمِنَ الْمَعْلُومِ أَنَّهُ كُلَّمَا ابْتَعَدْنَا عَنِ الْمَصْدَرِ الرَّئِيسِيِّ، وَهُوَ النَّبِيُّ ﷺ، كُلَّمَا قَلَّ الدِّينُ وَقَلَّتِ الْأَمَانَةُ، وَاتَّبَعَ الْكَثِيرُ أَهْوَاءَهُمْ فِيمَا يَنْقُلُونَ. لِذَلِكَ كَانَ هَذَا الْعِلْمُ بِالْمِرْصَادِ لِمَنْ تَسَوَّلَ لَهُ نَفْسُهُ التَّدْلِيسَ أَوِ الْكَذِبَ عَلَى رَسُولِ اللَّهِ ﷺ وَصَحَابَتِهِ، وَهَذَا تَحْقِيقٌ لِقَوْلِ اللَّهِ تَعَالَى: ﴿إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ﴾.</p>
+
+                  <div class="diagram-gallery">
+                    <div class="diagram-card">
+                      <div class="diagram-card-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                        <span data-i18n="diagram1-label">مثال توضيحي: الفرق بين "حدّثني" و"عن"</span>
+                      </div>
+                      <img src="https://kuffo-alsinatakum.github.io/images/sanad-tree-diagram.jpg" alt="شجرة توضيحية لمعنى السند وصيغ الرواية">
+                    </div>
+                    <div class="diagram-card">
+                      <div class="diagram-card-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                        <span data-i18n="diagram2-label">رحلة الحديث النبوي من صدوره إلى كتاب السنة</span>
+                      </div>
+                      <img src="https://kuffo-alsinatakum.github.io/images/hadith-journey-diagram.png" alt="مخطط رحلة الحديث النبوي عبر مراحل التنقيح الخمس">
+                    </div>
+                  </div>
+
+                  <p data-i18n="term1-detail-p3">تَخَيَّلْ أَنَّكَ تُرِيدُ أَنْ تَتَأَكَّدَ مِنْ صِحَّةِ خَبَرٍ سَمِعْتَهُ. أَوَّلُ مَا تَسْأَلُهُ: مَنْ أَخْبَرَكَ بِهَذَا؟ وَمَنْ أَخْبَرَهُ هُوَ؟ وَهَلْ سَمِعَهُ بِنَفْسِهِ أَمْ نَقَلَهُ عَنْ غَيْرِهِ؟ هَذِهِ السِّلْسِلَةُ مِنَ الْأَسْمَاءِ، الَّتِي تَصِلُكَ بِهَا الرِّوَايَةُ مِنْ قَائِلِهَا الْأَوَّلِ حَتَّى مَنْ حَدَّثَكَ بِهَا، هِيَ مَا يُسَمِّيهِ عُلَمَاءُ الْحَدِيثِ السَّنَدَ.</p>
+                  <p data-i18n="term1-detail-p4">وَلِفَهْمِ خُطُورَةِ هَذَا الْأَمْرِ، يَكْفِي أَنْ تَعْلَمَ أَنَّ الْقُرْآنَ الْكَرِيمَ نَفْسَهُ وَصَلَ إِلَيْنَا بِالسَّنَدِ: جِيلٌ يَحْفَظُهُ وَيَنْقُلُهُ عَنْ جِيلٍ، وَآلَافٌ مِنَ الْحُفَّاظِ الْمُتْقِنِينَ تَوَافَقَتْ رِوَايَتُهُمْ حَرْفاً حَرْفاً مُنْذُ زَمَنِ النَّبِيِّ ﷺ حَتَّى يَوْمِنَا هَذَا. فَمَنْ يَسْتَهِينُ بِأَهَمِّيَّةِ السَّنَدِ فِي الْحَدِيثِ، عَلَيْهِ أَنْ يُدْرِكَ أَنَّهُ يَسْتَهِينُ بِالْآلِيَّةِ نَفْسِهَا الَّتِي حُفِظَ بِهَا كِتَابُ اللَّهِ.</p>
+                  <p data-i18n="term1-detail-p5">فَإِذَا تَحَقَّقَتْ هَذِهِ الْأُمُورُ كُلُّهَا فِي رِوَايَةٍ مَا، حُكِمَ عَلَيْهَا بِالصِّحَّةِ. وَبِهَذَا الْجُهْدِ الْهَائِلِ وَالدَّقِيقِ، اسْتَطَاعَ عُلَمَاءُ الْأُمَّةِ أَنْ يُمَيِّزُوا الرِّوَايَةَ الصَّحِيحَةَ مِنَ الضَّعِيفَةِ، وَالثَّابِتَةَ مِنَ الْمَكْذُوبَةِ.</p>
+                  <p data-i18n="term1-detail-p6">وَهَذَا بِالضَّبْطِ مَا يَجْعَلُ السَّنَدَ مِنْ أَعْظَمِ خَصَائِصِ هَذَا الدِّينِ، وَهُوَ مَا يُفَرِّقُنَا عَنْ سَائِرِ الْأُمَمِ وَالشَّرَائِعِ: فَلَا تَجِدُ أُمَّةً مِنَ الْأُمَمِ نَقَلَتْ كُتُبَهَا وَأَخْبَارَهَا بِهَذِهِ الدِّقَّةِ الْعِلْمِيَّةِ الْمُتَسَلْسِلَةِ، الَّتِي تُتِيحُ لِلْبَاحِثِ أَنْ يَعْرِفَ بِالضَّبْطِ مَنْ قَالَ، وَمَنْ سَمِعَ، وَمَتَى، وَكَيْفَ. وَهَذَا — لَا الْكَلَامُ الْمُجَرَّدُ عَنْ "قِيلَ وَقَالَ" — هُوَ الْمِيزَانُ الَّذِي نَعْتَمِدُهُ فِي هَذَا الْمَوْقِعِ لِقَبُولِ أَيِّ خَبَرٍ تَارِيخِيٍّ.</p>
                 </div>
               </div>
             </li>
             <li class="term-item">
               <button class="term-trigger" aria-expanded="false" aria-controls="term-panel-2">
                 <span class="term-num">٢</span>
-                <h5 data-i18n="term2-h">الرُّوَاةُ</h5>
+                <h5 data-i18n="term2-h">التَّعْرِيفُ الْقُرْآنِيُّ الصَّرِيحُ لِمُصْطَلَحِ أَهْلِ الْبَيْتِ</h5>
                 <svg class="term-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
               <div class="term-panel" id="term-panel-2">
                 <div class="term-panel-body">
-                  <p class="placeholder-text" data-i18n="term2-detail">[سيُضاف هنا تعريف مفصّل لمعنى "الراوي".]</p>
+                  <p data-i18n="term2-detail-p1">قَالَ تَعَالَى عَنِ الْمَلَائِكَةِ مُخَاطِبِينَ زَوْجَةَ إِبْرَاهِيمَ سَارَةَ:</p>
+                  <p data-i18n="term2-detail-p2">﴿أَتَعْجَبِينَ مِنْ أَمْرِ اللَّهِ رَحْمَتُ اللَّهِ وَبَرَكَاتُهُ عَلَيْكُمْ أَهْلَ الْبَيْتِ إِنَّهُ حَمِيدٌ مَّجِيدٌ﴾</p>
+                  <p data-i18n="term2-detail-p3">وَقَالَ تَعَالَى مُخَاطِباً زَوْجَاتِ النَّبِيِّ ﷺ:</p>
+                  <p data-i18n="term2-detail-p4">﴿وَقَرْنَ فِي بُيُوتِكُنَّ وَلَا تَبَرَّجْنَ تَبَرُّجَ الْجَاهِلِيَّةِ الْأُولَىٰ وَأَقِمْنَ الصَّلَاةَ وَآتِينَ الزَّكَاةَ وَأَطِعْنَ اللَّهَ وَرَسُولَهُ ۚ إِنَّمَا يُرِيدُ اللَّهُ لِيُذْهِبَ عَنكُمُ الرِّجْسَ أَهْلَ الْبَيْتِ وَيُطَهِّرَكُمْ تَطْهِيرًا﴾</p>
+                  <p data-i18n="term2-detail-p5">أَعْلَى دَرَجَاتِ تَفْسِيرِ الْقُرْآنِ هُوَ تَفْسِيرُ الْقُرْآنِ بِالْقُرْآنِ، وَفِي هَاتَيْنِ الْآيَتَيْنِ نَصٌّ صَرِيحٌ أَنَّ الْمَقْصُودَ هُنَا بِمُصْطَلَحِ "أَهْلِ الْبَيْتِ" هُنَّ الزَّوْجَاتُ لَا غَيْرُ.</p>
+                  <p data-i18n="term2-detail-p6">وَفِي قَوْلِهِ تَعَالَى عَنْ نَجَاةِ لُوطٍ عَلَيْهِ السَّلَامُ: ﴿فَأَنجَيْنَاهُ وَأَهْلَهُ إِلَّا امْرَأَتَهُ كَانَتْ مِنَ الْغَابِرِينَ﴾، جَاءَ لَفْظُ "أَهْلِهِ" شَامِلاً لِزَوْجَتِهِ، وَلَمْ تُسْتَثْنَ إِلَّا لِعِلَّةِ كُفْرِهَا، لَا لِخُرُوجِهَا عَنْ لَفْظِ "الْأَهْلِ" فِي هَذِهِ الْآيَةِ.</p>
+                  <p data-i18n="term2-detail-p7">وَلَا بُدَّ أَنْ نَتَذَكَّرَ أَنَّ الْقُرْآنَ نَزَلَ عَلَى أُمَّةٍ عَرَبِيَّةٍ بَدَوِيَّةٍ، تَفْهَمُ الْمَعَانِيَ بِفِطْرَتِهَا وَسَلِيقَتِهَا اللُّغَوِيَّةِ، بِلَا حَاجَةٍ إِلَى تَعْقِيدٍ أَوْ تَفَلْسُفٍ. وَحَسَّاسِيَّةُ هَذِهِ الْأُمَّةِ لِمَعَانِي الْأَلْفَاظِ وَدَقَائِقِ التَّشْكِيلِ كَانَتْ بِدَرَجَةٍ عَالِيَةٍ جِدّاً، حَتَّى إِنَّ خَطَأً وَاحِداً فِي تَشْكِيلِ حَرْفٍ مِنَ الْقُرْآنِ كَانَ يُفْزِعُ الْعَرَبِيَّ الْفَصِيحَ فَزَعاً شَدِيداً، لِأَنَّهُ يُدْرِكُ فَوْراً أَنَّ الْمَعْنَى انْقَلَبَ إِلَى مَا لَا يَجُوزُ أَنْ يُقَالَ. فَقَوْلُهُ تَعَالَى فِي سُورَةِ التَّوْبَةِ: ﴿أَنَّ اللَّهَ بَرِيءٌ مِّنَ الْمُشْرِكِينَ وَرَسُولِهِ﴾ بِجَرِّ "وَرَسُولِهِ"، يَعْنِي أَنَّ رَسُولَهُ ﷺ أَيْضاً بَرِيءٌ مِنَ الْمُشْرِكِينَ، فَإِذَا قَرَأَهَا أَحَدُهُمْ بِالرَّفْعِ "وَرَسُولُهُ" انْقَلَبَ الْمَعْنَى إِلَى أَنَّ اللَّهَ بَرِيءٌ مِنْ رَسُولِهِ، وَهَذَا مَا يَسْتَحِيلُ أَنْ يُقَالَ، وَلِذَلِكَ فَزِعَ مِنْهَا سَلَفُنَا الْفُصَحَاءُ حِينَ سَمِعُوهَا بِالْخَطَأِ. فَإِذَا كَانَتِ الْأُمَّةُ بِهَذِهِ الدِّقَّةِ فِي فَهْمِ تَشْكِيلِ حَرْفٍ وَاحِدٍ، فَكَيْفَ يُظَنُّ أَنَّهَا سَتُخْطِئُ أَوْ تَتَغَافَلُ عَنْ فَهْمِ مَعْنًى صَرِيحٍ كَامِلٍ فِي آيَةٍ تُخَاطِبُهَا مُبَاشَرَةً، كَآيَةِ "أَهْلِ الْبَيْتِ"؟</p>
                 </div>
               </div>
             </li>
             <li class="term-item">
               <button class="term-trigger" aria-expanded="false" aria-controls="term-panel-3">
                 <span class="term-num">٣</span>
-                <h5 data-i18n="term3-h">شُرُوطُ قَبُولِ الرِّوَايَاتِ</h5>
+                <h5 data-i18n="term3-h">تَعْرِيفُ الْآلِ</h5>
                 <svg class="term-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
               <div class="term-panel" id="term-panel-3">
                 <div class="term-panel-body">
-                  <p class="placeholder-text" data-i18n="term3-detail">[سيُضاف هنا تفصيل شروط قبول الرواية.]</p>
-                </div>
-              </div>
-            </li>
-            <li class="term-item">
-              <button class="term-trigger" aria-expanded="false" aria-controls="term-panel-4">
-                <span class="term-num">٤</span>
-                <h5 data-i18n="term4-h">أَسْبَابُ رَفْضِ الرِّوَايَاتِ</h5>
-                <svg class="term-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="term-panel" id="term-panel-4">
-                <div class="term-panel-body">
-                  <p class="placeholder-text" data-i18n="term4-detail">[سيُضاف هنا تفصيل أسباب رفض الرواية.]</p>
+                  <p data-i18n="term3-detail-p1">أَيِ الْأَتْبَاعُ، وَأَمَّا تَخْصِيصُ الْآلِ بِالْقَرَابَةِ فَلَيْسَ بِصَوَابٍ، قَالَ تَعَالَى:</p>
+                  <p data-i18n="term3-detail-p2">﴿وَلَقَدْ أَخَذْنَا آلَ فِرْعَوْنَ بِالسِّنِينَ﴾</p>
+                  <p data-i18n="term3-detail-p3">و﴿إِلَّا آلَ لُوطٍ إِنَّا لَمُنَجُّوهُمْ أَجْمَعِينَ ۝ إِلَّا امْرَأَتَهُ قَدَّرْنَا إِنَّهَا لَمِنَ الْغَابِرِينَ﴾</p>
+                  <p data-i18n="term3-detail-p4">وَفِي هَذَا يَقُولُ نِشْوَانُ الْحِمْيَرِيُّ إِمَامُ اللُّغَةِ:</p>
+                  <p data-i18n="term3-detail-poem">آلُ النَّبِيِّ هُمُ أَتْبَاعُ مِلَّتِهِ<br>مِنَ الْأَعَاجِمِ وَالسُّودَانِ وَالْعَرَبِ<br>لَوْ لَمْ يَكُنْ آلُهُ إِلَّا قَرَابَتُهُ<br>صَلَّى الْمُصَلِّي عَلَى الطَّاغِي أَبِي لَهَبِ</p>
+                  <p data-i18n="term3-detail-p5">الآلُ: الأَهْلُ، والقرابةُ، والأَتْباعُ (القاموس المحيط - للفيروزآبادي)</p>
                 </div>
               </div>
             </li>
@@ -1128,17 +1238,32 @@ const translations = {
     "s1-title":"لِمَ هَذَا الْمَوْقِعُ؟",
     "s1-lede":"قَبْلَ أَنْ نَتَحَدَّثَ عَنْ أَيِّ شَخْصِيَّةٍ، يَجِبُ أَنْ نَتَحَدَّثَ عَنِ الْمِيزَانِ الَّذِي نَزِنُ بِهِ الْأَخْبَارَ",
     "s1-p1":"كَثِيرٌ مِنَ الْأَحْكَامِ الَّتِي نَسْمَعُهَا عَلَى أَعْلَامِ تَارِيخِنَا الْإِسْلَامِيِّ - مِنَ الصَّحَابَةِ إِلَى الْقَادَةِ وَالْفَاتِحِينَ - لَا تَسْتَنِدُ إِلَى دَلِيلٍ صَحِيحٍ، بَلْ إِلَى رِوَايَاتٍ مُتَنَاقَلَةٍ لَمْ يَتَحَقَّقْ أَحَدٌ مِنْ صِحَّتِهَا. هَذَا الْمَوْقِعُ لَا يُدَافِعُ عَنْ أَحَدٍ بِالْعَاطِفَةِ، بَلْ بِإِعَادَةِ فَحْصِ كُلِّ دَعْوَى وَفْقَ ضَوَابِطَ عِلْمِيَّةٍ صَارِمَةٍ، يَعْرِفُهَا أَهْلُ الْحَدِيثِ مُنْذُ قُرُونٍ، وَنُحَاوِلُ هُنَا تَبْسِيطَهَا لِكُلِّ قَارِئٍ. اقْرَأِ الْأَقْسَامَ التَّالِيَةَ لِتَفْهَمَ الْأَسَاسَ الَّذِي يَقُومُ عَلَيْهِ هَذَا الْمَنْهَجُ.",
-    "i1-h":"تَعْرِيفَاتٌ هَامَّةٌ",
-    "i1-p":"السَّنَدُ، الرُّوَاةُ، شُرُوطُ قَبُولِ الرِّوَايَاتِ، وَأَسْبَابُ رَفْضِهَا — الْمُصْطَلَحَاتُ الَّتِي سَتُرَافِقُكَ فِي كُلِّ صَفْحَةٍ مِنْ هَذَا الْمَوْقِعِ.",
-    "i1-detail":"سَيُضَافُ هُنَا شَرْحٌ مُفَصَّلٌ لِمَعْنَى السَّنَدِ، وَالرَّاوِي، وَشُرُوطِ قَبُولِ الرِّوَايَةِ، وَأَسْبَابِ رَدِّهَا.",
-    "term1-h":"السَّنَدُ",
-    "term1-detail":"[سَيُضَافُ هُنَا تَعْرِيفٌ مُفَصَّلٌ لِمَعْنَى \"السَّنَدِ\".]",
-    "term2-h":"الرُّوَاةُ",
-    "term2-detail":"[سَيُضَافُ هُنَا تَعْرِيفٌ مُفَصَّلٌ لِمَعْنَى \"الرَّاوِي\".]",
-    "term3-h":"شُرُوطُ قَبُولِ الرِّوَايَاتِ",
-    "term3-detail":"[سَيُضَافُ هُنَا تَفْصِيلُ شُرُوطِ قَبُولِ الرِّوَايَةِ.]",
-    "term4-h":"أَسْبَابُ رَفْضِ الرِّوَايَاتِ",
-    "term4-detail":"[سَيُضَافُ هُنَا تَفْصِيلُ أَسْبَابِ رَفْضِ الرِّوَايَةِ.]",
+    "i1-h":"مُصْطَلَحَاتٌ هَامَّةٌ",
+    "i1-p":"السَّنَدُ، أَهْلُ الْبَيْتِ، وَالْآلُ — الْمُصْطَلَحَاتُ الَّتِي سَتُرَافِقُكَ فِي كُلِّ صَفْحَةٍ مِنْ هَذَا الْمَوْقِعِ.",
+    "term1-h":"مَا هُوَ السَّنَدُ",
+    "term1-detail-p1":"هُوَ سِلْسِلَةُ الرِّجَالِ (الرُّوَاةِ) الْمُوصِلَةُ لِلْمَتْنِ. وَمِنْ عَظَمَةِ هَذَا الْعِلْمِ أَنَّ الْعُلَمَاءَ الْمُتَخَصِّصِينَ يَدْرُسُونَ السَّنَدَ رَاوِياً رَاوِياً، فَيَتَأَكَّدُونَ مِنْ عَدَالَتِهِ، وَأَخْلَاقِهِ، وَصِفَاتِهِ، وَقُوَّةِ حِفْظِهِ، وَهَلْ سَمِعَ أَمْ لَا، وَهَلْ دَلَّسَ أَمْ لَا، وَهَلْ خَالَفَ غَيْرَهُ مِنَ الرُّوَاةِ الَّذِينَ سَمِعُوا نَفْسَ الْحَدِيثِ أَمْ لَا. عِلْمٌ مُتَخَصِّصٌ فِي تَمْحِيصِ وَتَنْقِيَةِ السَّنَدِ مِنْ كَافَّةِ عَوَامِلِ الضَّعْفِ وَالْكَذِبِ.",
+    "term1-detail-p2":"وَمِنَ الْمَعْلُومِ أَنَّهُ كُلَّمَا ابْتَعَدْنَا عَنِ الْمَصْدَرِ الرَّئِيسِيِّ، وَهُوَ النَّبِيُّ ﷺ، كُلَّمَا قَلَّ الدِّينُ وَقَلَّتِ الْأَمَانَةُ، وَاتَّبَعَ الْكَثِيرُ أَهْوَاءَهُمْ فِيمَا يَنْقُلُونَ. لِذَلِكَ كَانَ هَذَا الْعِلْمُ بِالْمِرْصَادِ لِمَنْ تَسَوَّلَ لَهُ نَفْسُهُ التَّدْلِيسَ أَوِ الْكَذِبَ عَلَى رَسُولِ اللَّهِ ﷺ وَصَحَابَتِهِ، وَهَذَا تَحْقِيقٌ لِقَوْلِ اللَّهِ تَعَالَى: ﴿إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ﴾.",
+    "diagram1-label":"مثال توضيحي: الفرق بين \"حدّثني\" و\"عن\"",
+    "diagram2-label":"رحلة الحديث النبوي من صدوره إلى كتاب السنة",
+    "term1-detail-p3":"تَخَيَّلْ أَنَّكَ تُرِيدُ أَنْ تَتَأَكَّدَ مِنْ صِحَّةِ خَبَرٍ سَمِعْتَهُ. أَوَّلُ مَا تَسْأَلُهُ: مَنْ أَخْبَرَكَ بِهَذَا؟ وَمَنْ أَخْبَرَهُ هُوَ؟ وَهَلْ سَمِعَهُ بِنَفْسِهِ أَمْ نَقَلَهُ عَنْ غَيْرِهِ؟ هَذِهِ السِّلْسِلَةُ مِنَ الْأَسْمَاءِ، الَّتِي تَصِلُكَ بِهَا الرِّوَايَةُ مِنْ قَائِلِهَا الْأَوَّلِ حَتَّى مَنْ حَدَّثَكَ بِهَا، هِيَ مَا يُسَمِّيهِ عُلَمَاءُ الْحَدِيثِ السَّنَدَ.",
+    "term1-detail-p4":"وَلِفَهْمِ خُطُورَةِ هَذَا الْأَمْرِ، يَكْفِي أَنْ تَعْلَمَ أَنَّ الْقُرْآنَ الْكَرِيمَ نَفْسَهُ وَصَلَ إِلَيْنَا بِالسَّنَدِ: جِيلٌ يَحْفَظُهُ وَيَنْقُلُهُ عَنْ جِيلٍ، وَآلَافٌ مِنَ الْحُفَّاظِ الْمُتْقِنِينَ تَوَافَقَتْ رِوَايَتُهُمْ حَرْفاً حَرْفاً مُنْذُ زَمَنِ النَّبِيِّ ﷺ حَتَّى يَوْمِنَا هَذَا. فَمَنْ يَسْتَهِينُ بِأَهَمِّيَّةِ السَّنَدِ فِي الْحَدِيثِ، عَلَيْهِ أَنْ يُدْرِكَ أَنَّهُ يَسْتَهِينُ بِالْآلِيَّةِ نَفْسِهَا الَّتِي حُفِظَ بِهَا كِتَابُ اللَّهِ.",
+    "term1-detail-p5":"فَإِذَا تَحَقَّقَتْ هَذِهِ الْأُمُورُ كُلُّهَا فِي رِوَايَةٍ مَا، حُكِمَ عَلَيْهَا بِالصِّحَّةِ. وَبِهَذَا الْجُهْدِ الْهَائِلِ وَالدَّقِيقِ، اسْتَطَاعَ عُلَمَاءُ الْأُمَّةِ أَنْ يُمَيِّزُوا الرِّوَايَةَ الصَّحِيحَةَ مِنَ الضَّعِيفَةِ، وَالثَّابِتَةَ مِنَ الْمَكْذُوبَةِ.",
+    "term1-detail-p6":"وَهَذَا بِالضَّبْطِ مَا يَجْعَلُ السَّنَدَ مِنْ أَعْظَمِ خَصَائِصِ هَذَا الدِّينِ، وَهُوَ مَا يُفَرِّقُنَا عَنْ سَائِرِ الْأُمَمِ وَالشَّرَائِعِ: فَلَا تَجِدُ أُمَّةً مِنَ الْأُمَمِ نَقَلَتْ كُتُبَهَا وَأَخْبَارَهَا بِهَذِهِ الدِّقَّةِ الْعِلْمِيَّةِ الْمُتَسَلْسِلَةِ، الَّتِي تُتِيحُ لِلْبَاحِثِ أَنْ يَعْرِفَ بِالضَّبْطِ مَنْ قَالَ، وَمَنْ سَمِعَ، وَمَتَى، وَكَيْفَ. وَهَذَا — لَا الْكَلَامُ الْمُجَرَّدُ عَنْ \"قِيلَ وَقَالَ\" — هُوَ الْمِيزَانُ الَّذِي نَعْتَمِدُهُ فِي هَذَا الْمَوْقِعِ لِقَبُولِ أَيِّ خَبَرٍ تَارِيخِيٍّ.",
+    "term2-h":"التَّعْرِيفُ الْقُرْآنِيُّ الصَّرِيحُ لِمُصْطَلَحِ أَهْلِ الْبَيْتِ",
+    "term2-detail-p1":"قَالَ تَعَالَى عَنِ الْمَلَائِكَةِ مُخَاطِبِينَ زَوْجَةَ إِبْرَاهِيمَ سَارَةَ:",
+    "term2-detail-p2":"﴿أَتَعْجَبِينَ مِنْ أَمْرِ اللَّهِ رَحْمَتُ اللَّهِ وَبَرَكَاتُهُ عَلَيْكُمْ أَهْلَ الْبَيْتِ إِنَّهُ حَمِيدٌ مَّجِيدٌ﴾",
+    "term2-detail-p3":"وَقَالَ تَعَالَى مُخَاطِباً زَوْجَاتِ النَّبِيِّ ﷺ:",
+    "term2-detail-p4":"﴿وَقَرْنَ فِي بُيُوتِكُنَّ وَلَا تَبَرَّجْنَ تَبَرُّجَ الْجَاهِلِيَّةِ الْأُولَىٰ وَأَقِمْنَ الصَّلَاةَ وَآتِينَ الزَّكَاةَ وَأَطِعْنَ اللَّهَ وَرَسُولَهُ ۚ إِنَّمَا يُرِيدُ اللَّهُ لِيُذْهِبَ عَنكُمُ الرِّجْسَ أَهْلَ الْبَيْتِ وَيُطَهِّرَكُمْ تَطْهِيرًا﴾",
+    "term2-detail-p5":"أَعْلَى دَرَجَاتِ تَفْسِيرِ الْقُرْآنِ هُوَ تَفْسِيرُ الْقُرْآنِ بِالْقُرْآنِ، وَفِي هَاتَيْنِ الْآيَتَيْنِ نَصٌّ صَرِيحٌ أَنَّ الْمَقْصُودَ هُنَا بِمُصْطَلَحِ \"أَهْلِ الْبَيْتِ\" هُنَّ الزَّوْجَاتُ لَا غَيْرُ.",
+    "term2-detail-p6":"وَفِي قَوْلِهِ تَعَالَى عَنْ نَجَاةِ لُوطٍ عَلَيْهِ السَّلَامُ: ﴿فَأَنجَيْنَاهُ وَأَهْلَهُ إِلَّا امْرَأَتَهُ كَانَتْ مِنَ الْغَابِرِينَ﴾، جَاءَ لَفْظُ \"أَهْلِهِ\" شَامِلاً لِزَوْجَتِهِ، وَلَمْ تُسْتَثْنَ إِلَّا لِعِلَّةِ كُفْرِهَا، لَا لِخُرُوجِهَا عَنْ لَفْظِ \"الْأَهْلِ\" فِي هَذِهِ الْآيَةِ.",
+    "term2-detail-p7":"وَلَا بُدَّ أَنْ نَتَذَكَّرَ أَنَّ الْقُرْآنَ نَزَلَ عَلَى أُمَّةٍ عَرَبِيَّةٍ بَدَوِيَّةٍ، تَفْهَمُ الْمَعَانِيَ بِفِطْرَتِهَا وَسَلِيقَتِهَا اللُّغَوِيَّةِ، بِلَا حَاجَةٍ إِلَى تَعْقِيدٍ أَوْ تَفَلْسُفٍ. وَحَسَّاسِيَّةُ هَذِهِ الْأُمَّةِ لِمَعَانِي الْأَلْفَاظِ وَدَقَائِقِ التَّشْكِيلِ كَانَتْ بِدَرَجَةٍ عَالِيَةٍ جِدّاً، حَتَّى إِنَّ خَطَأً وَاحِداً فِي تَشْكِيلِ حَرْفٍ مِنَ الْقُرْآنِ كَانَ يُفْزِعُ الْعَرَبِيَّ الْفَصِيحَ فَزَعاً شَدِيداً، لِأَنَّهُ يُدْرِكُ فَوْراً أَنَّ الْمَعْنَى انْقَلَبَ إِلَى مَا لَا يَجُوزُ أَنْ يُقَالَ. فَقَوْلُهُ تَعَالَى فِي سُورَةِ التَّوْبَةِ: ﴿أَنَّ اللَّهَ بَرِيءٌ مِّنَ الْمُشْرِكِينَ وَرَسُولِهِ﴾ بِجَرِّ \"وَرَسُولِهِ\"، يَعْنِي أَنَّ رَسُولَهُ ﷺ أَيْضاً بَرِيءٌ مِنَ الْمُشْرِكِينَ، فَإِذَا قَرَأَهَا أَحَدُهُمْ بِالرَّفْعِ \"وَرَسُولُهُ\" انْقَلَبَ الْمَعْنَى إِلَى أَنَّ اللَّهَ بَرِيءٌ مِنْ رَسُولِهِ، وَهَذَا مَا يَسْتَحِيلُ أَنْ يُقَالَ، وَلِذَلِكَ فَزِعَ مِنْهَا سَلَفُنَا الْفُصَحَاءُ حِينَ سَمِعُوهَا بِالْخَطَأِ. فَإِذَا كَانَتِ الْأُمَّةُ بِهَذِهِ الدِّقَّةِ فِي فَهْمِ تَشْكِيلِ حَرْفٍ وَاحِدٍ، فَكَيْفَ يُظَنُّ أَنَّهَا سَتُخْطِئُ أَوْ تَتَغَافَلُ عَنْ فَهْمِ مَعْنًى صَرِيحٍ كَامِلٍ فِي آيَةٍ تُخَاطِبُهَا مُبَاشَرَةً، كَآيَةِ \"أَهْلِ الْبَيْتِ\"؟",
+    "term3-h":"تَعْرِيفُ الْآلِ",
+    "term3-detail-p1":"أَيِ الْأَتْبَاعُ، وَأَمَّا تَخْصِيصُ الْآلِ بِالْقَرَابَةِ فَلَيْسَ بِصَوَابٍ، قَالَ تَعَالَى:",
+    "term3-detail-p2":"﴿وَلَقَدْ أَخَذْنَا آلَ فِرْعَوْنَ بِالسِّنِينَ﴾",
+    "term3-detail-p3":"و﴿إِلَّا آلَ لُوطٍ إِنَّا لَمُنَجُّوهُمْ أَجْمَعِينَ ۝ إِلَّا امْرَأَتَهُ قَدَّرْنَا إِنَّهَا لَمِنَ الْغَابِرِينَ﴾",
+    "term3-detail-p4":"وَفِي هَذَا يَقُولُ نِشْوَانُ الْحِمْيَرِيُّ إِمَامُ اللُّغَةِ:",
+    "term3-detail-poem":"آلُ النَّبِيِّ هُمُ أَتْبَاعُ مِلَّتِهِ<br>مِنَ الْأَعَاجِمِ وَالسُّودَانِ وَالْعَرَبِ<br>لَوْ لَمْ يَكُنْ آلُهُ إِلَّا قَرَابَتُهُ<br>صَلَّى الْمُصَلِّي عَلَى الطَّاغِي أَبِي لَهَبِ",
+    "term3-detail-p5":"الآلُ: الأَهْلُ، والقرابةُ، والأَتْباعُ (القاموس المحيط - للفيروزآبادي)",
     "i2-h":"التَّدْلِيسُ وَالسُّمُّ الْبَطِيءُ فِي حَيَاتِنَا",
     "i2-p":"كَيْفَ يَنْتَشِرُ الْخَبَرُ غَيْرُ الدَّقِيقِ يَوْمِيّاً مِنْ حَوْلِنَا، وَلِمَ يُعَدُّ التَّدْلِيسُ أَخْطَرَ مِمَّا نَظُنُّ.",
     "term-sanad":"السَّنَدِ",
@@ -1241,17 +1366,31 @@ const translations = {
     "s1-title":"Why This Site?",
     "s1-lede":"Before discussing any figure, we must discuss the scale by which we weigh historical reports",
     "s1-p1":"Many judgments passed on figures of Islamic history — from the Companions to later commanders and conquerors — rest not on sound evidence, but on reports nobody verified. This site does not defend anyone out of sentiment, but by re-examining every claim against rigorous scholarly criteria long used by hadith scholars, simplified here for every reader. Read the sections below to understand the foundation this method rests on.",
-    "i1-h":"Important Definitions",
-    "i1-p":"The chain of transmission, the narrators, the conditions for accepting reports, and the reasons for rejecting them — the terms that will accompany you throughout this site.",
-    "i1-detail":"A detailed explanation of the sanad, the narrator, the conditions for accepting a report, and the reasons for rejecting one will be added here.",
-    "term1-h":"The Sanad (Chain of Transmission)",
-    "term1-detail":"[A detailed definition of \"the sanad\" will be added here.]",
-    "term2-h":"The Narrators (Ruwāt)",
-    "term2-detail":"[A detailed definition of \"the narrator\" will be added here.]",
-    "term3-h":"Conditions for Accepting Reports",
-    "term3-detail":"[A detailed breakdown of the conditions for accepting a report will be added here.]",
-    "term4-h":"Reasons for Rejecting Reports",
-    "term4-detail":"[A detailed breakdown of the reasons for rejecting a report will be added here.]",
+    "i1-h":"Important Terms",
+    "i1-p":"The sanad, ahl al-bayt, and al — the terms that will accompany you throughout this site.",
+    "term1-h":"What Is the Sanad",
+    "term1-detail-p1":"It is the chain of narrators connecting to the text of a report. Part of the greatness of this science is that specialist scholars examine the sanad narrator by narrator, verifying each one's integrity, character, traits, and strength of memory; whether he actually heard the report; whether he practiced concealment (tadlis); and whether he contradicted other narrators who heard the same report. It is a discipline devoted entirely to sifting the sanad clean of every factor of weakness and falsehood.",
+    "term1-detail-p2":"It is well known that the further removed we are from the original source — the Prophet ﷺ — the more religiosity and trustworthiness tend to decline, and the more people follow their own desires in what they transmit. This science therefore stood guard against anyone tempted to deceive or fabricate sayings attributed to the Messenger of God ﷺ and his companions — a fulfillment of God's promise: \"Indeed, it is We who sent down the message, and indeed, We will be its guardian.\" (Qur'an 15:9)",
+    "diagram1-label":"Illustrative example: the difference between \"he told me\" and \"on the authority of\"",
+    "diagram2-label":"The journey of a hadith from its origin to the books of Sunnah",
+    "term1-detail-p3":"Imagine you want to verify the accuracy of a report you heard. The first thing you ask is: who told you this? And who told them? And did they hear it directly, or pass it on from someone else? This chain of names, through which a report reaches you from its original speaker down to the one who told it to you, is what hadith scholars call the sanad.",
+    "term1-detail-p4":"To grasp how serious this matter is, it is enough to know that the Qur'an itself reached us through a sanad: generation memorizing and transmitting from generation, with thousands of meticulous memorizers whose recitation matched letter for letter from the time of the Prophet ﷺ to this day. Anyone who underestimates the importance of the sanad in hadith should realize he is underestimating the very mechanism by which the Book of God was preserved.",
+    "term1-detail-p5":"When all these conditions are verified in a given report, it is judged authentic. Through this immense and meticulous effort, the scholars of this nation were able to distinguish the authentic report from the weak one, the established from the fabricated.",
+    "term1-detail-p6":"This is exactly what makes the sanad one of the greatest distinguishing features of this religion, setting it apart from every other nation and tradition: no other nation transmitted its books and reports with this kind of sequential scientific precision, which allows a researcher to know exactly who said what, who heard it, when, and how. This — not mere hearsay — is the standard this site relies on to accept any historical report.",
+    "term2-h":"The Explicit Qur'anic Definition of \"Ahl al-Bayt\"",
+    "term2-detail-p1":"God says, with the angels addressing Abraham's wife Sarah:",
+    "term2-detail-p2":"\"Are you amazed at the decree of God? The mercy of God and His blessings be upon you, people of the house (ahl al-bayt). Indeed, He is Praiseworthy and Honorable.\" (Qur'an 11:73)",
+    "term2-detail-p3":"And God says, addressing the wives of the Prophet ﷺ:",
+    "term2-detail-p4":"\"And stay in your houses and do not display yourselves... God only wants to remove from you the impurity, O people of the house (ahl al-bayt), and to purify you with extensive purification.\" (Qur'an 33:33)",
+    "term2-detail-p5":"The highest level of Qur'anic interpretation is explaining the Qur'an through the Qur'an itself, and in these two verses there is an explicit text that what is meant here by \"ahl al-bayt\" are the wives specifically.",
+    "term2-detail-p6":"And in God's statement about the salvation of Lot, peace be upon him: \"So We saved him and his family (ahl), except his wife; she was of those who remained behind.\" (Qur'an 7:83), the word \"ahl\" here includes his wife, and she was excluded only due to her disbelief, not because she fell outside the term \"ahl\" in this verse.",
+    "term2-detail-p7":"It must be remembered that the Qur'an was revealed to a Bedouin Arab nation that grasped meanings through its natural linguistic instinct, without need for complexity or philosophizing. This nation's sensitivity to the meanings of words and the fine points of vocalization was extremely high — to the point that a single vocalization error in the Qur'an would deeply alarm a fluent Arab, because he would immediately realize the meaning had flipped into something impermissible to say. God's statement in Surat at-Tawbah, \"that God is free from obligation to the disbelievers and His Messenger,\" with the genitive case on \"His Messenger,\" means the Messenger ﷺ too is free from any obligation to the disbelievers; but if read in the nominative case instead, the meaning flips to \"God is free from His Messenger\" — something impossible to say, which is why our eloquent predecessors were alarmed upon hearing it misread. If this nation had such precision in understanding the vocalization of a single letter, how could it be assumed to err or overlook the meaning of a complete, explicit verse addressing it directly, such as the verse on \"ahl al-bayt\"?",
+    "term3-h":"Defining \"Al\" (Household/Followers)",
+    "term3-detail-p1":"Meaning: the followers. Restricting \"al\" to blood relations alone is not correct. God says:",
+    "term3-detail-p2":"\"And We seized the people (al) of Pharaoh with years of famine.\" (Qur'an 7:130)",
+    "term3-detail-p3":"and: \"Except the family (al) of Lot — We saved them all, except his wife; We destined her to be of those who remained behind.\" (Qur'an 15:59-60)",
+    "term3-detail-p4":"On this, the language scholar Nashwan al-Himyari composed verses arguing that the Prophet's \"al\" are the followers of his faith from every nation and people, and that if \"al\" meant blood relation alone, one could pray blessings even on a hostile relative like Abu Lahab — which no one holds to be correct.",
+    "term3-detail-p5":"Al-Fayruzabadi defines \"al\" in al-Qamus al-Muhit as: family, kinship, and followers.",
     "i2-h":"Tadlis: The Slow Poison in Our Lives",
     "i2-p":"How inaccurate information spreads daily around us, and why concealment in narration is more dangerous than we think.",
     "term-sanad":"chain of transmission (sanad)",
@@ -1354,17 +1493,31 @@ const translations = {
     "s1-title":"Bu Site Neden Var?",
     "s1-lede":"Herhangi bir şahsiyetten bahsetmeden önce, haberleri tarttığımız ölçüyü konuşmalıyız",
     "s1-p1":"İslam tarihindeki şahsiyetler hakkında - sahabeden komutanlara ve fetih önderlerine kadar - verilen birçok hüküm, sağlam delile değil, kimsenin doğrulamadığı rivayetlere dayanır. Bu site kimseyi duygusallıkla savunmaz; her iddiayı, hadis âlimlerinin asırlardır bildiği ve burada her okuyucu için sadeleştirdiğimiz titiz ilmî ölçütlerle yeniden inceler. Bu yöntemin temelini anlamak için aşağıdaki bölümleri okuyun.",
-    "i1-h":"Önemli Tanımlar",
-    "i1-p":"Sened, raviler, rivayetlerin kabul şartları ve reddedilme sebepleri — bu sitenin her sayfasında size eşlik edecek terimler.",
-    "i1-detail":"Sened, ravi, bir rivayetin kabul şartları ve reddedilme sebeplerinin ayrıntılı açıklaması buraya eklenecektir.",
-    "term1-h":"Sened",
-    "term1-detail":"[\"Sened\"in ayrıntılı tanımı buraya eklenecektir.]",
-    "term2-h":"Raviler",
-    "term2-detail":"[\"Ravi\"nin ayrıntılı tanımı buraya eklenecektir.]",
-    "term3-h":"Rivayetlerin Kabul Şartları",
-    "term3-detail":"[Bir rivayetin kabul şartlarının ayrıntılı açıklaması buraya eklenecektir.]",
-    "term4-h":"Rivayetlerin Reddedilme Sebepleri",
-    "term4-detail":"[Bir rivayetin reddedilme sebeplerinin ayrıntılı açıklaması buraya eklenecektir.]",
+    "i1-h":"Önemli Terimler",
+    "i1-p":"Sened, ehl-i beyt ve âl — bu sitenin her sayfasında size eşlik edecek terimler.",
+    "term1-h":"Sened Nedir",
+    "term1-detail-p1":"Sened, metne ulaşan ravilerin (nakledenlerin) oluşturduğu zincirdir. Bu ilmin büyüklüğü, uzman âlimlerin seneddeki her raviyi tek tek incelemesinde; her birinin dürüstlüğünü, ahlakını, niteliklerini, hafıza gücünü, gerçekten işitip işitmediğini, tedlis (gizleme) yapıp yapmadığını ve aynı rivayeti işiten diğer ravilerle çelişip çelişmediğini doğrulamalarındadır. Bu, senedi her türlü zayıflık ve yalan unsurundan ayıklamaya adanmış uzmanlık alanıdır.",
+    "term1-detail-p2":"Bilindiği üzere, asıl kaynaktan -Peygamber ﷺ'den- ne kadar uzaklaşılırsa, dindarlık ve güvenilirlik o kadar azalır, insanlar naklettikleri şeylerde kendi heveslerine o kadar çok uyarlar. Bu ilim, Allah'ın Resulü ﷺ ve sahabesi adına yalan söylemeye veya aldatmaya kalkışanlara karşı bir nöbetçi olmuştur - bu, Allah'ın şu vaadinin bir gerçekleşmesidir: \"Şüphesiz Zikr'i (Kur'an'ı) Biz indirdik, onu koruyacak olan da elbette Biziz.\" (Kur'an 15:9)",
+    "diagram1-label":"Açıklayıcı örnek: \"bana anlattı\" ile \"şu kişiden\" arasındaki fark",
+    "diagram2-label":"Hadisin doğuşundan Sünnet kitaplarına kadarki yolculuğu",
+    "term1-detail-p3":"Duyduğunuz bir haberin doğruluğunu teyit etmek istediğinizi düşünün. İlk sorduğunuz şey: bunu sana kim söyledi? Ona kim söyledi? Bunu bizzat mı işitti, yoksa başkasından mı naklediyor? Bir haberi söyleyenden size ulaştırana kadar geçen bu isimler zinciri, hadis âlimlerinin sened dediği şeydir.",
+    "term1-detail-p4":"Bu meselenin önemini kavramak için, Kur'an'ın kendisinin de sened yoluyla bize ulaştığını bilmek yeterlidir: nesilden nesile ezberlenip nakledilen, binlerce titiz hâfızın rivayetinin Peygamber ﷺ zamanından bugüne harf harf örtüştüğü bir miras. Hadiste senedin önemini küçümseyen kişi, Allah'ın kitabının korunduğu mekanizmanın ta kendisini küçümsediğini bilmelidir.",
+    "term1-detail-p5":"Bu şartların tümü bir rivayette doğrulandığında, o rivayet sahih kabul edilir. Bu muazzam ve titiz çabayla, bu ümmetin âlimleri sahih rivayeti zayıftan, sabit olanı asılsızdan ayırt edebilmiştir.",
+    "term1-detail-p6":"Senedi bu dinin en büyük özelliklerinden biri yapan ve onu diğer tüm milletlerden ve dinlerden ayıran tam olarak budur: hiçbir millet kitaplarını ve haberlerini, bir araştırmacının kimin ne söylediğini, kimin işittiğini, ne zaman ve nasıl olduğunu tam olarak bilmesini sağlayan bu türden zincirleme bir bilimsel titizlikle nakletmemiştir. Bu site, herhangi bir tarihî haberi kabul etmek için sadece \"söylendi\" türünden lafları değil, işte bu ölçüyü esas alır.",
+    "term2-h":"Ehl-i Beytin Açık Kur'anî Tanımı",
+    "term2-detail-p1":"Allah, meleklerin İbrahim'in hanımı Sare'ye hitaben söylediklerini şöyle bildirir:",
+    "term2-detail-p2":"\"Allah'ın emrine mi şaşıyorsun? Allah'ın rahmeti ve bereketi sizin üzerinizdedir, ey ev halkı (ehl-i beyt). O, Hamîd'dir, Mecîd'dir.\" (Kur'an 11:73)",
+    "term2-detail-p3":"Allah, Peygamberin hanımlarına hitaben de şöyle buyurur:",
+    "term2-detail-p4":"\"Evlerinizde durun ve açılıp saçılmayın... Allah ancak sizden kiri gidermek ve sizi tertemiz kılmak ister, ey ev halkı (ehl-i beyt).\" (Kur'an 33:33)",
+    "term2-detail-p5":"Kur'an'ın en üst düzey tefsiri, Kur'an'ı Kur'an ile açıklamaktır; bu iki âyette \"ehl-i beyt\" tabiriyle burada kastedilenin özellikle hanımlar olduğuna dair açık bir ifade vardır.",
+    "term2-detail-p6":"Allah'ın, Lût'un (a.s.) kurtuluşu hakkındaki şu sözünde: \"Böylece onu ve ailesini (ehl) kurtardık, hanımı hariç; o, geride kalanlardan oldu.\" (Kur'an 7:83), \"ehl\" lafzı hanımını da kapsamıştır; o, küfrü sebebiyle istisna edilmiştir, bu âyette \"ehl\" lafzının dışında kaldığı için değil.",
+    "term2-detail-p7":"Kur'an'ın, anlamları doğal dil sezgisiyle kavrayan, karmaşıklığa veya felsefeye ihtiyaç duymayan bedevi bir Arap topluma indiğini hatırlamak gerekir. Bu toplumun kelimelerin anlamlarına ve harekelerin inceliklerine duyduğu hassasiyet son derece yüksekti; öyle ki Kur'an'da bir harfin harekesindeki tek bir hata, akıcı bir Arabı derinden telaşlandırırdı, çünkü anlamın söylenmesi imkânsız bir şeye dönüştüğünü hemen kavrardı. Allah'ın Tevbe Suresi'ndeki, Allah'ın müşriklerden ve Resulünden uzak olduğunu bildiren ifadesinde \"Resulünden\" kelimesinin mecrur okunuşu, Peygamberin ﷺ de müşriklerden uzak olduğu anlamına gelir; ancak merfû okunsa anlam \"Allah, Resulünden uzaktır\" şeklinde tersine döner -ki bu söylenmesi mümkün olmayan bir şeydir- bu yüzden selefimizin fasih dilcileri bunu yanlış okunduğunda işitince telaşlanmışlardır. Bu toplum tek bir harfin harekesini anlamada bu denli titizse, kendisine doğrudan hitap eden, \"ehl-i beyt\" âyeti gibi açık ve tam bir anlamı yanlış anlayacağı veya gözden kaçıracağı nasıl düşünülebilir?",
+    "term3-h":"\"Âl\" Tanımı (Ehl-i Beyt/Tâbiler)",
+    "term3-detail-p1":"Yani tâbileri kastedilir; \"âl\"i sadece akrabalıkla sınırlandırmak doğru değildir. Allah şöyle buyurur:",
+    "term3-detail-p2":"\"Firavun ailesini (âl) yıllarca süren kıtlıkla cezalandırdık.\" (Kur'an 7:130)",
+    "term3-detail-p3":"ve: \"Lut ailesi (âl) müstesna; biz onların hepsini kurtardık, eşi hariç; o, geride kalanlardan oldu.\" (Kur'an 15:59-60)",
+    "term3-detail-p4":"Bu konuda dilbilimci Nişvan el-Himyerî, Peygamberin \"âl\"inin onun dinine tabi olan her milletten ve halktan kişiler olduğunu, eğer \"âl\" sadece akrabalık anlamına gelseydi, Ebu Leheb gibi düşman bir akrabaya da dua edilebileceğini, ki bunun kimse tarafından kabul edilmediğini belirten dizeler yazmıştır.",
+    "term3-detail-p5":"Fîruzâbâdî, el-Kâmûsu'l-Muhît'te \"âl\"i şöyle tanımlar: aile, akrabalık ve tâbiler.",
     "i2-h":"Tedlis: Hayatımızdaki Yavaş Zehir",
     "i2-p":"Yanlış bilginin günlük hayatımızda etrafımızda nasıl yayıldığı ve rivayette gizlemenin (tedlis) düşündüğümüzden neden daha tehlikeli olduğu.",
     "term-sanad":"sened",
@@ -1505,18 +1658,34 @@ window.addEventListener('load', updateActiveNav);
 function toggleAccordion(trigger, parentPanelToUpdate){
   const expanded = trigger.getAttribute('aria-expanded') === 'true';
   const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+  const wrapper = trigger.closest('li');
   trigger.setAttribute('aria-expanded', String(!expanded));
 
   if(expanded){
     panel.style.maxHeight = null;
+    if(wrapper) wrapper.classList.remove('is-open');
   } else {
     panel.style.maxHeight = panel.scrollHeight + 'px';
+    if(wrapper) wrapper.classList.add('is-open');
   }
 
   if(parentPanelToUpdate && parentPanelToUpdate.style.maxHeight){
     requestAnimationFrame(()=>{
       parentPanelToUpdate.style.maxHeight = parentPanelToUpdate.scrollHeight + 'px';
     });
+  }
+
+  // Auto-scroll the newly opened section into clear view, but only for
+  // top-level ladder items (not nested terms, to avoid jarring double-scrolls)
+  if(!expanded && wrapper && wrapper.classList.contains('term-item') === false){
+    setTimeout(()=>{
+      const rect = wrapper.getBoundingClientRect();
+      const navHeight = (document.querySelector('.navbar')?.offsetHeight || 0) + 12;
+      if(rect.top < navHeight || rect.top > window.innerHeight * 0.4){
+        const targetY = window.scrollY + rect.top - navHeight - 8;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
+    }, 80);
   }
 }
 
