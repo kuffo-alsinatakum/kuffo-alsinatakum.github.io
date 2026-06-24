@@ -1663,6 +1663,21 @@ window.addEventListener('scroll', updateActiveNav);
 window.addEventListener('load', updateActiveNav);
 
 // Two-level accordion behavior (criteria/intro ladder + nested term/example accordion)
+function recalcOpenAncestors(panel){
+  // Walk up through any open ancestor panels and refresh their max-height
+  // too, so a height change inside a nested panel doesn't get clipped by
+  // a parent panel that locked in a shorter height earlier.
+  let current = panel;
+  while(current){
+    const parentLi = current.closest('li');
+    const grandParentPanel = parentLi ? parentLi.parentElement.closest('.ladder-panel, .term-panel') : null;
+    if(grandParentPanel && grandParentPanel.style.maxHeight){
+      grandParentPanel.style.maxHeight = grandParentPanel.scrollHeight + 'px';
+    }
+    current = grandParentPanel;
+  }
+}
+
 function toggleAccordion(trigger, parentPanelToUpdate){
   const expanded = trigger.getAttribute('aria-expanded') === 'true';
   const panel = document.getElementById(trigger.getAttribute('aria-controls'));
@@ -1675,6 +1690,27 @@ function toggleAccordion(trigger, parentPanelToUpdate){
   } else {
     panel.style.maxHeight = panel.scrollHeight + 'px';
     if(wrapper) wrapper.classList.add('is-open');
+
+    // Images inside the panel (e.g. diagram illustrations) load
+    // asynchronously. The scrollHeight measured above is taken before
+    // they've finished loading, so it can lock in a height that's too
+    // short once the images render. Recalculate once each image is done.
+    const imgs = panel.querySelectorAll('img');
+    imgs.forEach(img=>{
+      if(img.complete){
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        recalcOpenAncestors(panel);
+      } else {
+        img.addEventListener('load', ()=>{
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          recalcOpenAncestors(panel);
+        });
+        img.addEventListener('error', ()=>{
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          recalcOpenAncestors(panel);
+        });
+      }
+    });
   }
 
   if(parentPanelToUpdate && parentPanelToUpdate.style.maxHeight){
