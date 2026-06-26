@@ -311,15 +311,13 @@
     margin:0 auto;
     padding:0 24px;
     display:grid;
-    grid-template-columns:1.1fr 1.2fr 1.1fr;
+    grid-template-columns:1.15fr 1.05fr 1.15fr;
     gap:24px;
-    align-items:stretch;
+    align-items:start;
   }
   .sanad-intro .side-image{
     position:sticky;
     top:90px;
-    display:flex;
-    flex-direction:column;
   }
   .sanad-intro .side-image-frame{
     position:relative;
@@ -327,8 +325,6 @@
     padding:6px;
     background:linear-gradient(135deg, var(--gold), var(--copper), var(--gold));
     box-shadow:0 14px 40px rgba(27,58,47,0.25);
-    flex:1;
-    display:flex;
   }
   .sanad-intro .side-image-frame::before{
     content:"";
@@ -344,15 +340,16 @@
     border-radius:10px;
     overflow:hidden;
     background:var(--olive-deep);
-    flex:1;
-    display:flex;
-    align-items:center;
   }
   .sanad-intro .side-image-inner img{
     width:100%;
-    height:100%;
-    object-fit:cover;
+    height:auto;
     display:block;
+    cursor:zoom-in;
+    transition:opacity 0.15s ease;
+  }
+  .sanad-intro .side-image-inner img:hover{
+    opacity:0.9;
   }
   .sanad-intro .side-image figcaption{
     text-align:center;
@@ -363,7 +360,6 @@
   @media (max-width:980px){
     .sanad-intro{grid-template-columns:1fr; max-width:var(--max-w);}
     .sanad-intro .side-image{position:static;}
-    .sanad-intro .side-image-inner img{height:auto; object-fit:initial;}
   }
   @media (max-width:600px){
     .sanad-intro .side-image-frame{padding:4px; border-radius:10px;}
@@ -420,6 +416,51 @@
   @media (max-width:600px){
     .page-card{padding:24px 18px;}
     header.page-hero{padding:20px 18px 16px;}
+  }
+
+  /* ===== Image lightbox (click to enlarge) ===== */
+  .lightbox-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(18,40,31,0.92);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+    padding:30px;
+    cursor:zoom-out;
+  }
+  .lightbox-overlay.open{
+    display:flex;
+  }
+  .lightbox-overlay img{
+    max-width:92vw;
+    max-height:92vh;
+    width:auto;
+    height:auto;
+    border-radius:10px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close{
+    position:absolute;
+    top:18px;
+    inset-inline-end:24px;
+    color:var(--parchment);
+    background:rgba(245,239,224,0.12);
+    border:1px solid rgba(245,239,224,0.3);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    font-size:1.4rem;
+    font-family:inherit;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+  }
+  .lightbox-close:hover{
+    background:rgba(245,239,224,0.22);
   }
 </style>
 </head>
@@ -489,7 +530,7 @@
     <figure class="side-image">
       <div class="side-image-frame">
         <div class="side-image-inner">
-          <img src="../images/sanad-tree-diagram.jpg" alt="شجرة توضح سلسلة الرواة وألفاظ السماع بين الرواة">
+          <img src="../images/sanad-tree-diagram.jpg" alt="شجرة توضح سلسلة الرواة وألفاظ السماع بين الرواة" onclick="openLightbox(this.src, this.alt)">
         </div>
       </div>
       <figcaption>شَجَرَةُ السَّنَدِ وَأَلْفَاظُ الرِّوَايَةِ بَيْنَ الرُّوَاةِ</figcaption>
@@ -502,7 +543,7 @@
     <figure class="side-image">
       <div class="side-image-frame">
         <div class="side-image-inner">
-          <img src="../images/hadith-journey-diagram.png" alt="رحلة الحديث النبوي من صدوره عن النبي صلى الله عليه وسلم إلى كتاب السنة">
+          <img src="../images/hadith-journey-diagram.png" alt="رحلة الحديث النبوي من صدوره عن النبي صلى الله عليه وسلم إلى كتاب السنة" onclick="openLightbox(this.src, this.alt)">
         </div>
       </div>
       <figcaption>رِحْلَةُ الْحَدِيثِ النَّبَوِيِّ مِنْ صُدُورِهِ إِلَى كُتُبِ السُّنَّةِ</figcaption>
@@ -533,6 +574,11 @@
   <p class="meta">© كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ — جميع الأبحاث مرجعة ومحدّثة باستمراً.</p>
 </footer>
 
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="إغلاق">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
 <script>
 (function(){
   const counterEl = document.getElementById('visitorCount');
@@ -550,6 +596,26 @@
     })
     .catch(() => { counterEl.textContent = '—'; });
 })();
+
+function openLightbox(src, alt){
+  const overlay = document.getElementById('lightboxOverlay');
+  const img = document.getElementById('lightboxImg');
+  img.src = src;
+  img.alt = alt || '';
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e){
+  if(e) e.stopPropagation();
+  const overlay = document.getElementById('lightboxOverlay');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeLightbox();
+});
 </script>
 
 </body>
