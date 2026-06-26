@@ -712,6 +712,7 @@ let lbStartX = 0;
 let lbStartY = 0;
 let lbPinchStartDist = 0;
 let lbPinchStartScale = 1;
+let lbFitScale = 1;
 
 const MIN_SCALE = 0.3;
 const MAX_SCALE = 20;
@@ -722,18 +723,41 @@ function applyTransform(){
   document.getElementById('lightboxZoomLevel').textContent = Math.round(lbScale * 100) + '%';
 }
 
+function computeFitScale(img){
+  const stage = document.getElementById('lightboxStage');
+  const stageW = stage.clientWidth * 0.94;
+  const stageH = stage.clientHeight * 0.94;
+  const naturalW = img.naturalWidth || stageW;
+  const naturalH = img.naturalHeight || stageH;
+  const scaleW = stageW / naturalW;
+  const scaleH = stageH / naturalH;
+  return Math.min(scaleW, scaleH, 1);
+}
+
 function openLightbox(src, alt){
   const overlay = document.getElementById('lightboxOverlay');
   const img = document.getElementById('lightboxImg');
   const downloadLink = document.getElementById('lightboxDownload');
-  img.src = src;
   img.alt = alt || '';
   downloadLink.href = src;
   downloadLink.setAttribute('download', src.split('/').pop());
-  lbScale = 1; lbX = 0; lbY = 0;
-  applyTransform();
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  img.onload = function(){
+    lbFitScale = computeFitScale(img);
+    lbScale = lbFitScale;
+    lbX = 0; lbY = 0;
+    applyTransform();
+  };
+  img.src = src;
+  // If the image was already loaded/cached, onload may not fire again — handle that case too.
+  if(img.complete && img.naturalWidth){
+    lbFitScale = computeFitScale(img);
+    lbScale = lbFitScale;
+    lbX = 0; lbY = 0;
+    applyTransform();
+  }
 }
 
 function closeLightbox(){
@@ -750,7 +774,7 @@ function zoomBy(direction){
 }
 
 function resetZoom(){
-  lbScale = 1; lbX = 0; lbY = 0;
+  lbScale = lbFitScale; lbX = 0; lbY = 0;
   applyTransform();
 }
 
