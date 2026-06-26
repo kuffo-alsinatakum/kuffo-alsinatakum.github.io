@@ -305,6 +305,62 @@
     max-width:var(--max-w);
   }
 
+  /* ===== Top section: image — text — image ===== */
+  .sanad-intro{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:0.62fr 1fr 0.62fr;
+    gap:28px;
+    align-items:start;
+  }
+  .sanad-intro .side-image{
+    position:sticky;
+    top:90px;
+  }
+  .sanad-intro .side-image-frame{
+    position:relative;
+    border-radius:14px;
+    padding:6px;
+    background:linear-gradient(135deg, var(--gold), var(--copper), var(--gold));
+    box-shadow:0 14px 40px rgba(27,58,47,0.25);
+  }
+  .sanad-intro .side-image-frame::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:16px;
+    background:linear-gradient(135deg, var(--gold), transparent 40%, var(--copper), transparent 70%, var(--gold));
+    z-index:-1;
+    opacity:0.6;
+    filter:blur(6px);
+  }
+  .sanad-intro .side-image-inner{
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--olive-deep);
+  }
+  .sanad-intro .side-image-inner img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .sanad-intro .side-image figcaption{
+    text-align:center;
+    margin-top:10px;
+    font-size:0.88rem;
+    color:var(--copper);
+  }
+  @media (max-width:980px){
+    .sanad-intro{grid-template-columns:1fr; max-width:var(--max-w);}
+    .sanad-intro .side-image{position:static;}
+  }
+  @media (max-width:600px){
+    .sanad-intro .side-image-frame{padding:4px; border-radius:10px;}
+    .sanad-intro .side-image-inner{border-radius:7px;}
+  }
+
   .diagram-grid{
     max-width:var(--max-w);
     margin:40px auto;
@@ -420,18 +476,28 @@
 
 <main>
 
-  <div class="page-split">
-    <div class="hero-illustration">
-      <div class="hero-illustration-frame">
-        <div class="hero-illustration-inner">
+  <div class="sanad-intro">
+    <figure class="side-image">
+      <div class="side-image-frame">
+        <div class="side-image-inner">
           <img src="../images/sanad-tree-diagram.jpg" alt="شجرة توضح سلسلة الرواة وألفاظ السماع بين الرواة">
         </div>
       </div>
-    </div>
+      <figcaption>شَجَرَةُ السَّنَدِ وَأَلْفَاظُ الرِّوَايَةِ بَيْنَ الرُّوَاةِ</figcaption>
+    </figure>
 
     <div class="page-card">
       <p>هُوَ سِلْسِلَةُ الرِّجَالِ (الرُّوَاةِ) الْمُوصِلَةُ لِلْمَتْنِ. وَمِنْ عَظَمَةِ هَذَا الْعِلْمِ أَنَّ الْعُلَمَاءَ الْمُتَخَصِّصِينَ يَدْرُسُونَ السَّنَدَ رَاوِياً رَاوِياً، فَيَتَأَكَّدُونَ مِنْ عَدَالَتِهِ، وَأَخْلَاقِهِ، وَصِفَاتِهِ، وَقُوَّةِ حِفْظِهِ، وَهَلْ سَمِعَ أَمْ لَا، وَهَلْ دَلَّسَ أَمْ لَا، وَهَلْ خَالَفَ غَيْرَهُ مِنَ الرُّوَاةِ الَّذِينَ سَمِعُوا نَفْسَ الْحَدِيثِ أَمْ لَا. عِلْمٌ مُتَخَصِّصٌ فِي تَمْحِيصِ وَتَنْقِيَةِ السَّنَدِ مِنْ كَافَّةِ عَوَامِلِ الضَّعْفِ وَالْكَذِبِ.</p>
     </div>
+
+    <figure class="side-image">
+      <div class="side-image-frame">
+        <div class="side-image-inner">
+          <img src="../images/hadith-journey-diagram.png" alt="رحلة الحديث النبوي من صدوره عن النبي صلى الله عليه وسلم إلى كتاب السنة">
+        </div>
+      </div>
+      <figcaption>رِحْلَةُ الْحَدِيثِ النَّبَوِيِّ مِنْ صُدُورِهِ إِلَى كُتُبِ السُّنَّةِ</figcaption>
+    </figure>
   </div>
 
   <div class="prose-block">
@@ -442,17 +508,6 @@
     <p>تَخَيَّلْ أَنَّكَ تُرِيدُ أَنْ تَتَأَكَّدَ مِنْ صِحَّةِ خَبَرٍ سَمِعْتَهُ. أَوَّلُ مَا تَسْأَلُهُ: مَنْ أَخْبَرَكَ بِهَذَا؟ وَمَنْ أَخْبَرَهُ هُوَ؟ وَهَلْ سَمِعَهُ بِنَفْسِهِ أَمْ نَقَلَهُ عَنْ غَيْرِهِ؟ هَذِهِ السِّلْسِلَةُ مِنَ الْأَسْمَاءِ، الَّتِي تَصِلُكَ بِهَا الرِّوَايَةُ مِنْ قَائِلِهَا الْأَوَّلِ حَتَّى مَنْ حَدَّثَكَ بِهَا، هِيَ مَا يُسَمِّيهِ عُلَمَاءُ الْحَدِيثِ السَّنَدَ.</p>
 
     <p>وَلِفَهْمِ خُطُورَةِ هَذَا الْأَمْرِ، يَكْفِي أَنْ تَعْلَمَ أَنَّ الْقُرْآنَ الْكَرِيمَ نَفْسَهُ وَصَلَ إِلَيْنَا بِالسَّنَدِ: جِيلٌ يَحْفَظُهُ وَيَنْقُلُهُ عَنْ جِيلٍ، وَآلَافٌ مِنَ الْحُفَّاظِ الْمُتْقِنِينَ تَوَافَقَتْ رِوَايَتُهُمْ حَرْفاً حَرْفاً مُنْذُ زَمَنِ النَّبِيِّ ﷺ حَتَّى يَوْمِنَا هَذَا. فَمَنْ يَسْتَهِينُ بِأَهَمِّيَّةِ السَّنَدِ فِي الْحَدِيثِ، عَلَيْهِ أَنْ يُدْرِكَ أَنَّهُ يَسْتَهِينُ بِالْآلِيَّةِ نَفْسِهَا الَّتِي حُفِظَ بِهَا كِتَابُ اللَّهِ.</p>
-  </div>
-
-  <div class="diagram-grid">
-    <figure class="diagram-card">
-      <img src="../images/sanad-tree-diagram.jpg" alt="مخطط شجرة السند وألفاظ الرواية بين الرواة">
-      <figcaption>شَجَرَةُ السَّنَدِ وَأَلْفَاظُ الرِّوَايَةِ بَيْنَ الرُّوَاةِ</figcaption>
-    </figure>
-    <figure class="diagram-card">
-      <img src="../images/hadith-journey-diagram.png" alt="رحلة الحديث النبوي من صدوره عن النبي صلى الله عليه وسلم إلى كتاب السنة">
-      <figcaption>رِحْلَةُ الْحَدِيثِ النَّبَوِيِّ مِنْ صُدُورِهِ إِلَى كُتُبِ السُّنَّةِ</figcaption>
-    </figure>
   </div>
 
   <hr class="section-rule">
