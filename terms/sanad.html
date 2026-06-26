@@ -673,9 +673,9 @@
   </div>
 
   <div class="lightbox-toolbar">
-    <button class="lightbox-btn" onclick="zoomBy(-0.25)" aria-label="تصغير">−</button>
+    <button class="lightbox-btn" onclick="zoomBy(-1)" aria-label="تصغير">−</button>
     <span class="lightbox-zoom-level" id="lightboxZoomLevel">100%</span>
-    <button class="lightbox-btn" onclick="zoomBy(0.25)" aria-label="تكبير">+</button>
+    <button class="lightbox-btn" onclick="zoomBy(1)" aria-label="تكبير">+</button>
     <button class="lightbox-btn" onclick="resetZoom()" aria-label="إعادة الضبط">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
     </button>
@@ -714,7 +714,7 @@ let lbPinchStartDist = 0;
 let lbPinchStartScale = 1;
 
 const MIN_SCALE = 0.3;
-const MAX_SCALE = 6;
+const MAX_SCALE = 20;
 
 function applyTransform(){
   const img = document.getElementById('lightboxImg');
@@ -742,8 +742,10 @@ function closeLightbox(){
   document.body.style.overflow = '';
 }
 
-function zoomBy(delta){
-  lbScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, lbScale + delta));
+function zoomBy(direction){
+  // direction: +1 to zoom in, -1 to zoom out. Step scales with current zoom so it stays responsive at high levels.
+  const step = Math.max(0.25, lbScale * 0.3);
+  lbScale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, lbScale + direction * step));
   applyTransform();
 }
 
@@ -824,8 +826,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
 document.addEventListener('keydown', function(e){
   if(e.key === 'Escape') closeLightbox();
-  if(e.key === '+' || e.key === '=') zoomBy(0.25);
-  if(e.key === '-') zoomBy(-0.25);
+  if(e.key === '+' || e.key === '=') zoomBy(1);
+  if(e.key === '-') zoomBy(-1);
 });
 </script>
 
