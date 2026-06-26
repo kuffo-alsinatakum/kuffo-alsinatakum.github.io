@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مُصْطَلَحَاتٌ هَامَّةٌ — كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:760px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Amiri','Lora',serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* ===== Top bar ===== */
+  .topbar{
+    background:var(--olive-deep);
+    color:var(--parchment);
+    padding:10px 24px;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:14px;
+    font-size:0.85rem;
+    border-bottom:1px solid rgba(201,162,39,0.25);
+  }
+  .topbar .brandmark{
+    grid-column:2;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    color:var(--gold);
+    font-family:'Amiri',serif;
+    font-weight:700;
+    font-size:1.18rem;
+    letter-spacing:0.015em;
+    text-shadow:0 1px 8px rgba(201,162,39,0.35);
+    white-space:nowrap;
+  }
+  .topbar .brandmark::before, .topbar .brandmark::after{
+    content:"❊";
+    font-size:0.7rem;
+    color:rgba(201,162,39,0.6);
+    flex-shrink:0;
+  }
+  .topbar-left{grid-column:1; justify-content:flex-start;}
+  .topbar-right{grid-column:3; justify-content:flex-end;}
+  @media (max-width:760px){
+    .topbar{grid-template-columns:1fr; text-align:center;}
+    .topbar-left, .topbar-right, .topbar .brandmark{grid-column:1; justify-content:center;}
+    .topbar .brandmark{font-size:1.02rem; order:-1; margin-bottom:6px;}
+  }
+
+  .topbar-right{display:flex; align-items:center; gap:18px;}
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button{
+    background:none;
+    border:1px solid rgba(245,239,224,0.3);
+    color:rgba(245,239,224,0.75);
+    font-size:0.78rem;
+    padding:3px 10px;
+    border-radius:14px;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .langswitch button.active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
+  .visitor-counter{
+    display:flex; align-items:center; gap:6px;
+    color:rgba(245,239,224,0.75);
+    font-size:0.8rem;
+    white-space:nowrap;
+  }
+  .visitor-counter svg{width:15px; height:15px; flex-shrink:0; color:var(--gold);}
+  .visitor-counter #visitorCount{color:var(--gold); font-weight:700;}
+  @media (max-width:600px){
+    .topbar{flex-wrap:wrap; gap:8px;}
+    .topbar-right{flex-wrap:wrap; gap:10px;}
+    .visitor-counter{font-size:0.74rem;}
+  }
+
+  /* ===== Navigation bar (sticky, identical across all pages) ===== */
+  .navbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--olive);
+    border-bottom:2px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12);
+    flex-wrap:wrap;
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85);
+    font-size:0.92rem;
+    padding:13px 18px;
+    display:inline-block;
+    border-bottom:3px solid transparent;
+    transition:color 0.2s, border-color 0.2s, background 0.2s;
+    white-space:nowrap;
+  }
+  .navbar a:hover{color:var(--gold); background:rgba(245,239,224,0.06); text-decoration:none;}
+  .navbar a.active-page{color:var(--gold); border-bottom-color:var(--gold); font-weight:600;}
+  .navbar a.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    color:var(--gold);
+    border-inline-end:1px solid rgba(245,239,224,0.25);
+    margin-inline-end:6px;
+    font-weight:600;
+  }
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0; transform:scaleX(-1);}
+  @media (max-width:700px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+    .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
+  }
+
+  /* ===== Breadcrumb ===== */
+  .breadcrumb{
+    max-width:var(--max-w);
+    margin:18px auto 0;
+    padding:0 24px;
+    font-size:0.85rem;
+    color:var(--copper);
+  }
+  .breadcrumb a{color:var(--copper); text-decoration:underline;}
+
+  /* ===== Page header ===== */
+  header.page-hero{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:26px 24px 22px;
+    text-align:center;
+  }
+  h1.page-title{
+    font-size:clamp(1.8rem, 4.5vw, 2.6rem);
+    margin:0;
+    color:var(--olive-deep);
+    font-weight:700;
+  }
+  p.page-subtitle{
+    max-width:var(--max-w);
+    margin:10px auto 0;
+    padding:0 24px;
+    text-align:center;
+    color:var(--copper);
+    font-size:1rem;
+    opacity:0.9;
+  }
+
+  /* ===== Ornamental divider ===== */
+  .ornament{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    margin:8px auto 30px; max-width:var(--max-w); padding:0 24px;
+    color:var(--copper); opacity:0.85;
+  }
+  .ornament .line{flex:1; height:1px; background:linear-gradient(to right, transparent, var(--copper) 50%, transparent);}
+  .ornament svg{width:24px; height:24px; flex-shrink:0;}
+
+  /* ===== Scrolling verse marquee ===== */
+  .verse-marquee{
+    background:linear-gradient(90deg, var(--olive-deep) 0%, #1a3a28 50%, var(--olive-deep) 100%);
+    border-top:2px solid var(--gold);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:14px 0;
+    position:relative;
+  }
+  .verse-marquee::before, .verse-marquee::after{
+    content:"";
+    position:absolute;
+    top:0; bottom:0;
+    width:60px;
+    z-index:2;
+    pointer-events:none;
+  }
+  .verse-marquee::before{left:0; background:linear-gradient(to right, var(--olive-deep), transparent);}
+  .verse-marquee::after{right:0; background:linear-gradient(to left, var(--olive-deep), transparent);}
+  .verse-marquee-track{
+    display:inline-flex;
+    align-items:center;
+    animation:marquee-scroll 38s linear infinite;
+    will-change:transform;
+  }
+  .verse-marquee-track span.v{
+    display:inline-block;
+    padding:0 48px;
+    font-family:'Amiri',serif;
+    font-size:1.15rem;
+    font-weight:700;
+    background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:shimmer-gold 4s linear infinite;
+  }
+  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
+  @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
+  @media (max-width:600px){
+    .verse-marquee-track span.v{font-size:0.95rem; padding:0 28px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .verse-marquee-track{animation:none;}
+  }
+
+  /* ===== Main content ===== */
+  main{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:0 24px 50px;
+  }
+
+  /* =====================================================
+     قائمة المصطلحات — أزرار رأسية قابلة للزيادة
+     لإضافة مصطلح جديد: انسخ بلوك <a class="term-btn">...</a>
+     كاملاً وعدّل href + الرقم + العنوان + الوصف.
+     لحذف مصطلح: احذف بلوكه بالكامل.
+     لا حاجة لتعديل أي CSS أو أي شيء آخر في الصفحة.
+     ===================================================== */
+  .terms-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  .term-btn{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-inline-start:5px solid var(--gold);
+    border-radius:8px;
+    padding:20px 24px;
+    box-shadow:0 4px 14px rgba(27,58,47,0.06);
+    transition:transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .term-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 22px rgba(27,58,47,0.13);
+    border-inline-start-color:var(--copper);
+    text-decoration:none;
+  }
+
+  .term-btn .term-number{
+    flex:0 0 auto;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:var(--olive-deep);
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:1.05rem;
+    font-family:'Amiri',serif;
+  }
+
+  .term-btn .term-body{
+    flex:1;
+    min-width:0;
+  }
+
+  .term-btn .term-title{
+    font-size:1.18rem;
+    font-weight:700;
+    color:var(--olive-deep);
+    margin:0 0 4px;
+  }
+
+  .term-btn .term-desc{
+    font-size:0.94rem;
+    color:var(--copper);
+    opacity:0.9;
+    margin:0;
+    line-height:1.6;
+  }
+
+  .term-btn .term-arrow{
+    flex:0 0 auto;
+    color:var(--gold);
+    transition:transform 0.18s ease;
+  }
+  .term-btn:hover .term-arrow{
+    transform:translateX(-4px);
+  }
+  .term-btn .term-arrow svg{
+    width:20px;
+    height:20px;
+    display:block;
+  }
+
+  @media (max-width:600px){
+    .term-btn{
+      padding:16px 16px;
+      gap:12px;
+    }
+    .term-btn .term-number{
+      width:36px;
+      height:36px;
+      font-size:0.92rem;
+    }
+    .term-btn .term-title{font-size:1.04rem;}
+    .term-btn .term-desc{font-size:0.88rem;}
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--olive-deep);
+    color:rgba(245,239,224,0.75);
+    padding:36px 24px 24px;
+    margin-top:40px;
+    text-align:center;
+    font-size:0.88rem;
+  }
+  footer .meta{opacity:0.7;}
+
+  @media (max-width:600px){
+    header.page-hero{padding:20px 18px 16px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left"></div>
+  <div class="brandmark">كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</div>
+  <div class="topbar-right">
+    <div class="langswitch">
+      <button class="active">العربية</button>
+      <button>English</button>
+      <button>Türkçe</button>
+    </div>
+    <div class="visitor-counter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>زوار الموقع:</span>
+      <span id="visitorCount">···</span>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>عودة للرئيسية</span>
+  </a>
+  <a href="../about/index.html">الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ</a>
+  <a href="index.html" class="active-page">مُصْطَلَحَاتٌ هَامَّةٌ</a>
+  <a href="../index.html#criteria">الْمَعَايِيرُ وَالضَّوَابِطُ</a>
+  <a href="../index.html#figures">الشَّخْصِيَّاتُ</a>
+  <a href="../index.html#contact">تَوَاصَلْ مَعَنَا</a>
+</nav>
+
+<div class="verse-marquee" aria-hidden="true">
+  <div class="verse-marquee-track">
+    <span class="v">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ — سورة الحجرات: ٦</span>
+    <span class="sep">—</span>
+    <span class="v">﴿لَّوْلَا إِذْ سَمِعْتُمُوهُ ظَنَّ الْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بِأَنفُسِهِمْ خَيْرًا وَقَالُوا هَـٰذَا إِفْكٌ مُّبِينٌ﴾ — سورة النور: ١٢</span>
+    <span class="sep">—</span>
+    <span class="v">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ — سورة الحجرات: ٦</span>
+    <span class="sep">—</span>
+    <span class="v">﴿لَّوْلَا إِذْ سَمِعْتُمُوهُ ظَنَّ الْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بِأَنفُسِهِمْ خَيْرًا وَقَالُوا هَـٰذَا إِفْكٌ مُّبِينٌ﴾ — سورة النور: ١٢</span>
+    <span class="sep">—</span>
+  </div>
+</div>
+
+<p class="breadcrumb">
+  <a href="../index.html">الرئيسية</a> ← مُصْطَلَحَاتٌ هَامَّةٌ
+</p>
+
+<header class="page-hero">
+  <h1 class="page-title">مُصْطَلَحَاتٌ هَامَّةٌ</h1>
+</header>
+
+<p class="page-subtitle">مَفَاهِيمُ أَسَاسِيَّةٌ يُبْنَى عَلَيْهَا مَنْهَجُ هَذَا الْمَوْقِعِ فِي التَّحَقُّقِ مِنَ الرِّوَايَاتِ التَّارِيخِيَّةِ</p>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<main>
+  <div class="terms-list">
+
+    <!-- ===== مصطلح 1 ===== -->
+    <a href="sanad.html" class="term-btn">
+      <span class="term-number">١</span>
+      <span class="term-body">
+        <span class="term-title">مَا هُوَ السَّنَدُ؟</span>
+        <span class="term-desc">سِلْسِلَةُ الرِّجَالِ الْمُوصِلَةُ لِلْمَتْنِ، وَمِيزَانُ قَبُولِ أَيِّ خَبَرٍ تَارِيخِيٍّ.</span>
+      </span>
+      <span class="term-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </span>
+    </a>
+
+    <!-- ===== مصطلح 2 ===== -->
+    <a href="ahl-albayt.html" class="term-btn">
+      <span class="term-number">٢</span>
+      <span class="term-body">
+        <span class="term-title">التَّعْرِيفُ الْقُرْآنِيُّ الصَّرِيحُ لِمُصْطَلَحِ «أَهْلِ الْبَيْتِ»</span>
+        <span class="term-desc">تَفْسِيرُ الْقُرْآنِ بِالْقُرْآنِ فِي تَحْدِيدِ الْمَقْصُودِينَ بِهَذَا اللَّفْظِ.</span>
+      </span>
+      <span class="term-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </span>
+    </a>
+
+    <!-- ===== مصطلح 3 ===== -->
+    <a href="aal.html" class="term-btn">
+      <span class="term-number">٣</span>
+      <span class="term-body">
+        <span class="term-title">تَعْرِيفُ «الْآلِ»</span>
+        <span class="term-desc">دَلَالَةُ اللَّفْظِ لُغَةً وَشَرْعاً، بَيْنَ الْأَتْبَاعِ وَالْقَرَابَةِ.</span>
+      </span>
+      <span class="term-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </span>
+    </a>
+
+    <!--
+    ===== لإضافة مصطلح جديد، انسخ القالب التالي وعدّله =====
+
+    <a href="NEW-FILE-NAME.html" class="term-btn">
+      <span class="term-number">٤</span>
+      <span class="term-body">
+        <span class="term-title">عُنْوَانُ الْمُصْطَلَحِ</span>
+        <span class="term-desc">وَصْفٌ مُخْتَصَرٌ سَطْرٌ وَاحِدٌ.</span>
+      </span>
+      <span class="term-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </span>
+    </a>
+    -->
+
+  </div>
+</main>
+
+<footer>
+  <p class="meta">© كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ — جميع الأبحاث مرجعة ومحدّثة باستمراً.</p>
+</footer>
+
+<script>
+(function(){
+  const counterEl = document.getElementById('visitorCount');
+  if(!counterEl) return;
+  const namespace = 'kuffo-alsinatakum-github-io';
+  const key = 'site-visits';
+  fetch(`https://countapi.mileshilliard.com/api/v1/hit/${namespace}_${key}`)
+    .then(res => res.json())
+    .then(data => {
+      if(data && typeof data.value === 'number'){
+        counterEl.textContent = data.value.toLocaleString();
+      } else {
+        counterEl.textContent = '—';
+      }
+    })
+    .catch(() => { counterEl.textContent = '—'; });
+})();
+</script>
+
+</body>
+</html>
