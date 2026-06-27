@@ -304,6 +304,74 @@
     color:var(--copper);
   }
 
+  /* ===== Closing advice — eye-catching golden spotlight box ===== */
+  .advice-spotlight{
+    position:relative;
+    max-width:var(--max-w);
+    margin:44px auto;
+    padding:36px 32px;
+    border-radius:16px;
+    background:linear-gradient(155deg, var(--olive-deep) 0%, #16332693 100%), var(--olive-deep);
+    box-shadow:
+      0 0 0 1px rgba(201,162,39,0.5),
+      0 18px 50px rgba(0,0,0,0.28),
+      0 0 60px rgba(201,162,39,0.18);
+    overflow:hidden;
+  }
+  .advice-spotlight::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(201,162,39,0.25), transparent 55%),
+      radial-gradient(circle at 100% 100%, rgba(201,162,39,0.15), transparent 55%);
+    pointer-events:none;
+  }
+  .advice-spotlight::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:16px;
+    border:1px solid rgba(201,162,39,0.35);
+    pointer-events:none;
+  }
+  .advice-spotlight .advice-icon{
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:54px;
+    height:54px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--gold), #f0d878);
+    box-shadow:0 6px 20px rgba(201,162,39,0.45);
+  }
+  .advice-spotlight .advice-icon svg{
+    width:28px;
+    height:28px;
+    color:var(--olive-deep);
+  }
+  .advice-spotlight p{
+    position:relative;
+    z-index:1;
+    margin:0;
+    text-align:center;
+    color:var(--parchment);
+    font-size:1.18rem;
+    line-height:2;
+    font-weight:700;
+  }
+  .advice-spotlight .advice-question{
+    color:var(--gold);
+    text-shadow:0 0 14px rgba(201,162,39,0.5);
+  }
+  @media (max-width:600px){
+    .advice-spotlight{padding:28px 22px;}
+    .advice-spotlight p{font-size:1.04rem;}
+  }
+
   hr.section-rule{
     border:none;
     border-top:1px solid var(--line);
@@ -560,7 +628,12 @@
   <div class="prose-block">
     <p>وَلَا تَقْتَصِرُ خُطُورَةُ التَّدْلِيسِ عَلَى رِوَايَةِ الْحَدِيثِ، بَلْ تَمْتَدُّ إِلَى الْحَيَاةِ الْيَوْمِيَّةِ؛ فَكَثِيراً مَا تُنْقَلُ الْأَخْبَارُ بِعِبَارَاتٍ تُوهِمُ الْيَقِينَ مِثْلَ: «قَالَ فُلَانٌ» أَوْ «سَمِعْتُ أَنَّ...» أَوْ «الْمَصْدَرُ مُؤَكَّدٌ»، بَيْنَمَا يَكُونُ النَّاقِلُ لَمْ يَسْمَعْ مِنَ الْمَصْدَرِ مُبَاشَرَةً، أَوِ اعْتَمَدَ عَلَى وَاسِطَةٍ مَجْهُولَةٍ، أَوْ نَقَلَ إِشَاعَةً غَيْرَ ثَابِتَةٍ.</p>
 
-    <p>فَإِذَا أَرَدْتَ أَنْ تُرِيحَ عَقْلَكَ وَقَلْبَكَ إِذَا سَمِعْتَ خَبَراً مِنْ أَيِّ إِنْسَانٍ كَائِناً مَنْ كَانَ، فَاسْأَلْهُ: هَلْ سَمِعْتَ أَوْ رَأَيْتَ؟ فَإِذَا طَبَّقْتَ هَذِهِ الْقَاعِدَةَ فِي حَيَاتِكَ سَتَتَفَاجَأُ بِكَمِّ الْأَخْبَارِ غَيْرِ الدَّقِيقَةِ الَّتِي كُنْتَ تَتَلَقَّاهَا وَتُصَدِّقُهَا، فَقَطْ لِأَنَّكَ تَثِقُ فِي الْقَائِلِ، وَتَنْسَى مَا هُوَ أَهَمُّ مِنَ الثِّقَةِ فِي الشَّخْصِ: كَيْفَ وَصَلَ إِلَيْهِ الْخَبَرُ؟</p>
+    <div class="advice-spotlight">
+      <span class="advice-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-1.5 2-2 3v1"/><circle cx="12" cy="17" r="0.6" fill="currentColor"/></svg>
+      </span>
+      <p>فَإِذَا أَرَدْتَ أَنْ تُرِيحَ عَقْلَكَ وَقَلْبَكَ إِذَا سَمِعْتَ خَبَراً مِنْ أَيِّ إِنْسَانٍ كَائِناً مَنْ كَانَ، فَاسْأَلْهُ: <span class="advice-question">هَلْ سَمِعْتَ أَوْ رَأَيْتَ؟</span> فَإِذَا طَبَّقْتَ هَذِهِ الْقَاعِدَةَ فِي حَيَاتِكَ سَتَتَفَاجَأُ بِكَمِّ الْأَخْبَارِ غَيْرِ الدَّقِيقَةِ الَّتِي كُنْتَ تَتَلَقَّاهَا وَتُصَدِّقُهَا، فَقَطْ لِأَنَّكَ تَثِقُ فِي الْقَائِلِ، وَتَنْسَى مَا هُوَ أَهَمُّ مِنَ الثِّقَةِ فِي الشَّخْصِ: كَيْفَ وَصَلَ إِلَيْهِ الْخَبَرُ؟</p>
+    </div>
   </div>
 
 </main>
