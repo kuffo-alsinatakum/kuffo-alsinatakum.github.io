@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تَوَاصَلْ مَعَنَا — كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:760px;
+    --danger:#8B3A2B;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Amiri','Lora',serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* ===== Top bar ===== */
+  .topbar{
+    background:var(--olive-deep);
+    color:var(--parchment);
+    padding:10px 24px;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:14px;
+    font-size:0.85rem;
+    border-bottom:1px solid rgba(201,162,39,0.25);
+  }
+  .topbar .brandmark{
+    grid-column:2;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    color:var(--gold);
+    font-family:'Amiri',serif;
+    font-weight:700;
+    font-size:1.18rem;
+    letter-spacing:0.015em;
+    text-shadow:0 1px 8px rgba(201,162,39,0.35);
+    white-space:nowrap;
+  }
+  .topbar .brandmark::before, .topbar .brandmark::after{
+    content:"❊";
+    font-size:0.7rem;
+    color:rgba(201,162,39,0.6);
+    flex-shrink:0;
+  }
+  .topbar-left{grid-column:1; justify-content:flex-start;}
+  .topbar-right{grid-column:3; justify-content:flex-end;}
+  @media (max-width:760px){
+    .topbar{grid-template-columns:1fr; text-align:center;}
+    .topbar-left, .topbar-right, .topbar .brandmark{grid-column:1; justify-content:center;}
+    .topbar .brandmark{font-size:1.02rem; order:-1; margin-bottom:6px;}
+  }
+
+  .topbar-right{display:flex; align-items:center; gap:18px;}
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button{
+    background:none;
+    border:1px solid rgba(245,239,224,0.3);
+    color:rgba(245,239,224,0.75);
+    font-size:0.78rem;
+    padding:3px 10px;
+    border-radius:14px;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .langswitch button.active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
+  .visitor-counter{
+    display:flex; align-items:center; gap:6px;
+    color:rgba(245,239,224,0.75);
+    font-size:0.8rem;
+    white-space:nowrap;
+  }
+  .visitor-counter svg{width:15px; height:15px; flex-shrink:0; color:var(--gold);}
+  .visitor-counter #visitorCount{color:var(--gold); font-weight:700;}
+  @media (max-width:600px){
+    .topbar{flex-wrap:wrap; gap:8px;}
+    .topbar-right{flex-wrap:wrap; gap:10px;}
+    .visitor-counter{font-size:0.74rem;}
+  }
+
+  /* ===== Navigation bar ===== */
+  .navbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--olive);
+    border-bottom:2px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12);
+    flex-wrap:wrap;
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85);
+    font-size:0.92rem;
+    padding:13px 18px;
+    display:inline-block;
+    border-bottom:3px solid transparent;
+    transition:color 0.2s, border-color 0.2s, background 0.2s;
+    white-space:nowrap;
+  }
+  .navbar a:hover{color:var(--gold); background:rgba(245,239,224,0.06); text-decoration:none;}
+  .navbar a.active-page{color:var(--gold); border-bottom-color:var(--gold); font-weight:600;}
+  @media (max-width:700px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+  }
+
+  /* ===== Breadcrumb ===== */
+  .breadcrumb{
+    max-width:var(--max-w);
+    margin:18px auto 0;
+    padding:0 24px;
+    font-size:0.85rem;
+    color:var(--copper);
+  }
+  .breadcrumb a{color:var(--copper); text-decoration:underline;}
+
+  /* ===== Page header ===== */
+  header.page-hero{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:26px 24px 22px;
+    text-align:center;
+  }
+  h1.page-title{
+    font-size:clamp(1.8rem, 4.5vw, 2.6rem);
+    margin:0;
+    color:var(--olive-deep);
+    font-weight:700;
+  }
+  p.page-subtitle{
+    max-width:var(--max-w);
+    margin:10px auto 0;
+    padding:0 24px;
+    text-align:center;
+    color:var(--copper);
+    font-size:1.02rem;
+  }
+
+  /* ===== Ornamental divider ===== */
+  .ornament{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    margin:8px auto 30px; max-width:var(--max-w); padding:0 24px;
+    color:var(--copper); opacity:0.85;
+  }
+  .ornament .line{flex:1; height:1px; background:linear-gradient(to right, transparent, var(--copper) 50%, transparent);}
+  .ornament svg{width:24px; height:24px; flex-shrink:0;}
+
+  /* ===== Scrolling verse marquee ===== */
+  .verse-marquee{
+    background:linear-gradient(90deg, var(--olive-deep) 0%, #1a3a28 50%, var(--olive-deep) 100%);
+    border-top:2px solid var(--gold);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:14px 0;
+    position:relative;
+  }
+  .verse-marquee::before, .verse-marquee::after{
+    content:"";
+    position:absolute;
+    top:0; bottom:0;
+    width:60px;
+    z-index:2;
+    pointer-events:none;
+  }
+  .verse-marquee::before{left:0; background:linear-gradient(to right, var(--olive-deep), transparent);}
+  .verse-marquee::after{right:0; background:linear-gradient(to left, var(--olive-deep), transparent);}
+  .verse-marquee-track{
+    display:inline-flex;
+    align-items:center;
+    animation:marquee-scroll 38s linear infinite;
+    will-change:transform;
+  }
+  .verse-marquee-track span.v{
+    display:inline-block;
+    padding:0 48px;
+    font-family:'Amiri',serif;
+    font-size:1.15rem;
+    font-weight:700;
+    background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:shimmer-gold 4s linear infinite;
+  }
+  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
+  @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
+  @media (max-width:600px){
+    .verse-marquee-track span.v{font-size:0.95rem; padding:0 28px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .verse-marquee-track{animation:none;}
+  }
+
+  /* ===== Main content ===== */
+  main{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 24px 60px;
+  }
+  .contact-split{
+    display:grid;
+    grid-template-columns:0.8fr 1.2fr;
+    gap:32px;
+    align-items:start;
+  }
+
+  .page-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:32px 30px;
+    box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+
+  /* ===== Info card (right-hand side visually, first in RTL) ===== */
+  .info-card p{margin:0 0 18px; font-size:1.02rem; color:var(--ink);}
+  .info-card p:last-child{margin-bottom:0;}
+  .info-list{list-style:none; margin:22px 0 0; padding:0; display:flex; flex-direction:column; gap:14px;}
+  .info-list li{display:flex; align-items:center; gap:12px; font-size:0.98rem;}
+  .info-list svg{width:19px; height:19px; flex-shrink:0; color:var(--gold);}
+  .info-list a{color:var(--ink); font-weight:600;}
+  .info-list a:hover{color:var(--copper);}
+
+  /* ===== Form ===== */
+  .form-group{margin-bottom:20px;}
+  .form-group label{
+    display:block;
+    font-size:0.95rem;
+    font-weight:600;
+    color:var(--olive-deep);
+    margin-bottom:7px;
+  }
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea{
+    width:100%;
+    font-family:'Lora','Amiri',serif;
+    font-size:0.98rem;
+    color:var(--ink);
+    background:var(--parchment);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:11px 14px;
+    transition:border-color 0.2s, box-shadow 0.2s;
+  }
+  .form-group input.field-error{
+    border-color:var(--danger);
+    box-shadow:0 0 0 3px rgba(139,58,43,0.12);
+  }
+  .field-error-msg{
+    display:none;
+    margin-top:6px;
+    font-size:0.85rem;
+    color:var(--danger);
+  }
+  .field-error-msg.show{display:block;}
+  .form-group input:focus,
+  .form-group textarea:focus{
+    outline:none;
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(201,162,39,0.18);
+  }
+  .form-group textarea{min-height:140px; resize:vertical; line-height:1.7;}
+
+  /* File upload (custom styled) */
+  .file-drop{
+    border:1.5px dashed var(--copper);
+    border-radius:8px;
+    padding:20px;
+    text-align:center;
+    background:var(--parchment-deep);
+    cursor:pointer;
+    transition:border-color 0.2s, background 0.2s;
+  }
+  .file-drop:hover, .file-drop.dragover{border-color:var(--gold); background:#f2e9cf;}
+  .file-drop input[type="file"]{display:none;}
+  .file-drop-label{display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--copper); font-size:0.92rem;}
+  .file-drop-label svg{width:26px; height:26px; color:var(--gold);}
+  .file-drop-hint{font-size:0.8rem; color:rgba(42,33,24,0.6); margin-top:4px;}
+  .file-name-display{
+    margin-top:12px;
+    font-size:0.9rem;
+    color:var(--olive-deep);
+    font-weight:600;
+    display:none;
+  }
+  .file-name-display.show{display:block;}
+
+  .submit-btn{
+    width:100%;
+    background:var(--olive);
+    color:var(--parchment);
+    border:none;
+    border-radius:6px;
+    padding:14px 20px;
+    font-family:'Amiri','Lora',serif;
+    font-size:1.02rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:background 0.2s, transform 0.1s;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+  }
+  .submit-btn:hover{background:var(--olive-deep);}
+  .submit-btn:active{transform:scale(0.99);}
+  .submit-btn:disabled{opacity:0.6; cursor:not-allowed;}
+  .submit-btn svg{width:18px; height:18px;}
+
+  .form-status{
+    margin-top:16px;
+    padding:13px 16px;
+    border-radius:6px;
+    font-size:0.92rem;
+    display:none;
+  }
+  .form-status.show{display:block;}
+  .form-status.success{background:rgba(27,58,47,0.08); color:var(--olive-deep); border:1px solid rgba(27,58,47,0.2);}
+  .form-status.error{background:rgba(139,58,43,0.08); color:var(--danger); border:1px solid rgba(139,58,43,0.2);}
+
+  @media (max-width:880px){
+    .contact-split{grid-template-columns:1fr;}
+    .info-card{order:2;}
+  }
+  @media (max-width:600px){
+    .page-card{padding:24px 18px;}
+    header.page-hero{padding:20px 18px 16px;}
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--olive-deep);
+    color:rgba(245,239,224,0.75);
+    padding:36px 24px 24px;
+    margin-top:40px;
+    text-align:center;
+    font-size:0.88rem;
+  }
+  footer .meta{opacity:0.7;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left"></div>
+  <div class="brandmark">كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</div>
+  <div class="topbar-right">
+    <div class="langswitch">
+      <button class="active">العربية</button>
+      <button>English</button>
+      <button>Türkçe</button>
+    </div>
+    <div class="visitor-counter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>زوار الموقع:</span>
+      <span id="visitorCount">···</span>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="../about/index.html">الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ</a>
+  <a href="../terms/index.html">مُصْطَلَحَاتٌ هَامَّةٌ</a>
+  <a href="../standards/index.html">الْمَعَايِيرُ وَالضَّوَابِطُ</a>
+  <a href="../figures/index.html">الشَّخْصِيَّاتُ</a>
+  <a href="../contact/index.html" class="active-page">تَوَاصَلْ مَعَنَا</a>
+</nav>
+
+<div class="verse-marquee" aria-hidden="true">
+  <div class="verse-marquee-track">
+    <span class="v">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ — سورة الحجرات: ٦</span>
+    <span class="sep">—</span>
+    <span class="v">﴿لَّوْلَا إِذْ سَمِعْتُمُوهُ ظَنَّ الْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بِأَنفُسِهِمْ خَيْرًا وَقَالُوا هَـٰذَا إِفْكٌ مُّبِينٌ﴾ — سورة النور: ١٢</span>
+    <span class="sep">—</span>
+    <span class="v">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ — سورة الحجرات: ٦</span>
+    <span class="sep">—</span>
+    <span class="v">﴿لَّوْلَا إِذْ سَمِعْتُمُوهُ ظَنَّ الْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بِأَنفُسِهِمْ خَيْرًا وَقَالُوا هَـٰذَا إِفْكٌ مُّبِينٌ﴾ — سورة النور: ١٢</span>
+    <span class="sep">—</span>
+  </div>
+</div>
+
+<p class="breadcrumb">
+  <a href="../index.html">الرئيسية</a> ← تَوَاصَلْ مَعَنَا
+</p>
+
+<header class="page-hero">
+  <h1 class="page-title">تَوَاصَلْ مَعَنَا</h1>
+</header>
+<p class="page-subtitle">ملاحظة علمية، تصحيح، أو استفسار؟ يسعدنا أن نسمع منك</p>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<main>
+<div class="contact-split">
+
+  <div class="page-card info-card">
+    <p>نرحّب بتواصلكم معنا في أي وقت، ونؤكد أن هدف هذا الموقع هو البحث عن الحقيقة والتحقق العلمي الرصين من الروايات والمزاعم التاريخية، سواء كانت تتعلق باتهام أو بفضيلة أو منقبة.</p>
+    <p>إذا كان لديك دليل أو مصدر علمي يساوي أو يفوق المعايير والمنهجية المعتمدة لدينا، فنحن نرحّب به بكل تقدير واهتمام، ونسعد بمراجعته ومناقشته بموضوعية.</p>
+    <p>كما نؤكد أن هذا الموقع ليس ساحة للجدل أو الانتصار للآراء المسبقة، بل هو مساحة مخصّصة للتحقيق والتمحيص، ونشر الفهم المبني على الدليل.</p>
+    <p>نؤمن أن المعرفة تُبنى بالتعاون وتبادل المصادر، ولذلك نرحّب بإسهاماتكم التي تساعد على الوصول إلى صورة أدق وأوضح للحقيقة.</p>
+    <p>يمكنك أيضًا إرفاق مستند أو صورة مع رسالتك — كملف Word، PDF، أو صورة إسناد — وسيصل مباشرة إلى فريق الموقع.</p>
+    <ul class="info-list">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+        <span>نراجع كل رسالة بعناية ونرد خلال أيام قليلة بإذن الله.</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-card form-card">
+    <form id="contactForm">
+      <input type="hidden" name="access_key" value="13fc3fb9-cf97-41cb-9dc1-5e6a774a4d17">
+      <input type="hidden" name="subject" value="رسالة جديدة من موقع كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ">
+      <input type="checkbox" name="botcheck" style="display:none">
+
+      <div class="form-group">
+        <label for="name">الاسم</label>
+        <input type="text" id="name" name="name" required autocomplete="name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">البريد الإلكتروني</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+        <span class="field-error-msg" id="emailError">الرجاء إدخال بريد إلكتروني صحيح (مثال: name@example.com)</span>
+      </div>
+
+      <div class="form-group">
+        <label for="message">الرسالة</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="attachment">إرفاق مستند أو صورة (اختياري)</label>
+        <div class="file-drop" id="fileDrop">
+          <label class="file-drop-label" for="attachment">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v12"/><path d="M7 8l5-5 5 5"/><path d="M5 21h14"/></svg>
+            <span>اضغط لاختيار ملف، أو اسحبه هنا</span>
+            <span class="file-drop-hint">PDF، Word، JPG، PNG — بحد أقصى 5 ميجابايت</span>
+          </label>
+          <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+        </div>
+        <div class="file-name-display" id="fileNameDisplay"></div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span id="submitBtnText">إرسال الرسالة</span>
+      </button>
+
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </div>
+
+</div>
+</main>
+
+<footer>
+  <p class="meta">© كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ — جميع الأبحاث مرجعة ومحدّثة باستمرار.</p>
+</footer>
+
+<script>
+(function(){
+  const counterEl = document.getElementById('visitorCount');
+  if(counterEl){
+    const namespace = 'kuffo-alsinatakum-github-io';
+    const key = 'site-visits';
+    fetch(`https://countapi.mileshilliard.com/api/v1/hit/${namespace}_${key}`)
+      .then(res => res.json())
+      .then(data => {
+        if(data && typeof data.value === 'number'){
+          counterEl.textContent = data.value.toLocaleString();
+        } else {
+          counterEl.textContent = '—';
+        }
+      })
+      .catch(() => { counterEl.textContent = '—'; });
+  }
+})();
+
+(function(){
+  const fileInput = document.getElementById('attachment');
+  const fileDrop = document.getElementById('fileDrop');
+  const fileNameDisplay = document.getElementById('fileNameDisplay');
+  const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+
+  fileInput.addEventListener('change', function(){
+    if(fileInput.files.length){
+      const file = fileInput.files[0];
+      if(file.size > MAX_SIZE){
+        fileNameDisplay.textContent = 'الملف كبير جدًا (الحد الأقصى 5 ميجابايت). الرجاء اختيار ملف آخر.';
+        fileNameDisplay.classList.add('show');
+        fileInput.value = '';
+        return;
+      }
+      fileNameDisplay.textContent = 'الملف المختار: ' + file.name;
+      fileNameDisplay.classList.add('show');
+    } else {
+      fileNameDisplay.classList.remove('show');
+    }
+  });
+
+  ['dragover','dragenter'].forEach(evt => {
+    fileDrop.addEventListener(evt, function(e){
+      e.preventDefault();
+      fileDrop.classList.add('dragover');
+    });
+  });
+  ['dragleave','drop'].forEach(evt => {
+    fileDrop.addEventListener(evt, function(e){
+      e.preventDefault();
+      fileDrop.classList.remove('dragover');
+    });
+  });
+  fileDrop.addEventListener('drop', function(e){
+    if(e.dataTransfer.files.length){
+      fileInput.files = e.dataTransfer.files;
+      fileInput.dispatchEvent(new Event('change'));
+    }
+  });
+})();
+
+(function(){
+  const form = document.getElementById('contactForm');
+  const emailInput = document.getElementById('email');
+  const emailError = document.getElementById('emailError');
+  const submitBtn = document.getElementById('submitBtn');
+  const submitBtnText = document.getElementById('submitBtnText');
+  const statusBox = document.getElementById('formStatus');
+
+  const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function isValidFormat(value){
+    return EMAIL_PATTERN.test(value.trim());
+  }
+
+  function showEmailError(msg){
+    emailInput.classList.add('field-error');
+    emailError.textContent = msg;
+    emailError.classList.add('show');
+  }
+
+  function clearEmailError(){
+    emailInput.classList.remove('field-error');
+    emailError.classList.remove('show');
+  }
+
+  function domainHasMX(domain){
+    return fetch('https://dns.google/resolve?name=' + encodeURIComponent(domain) + '&type=MX')
+      .then(res => res.json())
+      .then(data => Array.isArray(data.Answer) && data.Answer.length > 0)
+      .catch(() => true); // if DNS check itself fails, don't block the user
+  }
+
+  emailInput.addEventListener('input', function(){
+    if(isValidFormat(emailInput.value)){
+      clearEmailError();
+    }
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const emailValue = emailInput.value.trim();
+
+    if(!isValidFormat(emailValue)){
+      showEmailError('الرجاء إدخال بريد إلكتروني صحيح (مثال: name@example.com)');
+      emailInput.focus();
+      return;
+    }
+
+    const domain = emailValue.split('@')[1];
+    submitBtn.disabled = true;
+    submitBtnText.textContent = 'جارٍ التحقق من البريد…';
+
+    domainHasMX(domain).then(function(valid){
+      if(!valid){
+        showEmailError('نطاق البريد الإلكتروني غير موجود. الرجاء التحقق من صحة البريد.');
+        emailInput.focus();
+        submitBtn.disabled = false;
+        submitBtnText.textContent = 'إرسال الرسالة';
+        return;
+      }
+      clearEmailError();
+
+      submitBtnText.textContent = 'جارٍ الإرسال…';
+      statusBox.classList.remove('show','success','error');
+
+      const formData = new FormData(form);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.success){
+          statusBox.textContent = 'تم إرسال رسالتك بنجاح. جزاك الله خيرًا، سنتواصل معك قريبًا.';
+          statusBox.classList.add('show','success');
+          form.reset();
+          document.getElementById('fileNameDisplay').classList.remove('show');
+        } else {
+          statusBox.textContent = 'حدث خطأ أثناء إرسال الرسالة. الرجاء المحاولة مرة أخرى.';
+          statusBox.classList.add('show','error');
+        }
+      })
+      .catch(() => {
+        statusBox.textContent = 'تعذّر الاتصال بالخادم. تحقق من اتصالك بالإنترنت وحاول مجددًا.';
+        statusBox.classList.add('show','error');
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtnText.textContent = 'إرسال الرسالة';
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
