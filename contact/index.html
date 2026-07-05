@@ -129,9 +129,20 @@
   }
   .navbar a:hover{color:var(--gold); background:rgba(245,239,224,0.06); text-decoration:none;}
   .navbar a.active-page{color:var(--gold); border-bottom-color:var(--gold); font-weight:600;}
+  .navbar a.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    color:var(--gold);
+    border-inline-end:1px solid rgba(245,239,224,0.25);
+    margin-inline-end:6px;
+    font-weight:600;
+  }
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0; transform:scaleX(-1);}
   @media (max-width:700px){
     .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
     .navbar a{padding:12px 12px; font-size:0.84rem;}
+    .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
   }
 
   /* ===== Breadcrumb ===== */
@@ -389,6 +400,10 @@
 </div>
 
 <nav class="navbar">
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>عودة للرئيسية</span>
+  </a>
   <a href="../about/index.html">الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ</a>
   <a href="../terms/index.html">مُصْطَلَحَاتٌ هَامَّةٌ</a>
   <a href="../standards/index.html">الْمَعَايِيرُ وَالضَّوَابِطُ</a>
