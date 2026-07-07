@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تحقّق البشارة النبوية بفتح القسطنطينية — السلطان محمد الفاتح رحمه الله — كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:760px;
+    --max-w-wide:980px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--parchment); color:var(--ink);
+    font-family:'Amiri','Lora',serif; line-height:1.85; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .topbar{
+    background:var(--olive-deep); color:var(--parchment); padding:10px 24px;
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px;
+    font-size:0.85rem; border-bottom:1px solid rgba(201,162,39,0.25);
+  }
+  .topbar .brandmark{
+    grid-column:2; display:flex; align-items:center; justify-content:center; gap:10px;
+    color:var(--gold); font-family:'Amiri',serif; font-weight:700; font-size:1.18rem;
+    letter-spacing:0.015em; text-shadow:0 1px 8px rgba(201,162,39,0.35); white-space:nowrap;
+  }
+  .topbar .brandmark::before, .topbar .brandmark::after{content:"❊"; font-size:0.7rem; color:rgba(201,162,39,0.6); flex-shrink:0;}
+  .topbar-left{grid-column:1; justify-content:flex-start;}
+  .topbar-right{grid-column:3; justify-content:flex-end; display:flex; align-items:center; gap:18px;}
+  @media (max-width:760px){
+    .topbar{grid-template-columns:1fr; text-align:center;}
+    .topbar-left, .topbar-right, .topbar .brandmark{grid-column:1; justify-content:center;}
+    .topbar .brandmark{font-size:1.02rem; order:-1; margin-bottom:6px;}
+  }
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button{
+    background:none; border:1px solid rgba(245,239,224,0.3); color:rgba(245,239,224,0.75);
+    font-size:0.78rem; padding:3px 10px; border-radius:14px; cursor:pointer; font-family:inherit;
+  }
+  .langswitch button.active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
+  .visitor-counter{display:flex; align-items:center; gap:6px; color:rgba(245,239,224,0.75); font-size:0.8rem; white-space:nowrap;}
+  .visitor-counter svg{width:15px; height:15px; flex-shrink:0; color:var(--gold);}
+  .visitor-counter #visitorCount{color:var(--gold); font-weight:700;}
+  @media (max-width:600px){
+    .topbar{flex-wrap:wrap; gap:8px;}
+    .topbar-right{flex-wrap:wrap; gap:10px;}
+    .visitor-counter{font-size:0.74rem;}
+  }
+
+  .navbar{
+    position:sticky; top:0; z-index:50; background:var(--olive); border-bottom:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; gap:6px; padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12); flex-wrap:wrap;
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85); font-size:0.92rem; padding:13px 18px; display:inline-block;
+    border-bottom:3px solid transparent; transition:color 0.2s, border-color 0.2s, background 0.2s; white-space:nowrap;
+  }
+  .navbar a:hover{color:var(--gold); background:rgba(245,239,224,0.06); text-decoration:none;}
+  .navbar a.active-page{color:var(--gold); border-bottom-color:var(--gold); font-weight:600;}
+  .navbar a.back-link{
+    display:inline-flex; align-items:center; gap:7px; color:var(--gold);
+    border-inline-end:1px solid rgba(245,239,224,0.25); margin-inline-end:6px; font-weight:600;
+  }
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0; transform:scaleX(-1);}
+  @media (max-width:700px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+    .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
+  }
+
+  .breadcrumb{max-width:var(--max-w-wide); margin:18px auto 0; padding:0 24px; font-size:0.85rem; color:var(--copper);}
+  .breadcrumb a{color:var(--copper); text-decoration:underline;}
+
+  header.page-hero{max-width:var(--max-w-wide); margin:0 auto; padding:26px 24px 18px; text-align:center;}
+  h1.page-title{font-size:clamp(1.6rem, 4vw, 2.3rem); margin:0; color:var(--olive-deep); font-weight:700;}
+  p.page-subtitle{max-width:var(--max-w); margin:14px auto 0; color:var(--copper); font-size:1rem;}
+
+  /* claim statement badge under title */
+  .claim-statement{
+    max-width:var(--max-w); margin:18px auto 0; background:var(--parchment-deep);
+    border-right:4px solid var(--gold); border-radius:6px; padding:14px 18px;
+    font-size:0.98rem; color:var(--ink); text-align:right;
+  }
+  .claim-statement b{color:var(--olive-deep);}
+
+  .ornament{display:flex; align-items:center; justify-content:center; gap:14px; margin:8px auto 30px; max-width:var(--max-w); padding:0 24px; color:var(--copper); opacity:0.85;}
+  .ornament .line{flex:1; height:1px; background:linear-gradient(to right, transparent, var(--copper) 50%, transparent);}
+  .ornament svg{width:24px; height:24px; flex-shrink:0;}
+
+  .verse-marquee{
+    background:linear-gradient(90deg, var(--olive-deep) 0%, #1a3a28 50%, var(--olive-deep) 100%);
+    border-top:2px solid var(--gold); overflow:hidden; white-space:nowrap; padding:14px 0; position:relative;
+  }
+  .verse-marquee::before, .verse-marquee::after{content:""; position:absolute; top:0; bottom:0; width:60px; z-index:2; pointer-events:none;}
+  .verse-marquee::before{left:0; background:linear-gradient(to right, var(--olive-deep), transparent);}
+  .verse-marquee::after{right:0; background:linear-gradient(to left, var(--olive-deep), transparent);}
+  .verse-marquee-track{display:inline-flex; align-items:center; animation:marquee-scroll 38s linear infinite; will-change:transform;}
+  .verse-marquee-track span.v{
+    display:inline-block; padding:0 48px; font-family:'Amiri',serif; font-size:1.15rem; font-weight:700;
+    background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227); background-size:200% auto;
+    -webkit-background-clip:text; background-clip:text; color:transparent; animation:shimmer-gold 4s linear infinite;
+  }
+  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
+  @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
+  @media (max-width:600px){.verse-marquee-track span.v{font-size:0.95rem; padding:0 28px;}}
+  @media (prefers-reduced-motion: reduce){.verse-marquee-track{animation:none;}}
+
+  main{max-width:var(--max-w-wide); margin:0 auto; padding:0 24px 50px;}
+
+  /* ===== Table of contents ===== */
+  .toc-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:22px 26px; margin-bottom:32px; box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .toc-card h2{margin:0 0 12px; font-size:1.1rem; color:var(--olive-deep); font-weight:700;}
+  .toc-card ol{margin:0; padding-inline-start:22px; columns:2; column-gap:28px;}
+  .toc-card li{margin-bottom:8px; font-size:0.94rem; break-inside:avoid;}
+  @media (max-width:640px){.toc-card ol{columns:1;}}
+
+  .page-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:32px 30px; box-shadow:0 4px 16px rgba(27,58,47,0.06); margin-bottom:28px;
+  }
+  .page-card h2{margin:0 0 16px; font-size:1.3rem; color:var(--olive-deep); font-weight:700; scroll-margin-top:80px;}
+  .page-card h3{margin:22px 0 10px; font-size:1.08rem; color:var(--olive-deep); font-weight:700;}
+  .page-card p{margin:0 0 16px; font-size:1.04rem;}
+  .page-card p:last-child{margin-bottom:0;}
+  .page-card ul, .page-card ol.content-list{margin:0 0 16px; padding-inline-start:24px;}
+  .page-card li{margin-bottom:6px;}
+
+  blockquote.src-quote{
+    margin:0 0 18px; padding:12px 18px; background:var(--parchment-deep);
+    border-right:3px solid var(--copper); border-radius:6px; font-size:0.98rem; color:var(--ink);
+  }
+  blockquote.src-quote cite{display:block; margin-top:8px; font-size:0.82rem; color:var(--copper); font-style:normal;}
+
+  table.data-table{width:100%; border-collapse:collapse; margin:0 0 18px; font-size:0.94rem;}
+  table.data-table th, table.data-table td{border:1px solid var(--line); padding:9px 12px; text-align:right;}
+  table.data-table th{background:var(--parchment-deep); color:var(--olive-deep); font-weight:700;}
+  table.data-table tbody tr:nth-child(even){background:rgba(236,226,200,0.35);}
+
+  .footnote{font-size:0.82rem; color:var(--copper); border-top:1px dashed var(--line); padding-top:10px; margin-top:10px;}
+
+  /* ===== Narrator jarh/ta'deel block ===== */
+  .narrator-block{
+    background:var(--parchment-deep); border-radius:8px; border-right:4px solid var(--olive);
+    padding:18px 22px; margin:0 0 18px;
+  }
+  .narrator-block h3{margin:0 0 12px !important; font-size:1.05rem; color:var(--olive-deep); font-weight:700;}
+  .narrator-block p{margin:0 0 10px; font-size:0.98rem;}
+  .narrator-block p:last-child{margin-bottom:0;}
+  .narrator-block p b{color:var(--olive-deep);}
+
+  /* ===== No-isnad professional notice ===== */
+  .no-isnad-notice{
+    background:var(--parchment-deep); border-right:4px solid var(--copper);
+    border-radius:6px; padding:16px 20px; margin:0 0 18px;
+  }
+  .no-isnad-notice p{margin:0; font-size:0.98rem; color:var(--ink);}
+  .no-isnad-notice p b{color:var(--olive-deep);}
+
+  /* ===== Image gallery + lightbox ===== */
+  .fig-gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin:0 0 8px;}
+  .fig-item{text-align:center;}
+  .fig-item img{
+    width:100%; height:auto; border-radius:8px; border:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(27,58,47,0.1); cursor:zoom-in; transition:box-shadow 0.2s ease;
+  }
+  .fig-item img:hover{box-shadow:0 8px 24px rgba(27,58,47,0.18);}
+  .fig-item figcaption{margin-top:8px; font-size:0.85rem; color:var(--copper);}
+
+  #lightbox{
+    display:none; position:fixed; inset:0; background:rgba(18,40,31,0.92); z-index:200;
+    align-items:center; justify-content:center; padding:30px; cursor:zoom-out;
+  }
+  #lightbox.open{display:flex;}
+  #lightbox .lb-img-wrap{overflow:auto; max-width:95%; max-height:90vh; cursor:default;}
+  #lightbox img{
+    max-width:95%; max-height:90vh; border-radius:6px; box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    transition:transform 0.15s ease; transform-origin:center center;
+  }
+  #lightbox .lb-close{
+    position:absolute; top:18px; left:24px; color:var(--gold); font-size:2rem;
+    line-height:1; background:none; border:none; cursor:pointer; z-index:2;
+  }
+  /* zoom + save controls — shown only for isnad-tree images */
+  #lightbox .lb-tools{
+    display:none; position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+    gap:10px; z-index:2; background:rgba(18,40,31,0.85); border:1px solid var(--gold);
+    border-radius:30px; padding:8px 14px;
+  }
+  #lightbox.with-tools .lb-tools{display:flex;}
+  #lightbox .lb-tools button{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--gold);
+    background:var(--olive-deep); color:var(--gold); font-size:1.1rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; line-height:1;
+  }
+  #lightbox .lb-tools button:hover{background:var(--gold); color:var(--olive-deep);}
+
+  /* ===== Cascade (reused from Standards section) ===== */
+  .cascade{position:relative; padding-right:42px;}
+  .cascade::before{
+    content:""; position:absolute; top:6px; bottom:6px; right:13px; width:7px;
+    background:linear-gradient(to bottom, var(--olive) 0%, var(--olive) 78%, var(--copper) 100%);
+    clip-path:polygon(0 0, 100% 0, 78% 100%, 22% 100%); border-radius:5px;
+  }
+  .stage{position:relative; margin-bottom:20px;}
+  .stage:last-child{margin-bottom:0;}
+  .stage .node{
+    position:absolute; right:-42px; top:24px; width:34px; height:34px; border-radius:50%;
+    background:var(--parchment); border:2.5px solid var(--olive); color:var(--olive-deep);
+    display:flex; align-items:center; justify-content:center; font-family:'Amiri',serif;
+    font-weight:700; font-size:1rem; z-index:2; box-shadow:0 0 0 5px var(--parchment);
+  }
+  .stage:nth-child(n+6) .node{border-color:var(--copper); color:var(--copper);}
+  .stage-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px; padding:18px 22px;
+    box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .stage-card .level-name{font-family:'Amiri',serif; font-size:1.05rem; color:var(--olive-deep); font-weight:700; margin:0 0 6px;}
+  .stage-card .verdict-line{font-size:0.94rem; margin:0 0 8px;}
+  .stage-card .verdict-line b{color:var(--olive-deep);}
+  .stage-card .pass{color:var(--olive-deep); font-weight:700;}
+  .stage-card .fail{color:var(--copper); font-weight:700;}
+
+  /* ===== Final verdict ===== */
+  .final-verdict{
+    margin-top:36px; border-radius:8px; padding:26px 28px; text-align:center;
+    background:var(--olive-deep); color:var(--parchment); border:2px solid var(--gold);
+  }
+  .final-verdict h2{margin:0 0 10px; font-size:1.3rem; color:var(--gold);}
+  .final-verdict p{margin:0; max-width:var(--max-w); margin-inline:auto; opacity:0.92;}
+
+  /* ===== References ===== */
+  .refs-list{margin:0; padding-inline-start:22px; font-size:0.92rem;}
+  .refs-list li{margin-bottom:10px;}
+
+  .placeholder-badge{
+    display:inline-block; margin-bottom:14px; font-size:0.72rem; background:var(--parchment-deep);
+    color:var(--copper); padding:3px 10px; border-radius:10px; border:1px dashed var(--copper);
+  }
+
+  footer{background:var(--olive-deep); color:rgba(245,239,224,0.75); padding:36px 24px 24px; margin-top:40px; text-align:center; font-size:0.88rem;}
+  footer .meta{opacity:0.7;}
+
+  @media (max-width:600px){
+    .page-card{padding:22px 18px;}
+    .toc-card{padding:18px 20px;}
+    header.page-hero{padding:20px 18px 16px;}
+    .cascade{padding-right:34px;}
+    .stage .node{right:-34px; width:28px; height:28px; font-size:0.86rem;}
+    .stage-card{padding:14px 16px;}
+  }
+
+  /* ===== Print / Save-as-PDF ===== */
+  .print-bar{text-align:center; margin:0 0 8px;}
+  .print-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--olive); color:var(--parchment); border:1px solid var(--gold);
+    border-radius:20px; padding:8px 20px; font-family:inherit; font-size:0.9rem; cursor:pointer;
+  }
+  .print-btn:hover{background:var(--olive-deep);}
+  .print-btn svg{width:16px; height:16px;}
+
+  @media print{
+    .topbar, .navbar, .verse-marquee, .breadcrumb, .print-bar, .ornament, footer, #lightbox, .toc-card{display:none !important;}
+    body{background:#fff; background-image:none;}
+    .page-card, .final-verdict, .narrator-block, .no-isnad-notice{box-shadow:none; border:1px solid #999;}
+    main{padding:0;}
+    a{color:var(--ink); text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left"></div>
+  <div class="brandmark">كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</div>
+  <div class="topbar-right">
+    <div class="langswitch">
+      <button class="active">العربية</button>
+      <button>English</button>
+      <button>Türkçe</button>
+    </div>
+    <div class="visitor-counter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>زوار الموقع:</span>
+      <span id="visitorCount">···</span>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>عودة للرئيسية</span>
+  </a>
+  <a href="../about/index.html">الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ</a>
+  <a href="../terms/index.html">مُصْطَلَحَاتٌ هَامَّةٌ</a>
+  <a href="../standards/index.html">الْمَعَايِيرُ وَالضَّوَابِطُ</a>
+  <a href="index.html" class="active-page">الشَّخْصِيَّاتُ</a>
+  <a href="../index.html#contact">تَوَاصَلْ مَعَنَا</a>
+</nav>
+
+<div class="verse-marquee" aria-hidden="true">
+  <div class="verse-marquee-track">
+    <span class="v">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ — سورة الحجرات: ٦</span>
+    <span class="sep">—</span>
+    <span class="v">﴿لَّوْلَا إِذْ سَمِعْتُمُوهُ ظَنَّ الْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بِأَنفُسِهِمْ خَيْرًا وَقَالُوا هَـٰذَا إِفْكٌ مُّبِينٌ﴾ — سورة النور: ١٢</span>
+    <span class="sep">—</span>
+    <span class="v">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ — سورة الحجرات: ٦</span>
+    <span class="sep">—</span>
+    <span class="v">﴿لَّوْلَا إِذْ سَمِعْتُمُوهُ ظَنَّ الْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بِأَنفُسِهِمْ خَيْرًا وَقَالُوا هَـٰذَا إِفْكٌ مُّبِينٌ﴾ — سورة النور: ١٢</span>
+    <span class="sep">—</span>
+  </div>
+</div>
+
+<p class="breadcrumb">
+  <a href="../index.html">الرئيسية</a> ← <a href="index.html">الشَّخْصِيَّاتُ</a> ← <a href="sample-figure.html">السلطان محمد الفاتح رحمه الله</a> ← تحقّق البشارة النبوية بفتح القسطنطينية
+</p>
+
+<header class="page-hero">
+  <h1 class="page-title">تحقّق البشارة النبوية بفتح القسطنطينية</h1>
+  <p class="page-subtitle">دراسة تخريجية وإسنادية لحديث «لَتُفْتَحَنَّ الْقُسْطَنْطِينِيَّةُ، فَلَنِعْمَ الْأَمِيرُ أَمِيرُهَا، وَلَنِعْمَ الْجَيْشُ ذَلِكَ الْجَيْشُ» وفق منهج تخريجي متكامل.</p>
+  <div class="claim-statement">
+    <b>نص الزعم:</b> يُدَّعى أن البشارة النبوية بفتح القسطنطينية، الواردة في حديث «لَتُفْتَحَنَّ الْقُسْطَنْطِينِيَّةُ، فَلَنِعْمَ الْأَمِيرُ أَمِيرُهَا، وَلَنِعْمَ الْجَيْشُ ذَلِكَ الْجَيْشُ»، قد تحقّقت على يد السلطان محمد الفاتح رحمه الله عند فتحه القسطنطينية سنة ٨٥٧هـ / ١٤٥٣م.
+  </div>
+</header>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+    <span>تحميل البحث PDF</span>
+  </button>
+</div>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<main>
+
+  <div class="toc-card">
+    <h2>فهرس البحث</h2>
+    <ol>
+      <li><a href="#sources">مصادر التخريج</a></li>
+      <li><a href="#tree">شجرة الأسانيد</a></li>
+      <li><a href="#narrators">دراسة الرواة</a></li>
+      <li><a href="#connection">دراسة الاتصال والعلل</a></li>
+      <li><a href="#analysis">تطبيق المعايير العشرة</a></li>
+      <li><a href="#imams">أقوال الأئمة في الحديث نفسه</a></li>
+      <li><a href="#verdict">الخلاصة والحكم النهائي</a></li>
+    </ol>
+  </div>
+
+  <div class="page-card" id="sources">
+    <h2>١. مصادر التخريج</h2>
+    <p>لم يرد هذا الحديث في صحيح البخاري من رواية أبي ذر الهروي، ولا في صحيح مسلم، ولا في موطأ الإمام مالك (لا من رواية القعنبي ولا من غيرها). ووردت الإشارة إلى رواته في مصنّفات الإمام البخاري الأخرى، إذ أورد الحديث في "التاريخ الكبير" (٢/٨١؛ وكذلك ٥/٤٩، ٤٤٣؛ ورقم ١٧٦٠) وفي "التاريخ الأوسط" (رقم ١٤٨٢)، في ترجمتي الراويين عبيد بن بشر الغنوي ووالده، دون أن يورده في "الضعفاء الصغير".</p>
+    <p>وبعد فحص موطأ الإمام مالك وصحيح مسلم ودواوين السنة الأخرى، وُجد الحديث مخرَّجًا في المصادر الآتية:</p>
+    <ul>
+      <li>مسند الإمام أحمد بن حنبل، رقم (١٨٩٥٧).</li>
+      <li>معجم الصحابة للبغوي، رقم (٢٠).</li>
+      <li>معرفة الصحابة لأبي نعيم الأصبهاني، رقم (١١٧٧) و(١١٧٨).</li>
+      <li>معجم الصحابة لابن قانع (١/٨١).</li>
+      <li>المعجم الكبير للطبراني، رقم (١٢١٦).</li>
+      <li>معرفة الصحابة لابن منده (ص ٢٢٩).</li>
+      <li>المستدرك على الصحيحين للحاكم النيسابوري، رقم (٨٣٠٠).</li>
+      <li>تاريخ دمشق لابن عساكر (٥٨/٣٤-٣٦)، نقلًا عن عدد من الطرق المتقدمة.</li>
+    </ul>
+    <p>لم يوجد الحديث في سنن أبي داود ولا جامع الترمذي ولا سنن النسائي ولا سنن ابن ماجه ولا سنن الدارمي فيما وقفتُ عليه، ولم يوجد كذلك في مصنَّفي ابن أبي شيبة وعبد الرزاق الصنعاني.</p>
+    <p>ولمّا لم يثبت أنَّ هذا الحديث مروي في صحيح البخاري من طريق رواية أبي ذر الهروي، فإنَّ القاعدة المعتمدة في الموقع للاستغناء عن إعادة دراسة الإسناد لا تنطبق هنا، وتبقى الحاجة قائمة إلى دراسة إسنادية تفصيلية كاملة.</p>
+  </div>
+
+  <div class="page-card" id="tree">
+    <h2>٢. شجرة الأسانيد</h2>
+    <p>يدور هذا الحديث بجميع طرقه على راوٍ واحد هو زيد بن الحُباب بن الرَّيّان العُكْلي (ت ٢٠٣هـ)، الذي تفرَّد عنه بالرواية عن شيخه الوليد بن المغيرة المعافري ستةٌ من أصحابه، تفرَّقت بهم طرق التخريج الست.</p>
+    <div class="fig-gallery">
+      <div class="fig-item">
+        <img class="isnad-img" src="../images/نعم_الأمير.png" alt="شجرة الأسانيد الجامعة لحديث لتفتحن القسطنطينية" onclick="openLightbox(this.src, true)">
+        <figcaption>شجرة الأسانيد الجامعة لجميع الطرق الستة (اضغط للتكبير والحفظ)</figcaption>
+      </div>
+    </div>
+    <p class="footnote">المدار: زيد بن الحُباب العُكْلي — وتفرَّد الوليد بن المغيرة المعافري بالرواية عن الراوي المتوسط (ابن بشر)، كما تفرَّد هذا الأخير بالرواية عن أبيه الصحابي المزعوم بشر.</p>
+  </div>
+
+  <div class="page-card" id="narrators">
+    <h2>٣. دراسة الرواة</h2>
+    <p>يقتصر ما يلي على دراسة كل طبقات هذا الإسناد، مع تقديم الجرح على التعديل في كل راوٍ اختُلف فيه.</p>
+
+    <div class="narrator-block">
+      <h3>بِشْر الغَنَوي (الصحابي المزعوم)</h3>
+      <p><b>الجرح:</b> لا يكفي في إثبات الصحبة مجرد تصنيف ابن حبان له في طبقة الصحابة، أو دعوى الراوي نفسه؛ فقد قرَّر ابن الصلاح، ونقله عنه النووي وابن جماعة وابن كثير والحافظ زين الدين العراقي، أنَّ ثبوت كون الشخص صحابيًّا يكون بأحد أربعة طرق: التواتر، أو الاستفاضة القاصرة عن التواتر، أو رواية آحاد الصحابة عنه أنه صحابي، أو إخباره هو عن نفسه بذلك بعد ثبوت عدالته. ولم تثبت صحبة بشر الغنوي بأيٍّ من الطرق الثلاثة الأولى، ولم تثبت له عدالة مستقلة تجيز قَبول إخباره عن نفسه؛ فتبقى دعوى صحبته غير مثبتة بدليل مستقل عن هذا الحديث نفسه.</p>
+      <p><b>التعديل:</b> قال أبو حاتم الرازي: "مصري، له صحبة". وذكره ابن حبان في "الثقات" في طبقة الصحابة، وقال: "سمع النبي صلى الله عليه وسلم في فتح القسطنطينية". ونقل ابن حجر في "الإصابة" عن أبي علي بن السَّكن أنه قال: "عِداده في أهل الشام".</p>
+      <p><b>الترجيح:</b> هذه الأقوال أوصافٌ لا ترقى إلى تعديل مستقل يثبت الصحبة، وهذا عين الدَّور الذي ينبغي التنبُّه له في مثل هذه الحالات: الاستدلال بالحديث نفسه على صحبة راويه، ثم الاستدلال بصحبته على صحة الحديث.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>عُبَيد / عُبَيدالله / عبدالله بن بِشْر (الابن، الراوي المتوسط)</h3>
+      <p><b>الجرح:</b> صرَّح علي بن المديني بجهالته فقال عن هذا الطريق: "راويه مجهول" (نقله عنه ابن عساكر في "تاريخ دمشق" ٥٨/٣٦، والذهبي في "تاريخ الإسلام" دون تعقيبٍ منه بخلاف ذلك). ولم يوجد راوٍ عنه سوى الوليد بن المغيرة المعافري، واختُلف في اسمه ونسبه اختلافًا بيّنًا بين الرواة عن زيد بن الحُباب: فقيل "عبدالله"، وقيل "عُبَيدالله"، وقيل "عُبَيد" غير مضاف، ونُسب تارة إلى "الخَثْعَمي" وتارة إلى "الغَنَوي".</p>
+      <p><b>التعديل:</b> ذكره ابن حبان في "الثقات" ضمن طبقة التابعين. وقال أبو حاتم الرازي: "من أقران عبدالله بن لهيعة" — وهي عبارة وصفية لا تفيد تعديلًا.</p>
+      <p><b>الترجيح:</b> توثيق ابن حبان وحده لا يكفي لإثبات مرتبة القبول، لكونه من المتساهلين في التوثيق، ولا سيما مع عدم وجود راوٍ آخر غير الوليد بن المغيرة يُعتضَد به؛ فالراوي مجهول الحال. ورجَّح الباحث المعاصر صلاح الدين الإدلبي أنَّ من سمَّاه "الخَثْعَمي" (أبو بكر بن أبي شيبة) قد وهِم، وخلط بينه وبين راوٍ آخر مغاير هو "عبدالله بن بشر الخَثْعَمي الكاتب" الكوفي، من رجال الثوري وشعبة، ولم يذكر البخاري ولا أبو حاتم ولا ابن حبان أنَّ هذا الكاتب روى عن أبيه، مما يؤكد أنه شخصٌ آخر تمامًا.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>الوليد بن المغيرة بن سليمان المعافري، أبو العباس، المصري</h3>
+      <p><b>الجرح:</b> لم أقف على جرحٍ فيه من المتقدمين. موضع الإشكال في هذا الإسناد ليس فيه هو نفسه، بل في تفرُّده بالرواية عمَّن هو مجهول الحال.</p>
+      <p><b>التعديل:</b> وصفه صلاح الدين الإدلبي بأنه "مصري صدوق"، وترجم له البخاري في "التاريخ الكبير" وابن أبي حاتم في "الجرح والتعديل" وابن حبان في "الثقات" دون طعنٍ. توفي سنة ١٧٢هـ.</p>
+      <p><b>الترجيح:</b> فهو مقبول الرواية في نفسه، وإنما موضع الإشكال تفرُّده عمَّن هو مجهول الحال.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>زيد بن الحُباب بن الرَّيّان، أبو الحسين العُكْلي، الكوفي (مدار الحديث)</h3>
+      <p><b>الجرح:</b> قال أحمد بن حنبل، فيما نقله عبدالله ابنه: "زيد بن الحُباب كان صدوقًا... ولكن كان كثير الخطأ" (سؤالات أبي داود لأحمد، رقم ٤٣٢؛ العلل رواية عبدالله، رقم ٧٧). وقال يحيى بن معين، فيما نقله ابن عدي: "كان يقلب حديث الثوري".</p>
+      <p><b>التعديل:</b> وثَّقه العِجلي فقال: "كوفي ثقة". وقال ابن عدي مدافعًا عنه: "زيد بن الحُباب له حديث كثير، وهو من أثبات مشايخ الكوفة ممن لا يُشَكُّ في صدقه"، موضحًا أن لينه الوارد عند ابن معين خاصٌّ بروايته عن الثوري تحديدًا.</p>
+      <p><b>الترجيح:</b> زيد بن الحُباب ثقةٌ في الجملة، وإنما وقع فيه لِينٌ خاص بروايته عن سفيان الثوري تحديدًا، وهذا لا يمسّ روايته هنا عن الوليد بن المغيرة، إذ ليست من طريق الثوري. فليس في هذا الإسناد ما يستوجب الطعن في زيد بن الحُباب نفسه، وإنما موضع الضعف في الرواة الذين فوقه.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>تلاميذ زيد بن الحُباب الستة (نقلة الطرق الست)</h3>
+      <p><b>الجرح:</b> لم يُذكر عن أيٍّ منهم جرحٌ مؤثر في هذا الباب.</p>
+      <p><b>التعديل:</b> جميعهم من الثقات الحفّاظ المعروفين الذين لا خلاف معتبرًا في قَبولهم: عبدالله بن محمد بن أبي شيبة (ت ٢٣٥هـ)، وعثمان بن أبي شيبة (ت ٢٣٩هـ)، وأبو مسعود أحمد بن الفرات الرازي (ت ٢٥٨هـ)، وعَبْدة بن عبدالله الصفّار الخزاعي، وأبو كُرَيب محمد بن العلاء (ت ٢٤٨هـ)، ومحمد بن علي بن مِحْرَز.</p>
+      <p><b>الترجيح:</b> وقع بينهم اختلاف في ضبط اسم شيخ الوليد بن المغيرة (شيخ شيخهم) لا في أصل الرواية عن زيد بن الحُباب. ولا يوجد بين رواة هذا الإسناد راوٍ متَّهم بالتشيّع أو أي بدعة أخرى.</p>
+    </div>
+  </div>
+
+  <div class="page-card" id="connection">
+    <h2>٤. دراسة الاتصال والعلل</h2>
+    <p>صيغ الأداء بين زيد بن الحُباب وشيخه الوليد بن المغيرة، وبين الوليد وشيخه ابن بشر، صريحتان في السماع ("حدَّثني")، ولا يُعرف عن أيٍّ منهما وصفٌ بالتدليس، فاتصال هذين الطبقتين ثابتٌ. أمَّا الرواية بين ابن بشر وأبيه فمعنعنة ("عن أبيه")، ولم أقف على تصريح بالسماع بينهما، غير أنه لا يُعرف عن ابن بشر وصفٌ بالتدليس أيضًا؛ فالعنعنة هنا لا تحمل قرينة تدليسية، وإنما يبقى الإشكال الحقيقي في هذا الإسناد قائمًا في هوية الأب وابنه وجهالة حالهما، لا في صيغة الأداء بينهما.</p>
+    <p>أمَّا دعوى سماع الأب (بشر) من النبي ﷺ فصريحة اللفظ ("أنَّه سمع النبي ﷺ يقول")، لكنها مبنية على ثبوت صحبته أصلًا، وقد تقدَّم أنَّ صحبته غير مثبتة بدليل مستقل.</p>
+    <p><b>أهم العلل المحيطة بهذا الإسناد:</b></p>
+    <ul>
+      <li>الاضطراب في اسم الراوي المتوسط ونسبه: فقد سُمِّي "عبدَالله بن بشر" و"عُبَيدَالله بن بشر" و"عُبَيد بن بشر"، ونُسب تارة إلى "الخَثْعَمي" وتارة إلى "الغَنَوي".</li>
+      <li>الخلط بين هذا الراوي المجهول وراوٍ آخر مغاير معروف باسمٍ مشابه، وهو خلطٌ نشأ من تشابه الأسماء والأنساب.</li>
+      <li>جهالة حال الراوي المتوسط (ابن بشر)، إذ لم يرو عنه سوى راوٍ واحد، ولم يوثِّقه سوى ابن حبان وحده، وقد صرَّح علي بن المديني بجهالته.</li>
+      <li>عدم ثبوت صحبة الأب (بشر) بدليلٍ مستقل عن هذا الحديث نفسه.</li>
+      <li>تفرُّد الوليد بن المغيرة بالرواية عن ابن بشر، مما يمنع من اعتضاد هذا الطريق بطريق آخر مستقل عنه في نفس الطبقة.</li>
+    </ul>
+    <p>ولا يُغني عن ذلك تعدُّد طرق التخريج الستة عن زيد بن الحُباب، لأنَّ هذه الطرق كلها ترجع إلى مصدرٍ واحدٍ هو الوليد بن المغيرة المتفرِّد بالرواية عن ابن بشر، فليست طرقًا مستقلة تتقوّى بها الرواية، وإنما هي تفرُّعات متأخرة عن أصل واحد فيه الجهالة المشار إليها؛ ولا يُعتمد مفهوم "الصحيح لغيره" هنا لعدم استيفاء الشرط الأساس، وهو قيام إسناد صحيح مستقل يمكن أن ينضاف إليه غيره.</p>
+  </div>
+
+  <div class="page-card" id="analysis">
+    <h2>٥. تطبيق المعايير والضوابط العشرة</h2>
+    <p>يُعرض الحديث أدناه على المستويات العشرة المعتمدة في قسم "المعايير والضوابط". بعض هذه المعايير مصمَّمٌ أصلًا لدراسة واقعة تاريخية متَّهَمٍ فيها شخصٌ بعينه، لا لتخريج حديثٍ مباشرة، وهذا موضَّح أمام كل معيار لا ينطبق.</p>
+
+    <div class="cascade">
+
+      <div class="stage">
+        <div class="node">١</div>
+        <div class="stage-card">
+          <p class="level-name">صحيح البخاري (رواية أبي ذر الهروي)</p>
+          <p class="verdict-line"><b>النتيجة:</b> لم يرد الحديث بهذه الرواية إطلاقًا.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">٢</div>
+        <div class="stage-card">
+          <p class="level-name">موطأ مالك (رواية القعنبي) / التاريخ الكبير والصغير</p>
+          <p class="verdict-line"><b>النتيجة:</b> لم يرد في موطأ مالك، لكنه ورد في "التاريخ الكبير" و"التاريخ الأوسط" للبخاري نفسيهما، مما استوجب دراسة إسنادية كاملة (أعلاه).</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">٣</div>
+        <div class="stage-card">
+          <p class="level-name">بقية الكتب الستة والمسند</p>
+          <p class="verdict-line"><b>النتيجة:</b> لم يرد في الكتب الستة؛ ورد في مسند الإمام أحمد بسندٍ خُضع للدراسة الكاملة أعلاه.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">٤</div>
+        <div class="stage-card">
+          <p class="level-name">المؤرخون</p>
+          <p class="verdict-line"><b>النتيجة:</b> ورد في "تاريخ دمشق" لابن عساكر نقلًا عن الطرق المتقدمة، دون سندٍ مستقل يضيف قوة.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">٥</div>
+        <div class="stage-card">
+          <p class="level-name">شهادة المعاصرين العدول</p>
+          <p class="verdict-line"><b>النتيجة:</b> إذا كانت هذه البشارة بهذه العظمة، وتتعلق بحدث تاريخي كبير مثل فتح القسطنطينية، فهل يُعقل أن لا يرويها عن النبي ﷺ إلا شخص واحد، خاصة إذا كانت صحبته محل خلاف أو لم تثبت عند بعض أهل العلم؟ وهل من المنطقي أن لا يتناقل الصحابة هذا الحديث فيما بينهم، ولا يستشهد به القادة والجنود الذين خرجوا مرارًا لمحاولة فتح القسطنطينية، وهم يرجون أن يكونوا المقصودين بهذه البشارة؟ ثم عندما تحقق الفتح أخيرًا، أليس من الطبيعي أن يصبح هذا الحديث حديث الساعة، وأن يكثر ذكره في خطب العلماء وكتب المؤرخين ورسائلهم؟ وأليس من المتوقع أن يُنقل عن السلطان محمد الفاتح نفسه، أو عن معاصريه، أنه رأى في فتحه تحقيقًا لهذه البشارة؟ والأغرب من ذلك أن المصادر العثمانية المبكرة لا تُعرف فيما نعلم بوصفها محمد الفاتح بأنه «الأمير المبشَّر به»، مع أن هذا الوصف لو كان ثابتًا ومتداولًا آنذاك لكان من أبرز ما يُذكر في سيرته ومناقبه.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">٦</div>
+        <div class="stage-card">
+          <p class="level-name">حجة الصمت العلمي</p>
+          <p class="verdict-line"><b>النتيجة:</b> <span class="fail">لا ينطبق</span></p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">٧</div>
+        <div class="stage-card">
+          <p class="level-name">عدم احتجاج المعارضين بالرواية</p>
+          <p class="verdict-line"><b>النتيجة:</b> <span class="fail">لا ينطبق</span></p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">٨</div>
+        <div class="stage-card">
+          <p class="level-name">الأدلة المادية والأثرية</p>
+          <p class="verdict-line"><b>النتيجة:</b> إن فتح المدينة، في حد ذاته، لا يُعد دليلاً ماديًا على صحة البشارة، فهو حدث تاريخي يمكن أن يقع كما وقع فتح مدن كثيرة أخرى عبر التاريخ. وإنما يكون الاستدلال بالبشارة قائمًا إذا ثبتت الرواية وصحّت نسبتها، لا بمجرد وقوع الحدث نفسه.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">٩</div>
+        <div class="stage-card">
+          <p class="level-name">التزكية النبوية للمدّعى عليه</p>
+          <p class="verdict-line"><b>النتيجة:</b> <span class="fail">لا ينطبق</span> — هذا المعيار هو موضوع البحث نفسه، لا نتيجة تُقاس به.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">١٠</div>
+        <div class="stage-card">
+          <p class="level-name">روايات المعلوم عداؤهم</p>
+          <p class="verdict-line"><b>النتيجة:</b> <span class="fail">لا ينطبق</span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="page-card" id="imams">
+    <h2>٦. أقوال الأئمة في الحديث نفسه</h2>
+
+    <div class="narrator-block">
+      <h3>أقوال المتقدمين</h3>
+      <p><b>علي بن المديني (ت ٢٣٤هـ):</b> قال عن هذا الطريق: "راويه مجهول" (نقله ابن عساكر في "تاريخ دمشق" ٥٨/٣٦، والذهبي في "تاريخ الإسلام" دون تعقيبٍ يخالفه). ويُلاحَظ أنَّ عليَّ بن المديني نفسه أحد رواة هذا الحديث، فهو ناقلٌ له في الوقت الذي حكم فيه على أحد رواته بالجهالة.</p>
+      <p><b>أبو حاتم الرازي (ت ٢٧٧هـ):</b> قال في ابن بشر: "من أقران عبدالله بن لهيعة"، وقال في بِشْر الأب: "مصري، له صحبة" — وكلا القولين وصفي، لا يرقى إلى تعديل مستقل.</p>
+      <p><b>محمد بن إسماعيل البخاري (ت ٢٥٦هـ):</b> أورد الحديث في "التاريخ الكبير" و"التاريخ الأوسط" دون تصريح بتصحيح أو تضعيف، وهذا هو المعهود من منهجه في كتب "التاريخ".</p>
+      <p><b>ابن حبّان (ت ٣٥٤هـ):</b> أدرج بِشرًا في طبقة الصحابة، وابنه في طبقة التابعين، ضمن كتابه "الثقات" المعروف بالتساهل في التوثيق، ولم يصرِّح بحكمٍ على الحديث ذاته.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>أقوال المتأخرين والمعاصرين</h3>
+      <p>أخرج الحاكم النيسابوري الحديث في "المستدرك"، ونُسب إليه وإلى الذهبي في بعض المصادر الثانوية تصحيحٌ له؛ غير أنَّ الذهبيَّ نفسَه في "تاريخ الإسلام" أورد حكم علي بن المديني بالجهالة دون تعقيبٍ يخالفه، وهذا تفاوتٌ بين موضعين من كتبه ينبغي التنبّه له.</p>
+      <p><b>محمد ناصر الدين الألباني:</b> ضعَّف الحديث في "السلسلة الضعيفة" (رقم ٨٧٨) وفي "ضعيف الجامع الصغير" (رقم ٤٦٥٥)، وذكر الاختلاف في اسم "ابن بشر الغَنَوي"، وقال إن الحديث لم يصحّ عنده لعدم الاطمئنان إلى توثيق ابن حبان له وحده.</p>
+      <p><b>شعيب الأرنؤوط</b> (في تحقيق المسند): حكم بأنَّ إسناده ضعيف لجهالة عبدالله بن بشر الخَثْعَمي، إذ انفرد بالرواية عنه الوليد بن المغيرة المعافري، ولم يُؤثَر توثيقه عن غير ابن حبان.</p>
+      <p><b>صلاح الدين الإدلبي</b> (باحثٌ حديثيٌّ معاصر متخصص): بعد تتبُّع جميع الطرق وتمييز الخلط بين "ابن بشر الغَنَوي" و"ابن بشر الخَثْعَمي الكاتب"، ودراسة شرط ثبوت الصحبة، خلص إلى أنَّ إسناد هذا الحديث ضعيف.</p>
+      <p class="footnote">تأكيدًا إضافيًا: تسجّل موسوعة الدرر السنية الحديثية نفس مصادر التخريج المذكورة أعلاه، وتورد حكم الألباني بالضعف، بما يتطابق مع نتيجة هذا التحقيق.</p>
+    </div>
+  </div>
+
+  <div class="final-verdict" id="verdict">
+    <h2>الخلاصة والحكم النهائي</h2>
+    <p>لا شك أن السلطان محمد الفاتح من الشخصيات العظيمة في تاريخ الإسلام، فهو سلطان مجاهد فتح الله على يديه بلادًا كثيرة، ودخل في الإسلام بسببه أعداد كبيرة من الناس، ولا يزال أثر تلك الفتوحات قائمًا إلى يومنا هذا، إذ حافظت شعوب كثيرة على دينها بفضل تلك الفتوحات.</p>
+    <p>ومن هذا المنطلق، فإننا نحب السلطان محمد الفاتح ونجلّه، بل لكنا من أسعد الناس لو ثبتت صحة البشارة المنسوبة إلى النبي صلى الله عليه وسلم بشأن فتح القسطنطينية. ولكن الحق أحق أن يُتبع، ولا يجوز أن ننسب إلى رسول الله صلى الله عليه وسلم حديثًا لمجرد موافقته لما نحب أو لما نتمناه.</p>
+    <p>ومنهجنا في هذا الموقع واضح، فنحن لا نقبل الحديث إلا إذا ثبتت صحته بذاته، أي بسند صحيح متصل إلى النبي صلى الله عليه وسلم، دون الاعتماد على مقويات أو قرائن خارجية. فمجرد وقوع الحدث لا يكفي لإثبات أن النبي صلى الله عليه وسلم قاله، وإنما لا بد أن يثبت النقل نفسه ثبوتًا صحيحًا، حتى نستطيع أن نقول بيقين: قال رسول الله صلى الله عليه وسلم.</p>
+    <p>ومع ذلك، فإن عدم ثبوت هذه الرواية وفق المنهج الذي نتبناه لا ينقص من مكانة السلطان محمد الفاتح ولا من عظيم إنجازه. فنحن نحسبه من خيرة الأمراء الذين خدموا الإسلام، ونحسب الجيش الذي فتح القسطنطينية من خيرة الجيوش. فالنجاح في تحقيق هذا الفتح إنجاز تاريخي عظيم، وكل أمير قاد جيشه إلى فتح فهو نعم الأمير، وكل جيش حقق الفتح فهو نعم الجيش.</p>
+    <p>والله أعلم.</p>
+  </div>
+
+
+</main>
+
+<footer>
+  <p class="meta">© كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ — جميع الأبحاث مرجعة ومحدّثة باستمرار.</p>
+</footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox(event)">×</button>
+  <div class="lb-tools">
+    <button onclick="zoomLightbox(event, 0.25)" title="تكبير">+</button>
+    <button onclick="zoomLightbox(event, -0.25)" title="تصغير">−</button>
+    <button onclick="downloadLightboxImage(event)" title="حفظ الصورة">⭳</button>
+  </div>
+  <div class="lb-img-wrap" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script>
+  let lbZoom = 1;
+  function openLightbox(src, isIsnad){
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    lbZoom = 1;
+    img.style.transform = 'scale(1)';
+    lb.classList.toggle('with-tools', !!isIsnad);
+    lb.classList.add('open');
+  }
+  function closeLightbox(e){
+    if(e) e.stopPropagation();
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  function zoomLightbox(e, delta){
+    e.stopPropagation();
+    lbZoom = Math.min(4, Math.max(0.5, lbZoom + delta));
+    document.getElementById('lightbox-img').style.transform = `scale(${lbZoom})`;
+  }
+  function downloadLightboxImage(e){
+    e.stopPropagation();
+    const src = document.getElementById('lightbox-img').src;
+    const a = document.createElement('a');
+    a.href = src;
+    a.download = src.split('/').pop() || 'isnad-tree.jpg';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  (function(){
+    const counterEl = document.getElementById('visitorCount');
+    if(!counterEl) return;
+    const namespace = 'kuffo-alsinatakum-github-io';
+    const key = 'site-visits';
+    fetch(`https://countapi.mileshilliard.com/api/v1/hit/${namespace}_${key}`)
+      .then(res => res.json())
+      .then(data => {
+        if(data && typeof data.value === 'number'){
+          counterEl.textContent = data.value.toLocaleString();
+        } else {
+          counterEl.textContent = '—';
+        }
+      })
+      .catch(() => { counterEl.textContent = '—'; });
+  })();
+</script>
+
+</body>
+</html>

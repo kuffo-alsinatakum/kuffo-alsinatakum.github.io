@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الغاية من هذا الموقع — كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</title>
+<title>الشَّخْصِيَّاتُ — كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -18,6 +18,7 @@
     --gold:#C9A227;
     --line:rgba(42,33,24,0.18);
     --max-w:760px;
+    --max-w-wide:980px;
   }
 
   *{box-sizing:border-box;}
@@ -102,7 +103,7 @@
     .visitor-counter{font-size:0.74rem;}
   }
 
-  /* ===== Navigation bar (sticky, identical across all pages) ===== */
+  /* ===== Navigation bar ===== */
   .navbar{
     position:sticky;
     top:0;
@@ -146,7 +147,7 @@
 
   /* ===== Breadcrumb ===== */
   .breadcrumb{
-    max-width:var(--max-w);
+    max-width:var(--max-w-wide);
     margin:18px auto 0;
     padding:0 24px;
     font-size:0.85rem;
@@ -156,7 +157,7 @@
 
   /* ===== Page header ===== */
   header.page-hero{
-    max-width:var(--max-w);
+    max-width:var(--max-w-wide);
     margin:0 auto;
     padding:26px 24px 22px;
     text-align:center;
@@ -166,6 +167,12 @@
     margin:0;
     color:var(--olive-deep);
     font-weight:700;
+  }
+  p.page-subtitle{
+    max-width:var(--max-w);
+    margin:14px auto 0;
+    color:var(--ink);
+    font-size:1rem;
   }
 
   /* ===== Ornamental divider ===== */
@@ -227,71 +234,80 @@
 
   /* ===== Main content ===== */
   main{
-    max-width:var(--max-w);
+    max-width:var(--max-w-wide);
     margin:0 auto;
     padding:0 24px 50px;
   }
-  .page-split{
-    max-width:1100px;
-    margin:0 auto;
-    padding:0 24px;
-    display:grid;
-    grid-template-columns:0.85fr 1fr;
-    gap:32px;
-    align-items:start;
+
+  .intro-block{
+    max-width:var(--max-w);
+    margin:0 auto 34px;
+    text-align:center;
+    color:var(--copper);
+    font-size:0.98rem;
   }
 
-  .page-card{
+  /* ===== Figures grid (LEVEL 1 — figure selection) ===== */
+  .figures-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:18px;
+  }
+
+  .figure-btn{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    text-align:center;
     background:#fff;
     border:1px solid var(--line);
     border-radius:8px;
-    padding:32px 30px;
+    padding:30px 20px;
     box-shadow:0 4px 16px rgba(27,58,47,0.06);
+    color:var(--olive-deep);
+    text-decoration:none;
+    transition:transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
   }
-  .page-card p{margin:0 0 18px; font-size:1.06rem; color:var(--ink);}
-  .page-card p:last-child{margin-bottom:0;}
+  .figure-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 26px rgba(27,58,47,0.14);
+    border-color:var(--gold);
+    text-decoration:none;
+  }
+  .figure-btn .avatar-ring{
+    width:56px; height:56px;
+    border-radius:50%;
+    background:var(--parchment-deep);
+    border:2px solid var(--olive);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--olive-deep);
+    flex-shrink:0;
+  }
+  .figure-btn .avatar-ring svg{width:26px; height:26px;}
+  .figure-btn .figure-name{
+    font-family:'Amiri',serif;
+    font-weight:700;
+    font-size:1.08rem;
+    color:var(--olive-deep);
+  }
+  .figure-btn .figure-era{
+    font-size:0.82rem;
+    color:var(--copper);
+  }
 
-  /* ===== Hero illustration (site pillars) ===== */
-  .hero-illustration{
-    position:sticky;
-    top:90px;
-  }
-  .hero-illustration-frame{
-    position:relative;
-    border-radius:14px;
-    padding:6px;
-    background:linear-gradient(135deg, var(--gold), var(--copper), var(--gold));
-    box-shadow:0 14px 40px rgba(27,58,47,0.25);
-  }
-  .hero-illustration-frame::before{
-    content:"";
-    position:absolute;
-    inset:-2px;
-    border-radius:16px;
-    background:linear-gradient(135deg, var(--gold), transparent 40%, var(--copper), transparent 70%, var(--gold));
-    z-index:-1;
-    opacity:0.6;
-    filter:blur(6px);
-  }
-  .hero-illustration-inner{
+  /* placeholder badge — remove once real figures replace samples */
+  .placeholder-badge{
+    display:inline-block;
+    margin-top:2px;
+    font-size:0.7rem;
+    background:var(--parchment-deep);
+    color:var(--copper);
+    padding:2px 9px;
     border-radius:10px;
-    overflow:hidden;
-    background:var(--olive-deep);
+    border:1px dashed var(--copper);
   }
-  .hero-illustration-inner img{
-    width:100%;
-    height:auto;
-    display:block;
-  }
-  @media (max-width:880px){
-    .page-split{grid-template-columns:1fr; max-width:var(--max-w);}
-    .hero-illustration{position:static; order:-1; margin-bottom:24px;}
-  }
-  @media (max-width:600px){
-    .hero-illustration-frame{padding:4px; border-radius:10px;}
-    .hero-illustration-inner{border-radius:7px;}
-  }
-
 
   /* ===== Footer ===== */
   footer{
@@ -305,8 +321,9 @@
   footer .meta{opacity:0.7;}
 
   @media (max-width:600px){
-    .page-card{padding:24px 18px;}
     header.page-hero{padding:20px 18px 16px;}
+    .figures-grid{grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:14px;}
+    .figure-btn{padding:22px 14px;}
   }
 </style>
 </head>
@@ -330,10 +347,14 @@
 </div>
 
 <nav class="navbar">
-  <a href="../about/index.html" class="active-page">الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ</a>
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>عودة للرئيسية</span>
+  </a>
+  <a href="../about/index.html">الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ</a>
   <a href="../terms/index.html">مُصْطَلَحَاتٌ هَامَّةٌ</a>
-  <a href="../index.html#criteria">الْمَعَايِيرُ وَالضَّوَابِطُ</a>
-  <a href="../figures/index.html">الشَّخْصِيَّاتُ</a>
+  <a href="../standards/index.html">الْمَعَايِيرُ وَالضَّوَابِطُ</a>
+  <a href="index.html" class="active-page">الشَّخْصِيَّاتُ</a>
   <a href="../index.html#contact">تَوَاصَلْ مَعَنَا</a>
 </nav>
 
@@ -351,11 +372,12 @@
 </div>
 
 <p class="breadcrumb">
-  <a href="../index.html">الرئيسية</a> ← الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ
+  <a href="../index.html">الرئيسية</a> ← الشَّخْصِيَّاتُ
 </p>
 
 <header class="page-hero">
-  <h1 class="page-title">الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ</h1>
+  <h1 class="page-title">الشَّخْصِيَّاتُ</h1>
+  <p class="page-subtitle">شخصياتٌ من تاريخنا تناولتها الروايات بمزيج من الاتهامات أو الفضائل والمناقب، وكثيرٌ من ذلك نُقل دون تحقق من المصادر أو تمحيص للأسانيد وشهادات المعاصرين. ولا يقتصر هذا الطرح على النقد أو الدفاع، بل يشمل مراجعة جميع ما نُسب إلى تلك الشخصيات، سواء كان اتهامًا أو منقبة أو فضيلة، إذ إن كليهما يخضعان لدرجةٍ واحدة من البحث العلمي والتحقق، بعيدًا عن التسليم أو التلقين.</p>
 </header>
 
 <div class="ornament" aria-hidden="true">
@@ -367,27 +389,46 @@
 </div>
 
 <main>
-<div class="page-split">
-  <div class="hero-illustration">
-    <div class="hero-illustration-frame">
-      <div class="hero-illustration-inner">
-        <img src="../images/site-pillars-illustration.png" alt="هذا الموقع هو جمع بين المنطق وأصح المرويات، لا الافتراءات والبهتان وروايات الخصوم">
-      </div>
-    </div>
+
+  <p class="intro-block">اضغط على اسم الشخصية للانتقال إلى صفحتها الخاصة، حيث تجد قائمة الزعم المتعلقة بها.</p>
+
+  <div class="figures-grid">
+
+    <!-- FIGURE 1 — السلطان محمد الفاتح رحمه الله -->
+    <a class="figure-btn" href="sample-figure.html">
+      <span class="avatar-ring">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </span>
+      <span class="figure-name">السلطان محمد الفاتح رحمه الله</span>
+      <span class="figure-era">٨٣٥ – ٨٨٦هـ</span>
+    </a>
+
+    <!-- PLACEHOLDER FIGURE 2 -->
+    <a class="figure-btn" href="#">
+      <span class="avatar-ring">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </span>
+      <span class="figure-name">اسم الشخصية الثانية</span>
+      <span class="figure-era">القرن ·· الهجري</span>
+      <span class="placeholder-badge">نموذج</span>
+    </a>
+
+    <!-- PLACEHOLDER FIGURE 3 -->
+    <a class="figure-btn" href="#">
+      <span class="avatar-ring">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </span>
+      <span class="figure-name">اسم الشخصية الثالثة</span>
+      <span class="figure-era">القرن ·· الهجري</span>
+      <span class="placeholder-badge">نموذج</span>
+    </a>
+
   </div>
 
-  <div class="page-card">
-    <p>إِنَّ الْأُمَمَ الَّتِي تَسْخَرُ مِنْ أَعْلَامِهَا وَتَنْتَقِصُ مِنْهُمْ لَا تَرْتَفِعُ أَبَداً. وَالْعَجِيبُ أَنَّكَ تَجِدُ أَعْدَاءَ الْمُسْلِمِينَ يُفَاخِرُونَ بِتَارِيخِهِمْ، وَبِتَارِيخِ مَنْ يُسَمُّونَهُمْ أَعْلَامَهُمْ وَأَبْطَالَهُمْ — إِلَّا نَحْنُ. فَتَجِدُ مَنَاهِجَنَا التَّعْلِيمِيَّةَ، وَكَثِيراً مِنَ الدُّعَاةِ — سَوَاءٌ بِنِيَّةٍ وَمُعْتَقَدٍ فَاسِدٍ، أَوْ عَنْ جَهْلٍ — يَنْتَقِصُونَ مِنَ الْأَعْلَامِ، بَدْءاً بِمَنْ شَهِدَ اللَّهُ بِعَدَالَتِهِمْ وَهُمْ صَحَابَةُ النَّبِيِّ ﷺ، وَانْتِهَاءً بِالْفَاتِحِينَ الَّذِينَ قَضَوْا حَيَاتَهُمْ عَلَى ظُهُورِ الْجِيَادِ مُجَاهِدِينَ وَفَاتِحِينَ وَمُدَافِعِينَ عَنْ شَرَفِ هَذِهِ الْأُمَّةِ.</p>
-
-    <p>وَمَا أَجْمَلَ مَقُولَةَ الْفَيْلَسُوفِ الْإِسْبَانِيِّ الْأَمْرِيكِيِّ سَانْتَايَانَا: "الْجَاهِلُونَ بِالتَّارِيخِ مَحْكُومٌ عَلَيْهِمْ بِتَكْرَارِهِ".</p>
-
-    <p>فِي هَذَا الْمَوْقِعِ مَعَايِيرُ وَضَوَابِطُ، بَعْضُهَا شَرْعِيٌّ بَحْتٌ لَا يَصِحُّ الِاسْتِدْلَالُ بِهِ إِلَّا لِمَنْ يُؤْمِنُ بِالْقُرْآنِ وَصَحِيحِ السُّنَّةِ، وَبَعْضُهَا الْآخَرُ مَنْطِقِيٌّ وَعَقْلِيٌّ مَحْضٌ، يَصْلُحُ حَتَّى لِمَنْ يَحْتَكِمُ لِلْعَقْلِ وَحْدَهُ، وَلَوْ كَانَ يُشَكِّكُ فِي النُّصُوصِ الشَّرْعِيَّةِ أَوْ لَا يَعْتَرِفُ بِهَا أَصْلاً. وَسَتَجِدُ أَنَّهُ لَا تَنَاقُضَ أَبَداً بَيْنَ هَذِهِ الْمَعَايِيرِ مُجْتَمِعَةً، وَسَتَحْكُمُ بِنَفْسِكَ إِنْ قَرَأْتَ بِوَعْيٍ وَعَقْلٍ بَاحِثٍ عَنِ الْحَقِّ، لَا بِهَوًى أَوْ عَقْلٍ مُغَيَّبٍ مُتَأَثِّرٍ بِمَا كَانَ يَعْتَقِدُهُ طَوَالَ حَيَاتِهِ. وَاللَّهُ الْهَادِي إِلَى سَوَاءِ السَّبِيلِ.</p>
-  </div>
-</div>
 </main>
 
 <footer>
-  <p class="meta">© كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ — جميع الأبحاث مرجعة ومحدّثة باستمراً.</p>
+  <p class="meta">© كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ — جميع الأبحاث مرجعة ومحدّثة باستمرار.</p>
 </footer>
 
 <script>
