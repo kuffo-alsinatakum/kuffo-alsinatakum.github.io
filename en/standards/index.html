@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standards &amp; Criteria — Kuffo Alsinatakum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:760px;
+    --max-w-wide:980px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Lora','Amiri',serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .topbar{
+    background:var(--olive-deep);
+    color:var(--parchment);
+    padding:10px 24px;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:14px;
+    font-size:0.85rem;
+    border-bottom:1px solid rgba(201,162,39,0.25);
+  }
+  .topbar .brandmark{
+    grid-column:2;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    color:var(--gold);
+    font-family:'Lora',serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.015em;
+    text-shadow:0 1px 8px rgba(201,162,39,0.35);
+    white-space:normal;
+    text-align:center;
+    max-width:420px;
+  }
+  .topbar .brandmark::before, .topbar .brandmark::after{
+    content:"❊";
+    font-size:0.7rem;
+    color:rgba(201,162,39,0.6);
+    flex-shrink:0;
+  }
+  .topbar-left{grid-column:1; justify-content:flex-start;}
+  .topbar-right{grid-column:3; justify-content:flex-end;}
+  @media (max-width:760px){
+    .topbar{grid-template-columns:1fr; text-align:center;}
+    .topbar-left, .topbar-right, .topbar .brandmark{grid-column:1; justify-content:center;}
+    .topbar .brandmark{font-size:1.02rem; order:-1; margin-bottom:6px;}
+  }
+
+  .topbar-right{display:flex; align-items:center; gap:18px;}
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button, .langswitch a{
+    background:none;
+    border:1px solid rgba(245,239,224,0.3);
+    color:rgba(245,239,224,0.75);
+    font-size:0.78rem;
+    padding:3px 10px;
+    border-radius:14px;
+    cursor:pointer;
+    font-family:inherit;
+    text-decoration:none;
+    display:inline-block;
+  }
+  .langswitch button:disabled{opacity:0.4; cursor:not-allowed;}
+  .langswitch .active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
+  .visitor-counter{
+    display:flex; align-items:center; gap:6px;
+    color:rgba(245,239,224,0.75);
+    font-size:0.8rem;
+    white-space:nowrap;
+  }
+  .visitor-counter svg{width:15px; height:15px; flex-shrink:0; color:var(--gold);}
+  .visitor-counter #visitorCount{color:var(--gold); font-weight:700;}
+  @media (max-width:600px){
+    .topbar{flex-wrap:wrap; gap:8px;}
+    .topbar-right{flex-wrap:wrap; gap:10px;}
+    .visitor-counter{font-size:0.74rem;}
+  }
+
+  .navbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--olive);
+    border-bottom:2px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12);
+    flex-wrap:wrap;
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85);
+    font-size:0.92rem;
+    padding:13px 18px;
+    display:inline-block;
+    border-bottom:3px solid transparent;
+    transition:color 0.2s, border-color 0.2s, background 0.2s;
+    white-space:nowrap;
+  }
+  .navbar a:hover{color:var(--gold); background:rgba(245,239,224,0.06); text-decoration:none;}
+  .navbar a.active-page{color:var(--gold); border-bottom-color:var(--gold); font-weight:600;}
+  .navbar a.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    color:var(--gold);
+    border-inline-end:1px solid rgba(245,239,224,0.25);
+    margin-inline-end:6px;
+    font-weight:600;
+  }
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0;}
+  @media (max-width:700px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+    .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
+  }
+
+  .breadcrumb{
+    max-width:var(--max-w-wide);
+    margin:18px auto 0;
+    padding:0 24px;
+    font-size:0.85rem;
+    color:var(--copper);
+  }
+  .breadcrumb a{color:var(--copper); text-decoration:underline;}
+
+  header.page-hero{
+    max-width:var(--max-w-wide);
+    margin:0 auto;
+    padding:26px 24px 22px;
+    text-align:center;
+  }
+  h1.page-title{
+    font-size:clamp(1.8rem, 4.5vw, 2.6rem);
+    margin:0;
+    color:var(--olive-deep);
+    font-weight:700;
+    font-family:'Amiri',serif;
+  }
+  p.page-subtitle{
+    max-width:var(--max-w);
+    margin:14px auto 0;
+    color:var(--copper);
+    font-size:1rem;
+  }
+
+  .ornament{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    margin:8px auto 30px; max-width:var(--max-w); padding:0 24px;
+    color:var(--copper); opacity:0.85;
+  }
+  .ornament .line{flex:1; height:1px; background:linear-gradient(to right, transparent, var(--copper) 50%, transparent);}
+  .ornament svg{width:24px; height:24px; flex-shrink:0;}
+
+  .verse-marquee{
+    background:linear-gradient(90deg, var(--olive-deep) 0%, #1a3a28 50%, var(--olive-deep) 100%);
+    border-top:2px solid var(--gold);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:14px 0;
+    position:relative;
+  }
+  .verse-marquee::before, .verse-marquee::after{
+    content:"";
+    position:absolute;
+    top:0; bottom:0;
+    width:60px;
+    z-index:2;
+    pointer-events:none;
+  }
+  .verse-marquee::before{left:0; background:linear-gradient(to right, var(--olive-deep), transparent);}
+  .verse-marquee::after{right:0; background:linear-gradient(to left, var(--olive-deep), transparent);}
+  .verse-marquee-track{
+    display:inline-flex;
+    align-items:center;
+    animation:marquee-scroll 38s linear infinite;
+    will-change:transform;
+  }
+  .verse-marquee-track span.v{
+    display:inline-block;
+    padding:0 48px;
+    font-family:'Amiri',serif;
+    font-size:1.15rem;
+    font-weight:700;
+    background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:shimmer-gold 4s linear infinite;
+  }
+  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
+  @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
+  @media (max-width:600px){
+    .verse-marquee-track span.v{font-size:0.95rem; padding:0 28px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .verse-marquee-track{animation:none;}
+  }
+
+  main{
+    max-width:var(--max-w-wide);
+    margin:0 auto;
+    padding:0 24px 50px;
+  }
+
+  .page-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:32px 30px;
+    box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .page-card p{margin:0 0 18px; font-size:1.06rem; color:var(--ink);}
+  .page-card p:last-child{margin-bottom:0;}
+
+  .intro-card{margin-bottom:28px;}
+  .intro-card .to-reader{
+    border-inline-start:3px solid var(--gold);
+    padding-inline-start:16px;
+    color:var(--copper);
+  }
+
+  .method-card{
+    margin-bottom:34px;
+    background:var(--parchment-deep);
+    border:1px solid var(--line);
+    border-inline-start:4px solid var(--gold);
+  }
+  .method-card h2{
+    margin:0 0 14px;
+    font-size:1.3rem;
+    color:var(--olive-deep);
+    font-weight:700;
+  }
+  .method-card strong{color:var(--olive-deep);}
+
+  figure.diagram{
+    margin:0 0 40px;
+    text-align:center;
+  }
+  figure.diagram img{
+    max-width:100%;
+    border-radius:8px;
+    border:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(27,58,47,0.1);
+  }
+  figure.diagram figcaption{
+    margin-top:10px;
+    font-size:0.85rem;
+    color:var(--copper);
+  }
+
+  .section-heading{
+    text-align:center;
+    margin:0 0 30px;
+  }
+  .section-heading h2{
+    font-size:1.5rem;
+    color:var(--olive-deep);
+    margin:0 0 8px;
+    font-weight:700;
+  }
+  .section-heading p{
+    color:var(--copper);
+    max-width:var(--max-w);
+    margin:0 auto;
+    font-size:0.96rem;
+  }
+
+  .cascade{
+    position:relative;
+    padding-inline-start:42px;
+  }
+  .cascade::before{
+    content:"";
+    position:absolute;
+    top:6px; bottom:6px;
+    left:13px;
+    width:7px;
+    background:linear-gradient(to bottom, var(--olive) 0%, var(--olive) 78%, var(--copper) 100%);
+    clip-path:polygon(0 0, 100% 0, 78% 100%, 22% 100%);
+    border-radius:5px;
+  }
+
+  .stage{
+    position:relative;
+    margin-bottom:20px;
+  }
+  .stage:last-child{margin-bottom:0;}
+
+  .stage .node{
+    position:absolute;
+    left:-42px;
+    top:24px;
+    width:34px; height:34px;
+    border-radius:50%;
+    background:var(--parchment);
+    border:2.5px solid var(--olive);
+    color:var(--olive-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Amiri',serif;
+    font-weight:700;
+    font-size:1rem;
+    z-index:2;
+    box-shadow:0 0 0 5px var(--parchment);
+  }
+  .stage:nth-child(n+6) .node{
+    border-color:var(--copper);
+    color:var(--copper);
+  }
+
+  .stage-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:20px 24px;
+    box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .stage-card .level-name{
+    font-family:'Amiri',serif;
+    font-size:1.12rem;
+    color:var(--olive-deep);
+    font-weight:700;
+    margin:0 0 6px;
+  }
+  .stage-card .source-line{
+    color:var(--ink);
+    font-size:0.98rem;
+    margin:0 0 12px;
+  }
+  .stage-card .rule{
+    background:var(--parchment-deep);
+    border-inline-start:3px solid var(--gold);
+    border-radius:6px;
+    padding:9px 14px;
+    font-size:0.9rem;
+    color:var(--copper);
+    margin:0;
+  }
+  .stage-card .rule b{color:var(--olive-deep);}
+
+  .verdict-row{
+    margin-top:36px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  @media (max-width:680px){.verdict-row{grid-template-columns:1fr;}}
+  .verdict{
+    border-radius:8px;
+    padding:20px 22px;
+    border:1px solid var(--line);
+    background:#fff;
+  }
+  .verdict.accept{border-inline-start:4px solid var(--olive);}
+  .verdict.reject{border-inline-start:4px solid var(--copper);}
+  .verdict h3{
+    margin:0 0 8px;
+    font-family:'Amiri',serif;
+    font-size:1.05rem;
+    font-weight:700;
+  }
+  .verdict.accept h3{color:var(--olive-deep);}
+  .verdict.reject h3{color:var(--copper);}
+  .verdict p{margin:0; font-size:0.92rem; color:var(--ink);}
+
+  .closing-note{
+    margin-top:44px;
+    text-align:center;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+  }
+  .closing-note p{
+    max-width:var(--max-w);
+    margin:0 auto;
+    color:var(--copper);
+    font-size:0.92rem;
+  }
+
+  footer{
+    background:var(--olive-deep);
+    color:rgba(245,239,224,0.75);
+    padding:36px 24px 24px;
+    margin-top:40px;
+    text-align:center;
+    font-size:0.88rem;
+  }
+  footer .meta{opacity:0.7;}
+
+  @media (max-width:600px){
+    .page-card{padding:24px 18px;}
+    header.page-hero{padding:20px 18px 16px;}
+    .cascade{padding-inline-start:34px;}
+    .stage .node{left:-34px; width:28px; height:28px; font-size:0.86rem;}
+    .stage-card{padding:16px 18px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left"></div>
+  <div class="brandmark">Restrain Your Tongues Concerning Them</div>
+  <div class="topbar-right">
+    <div class="langswitch">
+      <a href="../../index.html">العربية</a>
+      <span class="active">English</span>
+      <button disabled>Türkçe</button>
+    </div>
+    <div class="visitor-counter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Site visitors:</span>
+      <span id="visitorCount">···</span>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="../index.html">The Purpose of This Site</a>
+  <a href="../terms/index.html">Key Terms</a>
+  <a href="index.html" class="active-page">Standards &amp; Criteria</a>
+  <a href="../../index.html#figures">Figures</a>
+  <a href="../../index.html#contact">Contact Us</a>
+</nav>
+
+<div class="verse-marquee" aria-hidden="true">
+  <div class="verse-marquee-track">
+    <span class="v">"O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful." — Surah Al-Hujurat 49:6</span>
+    <span class="sep">—</span>
+    <span class="v">"Why, when you heard it, did not the believing men and believing women think good of one another and say, 'This is an obvious falsehood'?" — Surah An-Nur 24:12</span>
+    <span class="sep">—</span>
+    <span class="v">"O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful." — Surah Al-Hujurat 49:6</span>
+    <span class="sep">—</span>
+    <span class="v">"Why, when you heard it, did not the believing men and believing women think good of one another and say, 'This is an obvious falsehood'?" — Surah An-Nur 24:12</span>
+    <span class="sep">—</span>
+  </div>
+</div>
+
+<p class="breadcrumb">
+  <a href="../index.html">Home</a> ← Standards &amp; Criteria
+</p>
+
+<header class="page-hero">
+  <h1 class="page-title">Standards &amp; Criteria</h1>
+  <p class="page-subtitle">The methodology for accepting a historical narration: a sequence of successive filters the narration must pass through. What clears every filter is accepted; what fails even one of them, on its own, is rejected and disregarded.</p>
+</header>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<main>
+
+  <div class="page-card intro-card">
+    <p>Dealing with historical narrations rests on refusing to accept any report or narration until it has been subjected to a set of graduated standards, functioning as successive filters that purify the narration of impurities and expose points of weakness and doubt within it. What clears these standards is accepted and relied upon; what fails one or more of them is rejected and disregarded.</p>
+    <p class="to-reader">We are well aware that the reader may be surprised by something that conflicts with a belief they were raised on or have studied. We are not here to argue — we simply want to establish a method we can agree on for evaluating the reports that reach us, whether ancient or recent, in order to purify them of impurities and illogical content.</p>
+    <p>It must also be logically noted that a source is not counted as valid unless its composition postdates the time the event occurred; if, for example, the event occurred after the death of the author or historian, then it logically cannot be relied upon.</p>
+  </div>
+
+  <div class="page-card method-card">
+    <h2>Why Bukhari and Malik First?</h2>
+    <p>After the Qur'an, we turn to what the general body of scholars agree upon, which is <strong>Sahih al-Bukhari</strong>. But before your mind jumps to what it currently understands by that — Bukhari, like any work of human authorship, is subject to distortion or scribal error. So we turn to the most knowledgeable verifiers of manuscripts and the most precise and best-established copies to rely on: the hadith scholars and verifiers are unanimous that the most precise and well-established of Bukhari's students was the eminent <strong>al-Farabri</strong>, and that among al-Farabri's most precise students — al-Kushmihani, al-Mustamli, and al-Sarakhsi — it was Imam <strong>Abu Dharr al-Harawi</strong> who transmitted it. For this reason, we rely exclusively on this transmission on this site.</p>
+    <p>After Bukhari, we then rely on <strong>Imam Malik's Muwatta</strong>, for its stature and his rigor in selecting narrators, and his extreme caution regarding narrations from the people of Kufa — he would only narrate from those he trusted in both religious commitment and precision. We rely on the most precise and strongest of his students, <strong>al-Qa'nabi</strong>.</p>
+    <p>In other words, we do not accept any work of human authorship without first verifying and investigating which of its transmissions are the most precise and accurate, and we do not accept any narration without referring back to the foremost verifiers and scholars.</p>
+  </div>
+
+  <figure class="diagram">
+    <img src="../../images/criteria-infographic-en.png" alt="Diagram of the methodology for accepting historical narrations — the graduated levels from the condition of chronology to narrations of known enemies">
+    <figcaption>The complete illustrative diagram of the methodology, in order of its eleven levels</figcaption>
+  </figure>
+
+  <div class="section-heading">
+    <h2>The Ten Levels in Detail</h2>
+    <p>A report is measured against these levels in order. Descending in rank means a greater need for verification, until it reaches a level where nothing is accepted except under strict conditions.</p>
+  </div>
+
+  <div class="cascade">
+
+    <div class="stage">
+      <div class="node">1</div>
+      <div class="stage-card">
+        <p class="level-name">Sahih al-Bukhari — The Transmission of Abu Dharr al-Harawi</p>
+        <p class="source-line">Every book other than the Book of Allah is subject to distortion and scribal error. The authoritative copy of Sahih al-Bukhari is the transmission of Abu Dharr al-Harawi from his three teachers — al-Kushmihani, al-Sarakhsi, and al-Mustamli — from al-Farabri, the most precise and reliable of Bukhari's students.</p>
+        <p class="rule"><b>Condition:</b> The version currently well-known in libraries is unfortunately not that one. It is only relied upon if its composition postdates the time the event occurred.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">2</div>
+      <div class="stage-card">
+        <p class="level-name">Imam Malik's Muwatta (the Transmission of al-Qa'nabi) and Bukhari's Greater and Lesser History</p>
+        <p class="source-line">He is the imam of the people of Medina, and the foremost compiler of chained hadith among the reports of the Medinan Companions — so much so that Bukhari called Malik's chain from Nafi' from Ibn Umar (may Allah be pleased with them) the soundest of chains. Malik was among the most rigorous imams in selecting his teachers and the strictest in accepting narrators, particularly regarding narrators from Kufa.</p>
+        <p class="rule"><b>Condition:</b> The authoritative source is al-Qa'nabi's transmission from Imam Malik; the version well-known in libraries is likewise not that one. It is accepted on condition of a full chain analysis and verification of the narration, and that it does not contradict an explicit narration in Sahih al-Bukhari.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">3</div>
+      <div class="stage-card">
+        <p class="level-name">The Remaining Six Books and the Musnad</p>
+        <p class="source-line">Muslim, Abu Dawud, al-Tirmidhi, al-Nasa'i, Ibn Majah, and Musnad Ahmad, among others.</p>
+        <p class="rule"><b>Condition:</b> The full chain of narration must be stated, each narrator must be verified (for sectarian bias, lying, weakness, tadlees, confirmed hearing, and innovation), and the narration must not contradict an explicit text in Bukhari or Malik.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">4</div>
+      <div class="stage-card">
+        <p class="level-name">The Historians</p>
+        <p class="source-line">If the event is mentioned by historians such as al-Tabari, al-Dhahabi, Ibn Kathir, Ibn Khaldun, and others like them, then the historian's methodology and school of thought must be taken into account, along with the era in which he lived and the patronage of any state under whose shadow he wrote his works — due to the risk of bias — as well as the views of established verifiers such as Dr. Bashar Awad Ma'ruf regarding him and his transmissions.</p>
+        <p class="rule"><b>Condition:</b> Reports that are unchained (mursal) or without any chain of narration are not relied upon at all.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">5</div>
+      <div class="stage-card">
+        <p class="level-name">The Testimony of Just Contemporaries Not Suspected of Bias Toward the Event</p>
+        <p class="source-line">Just narrators who were contemporaries of the event, free of sectarianism and innovation — particularly regarding narrations that support their own sect or school, in which case they would be considered impugned due to presumed bias.</p>
+        <p class="rule"><b>Condition:</b> The narrators must be established as having witnessed the event with their own eyes, and must be free of the very innovation the narration itself supports. The standard of proof here is the same standard used in religious courts for accepting a claim: two just witnesses.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">6</div>
+      <div class="stage-card">
+        <p class="level-name">The Argument From Scholarly Silence</p>
+        <p class="source-line">If the just Muslim scholars contemporary with the event — particularly any of the Companions renowned for knowledge and jurisprudence, such as Ibn Umar and Ibn Mas'ud — did not condemn it, and none of them so much as addressed it with either condemnation or acknowledgment, this is extremely strong negative evidence that it did not occur in the alleged manner.</p>
+        <p class="rule"><b>A logical question:</b> How could it be rationally conceivable that not a single Muslim scholar objected to or was outraged by the Conqueror killing his brother Ahmed, or Baybars killing Qutuz, or Yazid killing al-Husayn?</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">7</div>
+      <div class="stage-card">
+        <p class="level-name">The Absence of Any Invocation of the Narration by Opponents</p>
+        <p class="source-line">The fact that the opposing party to the accused never invoked this very story is strong evidence the narration is not authentic, because it would have served their cause and their position had it been true.</p>
+        <p class="rule"><b>Example:</b> Ibn al-Zubayr never invoked the narration about the stoning of the Kaaba, and the supporters of Ali never invoked the statement "the transgressing faction will kill him" on the day of the arbitration.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">8</div>
+      <div class="stage-card">
+        <p class="level-name">Material and Archaeological Evidence</p>
+        <p class="source-line">Physical evidence that either supports or negates the occurrence of the event.</p>
+        <p class="rule"><b>Example:</b> The absence of any original manuscript of the so-called "law of fratricide" attributed to the Conqueror is evidence that it was never established.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">9</div>
+      <div class="stage-card">
+        <p class="level-name">Prophetic Exoneration of the Accused</p>
+        <p class="source-line">General exoneration found in the Qur'an, or specific exoneration from the Prophet ﷺ.</p>
+        <p class="rule"><b>Condition:</b> A suspect narration that contradicts prophetic exoneration only grows weaker and is rejected all the more firmly. Example: the hadith "What an excellent commander its commander will be" regarding the conqueror of Constantinople, set against flimsy narrations that accuse him of murder.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">10</div>
+      <div class="stage-card">
+        <p class="level-name">Narrations From Known Enemies</p>
+        <p class="source-line">A narration from someone with established enmity, if unsupported by an authentic narration meeting the previous conditions, is not accepted, given the nature of bias that would exist in such a case.</p>
+        <p class="rule"><b>Condition:</b> Any narration whose source is an enemy or an unknown person automatically falls and is not accepted. Example: the accounts of Byzantine historians about the Ottomans — inherently hostile, and without the religious conditions required for accepting reports.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="verdict-row">
+    <div class="verdict accept">
+      <h3>✓ If It Passes All Tests</h3>
+      <p>The report is accepted and acted upon, becoming part of the picture this site builds of the event.</p>
+    </div>
+    <div class="verdict reject">
+      <h3>✕ If It Fails a Single Test</h3>
+      <p>The report is rejected or held in abeyance, depending on the type of flaw that appeared at that particular stage.</p>
+    </div>
+  </div>
+
+  <div class="closing-note">
+    <p>This site is a combination of logic and the most authentic narrations — not hypotheses, not slanders, not chains of narration that are not established in their own right, not fabrications, not the narrations of adversaries, and not the absence of physical evidence.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p class="meta">© Kuffo Alsinatakum — All research is reviewed and continuously updated.</p>
+</footer>
+
+<script>
+(function(){
+  const counterEl = document.getElementById('visitorCount');
+  if(!counterEl) return;
+  const namespace = 'kuffo-alsinatakum-github-io';
+  const key = 'site-visits';
+  fetch(`https://countapi.mileshilliard.com/api/v1/hit/${namespace}_${key}`)
+    .then(res => res.json())
+    .then(data => {
+      if(data && typeof data.value === 'number'){
+        counterEl.textContent = data.value.toLocaleString();
+      } else {
+        counterEl.textContent = '—';
+      }
+    })
+    .catch(() => { counterEl.textContent = '—'; });
+})();
+</script>
+
+</body>
+</html>
