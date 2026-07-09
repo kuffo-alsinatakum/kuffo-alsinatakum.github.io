@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verifying the Prophetic Bushra of the Conquest of Constantinople — Sultan Mehmed the Conqueror — Kuffo Alsinatakum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:760px;
+    --max-w-wide:980px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--parchment); color:var(--ink);
+    font-family:'Lora','Amiri',serif; line-height:1.85; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .topbar{
+    background:var(--olive-deep); color:var(--parchment); padding:10px 24px;
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px;
+    font-size:0.85rem; border-bottom:1px solid rgba(201,162,39,0.25);
+  }
+  .topbar .brandmark{
+    grid-column:2; display:flex; align-items:center; justify-content:center; gap:10px;
+    color:var(--gold); font-family:'Lora',serif; font-style:italic; font-weight:600; font-size:1.05rem;
+    letter-spacing:0.015em; text-shadow:0 1px 8px rgba(201,162,39,0.35); white-space:normal; text-align:center; max-width:420px;
+  }
+  .topbar .brandmark::before, .topbar .brandmark::after{content:"❊"; font-size:0.7rem; color:rgba(201,162,39,0.6); flex-shrink:0;}
+  .topbar-left{grid-column:1; justify-content:flex-start;}
+  .topbar-right{grid-column:3; justify-content:flex-end; display:flex; align-items:center; gap:18px;}
+  @media (max-width:760px){
+    .topbar{grid-template-columns:1fr; text-align:center;}
+    .topbar-left, .topbar-right, .topbar .brandmark{grid-column:1; justify-content:center;}
+    .topbar .brandmark{font-size:1.02rem; order:-1; margin-bottom:6px;}
+  }
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button, .langswitch a{
+    background:none; border:1px solid rgba(245,239,224,0.3); color:rgba(245,239,224,0.75);
+    font-size:0.78rem; padding:3px 10px; border-radius:14px; cursor:pointer; font-family:inherit;
+    text-decoration:none; display:inline-block;
+  }
+  .langswitch button:disabled{opacity:0.4; cursor:not-allowed;}
+  .langswitch .active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
+  .visitor-counter{display:flex; align-items:center; gap:6px; color:rgba(245,239,224,0.75); font-size:0.8rem; white-space:nowrap;}
+  .visitor-counter svg{width:15px; height:15px; flex-shrink:0; color:var(--gold);}
+  .visitor-counter #visitorCount{color:var(--gold); font-weight:700;}
+  @media (max-width:600px){
+    .topbar{flex-wrap:wrap; gap:8px;}
+    .topbar-right{flex-wrap:wrap; gap:10px;}
+    .visitor-counter{font-size:0.74rem;}
+  }
+
+  .navbar{
+    position:sticky; top:0; z-index:50; background:var(--olive); border-bottom:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; gap:6px; padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12); flex-wrap:wrap;
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85); font-size:0.92rem; padding:13px 18px; display:inline-block;
+    border-bottom:3px solid transparent; transition:color 0.2s, border-color 0.2s, background 0.2s; white-space:nowrap;
+  }
+  .navbar a:hover{color:var(--gold); background:rgba(245,239,224,0.06); text-decoration:none;}
+  .navbar a.active-page{color:var(--gold); border-bottom-color:var(--gold); font-weight:600;}
+  .navbar a.back-link{
+    display:inline-flex; align-items:center; gap:7px; color:var(--gold);
+    border-inline-end:1px solid rgba(245,239,224,0.25); margin-inline-end:6px; font-weight:600;
+  }
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0;}
+  @media (max-width:700px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+    .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
+  }
+
+  .breadcrumb{max-width:var(--max-w-wide); margin:18px auto 0; padding:0 24px; font-size:0.85rem; color:var(--copper);}
+  .breadcrumb a{color:var(--copper); text-decoration:underline;}
+
+  header.page-hero{max-width:var(--max-w-wide); margin:0 auto; padding:26px 24px 18px; text-align:center;}
+  h1.page-title{font-size:clamp(1.6rem, 4vw, 2.3rem); margin:0; color:var(--olive-deep); font-weight:700; font-family:'Amiri',serif;}
+  p.page-subtitle{max-width:var(--max-w); margin:14px auto 0; color:var(--copper); font-size:1rem;}
+
+  .claim-statement{
+    max-width:var(--max-w); margin:18px auto 0; background:var(--parchment-deep);
+    border-inline-start:4px solid var(--gold); border-radius:6px; padding:14px 18px;
+    font-size:0.98rem; color:var(--ink); text-align:left;
+  }
+  .claim-statement b{color:var(--olive-deep);}
+
+  .ornament{display:flex; align-items:center; justify-content:center; gap:14px; margin:8px auto 30px; max-width:var(--max-w); padding:0 24px; color:var(--copper); opacity:0.85;}
+  .ornament .line{flex:1; height:1px; background:linear-gradient(to right, transparent, var(--copper) 50%, transparent);}
+  .ornament svg{width:24px; height:24px; flex-shrink:0;}
+
+  .verse-marquee{
+    background:linear-gradient(90deg, var(--olive-deep) 0%, #1a3a28 50%, var(--olive-deep) 100%);
+    border-top:2px solid var(--gold); overflow:hidden; white-space:nowrap; padding:14px 0; position:relative;
+  }
+  .verse-marquee::before, .verse-marquee::after{content:""; position:absolute; top:0; bottom:0; width:60px; z-index:2; pointer-events:none;}
+  .verse-marquee::before{left:0; background:linear-gradient(to right, var(--olive-deep), transparent);}
+  .verse-marquee::after{right:0; background:linear-gradient(to left, var(--olive-deep), transparent);}
+  .verse-marquee-track{display:inline-flex; align-items:center; animation:marquee-scroll 38s linear infinite; will-change:transform;}
+  .verse-marquee-track span.v{
+    display:inline-block; padding:0 48px; font-family:'Amiri',serif; font-size:1.15rem; font-weight:700;
+    background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227); background-size:200% auto;
+    -webkit-background-clip:text; background-clip:text; color:transparent; animation:shimmer-gold 4s linear infinite;
+  }
+  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
+  @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
+  @media (max-width:600px){.verse-marquee-track span.v{font-size:0.95rem; padding:0 28px;}}
+  @media (prefers-reduced-motion: reduce){.verse-marquee-track{animation:none;}}
+
+  main{max-width:var(--max-w-wide); margin:0 auto; padding:0 24px 50px;}
+
+  .toc-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:22px 26px; margin-bottom:32px; box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .toc-card h2{margin:0 0 12px; font-size:1.1rem; color:var(--olive-deep); font-weight:700;}
+  .toc-card ol{margin:0; padding-inline-start:22px; columns:2; column-gap:28px;}
+  .toc-card li{margin-bottom:8px; font-size:0.94rem; break-inside:avoid;}
+  @media (max-width:640px){.toc-card ol{columns:1;}}
+
+  .page-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:32px 30px; box-shadow:0 4px 16px rgba(27,58,47,0.06); margin-bottom:28px;
+  }
+  .page-card h2{margin:0 0 16px; font-size:1.3rem; color:var(--olive-deep); font-weight:700; scroll-margin-top:80px;}
+  .page-card h3{margin:22px 0 10px; font-size:1.08rem; color:var(--olive-deep); font-weight:700;}
+  .page-card p{margin:0 0 16px; font-size:1.04rem;}
+  .page-card p:last-child{margin-bottom:0;}
+  .page-card ul, .page-card ol.content-list{margin:0 0 16px; padding-inline-start:24px;}
+  .page-card li{margin-bottom:6px;}
+
+  blockquote.src-quote{
+    margin:0 0 18px; padding:12px 18px; background:var(--parchment-deep);
+    border-inline-start:3px solid var(--copper); border-radius:6px; font-size:0.98rem; color:var(--ink);
+  }
+  blockquote.src-quote cite{display:block; margin-top:8px; font-size:0.82rem; color:var(--copper); font-style:normal;}
+
+  table.data-table{width:100%; border-collapse:collapse; margin:0 0 18px; font-size:0.94rem;}
+  table.data-table th, table.data-table td{border:1px solid var(--line); padding:9px 12px; text-align:left;}
+  table.data-table th{background:var(--parchment-deep); color:var(--olive-deep); font-weight:700;}
+  table.data-table tbody tr:nth-child(even){background:rgba(236,226,200,0.35);}
+
+  .footnote{font-size:0.82rem; color:var(--copper); border-top:1px dashed var(--line); padding-top:10px; margin-top:10px;}
+
+  .narrator-block{
+    background:var(--parchment-deep); border-radius:8px; border-inline-start:4px solid var(--olive);
+    padding:18px 22px; margin:0 0 18px;
+  }
+  .narrator-block h3{margin:0 0 12px !important; font-size:1.05rem; color:var(--olive-deep); font-weight:700;}
+  .narrator-block p{margin:0 0 10px; font-size:0.98rem;}
+  .narrator-block p:last-child{margin-bottom:0;}
+  .narrator-block p b{color:var(--olive-deep);}
+
+  .no-isnad-notice{
+    background:var(--parchment-deep); border-inline-start:4px solid var(--copper);
+    border-radius:6px; padding:16px 20px; margin:0 0 18px;
+  }
+  .no-isnad-notice p{margin:0; font-size:0.98rem; color:var(--ink);}
+  .no-isnad-notice p b{color:var(--olive-deep);}
+
+  .fig-gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin:0 0 8px;}
+  .fig-item{text-align:center;}
+  .fig-item img{
+    width:100%; height:auto; border-radius:8px; border:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(27,58,47,0.1); cursor:zoom-in; transition:box-shadow 0.2s ease;
+  }
+  .fig-item img:hover{box-shadow:0 8px 24px rgba(27,58,47,0.18);}
+  .fig-item figcaption{margin-top:8px; font-size:0.85rem; color:var(--copper);}
+
+  #lightbox{
+    display:none; position:fixed; inset:0; background:rgba(18,40,31,0.92); z-index:200;
+    align-items:center; justify-content:center; padding:30px; cursor:zoom-out;
+  }
+  #lightbox.open{display:flex;}
+  #lightbox .lb-img-wrap{overflow:auto; max-width:95%; max-height:90vh; cursor:default;}
+  #lightbox img{
+    max-width:95%; max-height:90vh; border-radius:6px; box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    transition:transform 0.15s ease; transform-origin:center center;
+  }
+  #lightbox .lb-close{
+    position:absolute; top:18px; left:24px; color:var(--gold); font-size:2rem;
+    line-height:1; background:none; border:none; cursor:pointer; z-index:2;
+  }
+  #lightbox .lb-tools{
+    display:none; position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+    gap:10px; z-index:2; background:rgba(18,40,31,0.85); border:1px solid var(--gold);
+    border-radius:30px; padding:8px 14px;
+  }
+  #lightbox.with-tools .lb-tools{display:flex;}
+  #lightbox .lb-tools button{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--gold);
+    background:var(--olive-deep); color:var(--gold); font-size:1.1rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; line-height:1;
+  }
+  #lightbox .lb-tools button:hover{background:var(--gold); color:var(--olive-deep);}
+
+  .cascade{position:relative; padding-inline-start:42px;}
+  .cascade::before{
+    content:""; position:absolute; top:6px; bottom:6px; left:13px; width:7px;
+    background:linear-gradient(to bottom, var(--olive) 0%, var(--olive) 78%, var(--copper) 100%);
+    clip-path:polygon(0 0, 100% 0, 78% 100%, 22% 100%); border-radius:5px;
+  }
+  .stage{position:relative; margin-bottom:20px;}
+  .stage:last-child{margin-bottom:0;}
+  .stage .node{
+    position:absolute; left:-42px; top:24px; width:34px; height:34px; border-radius:50%;
+    background:var(--parchment); border:2.5px solid var(--olive); color:var(--olive-deep);
+    display:flex; align-items:center; justify-content:center; font-family:'Amiri',serif;
+    font-weight:700; font-size:1rem; z-index:2; box-shadow:0 0 0 5px var(--parchment);
+  }
+  .stage:nth-child(n+6) .node{border-color:var(--copper); color:var(--copper);}
+  .stage-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px; padding:18px 22px;
+    box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .stage-card .level-name{font-family:'Amiri',serif; font-size:1.05rem; color:var(--olive-deep); font-weight:700; margin:0 0 6px;}
+  .stage-card .verdict-line{font-size:0.94rem; margin:0 0 8px;}
+  .stage-card .verdict-line b{color:var(--olive-deep);}
+  .stage-card .pass{color:var(--olive-deep); font-weight:700;}
+  .stage-card .fail{color:var(--copper); font-weight:700;}
+
+  .final-verdict{
+    margin-top:36px; border-radius:8px; padding:26px 28px; text-align:center;
+    background:var(--olive-deep); color:var(--parchment); border:2px solid var(--gold);
+  }
+  .final-verdict h2{margin:0 0 10px; font-size:1.3rem; color:var(--gold);}
+  .final-verdict p{margin:0; max-width:var(--max-w); margin-inline:auto; opacity:0.92;}
+
+  .refs-list{margin:0; padding-inline-start:22px; font-size:0.92rem;}
+  .refs-list li{margin-bottom:10px;}
+
+  .placeholder-badge{
+    display:inline-block; margin-bottom:14px; font-size:0.72rem; background:var(--parchment-deep);
+    color:var(--copper); padding:3px 10px; border-radius:10px; border:1px dashed var(--copper);
+  }
+
+  footer{background:var(--olive-deep); color:rgba(245,239,224,0.75); padding:36px 24px 24px; margin-top:40px; text-align:center; font-size:0.88rem;}
+  footer .meta{opacity:0.7;}
+
+  @media (max-width:600px){
+    .page-card{padding:22px 18px;}
+    .toc-card{padding:18px 20px;}
+    header.page-hero{padding:20px 18px 16px;}
+    .cascade{padding-inline-start:34px;}
+    .stage .node{left:-34px; width:28px; height:28px; font-size:0.86rem;}
+    .stage-card{padding:14px 16px;}
+  }
+
+  .print-bar{text-align:center; margin:0 0 8px;}
+  .print-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--olive); color:var(--parchment); border:1px solid var(--gold);
+    border-radius:20px; padding:8px 20px; font-family:inherit; font-size:0.9rem; cursor:pointer;
+  }
+  .print-btn:hover{background:var(--olive-deep);}
+  .print-btn svg{width:16px; height:16px;}
+
+  @media print{
+    .topbar, .navbar, .verse-marquee, .breadcrumb, .print-bar, .ornament, footer, #lightbox, .toc-card{display:none !important;}
+    body{background:#fff; background-image:none;}
+    .page-card, .final-verdict, .narrator-block, .no-isnad-notice{box-shadow:none; border:1px solid #999;}
+    main{padding:0;}
+    a{color:var(--ink); text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left"></div>
+  <div class="brandmark">Restrain Your Tongues Concerning Them</div>
+  <div class="topbar-right">
+    <div class="langswitch">
+      <a href="../../index.html">العربية</a>
+      <span class="active">English</span>
+      <button disabled>Türkçe</button>
+    </div>
+    <div class="visitor-counter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Site visitors:</span>
+      <span id="visitorCount">···</span>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="../index.html">The Purpose of This Site</a>
+  <a href="../terms/index.html">Key Terms</a>
+  <a href="../standards/index.html">Standards &amp; Criteria</a>
+  <a href="index.html" class="active-page">Figures</a>
+  <a href="../../index.html#contact">Contact Us</a>
+</nav>
+
+<div class="verse-marquee" aria-hidden="true">
+  <div class="verse-marquee-track">
+    <span class="v">"O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful." — Surah Al-Hujurat 49:6</span>
+    <span class="sep">—</span>
+    <span class="v">"Why, when you heard it, did not the believing men and believing women think good of one another and say, 'This is an obvious falsehood'?" — Surah An-Nur 24:12</span>
+    <span class="sep">—</span>
+    <span class="v">"O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful." — Surah Al-Hujurat 49:6</span>
+    <span class="sep">—</span>
+    <span class="v">"Why, when you heard it, did not the believing men and believing women think good of one another and say, 'This is an obvious falsehood'?" — Surah An-Nur 24:12</span>
+    <span class="sep">—</span>
+  </div>
+</div>
+
+<p class="breadcrumb">
+  <a href="../index.html">Home</a> ← <a href="index.html">Figures</a> ← <a href="sample-figure.html">Sultan Mehmed the Conqueror, may Allah have mercy on him</a> ← Verifying the Prophetic Bushra of the Conquest of Constantinople
+</p>
+
+<header class="page-hero">
+  <h1 class="page-title">Verifying the Prophetic Bushra of the Conquest of Constantinople</h1>
+  <p class="page-subtitle">A source-critical and isnad-critical study of the hadith "Constantinople shall surely be conquered; what an excellent commander its commander will be, and what an excellent army that army will be," following a complete source-critical methodology.</p>
+  <div class="claim-statement">
+    <b>The claim as stated:</b> It is claimed that the prophetic glad tidings (bushra) of the conquest of Constantinople, found in the hadith "Constantinople shall surely be conquered; what an excellent commander its commander will be, and what an excellent army that army will be," was fulfilled by Sultan Mehmed the Conqueror, may Allah have mercy on him, when he conquered Constantinople in 857 AH / 1453 CE.
+  </div>
+</header>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+    <span>Download Research as PDF</span>
+  </button>
+</div>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<main>
+
+  <div class="toc-card">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#sources">Sources of the Report</a></li>
+      <li><a href="#tree">Isnad Tree</a></li>
+      <li><a href="#narrators">Study of the Narrators</a></li>
+      <li><a href="#connection">Study of Connectivity and Hidden Defects</a></li>
+      <li><a href="#analysis">Applying the Ten Standards</a></li>
+      <li><a href="#imams">The Statements of the Imams on This Hadith Itself</a></li>
+      <li><a href="#verdict">Conclusion and Final Verdict</a></li>
+    </ol>
+  </div>
+
+  <div class="page-card" id="sources">
+    <h2>1. Sources of the Report</h2>
+    <p>This hadith is not found in Sahih al-Bukhari via the transmission of Abu Dharr al-Harawi, nor in Sahih Muslim, nor in Imam Malik's Muwatta (neither via al-Qa'nabi's transmission nor any other). A reference to its narrators is found in Imam Bukhari's other works: he mentions the hadith in <i>al-Tarikh al-Kabir</i> (2/81; also 5/49, 443; and no. 1760) and in <i>al-Tarikh al-Awsat</i> (no. 1482), in the biographical entries of the narrators Ubayd ibn Bishr al-Ghanawi and his father, without including it in <i>al-Du'afa al-Saghir</i>.</p>
+    <p>After examining Imam Malik's Muwatta, Sahih Muslim, and the other major hadith collections, the hadith was found recorded in the following sources:</p>
+    <ul>
+      <li>The Musnad of Imam Ahmad ibn Hanbal, no. (18957).</li>
+      <li><i>Mu'jam al-Sahabah</i> by al-Baghawi, no. (20).</li>
+      <li><i>Ma'rifat al-Sahabah</i> by Abu Nu'aym al-Isbahani, nos. (1177) and (1178).</li>
+      <li><i>Mu'jam al-Sahabah</i> by Ibn Qani' (1/81).</li>
+      <li><i>Al-Mu'jam al-Kabir</i> by al-Tabarani, no. (1216).</li>
+      <li><i>Ma'rifat al-Sahabah</i> by Ibn Mandah (p. 229).</li>
+      <li>Al-Mustadrak 'ala al-Sahihayn by al-Hakim al-Naysaburi, no. (8300).</li>
+      <li><i>Tarikh Dimashq</i> by Ibn 'Asakir (58/34-36), transmitting from the routes above.</li>
+    </ul>
+    <p>The hadith was not found in Sunan Abi Dawud, Jami' al-Tirmidhi, Sunan al-Nasa'i, Sunan Ibn Majah, or Sunan al-Darimi, as far as this research could determine, nor was it found in the compilations of Ibn Abi Shaybah or Abd al-Razzaq al-San'ani.</p>
+    <p>Since it was not established that this hadith is narrated in Sahih al-Bukhari via Abu Dharr al-Harawi's transmission, the rule this site otherwise applies to forgo re-studying an already-established chain does not apply here, and a full, detailed isnad study remains necessary.</p>
+  </div>
+
+  <div class="page-card" id="tree">
+    <h2>2. Isnad Tree</h2>
+    <p>Every route of this hadith converges on a single narrator, Zayd ibn al-Khitab al-'Ukli (d. 203 AH), from whom six of his students transmitted independently from his teacher al-Walid ibn al-Mughirah al-Ma'afiri, splitting into the six routes recorded.</p>
+    <div class="fig-gallery">
+      <div class="fig-item">
+        <img class="isnad-img" src="../../images/bishr-ghanawi-isnad-en.png" alt="Combined isnad tree for the hadith 'Constantinople shall surely be conquered'" onclick="openLightbox(this.src, true)">
+        <figcaption>The combined isnad tree covering all six routes (click to zoom and save)</figcaption>
+      </div>
+    </div>
+    <p class="footnote">The convergence point: Zayd ibn al-Khitab al-'Ukli — with al-Walid ibn al-Mughirah al-Ma'afiri narrating alone from the intermediate narrator (Ibn Bishr), and this latter in turn narrating alone from his father, the claimed Companion Bishr.</p>
+  </div>
+
+  <div class="page-card" id="narrators">
+    <h2>3. Study of the Narrators</h2>
+    <p>What follows is a study of every tier of this chain, presenting the criticism (jarh) before the endorsement (ta'deel) for any narrator subject to dispute.</p>
+
+    <div class="narrator-block">
+      <h3>Bishr al-Ghanawi (the claimed Companion)</h3>
+      <p><b>Criticism (Jarh):</b> It is not sufficient to establish companionship merely by Ibn Hibban's classification of him within the generation of the Companions, or by the narrator's own claim about himself. Ibn al-Salah established — as transmitted from him by al-Nawawi, Ibn Jama'ah, Ibn Kathir, and Hafiz Zayn al-Din al-'Iraqi — that a person's status as a Companion is established by one of four means: mass transmission (tawatur), widespread fame short of mass transmission, the narration of individual Companions that he was one, or his own statement about himself after his integrity has been independently established. Bishr al-Ghanawi's companionship was not established by any of the first three means, nor was any independent integrity established for him that would justify accepting his own statement about himself; his claim to companionship thus remains unestablished by any evidence independent of this hadith itself.</p>
+      <p><b>Endorsement (Ta'deel):</b> Abu Hatim al-Razi said: "An Egyptian, had companionship [with the Prophet]." Ibn Hibban mentioned him in <i>al-Thiqat</i> within the generation of the Companions, saying: "He heard the Prophet ﷺ at the conquest of Constantinople." Ibn Hajar transmits in <i>al-Isabah</i> from Abu 'Ali ibn al-Sakan that he said: "He is counted among the people of Syria."</p>
+      <p><b>Conclusion:</b> These statements are descriptive and do not rise to the level of independent endorsement establishing companionship — and this is precisely the circularity to be alert to in such cases: using the hadith itself as evidence for its narrator's companionship, then using his companionship as evidence for the hadith's authenticity.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>'Ubayd / 'Ubaydullah / Abdullah ibn Bishr (the son, the intermediate narrator)</h3>
+      <p><b>Criticism (Jarh):</b> Ali ibn al-Madini declared him unknown, saying of this route: "Its narrator is unknown" (transmitted from him by Ibn 'Asakir in <i>Tarikh Dimashq</i>, 58/36, and by al-Dhahabi in <i>Tarikh al-Islam</i> without any comment contradicting it). No one is found to narrate from him except al-Walid ibn al-Mughirah al-Ma'afiri, and there is clear disagreement over his name and lineage among those narrating from Zayd ibn al-Khitab: he is called "Abdullah," "'Ubaydullah," and "'Ubayd" without any patronymic, and is attributed variously to "al-Khath'ami" and to "al-Ghanawi."</p>
+      <p><b>Endorsement (Ta'deel):</b> Ibn Hibban mentioned him in <i>al-Thiqat</i> within the generation of the Successors. Abu Hatim al-Razi said: "Among the peers of Abdullah ibn Lahi'ah" — a descriptive statement that does not amount to an endorsement.</p>
+      <p><b>Conclusion:</b> Ibn Hibban's endorsement alone is not sufficient to establish an acceptable rank, given his known leniency in authenticating narrators, especially with no other narrator besides al-Walid ibn al-Mughirah to corroborate him; the narrator is thus of unknown status (majhul al-hal). The contemporary researcher Salah al-Din al-Idlibi concluded that whoever named him "al-Khath'ami" (Abu Bakr ibn Abi Shaybah) erred, confusing him with a different narrator of a similar name — "Abdullah ibn Bishr al-Khath'ami al-Katib," the Kufan, among the narrators of al-Thawri and Shu'bah — since neither Bukhari, Abu Hatim, nor Ibn Hibban mention this scribe as having narrated from his father, confirming he is an entirely different person.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>Al-Walid ibn al-Mughirah ibn Sulayman al-Ma'afiri, Abu al-Abbas, the Egyptian</h3>
+      <p><b>Criticism (Jarh):</b> No criticism of him from the early scholars was found. The problem in this chain is not in him, but in his narrating alone from someone of unknown status.</p>
+      <p><b>Endorsement (Ta'deel):</b> Salah al-Din al-Idlibi described him as "an Egyptian, truthful (sadooq)," and he has an entry in Bukhari's <i>al-Tarikh al-Kabir</i>, in Ibn Abi Hatim's <i>al-Jarh wa-l-Ta'dil</i>, and in Ibn Hibban's <i>al-Thiqat</i> without criticism. He died in 172 AH.</p>
+      <p><b>Conclusion:</b> He is acceptable in his own narration; the problem lies specifically in his narrating alone from someone of unknown status.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>Zayd ibn al-Khitab ibn al-Rayyan, Abu al-Husayn al-'Ukli, the Kufan (the convergence point of the hadith)</h3>
+      <p><b>Criticism (Jarh):</b> Ahmad ibn Hanbal said, as transmitted by his son Abdullah: "Zayd ibn al-Khitab was truthful (sadooq)... but he made many errors" (<i>Su'alat Abi Dawud li-Ahmad</i>, no. 432; <i>al-'Ilal</i>, narration of Abdullah, no. 77). Yahya ibn Ma'in said, as transmitted by Ibn 'Adi: "He would reverse [the chains of] al-Thawri's hadith."</p>
+      <p><b>Endorsement (Ta'deel):</b> Al-'Ijli authenticated him, saying: "A trustworthy Kufan." Ibn 'Adi defended him, saying: "Zayd ibn al-Khitab has many narrations, and he is among the established teachers of Kufa whose truthfulness is not in doubt," clarifying that the leniency noted by Ibn Ma'in concerned specifically his narration from al-Thawri.</p>
+      <p><b>Conclusion:</b> Zayd ibn al-Khitab is trustworthy on the whole; the leniency noted about him concerns specifically his narration from Sufyan al-Thawri, and this does not affect his narration here from al-Walid ibn al-Mughirah, since it is not via al-Thawri's route. There is nothing in this chain that requires impugning Zayd ibn al-Khitab himself; the weakness lies in the narrators above him.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>The Six Students of Zayd ibn al-Khitab (transmitters of the six routes)</h3>
+      <p><b>Criticism (Jarh):</b> No criticism affecting this matter was recorded against any of them.</p>
+      <p><b>Endorsement (Ta'deel):</b> All of them are well-known, trustworthy, precise memorizers whose acceptance is not seriously disputed: Abdullah ibn Muhammad ibn Abi Shaybah (d. 235 AH), Uthman ibn Abi Shaybah (d. 239 AH), Abu Mas'ud Ahmad ibn al-Furat al-Razi (d. 258 AH), 'Abdah ibn Abdullah al-Saffar al-Khuza'i, Abu Kurayb Muhammad ibn al-'Ala' (d. 248 AH), and Muhammad ibn Ali ibn Muhriz.</p>
+      <p><b>Conclusion:</b> There is disagreement among them over the precise name of al-Walid ibn al-Mughirah's teacher (their teacher's teacher), not over the basic fact of their narration from Zayd ibn al-Khitab. None of the narrators in this chain is accused of Shi'ism or any other innovation.</p>
+    </div>
+  </div>
+
+  <div class="page-card" id="connection">
+    <h2>4. Study of Connectivity and Hidden Defects</h2>
+    <p>The wording of transmission between Zayd ibn al-Khitab and his teacher al-Walid ibn al-Mughirah, and between al-Walid and his teacher Ibn Bishr, is explicit in stating direct hearing ("he narrated to me"), and neither of them is known to be described with tadlees, so the connectivity of these two tiers is established. As for the narration between Ibn Bishr and his father, it uses "'an" ("on the authority of") rather than an explicit statement of hearing, and no explicit statement of hearing between them was found; however, Ibn Bishr is likewise not known to be described with tadlees, so the use of "'an" here carries no tadlees-related suspicion. The real problem in this chain remains the identity of the father and son and the unknown status of both, not the wording of transmission between them.</p>
+    <p>As for the claim that the father (Bishr) heard directly from the Prophet ﷺ, its wording is explicit ("that he heard the Prophet ﷺ say"), but this is built on his companionship being established in the first place, and it has already been shown that his companionship is not established by independent evidence.</p>
+    <p><b>The most significant hidden defects (ilal) surrounding this chain:</b></p>
+    <ul>
+      <li>Instability in the name and lineage of the intermediate narrator: he is called "Abdullah ibn Bishr," "'Ubaydullah ibn Bishr," and "'Ubayd ibn Bishr," and attributed variously to "al-Khath'ami" and to "al-Ghanawi."</li>
+      <li>Confusion between this unknown narrator and a different, known narrator with a similar name — a confusion arising from the similarity of names and lineages.</li>
+      <li>The unknown status of the intermediate narrator (Ibn Bishr), since only one narrator transmits from him, only Ibn Hibban authenticates him, and Ali ibn al-Madini explicitly declared him unknown.</li>
+      <li>The companionship of the father (Bishr) is not established by any evidence independent of this hadith itself.</li>
+      <li>Al-Walid ibn al-Mughirah's narrating alone from Ibn Bishr prevents this route from being corroborated by any other independent route at the same tier.</li>
+    </ul>
+    <p>The existence of six separate routes of transmission from Zayd ibn al-Khitab does not remedy this, because all six routes trace back to a single source — al-Walid ibn al-Mughirah, who narrates alone from Ibn Bishr — so these are not independent routes that strengthen one another, but late branchings from a single root containing the unknown status noted above. The concept of "sound due to corroborating routes" (sahih li-ghayrihi) does not apply here, since the basic condition for it is not met: the existence of at least one independently sound chain to which others can be added.</p>
+  </div>
+
+  <div class="page-card" id="analysis">
+    <h2>5. Applying the Ten Standards and Criteria</h2>
+    <p>The hadith below is measured against the ten levels adopted in the "Standards & Criteria" section. Some of these standards were originally designed for studying a historical event in which a specific person stands accused, not for directly sourcing a hadith — this is noted beside each standard that does not apply.</p>
+
+    <div class="cascade">
+
+      <div class="stage">
+        <div class="node">1</div>
+        <div class="stage-card">
+          <p class="level-name">Sahih al-Bukhari (the Transmission of Abu Dharr al-Harawi)</p>
+          <p class="verdict-line"><b>Result:</b> The hadith is not found in this transmission at all.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">2</div>
+        <div class="stage-card">
+          <p class="level-name">Malik's Muwatta (the Transmission of al-Qa'nabi) / Greater and Lesser History</p>
+          <p class="verdict-line"><b>Result:</b> Not found in Malik's Muwatta, but found in Bukhari's own <i>al-Tarikh al-Kabir</i> and <i>al-Tarikh al-Awsat</i>, which necessitated the full isnad study conducted above.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">3</div>
+        <div class="stage-card">
+          <p class="level-name">The Remaining Six Books and the Musnad</p>
+          <p class="verdict-line"><b>Result:</b> Not found in the Six Books; found in the Musnad of Imam Ahmad, via a chain fully studied above.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">4</div>
+        <div class="stage-card">
+          <p class="level-name">The Historians</p>
+          <p class="verdict-line"><b>Result:</b> Found in Ibn 'Asakir's <i>Tarikh Dimashq</i>, transmitting from the routes above, without any independent chain adding strength.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">5</div>
+        <div class="stage-card">
+          <p class="level-name">The Testimony of Just Contemporaries</p>
+          <p class="verdict-line"><b>Result:</b> If this glad tiding were this magnificent, and related to a major historical event like the conquest of Constantinople, is it conceivable that only a single person would narrate it from the Prophet ﷺ — especially when his companionship itself is disputed or unestablished among some scholars? Is it logical that the Companions never circulated this hadith among themselves, and that it was never invoked by the commanders and soldiers who repeatedly set out to attempt the conquest of Constantinople, hoping to be the ones meant by this glad tiding? Then, when the conquest was finally achieved, would it not be natural for this hadith to become the talk of the age, mentioned repeatedly in scholars' sermons and historians' books and letters? And would it not be expected that it be transmitted from Sultan Mehmed the Conqueror himself, or from his contemporaries, that he saw in his conquest the fulfillment of this glad tiding? Stranger still, early Ottoman sources are not known, as far as this research could determine, to describe Mehmed the Conqueror as "the foretold commander" — even though, had this description been established and current at the time, it would have been among the most prominent things mentioned in his biography and his praises.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">6</div>
+        <div class="stage-card">
+          <p class="level-name">The Argument From Scholarly Silence</p>
+          <p class="verdict-line"><b>Result:</b> <span class="fail">Not applicable</span></p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">7</div>
+        <div class="stage-card">
+          <p class="level-name">The Absence of Any Invocation of the Narration by Opponents</p>
+          <p class="verdict-line"><b>Result:</b> <span class="fail">Not applicable</span></p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">8</div>
+        <div class="stage-card">
+          <p class="level-name">Material and Archaeological Evidence</p>
+          <p class="verdict-line"><b>Result:</b> The conquest of the city, in itself, does not count as material evidence for the authenticity of the glad tiding — it is a historical event that could occur just as many other cities were conquered throughout history. The glad tiding can only be used as evidence if the report itself is established and its attribution verified, not merely because the event itself occurred.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">9</div>
+        <div class="stage-card">
+          <p class="level-name">Prophetic Exoneration of the Accused</p>
+          <p class="verdict-line"><b>Result:</b> <span class="fail">Not applicable</span> — this standard is the very subject of this study, not a result to be measured against it.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">10</div>
+        <div class="stage-card">
+          <p class="level-name">Narrations From Known Enemies</p>
+          <p class="verdict-line"><b>Result:</b> <span class="fail">Not applicable</span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="page-card" id="imams">
+    <h2>6. The Statements of the Imams on This Hadith Itself</h2>
+
+    <div class="narrator-block">
+      <h3>Statements of the Early Scholars</h3>
+      <p><b>Ali ibn al-Madini (d. 234 AH):</b> said of this route: "Its narrator is unknown" (transmitted by Ibn 'Asakir in <i>Tarikh Dimashq</i>, 58/36, and by al-Dhahabi in <i>Tarikh al-Islam</i>, without any comment contradicting it). It is worth noting that Ali ibn al-Madini is himself one of the narrators of this hadith — he transmits it even while ruling one of its narrators to be of unknown status.</p>
+      <p><b>Abu Hatim al-Razi (d. 277 AH):</b> said of the son (Ibn Bishr): "Among the peers of Abdullah ibn Lahi'ah," and said of the father, Bishr: "An Egyptian, had companionship [with the Prophet]" — both statements are descriptive and do not rise to the level of independent endorsement.</p>
+      <p><b>Muhammad ibn Isma'il al-Bukhari (d. 256 AH):</b> recorded the hadith in <i>al-Tarikh al-Kabir</i> and <i>al-Tarikh al-Awsat</i> without explicitly declaring it authentic or weak — which is the well-known convention of his method in his "Tarikh" works.</p>
+      <p><b>Ibn Hibban (d. 354 AH):</b> placed Bishr within the generation of the Companions and his son within the generation of the Successors, within his book <i>al-Thiqat</i>, known for its leniency in authentication, without declaring any explicit ruling on the hadith itself.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>Statements of Later and Contemporary Scholars</h3>
+      <p>Al-Hakim al-Naysaburi recorded the hadith in <i>al-Mustadrak</i>, and some secondary sources attribute to him and to al-Dhahabi a ruling of authenticity for it; however, al-Dhahabi himself, in <i>Tarikh al-Islam</i>, records Ali ibn al-Madini's ruling of "unknown" without any comment contradicting it — a discrepancy between two places in his own works that should be noted.</p>
+      <p><b>Muhammad Nasir al-Din al-Albani:</b> ruled the hadith weak in <i>al-Silsilah al-Da'ifah</i> (no. 878) and in <i>Da'if al-Jami' al-Saghir</i> (no. 4655), noted the disagreement over the name of "Ibn Bishr al-Ghanawi," and stated that the hadith was not established as authentic in his view, given his lack of confidence in Ibn Hibban's endorsement standing alone.</p>
+      <p><b>Shu'ayb al-Arna'ut</b> (in his critical edition of the Musnad): ruled its chain weak due to the unknown status of Abdullah ibn Bishr al-Khath'ami, since al-Walid ibn al-Mughirah al-Ma'afiri narrates from him alone, and no authentication of him is transmitted other than from Ibn Hibban.</p>
+      <p><b>Salah al-Din al-Idlibi</b> (a contemporary specialist hadith researcher): after tracing all the routes and distinguishing the confusion between "Ibn Bishr al-Ghanawi" and "Ibn Bishr al-Khath'ami the scribe," and studying the condition for establishing companionship, concluded that this hadith's chain is weak.</p>
+      <p class="footnote">Further confirmation: the Dorar Saniyyah hadith encyclopedia records the same sourcing references noted above, and cites al-Albani's ruling of weakness, consistent with the conclusion of this study.</p>
+    </div>
+  </div>
+
+  <div class="final-verdict" id="verdict">
+    <h2>Conclusion and Final Verdict</h2>
+    <p>There is no doubt that Sultan Mehmed the Conqueror is among the great figures of Islamic history — a mujahid sultan through whose hands Allah opened many lands, through whom large numbers of people entered Islam, and whose conquests still leave their mark to this day, as many peoples have preserved their religion because of them.</p>
+    <p>From this standpoint, we love and honor Sultan Mehmed the Conqueror, and we would be among the happiest of people if the glad tiding attributed to the Prophet ﷺ regarding the conquest of Constantinople were established as authentic. But truth is more deserving of being followed, and it is not permissible for us to attribute a hadith to the Messenger of Allah ﷺ merely because it agrees with what we love or wish for.</p>
+    <p>Our methodology on this site is clear: we do not accept a hadith unless its authenticity is established in its own right — that is, by a sound, connected chain reaching the Prophet ﷺ — without relying on external corroborations or circumstantial support. The mere occurrence of the event is not sufficient to prove that the Prophet ﷺ said it; rather, the transmission itself must be soundly established, so that we may say with certainty: the Messenger of Allah ﷺ said [this].</p>
+    <p>Nevertheless, this report not being established according to the methodology adopted here does not diminish Sultan Mehmed the Conqueror's standing, nor his great achievement. We consider him among the finest commanders who served Islam, and the army that conquered Constantinople among the finest of armies. Succeeding in achieving this conquest is a great historical achievement in itself, and every commander who leads his army to a conquest is indeed an excellent commander, and every army that achieves a conquest is indeed an excellent army.</p>
+    <p>And Allah knows best.</p>
+  </div>
+
+
+</main>
+
+<footer>
+  <p class="meta">© Kuffo Alsinatakum — All research is reviewed and continuously updated.</p>
+</footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox(event)">×</button>
+  <div class="lb-tools">
+    <button onclick="zoomLightbox(event, 0.25)" title="Zoom in">+</button>
+    <button onclick="zoomLightbox(event, -0.25)" title="Zoom out">−</button>
+    <button onclick="downloadLightboxImage(event)" title="Save image">⭳</button>
+  </div>
+  <div class="lb-img-wrap" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script>
+  let lbZoom = 1;
+  function openLightbox(src, isIsnad){
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    lbZoom = 1;
+    img.style.transform = 'scale(1)';
+    lb.classList.toggle('with-tools', !!isIsnad);
+    lb.classList.add('open');
+  }
+  function closeLightbox(e){
+    if(e) e.stopPropagation();
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  function zoomLightbox(e, delta){
+    e.stopPropagation();
+    lbZoom = Math.min(4, Math.max(0.5, lbZoom + delta));
+    document.getElementById('lightbox-img').style.transform = `scale(${lbZoom})`;
+  }
+  function downloadLightboxImage(e){
+    e.stopPropagation();
+    const src = document.getElementById('lightbox-img').src;
+    const a = document.createElement('a');
+    a.href = src;
+    a.download = src.split('/').pop() || 'isnad-tree.jpg';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  (function(){
+    const counterEl = document.getElementById('visitorCount');
+    if(!counterEl) return;
+    const namespace = 'kuffo-alsinatakum-github-io';
+    const key = 'site-visits';
+    fetch(`https://countapi.mileshilliard.com/api/v1/hit/${namespace}_${key}`)
+      .then(res => res.json())
+      .then(data => {
+        if(data && typeof data.value === 'number'){
+          counterEl.textContent = data.value.toLocaleString();
+        } else {
+          counterEl.textContent = '—';
+        }
+      })
+      .catch(() => { counterEl.textContent = '—'; });
+  })();
+</script>
+
+</body>
+</html>
