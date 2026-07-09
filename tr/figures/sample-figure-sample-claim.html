@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kardeş Katli Kanunu ve Ahmed Çelebi'nin Öldürülmesi — Sultan Mehmed Fâtih — Kuffo Alsinatakum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:760px;
+    --max-w-wide:980px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--parchment); color:var(--ink);
+    font-family:'Lora','Amiri',serif; line-height:1.85; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .topbar{
+    background:var(--olive-deep); color:var(--parchment); padding:10px 24px;
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px;
+    font-size:0.85rem; border-bottom:1px solid rgba(201,162,39,0.25);
+  }
+  .topbar .brandmark{
+    grid-column:2; display:flex; align-items:center; justify-content:center; gap:10px;
+    color:var(--gold); font-family:'Lora',serif; font-style:italic; font-weight:600; font-size:1.05rem;
+    letter-spacing:0.015em; text-shadow:0 1px 8px rgba(201,162,39,0.35); white-space:normal; text-align:center; max-width:420px;
+  }
+  .topbar .brandmark::before, .topbar .brandmark::after{content:"❊"; font-size:0.7rem; color:rgba(201,162,39,0.6); flex-shrink:0;}
+  .topbar-left{grid-column:1; justify-content:flex-start;}
+  .topbar-right{grid-column:3; justify-content:flex-end; display:flex; align-items:center; gap:18px;}
+  @media (max-width:760px){
+    .topbar{grid-template-columns:1fr; text-align:center;}
+    .topbar-left, .topbar-right, .topbar .brandmark{grid-column:1; justify-content:center;}
+    .topbar .brandmark{font-size:1.02rem; order:-1; margin-bottom:6px;}
+  }
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button, .langswitch a{
+    background:none; border:1px solid rgba(245,239,224,0.3); color:rgba(245,239,224,0.75);
+    font-size:0.78rem; padding:3px 10px; border-radius:14px; cursor:pointer; font-family:inherit;
+    text-decoration:none; display:inline-block;
+  }
+  .langswitch button:disabled{opacity:0.4; cursor:not-allowed;}
+  .langswitch .active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
+  .visitor-counter{display:flex; align-items:center; gap:6px; color:rgba(245,239,224,0.75); font-size:0.8rem; white-space:nowrap;}
+  .visitor-counter svg{width:15px; height:15px; flex-shrink:0; color:var(--gold);}
+  .visitor-counter #visitorCount{color:var(--gold); font-weight:700;}
+  @media (max-width:600px){
+    .topbar{flex-wrap:wrap; gap:8px;}
+    .topbar-right{flex-wrap:wrap; gap:10px;}
+    .visitor-counter{font-size:0.74rem;}
+  }
+
+  .navbar{
+    position:sticky; top:0; z-index:50; background:var(--olive); border-bottom:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; gap:6px; padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12); flex-wrap:wrap;
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85); font-size:0.92rem; padding:13px 18px; display:inline-block;
+    border-bottom:3px solid transparent; transition:color 0.2s, border-color 0.2s, background 0.2s; white-space:nowrap;
+  }
+  .navbar a:hover{color:var(--gold); background:rgba(245,239,224,0.06); text-decoration:none;}
+  .navbar a.active-page{color:var(--gold); border-bottom-color:var(--gold); font-weight:600;}
+  .navbar a.back-link{
+    display:inline-flex; align-items:center; gap:7px; color:var(--gold);
+    border-inline-end:1px solid rgba(245,239,224,0.25); margin-inline-end:6px; font-weight:600;
+  }
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0;}
+  @media (max-width:700px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+    .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
+  }
+
+  .breadcrumb{max-width:var(--max-w-wide); margin:18px auto 0; padding:0 24px; font-size:0.85rem; color:var(--copper);}
+  .breadcrumb a{color:var(--copper); text-decoration:underline;}
+
+  header.page-hero{max-width:var(--max-w-wide); margin:0 auto; padding:26px 24px 18px; text-align:center;}
+  h1.page-title{font-size:clamp(1.6rem, 4vw, 2.3rem); margin:0; color:var(--olive-deep); font-weight:700; font-family:'Amiri',serif;}
+  p.page-subtitle{max-width:var(--max-w); margin:14px auto 0; color:var(--copper); font-size:1rem;}
+
+  .claim-statement{
+    max-width:var(--max-w); margin:18px auto 0; background:var(--parchment-deep);
+    border-inline-start:4px solid var(--gold); border-radius:6px; padding:14px 18px;
+    font-size:0.98rem; color:var(--ink); text-align:left;
+  }
+  .claim-statement b{color:var(--olive-deep);}
+
+  .ornament{display:flex; align-items:center; justify-content:center; gap:14px; margin:8px auto 30px; max-width:var(--max-w); padding:0 24px; color:var(--copper); opacity:0.85;}
+  .ornament .line{flex:1; height:1px; background:linear-gradient(to right, transparent, var(--copper) 50%, transparent);}
+  .ornament svg{width:24px; height:24px; flex-shrink:0;}
+
+  .verse-marquee{
+    background:linear-gradient(90deg, var(--olive-deep) 0%, #1a3a28 50%, var(--olive-deep) 100%);
+    border-top:2px solid var(--gold); overflow:hidden; white-space:nowrap; padding:14px 0; position:relative;
+  }
+  .verse-marquee::before, .verse-marquee::after{content:""; position:absolute; top:0; bottom:0; width:60px; z-index:2; pointer-events:none;}
+  .verse-marquee::before{left:0; background:linear-gradient(to right, var(--olive-deep), transparent);}
+  .verse-marquee::after{right:0; background:linear-gradient(to left, var(--olive-deep), transparent);}
+  .verse-marquee-track{display:inline-flex; align-items:center; animation:marquee-scroll 38s linear infinite; will-change:transform;}
+  .verse-marquee-track span.v{
+    display:inline-block; padding:0 48px; font-family:'Amiri',serif; font-size:1.15rem; font-weight:700;
+    background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227); background-size:200% auto;
+    -webkit-background-clip:text; background-clip:text; color:transparent; animation:shimmer-gold 4s linear infinite;
+  }
+  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
+  @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
+  @media (max-width:600px){.verse-marquee-track span.v{font-size:0.95rem; padding:0 28px;}}
+  @media (prefers-reduced-motion: reduce){.verse-marquee-track{animation:none;}}
+
+  main{max-width:var(--max-w-wide); margin:0 auto; padding:0 24px 50px;}
+
+  .toc-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:22px 26px; margin-bottom:32px; box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .toc-card h2{margin:0 0 12px; font-size:1.1rem; color:var(--olive-deep); font-weight:700;}
+  .toc-card ol{margin:0; padding-inline-start:22px; columns:2; column-gap:28px;}
+  .toc-card li{margin-bottom:8px; font-size:0.94rem; break-inside:avoid;}
+  @media (max-width:640px){.toc-card ol{columns:1;}}
+
+  .page-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:32px 30px; box-shadow:0 4px 16px rgba(27,58,47,0.06); margin-bottom:28px;
+  }
+  .page-card h2{margin:0 0 16px; font-size:1.3rem; color:var(--olive-deep); font-weight:700; scroll-margin-top:80px;}
+  .page-card h3{margin:22px 0 10px; font-size:1.08rem; color:var(--olive-deep); font-weight:700;}
+  .page-card p{margin:0 0 16px; font-size:1.04rem;}
+  .page-card p:last-child{margin-bottom:0;}
+  .page-card ul, .page-card ol.content-list{margin:0 0 16px; padding-inline-start:24px;}
+  .page-card li{margin-bottom:6px;}
+
+  blockquote.src-quote{
+    margin:0 0 18px; padding:12px 18px; background:var(--parchment-deep);
+    border-inline-start:3px solid var(--copper); border-radius:6px; font-size:0.98rem; color:var(--ink);
+  }
+  blockquote.src-quote cite{display:block; margin-top:8px; font-size:0.82rem; color:var(--copper); font-style:normal;}
+
+  table.data-table{width:100%; border-collapse:collapse; margin:0 0 18px; font-size:0.94rem;}
+  table.data-table th, table.data-table td{border:1px solid var(--line); padding:9px 12px; text-align:left;}
+  table.data-table th{background:var(--parchment-deep); color:var(--olive-deep); font-weight:700;}
+  table.data-table tbody tr:nth-child(even){background:rgba(236,226,200,0.35);}
+
+  .footnote{font-size:0.82rem; color:var(--copper); border-top:1px dashed var(--line); padding-top:10px; margin-top:10px;}
+
+  .narrator-block{
+    background:var(--parchment-deep); border-radius:8px; border-inline-start:4px solid var(--olive);
+    padding:18px 22px; margin:0 0 18px;
+  }
+  .narrator-block h3{margin:0 0 12px !important; font-size:1.05rem; color:var(--olive-deep); font-weight:700;}
+  .narrator-block p{margin:0 0 10px; font-size:0.98rem;}
+  .narrator-block p:last-child{margin-bottom:0;}
+  .narrator-block p b{color:var(--olive-deep);}
+
+  .no-isnad-notice{
+    background:var(--parchment-deep); border-inline-start:4px solid var(--copper);
+    border-radius:6px; padding:16px 20px; margin:0 0 18px;
+  }
+  .no-isnad-notice p{margin:0; font-size:0.98rem; color:var(--ink);}
+  .no-isnad-notice p b{color:var(--olive-deep);}
+
+  .fig-gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin:0 0 8px;}
+  .fig-item{text-align:center;}
+  .fig-item img{
+    width:100%; height:auto; border-radius:8px; border:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(27,58,47,0.1); cursor:zoom-in; transition:box-shadow 0.2s ease;
+  }
+  .fig-item img:hover{box-shadow:0 8px 24px rgba(27,58,47,0.18);}
+  .fig-item figcaption{margin-top:8px; font-size:0.85rem; color:var(--copper);}
+
+  #lightbox{
+    display:none; position:fixed; inset:0; background:rgba(18,40,31,0.92); z-index:200;
+    align-items:center; justify-content:center; padding:30px; cursor:zoom-out;
+  }
+  #lightbox.open{display:flex;}
+  #lightbox .lb-img-wrap{overflow:auto; max-width:95%; max-height:90vh; cursor:default;}
+  #lightbox img{
+    max-width:95%; max-height:90vh; border-radius:6px; box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    transition:transform 0.15s ease; transform-origin:center center;
+  }
+  #lightbox .lb-close{
+    position:absolute; top:18px; left:24px; color:var(--gold); font-size:2rem;
+    line-height:1; background:none; border:none; cursor:pointer; z-index:2;
+  }
+  #lightbox .lb-tools{
+    display:none; position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+    gap:10px; z-index:2; background:rgba(18,40,31,0.85); border:1px solid var(--gold);
+    border-radius:30px; padding:8px 14px;
+  }
+  #lightbox.with-tools .lb-tools{display:flex;}
+  #lightbox .lb-tools button{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--gold);
+    background:var(--olive-deep); color:var(--gold); font-size:1.1rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; line-height:1;
+  }
+  #lightbox .lb-tools button:hover{background:var(--gold); color:var(--olive-deep);}
+
+  .cascade{position:relative; padding-inline-start:42px;}
+  .cascade::before{
+    content:""; position:absolute; top:6px; bottom:6px; left:13px; width:7px;
+    background:linear-gradient(to bottom, var(--olive) 0%, var(--olive) 78%, var(--copper) 100%);
+    clip-path:polygon(0 0, 100% 0, 78% 100%, 22% 100%); border-radius:5px;
+  }
+  .stage{position:relative; margin-bottom:20px;}
+  .stage:last-child{margin-bottom:0;}
+  .stage .node{
+    position:absolute; left:-42px; top:24px; width:34px; height:34px; border-radius:50%;
+    background:var(--parchment); border:2.5px solid var(--olive); color:var(--olive-deep);
+    display:flex; align-items:center; justify-content:center; font-family:'Amiri',serif;
+    font-weight:700; font-size:1rem; z-index:2; box-shadow:0 0 0 5px var(--parchment);
+  }
+  .stage:nth-child(n+6) .node{border-color:var(--copper); color:var(--copper);}
+  .stage-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px; padding:18px 22px;
+    box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .stage-card .level-name{font-family:'Amiri',serif; font-size:1.05rem; color:var(--olive-deep); font-weight:700; margin:0 0 6px;}
+  .stage-card .verdict-line{font-size:0.94rem; margin:0 0 8px;}
+  .stage-card .verdict-line b{color:var(--olive-deep);}
+  .stage-card .pass{color:var(--olive-deep); font-weight:700;}
+  .stage-card .fail{color:var(--copper); font-weight:700;}
+
+  .final-verdict{
+    margin-top:36px; border-radius:8px; padding:26px 28px; text-align:center;
+    background:var(--olive-deep); color:var(--parchment); border:2px solid var(--gold);
+  }
+  .final-verdict h2{margin:0 0 10px; font-size:1.3rem; color:var(--gold);}
+  .final-verdict p{margin:0; max-width:var(--max-w); margin-inline:auto; opacity:0.92;}
+
+  .refs-list{margin:0; padding-inline-start:22px; font-size:0.92rem;}
+  .refs-list li{margin-bottom:10px;}
+
+  .placeholder-badge{
+    display:inline-block; margin-bottom:14px; font-size:0.72rem; background:var(--parchment-deep);
+    color:var(--copper); padding:3px 10px; border-radius:10px; border:1px dashed var(--copper);
+  }
+
+  footer{background:var(--olive-deep); color:rgba(245,239,224,0.75); padding:36px 24px 24px; margin-top:40px; text-align:center; font-size:0.88rem;}
+  footer .meta{opacity:0.7;}
+
+  @media (max-width:600px){
+    .page-card{padding:22px 18px;}
+    .toc-card{padding:18px 20px;}
+    header.page-hero{padding:20px 18px 16px;}
+    .cascade{padding-inline-start:34px;}
+    .stage .node{left:-34px; width:28px; height:28px; font-size:0.86rem;}
+    .stage-card{padding:14px 16px;}
+  }
+
+  .print-bar{text-align:center; margin:0 0 8px;}
+  .print-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--olive); color:var(--parchment); border:1px solid var(--gold);
+    border-radius:20px; padding:8px 20px; font-family:inherit; font-size:0.9rem; cursor:pointer;
+  }
+  .print-btn:hover{background:var(--olive-deep);}
+  .print-btn svg{width:16px; height:16px;}
+
+  @media print{
+    .topbar, .navbar, .verse-marquee, .breadcrumb, .print-bar, .ornament, footer, #lightbox, .toc-card{display:none !important;}
+    body{background:#fff; background-image:none;}
+    .page-card, .final-verdict, .narrator-block, .no-isnad-notice{box-shadow:none; border:1px solid #999;}
+    main{padding:0;}
+    a{color:var(--ink); text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left"></div>
+  <div class="brandmark">Onlar Hakkında Dilinizi Tutun</div>
+  <div class="topbar-right">
+    <div class="langswitch">
+      <a href="../../index.html">العربية</a>
+      <a href="../../en/figures/sample-figure-sample-claim.html">English</a>
+      <span class="active">Türkçe</span>
+    </div>
+    <div class="visitor-counter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Site ziyaretçileri:</span>
+      <span id="visitorCount">···</span>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Ana Sayfa</span>
+  </a>
+  <a href="../index.html">Bu Sitenin Amacı</a>
+  <a href="../terms/index.html">Önemli Terimler</a>
+  <a href="../standards/index.html">Standartlar ve Ölçütler</a>
+  <a href="index.html" class="active-page">Şahsiyetler</a>
+  <a href="../contact/index.html">Bize Ulaşın</a>
+</nav>
+
+<div class="verse-marquee" aria-hidden="true">
+  <div class="verse-marquee-track">
+    <span class="v">"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." — Hucurât Suresi 49:6</span>
+    <span class="sep">—</span>
+    <span class="v">"Bu iftirayı işittiğinizde, iman eden erkek ve kadınlar, kendi (din kardeş)leri hakkında iyi zan besleyip de, 'Bu, apaçık bir iftiradır' deselerdi ya!" — Nûr Suresi 24:12</span>
+    <span class="sep">—</span>
+    <span class="v">"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." — Hucurât Suresi 49:6</span>
+    <span class="sep">—</span>
+    <span class="v">"Bu iftirayı işittiğinizde, iman eden erkek ve kadınlar, kendi (din kardeş)leri hakkında iyi zan besleyip de, 'Bu, apaçık bir iftiradır' deselerdi ya!" — Nûr Suresi 24:12</span>
+    <span class="sep">—</span>
+  </div>
+</div>
+
+<p class="breadcrumb">
+  <a href="../index.html">Ana Sayfa</a> ← <a href="index.html">Şahsiyetler</a> ← <a href="sample-figure.html">Sultan Mehmed Fâtih, Allah ona rahmet etsin</a> ← Kardeş Katli Kanunu ve Ahmed Çelebi'nin Öldürülmesi
+</p>
+
+<header class="page-hero">
+  <h1 class="page-title">Kardeş Katli Kanunu ve Ahmed Çelebi'nin Öldürülmesi</h1>
+  <p class="page-subtitle">Sitede benimsenen on standart ve ölçütün bu iddiaya özel olarak uygulanması.</p>
+  <div class="claim-statement">
+    <b>İddianın metni:</b> Sultan Mehmed Fâtih'in, 855 H. / 1451 M. yılında tahta çıkarken —bazı rivayetlere göre henüz bebek veya küçük bir çocuk olan— kardeşi Ahmed Çelebi'yi öldürdüğü iddia edilir; ona sonradan, bir sultanın devletin düzenini korumak için kardeşlerini öldürmesine izin veren "Kanunnâme" (kardeş katli kanunu) olarak bilinen metin isnad edilmiştir.
+  </div>
+</header>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+    <span>Araştırmayı PDF Olarak İndir</span>
+  </button>
+</div>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<main>
+
+  <div class="toc-card">
+    <h2>Araştırma Fihristi</h2>
+    <ol>
+      <li><a href="#origin">İddianın Kaynağı ve Tarihî Bağlamı</a></li>
+      <li><a href="#usul">Varsayımlar ve Fıkhî Temellendirme</a></li>
+      <li><a href="#chain">Sened İncelemesi</a></li>
+      <li><a href="#analysis">On Standardın Uygulanması</a></li>
+      <li><a href="#bukhari-comparison">Buhârî Senedi ile Kanun Senedini Kıyaslama Şüphesine Cevap</a></li>
+      <li><a href="#bishr-ghanawi">Bişr el-Ğanevî Senedinin İncelenmesi</a></li>
+      <li><a href="#verdict">Sonuç ve Nihaî Hüküm</a></li>
+    </ol>
+  </div>
+
+  <div class="page-card" id="origin">
+    <h2>1. İddianın Kaynağı ve Tarihî Bağlamı</h2>
+    <p>Sultan Mehmed Fâtih'e, Allah ona rahmet etsin, yöneltilen itham şudur: 855 H. / 1451 M. yılında tahta çıktığında —bazı rivayetlere göre henüz bebek veya küçük bir çocuk olan— kardeşi Ahmed Çelebi'yi öldürmüş, ve ona sonradan "Kanunnâme" (kardeş katli kanunu) olarak bilinen ve metni şöyle nakledilen kanun isnad edilmiştir:</p>
+    <blockquote class="src-quote">
+      «Ve her kimesneye evlâdımdan saltanat müyesser ola, karındaşların nizâm-ı âlem içün katl etmek münâsibdir. Ekser ulemâ dahi tecviz etmişlerdir. Anınla âmil olalar.»
+      <cite>Günümüz Türkçesiyle: "Evlatlarımdan hangisine saltanat nasip olursa, dünya düzeni için kardeşlerini öldürmesi uygundur. Âlimlerin çoğu bunu caiz görmüştür; bununla amel edilsin."</cite>
+    </blockquote>
+    <p>Bu metin ve tartışması, Prof. Dr. Ahmed Akgündüz ve Prof. Dr. Said Öztürk'ün <i>Bilinmeyen Osmanlı</i> adlı eserinde yer almaktadır.</p>
+  </div>
+
+  <div class="page-card" id="usul">
+    <h2>2. Varsayımlar ve Fıkhî Temellendirme</h2>
+    <p>Bir Müslümanı delilsiz itham etmek ne şer'an ne de hukuken caizdir; bu tek başına, sahih bir delille ispatlanmadıkça Fâtih'in kardeşini öldürdüğü iddiasını reddetmeye yeterlidir.</p>
+    <p>Bu kanunun Fâtih'e isnadının doğru olduğunu varsaysak bile, onu kendisi icat etmemiş, âlimlerin fetvalarına dayanmıştır; buna dayanak, Buhârî'nin <i>et-Târîhu'l-Kebîr</i>'inde ve Müslim'de yer alan Arfece hadisidir; bu hadiste Peygamber ﷺ şöyle buyurmuştur:</p>
+    <blockquote class="src-quote">
+      "Muhakkak ki bir takım fitneler ve olaylar olacaktır. Bu ümmet bir arada iken kim onun işini ayırmak (bölmek) isterse, kim olursa olsun onu kılıçla vurun."
+    </blockquote>
+    <p>Bu, fitne çıkarıp Müslüman topluluğunu bölmek isteyen kişinin —bir evlat bile olsa— hükmünün ölüm olduğuna dair açık ve güçlü bir nastır; çünkü "kim olursa olsun" öldürülmezse Müslümanlar birbirini öldürür ve devlet çökerdi. Bir organı kesmek bazen bedenin geri kalanının selameti içindir; burada söylenen, hadisin nassıyla ve âlimlerin sözleriyle çelişmemektedir. Doğrusunu en iyi Allah bilir.</p>
+  </div>
+
+  <div class="page-card" id="chain">
+    <h2>3. Sened İncelemesi</h2>
+
+    <div class="no-isnad-notice">
+      <p><b>Bu rivayetin herhangi bir senedi yoktur.</b> Dolayısıyla bu hikâyenin ne sahih ne de zayıf bir senetle aslı vardır; ona isnad yapmak veya onunla delil getirmek caiz değildir.</p>
+    </div>
+
+    <p>Yazarların kendilerinin de kabul ettiği gibi, bu kanunları içeren metnin asıl elyazması ne Osmanlı tarihçileri ne de karşı (düşman) taraf nezdinde bulunamamıştır. İlginç olan şu ki, araştırmacılar arasında şu anda dolaşımda olan en eski nüshalar, Osmanlı Devleti'yle düşmanlığı ve savaşları bilinen ülkelerde (Avusturya, Fransa ve Rusya) bulunmakta olup, çoğunlukla on yedinci ve on sekizinci yüzyıllara —yani Fâtih'in vefatından çok uzun bir süre sonrasına— tarihlenmektedir.</p>
+    <p>Hatta tanınmış Osmanlı hukukçusu Himmet Berki dahi, bu kırk yedi kanunun Sultan Mehmed Fâtih'e isnadını reddetmiş; bunların, Osmanlı Devleti'nin düşmanı olan Batılılar tarafından uydurulmuş nüshalar olduğunu ileri sürmüştür.</p>
+  </div>
+
+  <div class="page-card" id="analysis">
+    <h2>4. On Standart ve Ölçütün Uygulanması</h2>
+    <p>Aşağıdaki iddia, "Standartlar ve Ölçütler" bölümünde benimsenen on seviyeye göre değerlendirilir ve her seviyenin sonucu kaydedilir.</p>
+
+    <div class="cascade">
+
+      <div class="stage">
+        <div class="node">1</div>
+        <div class="stage-card">
+          <p class="level-name">Sahîh-i Buhârî (Ebû Zer el-Herevî Rivayeti)</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="pass">Uygulanmaz — Buhârî, Fâtih döneminden yüzyıllarca öncedir</span></p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">2</div>
+        <div class="stage-card">
+          <p class="level-name">Mâlik'in Muvatta'ı (el-Ka'nebî Rivayeti) / Büyük ve Küçük Tarih</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="pass">Uygulanmaz — İmam Mâlik, Fâtih döneminden yüzyıllarca öncedir</span></p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">3</div>
+        <div class="stage-card">
+          <p class="level-name">Kütüb-i Sitte'nin Geri Kalanı ve Müsned</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="pass">Uygulanmaz — Kütüb-i Sitte'nin sahipleri ve hadis derleyicilerinin tümü Fâtih döneminden öncedir</span></p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">4</div>
+        <div class="stage-card">
+          <p class="level-name">Tarihçiler</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="pass">Uygulanmaz — Taberî ve İbn Kesîr gibi tanınmış tarihçiler Fâtih döneminden öncedir</span></p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">5</div>
+        <div class="stage-card">
+          <p class="level-name">Âdil Çağdaşların Tanıklığı</p>
+          <p class="verdict-line"><b>Sonuç:</b> Adalet, ilim ve insafıyla tanınan tek bir çağdaş bile, Fâtih'in kardeşini öldürdüğüne veya öldürmeye izin veren bir kanun çıkardığına tanıklık etmemiştir.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">6</div>
+        <div class="stage-card">
+          <p class="level-name">İlmî Sükût Delili</p>
+          <p class="verdict-line"><b>Sonuç:</b> Fâtih'in çağdaşı olan, Celâleddin es-Süyûtî ve İbn Hacer el-Heytemî gibi dünyanın doğusundaki ve batısındaki hiçbir âlim, bu olaydan veya bu kanundan —ne inkâr ne kabul, ne de tartışma veya fetva yoluyla bile olsun— bahsetmemiştir.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">7</div>
+        <div class="stage-card">
+          <p class="level-name">Muhaliflerin Rivayeti Delil Olarak Kullanmaması</p>
+          <p class="verdict-line"><b>Sonuç:</b> Osmanlılarla ilişkileri gergin olan Macaristan, Venedik, Papalık Devleti ve Memlükler gibi devletler, doğru olsaydı bundan açıkça fayda sağlayacak olmalarına rağmen bu iddiayı siyasi olarak hiç kullanmamışlardır. Belirtmek gerekir ki İmam es-Süyûtî fetvada bağımsızdı, sultanın saray âlimlerinden değildi ve Memlük Devleti'nin gölgesinde yaşadı; buna rağmen bundan hiç bahsetmemiştir.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">8</div>
+        <div class="stage-card">
+          <p class="level-name">Maddî ve Arkeolojik Deliller</p>
+          <p class="verdict-line"><b>Sonuç:</b> Bu kanunları içeren metnin asıl elyazması bulunamamıştır; dolaşımdaki en eski nüshalar on yedinci ve on sekizinci yüzyıllara, yani Fâtih'in vefatından uzun süre sonrasına tarihlenmekte olup Osmanlılara düşman devletlerde bulunmaktadır (ayrıntısı yukarıdaki sened inceleme bölümündedir).</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">9</div>
+        <div class="stage-card">
+          <p class="level-name">Sanığın Nebevî Tezkiyesi</p>
+          <p class="verdict-line"><b>Sonuç:</b> "Onun emiri ne güzel emirdir" hadisinin sahih olduğu varsayılırsa (ki bazı âlimler bunu sahihlemiş ve ona dayanmıştır), bu, katil iddiasına aykırı bir delildir ve onu daha da zayıflatır. Böylece karşımızda, sıhhati tartışmalı bir hadis, aslı hiç olmayan bir iddiaya karşı durmaktadır. (Bu hadisin senedinin tam incelemesi, ikinci iddia sayfasında yer almaktadır: İstanbul'un Fethine Dair Nebevî Müjdenin Gerçekleşip Gerçekleşmediği.)</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">10</div>
+        <div class="stage-card">
+          <p class="level-name">Düşmanlığı Bilinen Kişilerin Rivayetleri</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="fail">İddianın kaynağı, Osmanlılara düşmanlığı bilinen Bizanslı tarihçilerdir: Dukas, İstanbul'un düşüşüne şahit olan ve açıkça düşmanca bir bakış açısıyla yazan Nicolò Barbaro, ve Laonikos Chalkokondyles</span>.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="page-card" id="bukhari-comparison">
+    <h2>5. Buhârî Senedi ile Kanun Senedini Kıyaslama Şüphesine Cevap</h2>
+    <p><i>Bilinmeyen Osmanlı</i> adlı eserin yazarları, Sahîh-i Buhârî nüshaları arasındaki —Allah'ın kitabından sonra en sahih kitap olmasına rağmen— farkların, onun sıhhatine itiraz sebebi olamayacağını ileri sürerek bunu Fâtih'in Kanunnâme'siyle kıyaslamışlardır. Bu kıyas reddedilmiştir:</p>
+    <p>Buhârî'nin sahih nüshalarında herhangi bir ihtilaf yoktur; bu, Buhârî'nin en sağlam ve en güvenilir öğrencisi el-Ferebrî'den; onun da üç hocası —el-Küşmihenî, es-Serahsî ve el-Müstemlî— aracılığıyla Ebû Zer el-Herevî'nin rivayetidir ve bu rivayet günümüzde Türkiye'de yazılı ve sabit elyazması halinde mevcuttur. Dolayısıyla sened şüphesiz muttasıldır (bağlantılıdır).</p>
+    <p>Fâtih'in kanununun senedi ise ne işitme, ne yazı, ne de âdil çağdaşların bir onayıyla bağlantılıdır. Buradaki kıyas büyük bir farkla yapılmaktadır: bir tarafta kesin olarak var olan sabit bir elyazması, diğer tarafta ise asıl elyazmasının tamamen yokluğu.</p>
+  </div>
+
+  <div class="page-card" id="bishr-ghanawi">
+    <h2>6. Bişr el-Ğanevî Senedinin İncelenmesi</h2>
+    <p>Bu inceleme, İstanbul'un fatihinin nebevî tezkiyesinde geçen "Onun emiri ne güzel emirdir" hadisiyle ilgilidir (yukarıdaki dokuzuncu standart); bu rivayetin sahabi "Bişr el-Ğanevî"ye isnadında bir sorun bulunmaktadır (Abdullah veya Übeydullah bin Bişr el-Ğanevî de denir; Mısırlıdır, İbn Hibbân onu sahabe tabakasında zikretmiş, Ebû Hâtim de onun hakkında "Mısırlıdır, sohbeti vardır" demiştir).</p>
+
+    <div class="fig-gallery">
+      <div class="fig-item">
+        <img class="isnad-img" src="../../images/bishr-ghanawi-isnad-tr.png" alt="'Onun emiri ne güzel emirdir' hadisinin isnad ağacı" onclick="openLightbox(this.src, true)">
+        <figcaption>"Onun emiri ne güzel emirdir" hadisinin isnad ağacı (büyütmek ve kaydetmek için tıklayın)</figcaption>
+      </div>
+    </div>
+
+    <p>Birinci sorun: rivayet, bir Kûfeliden bir Mısırlıya, ondan da bir Kûfeliye giden bir yoldan gelmiştir; bu tek başına tevsik rütbesini ispatlamaya yetmez, çünkü İbn Hibbân'ın tevsikte gevşek davrandığı bilinmektedir.</p>
+    <p>İkinci sorun: İbnü's-Salâh, en-Nevevî ve Hâfız Zeynüddin el-Irâkî —Allah onlara rahmet etsin— hadis usulüne giriş eserlerinde, bir ravinin sahabi olduğunun dört yoldan birinden bilinebileceğini açıklamışlardır: mütevatir olarak, mütevatir derecesine ulaşmayan bir yaygınlıkla, adaleti sabit olduktan sonra bir sahabinin ondan sahabi olduğuna dair rivayetiyle, ya da kendisinin kendisi hakkında sahabi olduğunu bildirmesiyle.</p>
+    <p>Bişr el-Ğanevî'nin sahabiliği ilk üç yoldan hiçbiriyle ispatlanmamıştır; geriye yalnızca dördüncü yol kalmaktadır. Adaletinin sabit olduğuna dair hiçbir karine bulunmadığından, kendisi hakkında sahabi olduğunu veya Peygamber'den ﷺ işittiğini söylemesine dayanmak sahih değildir.</p>
+    <p><b>Bu incelemenin özeti:</b> Bu hadis bu yoldan sabit olmaz; benzeri, sahabiler arasında veya bu müjdeyi elde etmek için İstanbul'u fethetmeye çalışan sonraki nesiller arasında da dolaşmamıştır.</p>
+  </div>
+
+  <div class="final-verdict" id="verdict">
+    <h2>Sonuç ve Nihaî Hüküm</h2>
+    <p>Bu meselede sözün özü şudur: bir katil ithamı, salt iddiayla sabit olmaz; delil, beyyine veya âdil şahitlerin tanıklığı gerekir. Bu davada ne sahih bir delil, ne beyyine, ne de âdil şahitler vardır; devrinin âlimlerinden de buna dair bir inkâr nakledilmemiştir. Hatta düşmanlarının bile onu kardeşlerini öldürmekle itham ettiği sabit değildir; oysa böyle bir ithamın aslı olsaydı, onlar için şöhretini karalamak ve onu itham etmek için kıymetli bir fırsat olurdu.</p>
+    <p>Kardeş katli kanunu olarak bilinen şeye gelince, metnini ispatlayan sahih bir elyazması yoktur; hatta isnad edildiği asıl belge dahi mevcut değildir. Farklı bölgelerdeki çağdaş âlimlerinin de bunu inkâr ettiği veya buna itiraz ettiği bilinmemektedir; tek bir Rabbânî âlimin bile bunu açıkça inkâr edip zulüm veya haksızlık saydığı nakledilmemiştir.</p>
+    <p>Son olarak, tartışma amacıyla bile olsa bu sözü söylediğini veya bu kanunu onayladığını kabul etsek dahi, Müslümanların birliğini tehdit eden ve onu bölmeye çalışan kişi hakkındaki şer'î hüküm İslam fıkhında bilinen bir husustur ve âlimlerin çoğunluğu tarafından da tespit edilmiştir. Âlimler bu anlamı, "bir organı kesmek, bütün bedeni kaybetmekten evladır" sözleriyle ifade etmişlerdir.</p>
+  </div>
+
+
+</main>
+
+<footer>
+  <p class="meta">© Kuffo Alsinatakum — Tüm araştırmalar gözden geçirilmekte ve sürekli güncellenmektedir.</p>
+</footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox(event)">×</button>
+  <div class="lb-tools">
+    <button onclick="zoomLightbox(event, 0.25)" title="Yakınlaştır">+</button>
+    <button onclick="zoomLightbox(event, -0.25)" title="Uzaklaştır">−</button>
+    <button onclick="downloadLightboxImage(event)" title="Görseli kaydet">⭳</button>
+  </div>
+  <div class="lb-img-wrap" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script>
+  let lbZoom = 1;
+  function openLightbox(src, isIsnad){
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    lbZoom = 1;
+    img.style.transform = 'scale(1)';
+    lb.classList.toggle('with-tools', !!isIsnad);
+    lb.classList.add('open');
+  }
+  function closeLightbox(e){
+    if(e) e.stopPropagation();
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  function zoomLightbox(e, delta){
+    e.stopPropagation();
+    lbZoom = Math.min(4, Math.max(0.5, lbZoom + delta));
+    document.getElementById('lightbox-img').style.transform = `scale(${lbZoom})`;
+  }
+  function downloadLightboxImage(e){
+    e.stopPropagation();
+    const src = document.getElementById('lightbox-img').src;
+    const a = document.createElement('a');
+    a.href = src;
+    a.download = src.split('/').pop() || 'isnad-tree.jpg';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  (function(){
+    const counterEl = document.getElementById('visitorCount');
+    if(!counterEl) return;
+    const namespace = 'kuffo-alsinatakum-github-io';
+    const key = 'site-visits';
+    fetch(`https://countapi.mileshilliard.com/api/v1/hit/${namespace}_${key}`)
+      .then(res => res.json())
+      .then(data => {
+        if(data && typeof data.value === 'number'){
+          counterEl.textContent = data.value.toLocaleString();
+        } else {
+          counterEl.textContent = '—';
+        }
+      })
+      .catch(() => { counterEl.textContent = '—'; });
+  })();
+</script>
+
+</body>
+</html>

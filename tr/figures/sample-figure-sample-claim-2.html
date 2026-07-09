@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İstanbul'un Fethine Dair Nebevî Müjdenin Gerçekleşip Gerçekleşmediği — Sultan Mehmed Fâtih — Kuffo Alsinatakum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:760px;
+    --max-w-wide:980px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--parchment); color:var(--ink);
+    font-family:'Lora','Amiri',serif; line-height:1.85; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .topbar{
+    background:var(--olive-deep); color:var(--parchment); padding:10px 24px;
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px;
+    font-size:0.85rem; border-bottom:1px solid rgba(201,162,39,0.25);
+  }
+  .topbar .brandmark{
+    grid-column:2; display:flex; align-items:center; justify-content:center; gap:10px;
+    color:var(--gold); font-family:'Lora',serif; font-style:italic; font-weight:600; font-size:1.05rem;
+    letter-spacing:0.015em; text-shadow:0 1px 8px rgba(201,162,39,0.35); white-space:normal; text-align:center; max-width:420px;
+  }
+  .topbar .brandmark::before, .topbar .brandmark::after{content:"❊"; font-size:0.7rem; color:rgba(201,162,39,0.6); flex-shrink:0;}
+  .topbar-left{grid-column:1; justify-content:flex-start;}
+  .topbar-right{grid-column:3; justify-content:flex-end; display:flex; align-items:center; gap:18px;}
+  @media (max-width:760px){
+    .topbar{grid-template-columns:1fr; text-align:center;}
+    .topbar-left, .topbar-right, .topbar .brandmark{grid-column:1; justify-content:center;}
+    .topbar .brandmark{font-size:1.02rem; order:-1; margin-bottom:6px;}
+  }
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button, .langswitch a{
+    background:none; border:1px solid rgba(245,239,224,0.3); color:rgba(245,239,224,0.75);
+    font-size:0.78rem; padding:3px 10px; border-radius:14px; cursor:pointer; font-family:inherit;
+    text-decoration:none; display:inline-block;
+  }
+  .langswitch button:disabled{opacity:0.4; cursor:not-allowed;}
+  .langswitch .active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
+  .visitor-counter{display:flex; align-items:center; gap:6px; color:rgba(245,239,224,0.75); font-size:0.8rem; white-space:nowrap;}
+  .visitor-counter svg{width:15px; height:15px; flex-shrink:0; color:var(--gold);}
+  .visitor-counter #visitorCount{color:var(--gold); font-weight:700;}
+  @media (max-width:600px){
+    .topbar{flex-wrap:wrap; gap:8px;}
+    .topbar-right{flex-wrap:wrap; gap:10px;}
+    .visitor-counter{font-size:0.74rem;}
+  }
+
+  .navbar{
+    position:sticky; top:0; z-index:50; background:var(--olive); border-bottom:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; gap:6px; padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12); flex-wrap:wrap;
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85); font-size:0.92rem; padding:13px 18px; display:inline-block;
+    border-bottom:3px solid transparent; transition:color 0.2s, border-color 0.2s, background 0.2s; white-space:nowrap;
+  }
+  .navbar a:hover{color:var(--gold); background:rgba(245,239,224,0.06); text-decoration:none;}
+  .navbar a.active-page{color:var(--gold); border-bottom-color:var(--gold); font-weight:600;}
+  .navbar a.back-link{
+    display:inline-flex; align-items:center; gap:7px; color:var(--gold);
+    border-inline-end:1px solid rgba(245,239,224,0.25); margin-inline-end:6px; font-weight:600;
+  }
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0;}
+  @media (max-width:700px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+    .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
+  }
+
+  .breadcrumb{max-width:var(--max-w-wide); margin:18px auto 0; padding:0 24px; font-size:0.85rem; color:var(--copper);}
+  .breadcrumb a{color:var(--copper); text-decoration:underline;}
+
+  header.page-hero{max-width:var(--max-w-wide); margin:0 auto; padding:26px 24px 18px; text-align:center;}
+  h1.page-title{font-size:clamp(1.6rem, 4vw, 2.3rem); margin:0; color:var(--olive-deep); font-weight:700; font-family:'Amiri',serif;}
+  p.page-subtitle{max-width:var(--max-w); margin:14px auto 0; color:var(--copper); font-size:1rem;}
+
+  .claim-statement{
+    max-width:var(--max-w); margin:18px auto 0; background:var(--parchment-deep);
+    border-inline-start:4px solid var(--gold); border-radius:6px; padding:14px 18px;
+    font-size:0.98rem; color:var(--ink); text-align:left;
+  }
+  .claim-statement b{color:var(--olive-deep);}
+
+  .ornament{display:flex; align-items:center; justify-content:center; gap:14px; margin:8px auto 30px; max-width:var(--max-w); padding:0 24px; color:var(--copper); opacity:0.85;}
+  .ornament .line{flex:1; height:1px; background:linear-gradient(to right, transparent, var(--copper) 50%, transparent);}
+  .ornament svg{width:24px; height:24px; flex-shrink:0;}
+
+  .verse-marquee{
+    background:linear-gradient(90deg, var(--olive-deep) 0%, #1a3a28 50%, var(--olive-deep) 100%);
+    border-top:2px solid var(--gold); overflow:hidden; white-space:nowrap; padding:14px 0; position:relative;
+  }
+  .verse-marquee::before, .verse-marquee::after{content:""; position:absolute; top:0; bottom:0; width:60px; z-index:2; pointer-events:none;}
+  .verse-marquee::before{left:0; background:linear-gradient(to right, var(--olive-deep), transparent);}
+  .verse-marquee::after{right:0; background:linear-gradient(to left, var(--olive-deep), transparent);}
+  .verse-marquee-track{display:inline-flex; align-items:center; animation:marquee-scroll 38s linear infinite; will-change:transform;}
+  .verse-marquee-track span.v{
+    display:inline-block; padding:0 48px; font-family:'Amiri',serif; font-size:1.15rem; font-weight:700;
+    background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227); background-size:200% auto;
+    -webkit-background-clip:text; background-clip:text; color:transparent; animation:shimmer-gold 4s linear infinite;
+  }
+  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
+  @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
+  @media (max-width:600px){.verse-marquee-track span.v{font-size:0.95rem; padding:0 28px;}}
+  @media (prefers-reduced-motion: reduce){.verse-marquee-track{animation:none;}}
+
+  main{max-width:var(--max-w-wide); margin:0 auto; padding:0 24px 50px;}
+
+  .toc-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:22px 26px; margin-bottom:32px; box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .toc-card h2{margin:0 0 12px; font-size:1.1rem; color:var(--olive-deep); font-weight:700;}
+  .toc-card ol{margin:0; padding-inline-start:22px; columns:2; column-gap:28px;}
+  .toc-card li{margin-bottom:8px; font-size:0.94rem; break-inside:avoid;}
+  @media (max-width:640px){.toc-card ol{columns:1;}}
+
+  .page-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:32px 30px; box-shadow:0 4px 16px rgba(27,58,47,0.06); margin-bottom:28px;
+  }
+  .page-card h2{margin:0 0 16px; font-size:1.3rem; color:var(--olive-deep); font-weight:700; scroll-margin-top:80px;}
+  .page-card h3{margin:22px 0 10px; font-size:1.08rem; color:var(--olive-deep); font-weight:700;}
+  .page-card p{margin:0 0 16px; font-size:1.04rem;}
+  .page-card p:last-child{margin-bottom:0;}
+  .page-card ul, .page-card ol.content-list{margin:0 0 16px; padding-inline-start:24px;}
+  .page-card li{margin-bottom:6px;}
+
+  blockquote.src-quote{
+    margin:0 0 18px; padding:12px 18px; background:var(--parchment-deep);
+    border-inline-start:3px solid var(--copper); border-radius:6px; font-size:0.98rem; color:var(--ink);
+  }
+  blockquote.src-quote cite{display:block; margin-top:8px; font-size:0.82rem; color:var(--copper); font-style:normal;}
+
+  table.data-table{width:100%; border-collapse:collapse; margin:0 0 18px; font-size:0.94rem;}
+  table.data-table th, table.data-table td{border:1px solid var(--line); padding:9px 12px; text-align:left;}
+  table.data-table th{background:var(--parchment-deep); color:var(--olive-deep); font-weight:700;}
+  table.data-table tbody tr:nth-child(even){background:rgba(236,226,200,0.35);}
+
+  .footnote{font-size:0.82rem; color:var(--copper); border-top:1px dashed var(--line); padding-top:10px; margin-top:10px;}
+
+  .narrator-block{
+    background:var(--parchment-deep); border-radius:8px; border-inline-start:4px solid var(--olive);
+    padding:18px 22px; margin:0 0 18px;
+  }
+  .narrator-block h3{margin:0 0 12px !important; font-size:1.05rem; color:var(--olive-deep); font-weight:700;}
+  .narrator-block p{margin:0 0 10px; font-size:0.98rem;}
+  .narrator-block p:last-child{margin-bottom:0;}
+  .narrator-block p b{color:var(--olive-deep);}
+
+  .no-isnad-notice{
+    background:var(--parchment-deep); border-inline-start:4px solid var(--copper);
+    border-radius:6px; padding:16px 20px; margin:0 0 18px;
+  }
+  .no-isnad-notice p{margin:0; font-size:0.98rem; color:var(--ink);}
+  .no-isnad-notice p b{color:var(--olive-deep);}
+
+  .fig-gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin:0 0 8px;}
+  .fig-item{text-align:center;}
+  .fig-item img{
+    width:100%; height:auto; border-radius:8px; border:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(27,58,47,0.1); cursor:zoom-in; transition:box-shadow 0.2s ease;
+  }
+  .fig-item img:hover{box-shadow:0 8px 24px rgba(27,58,47,0.18);}
+  .fig-item figcaption{margin-top:8px; font-size:0.85rem; color:var(--copper);}
+
+  #lightbox{
+    display:none; position:fixed; inset:0; background:rgba(18,40,31,0.92); z-index:200;
+    align-items:center; justify-content:center; padding:30px; cursor:zoom-out;
+  }
+  #lightbox.open{display:flex;}
+  #lightbox .lb-img-wrap{overflow:auto; max-width:95%; max-height:90vh; cursor:default;}
+  #lightbox img{
+    max-width:95%; max-height:90vh; border-radius:6px; box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    transition:transform 0.15s ease; transform-origin:center center;
+  }
+  #lightbox .lb-close{
+    position:absolute; top:18px; left:24px; color:var(--gold); font-size:2rem;
+    line-height:1; background:none; border:none; cursor:pointer; z-index:2;
+  }
+  #lightbox .lb-tools{
+    display:none; position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+    gap:10px; z-index:2; background:rgba(18,40,31,0.85); border:1px solid var(--gold);
+    border-radius:30px; padding:8px 14px;
+  }
+  #lightbox.with-tools .lb-tools{display:flex;}
+  #lightbox .lb-tools button{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--gold);
+    background:var(--olive-deep); color:var(--gold); font-size:1.1rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; line-height:1;
+  }
+  #lightbox .lb-tools button:hover{background:var(--gold); color:var(--olive-deep);}
+
+  .cascade{position:relative; padding-inline-start:42px;}
+  .cascade::before{
+    content:""; position:absolute; top:6px; bottom:6px; left:13px; width:7px;
+    background:linear-gradient(to bottom, var(--olive) 0%, var(--olive) 78%, var(--copper) 100%);
+    clip-path:polygon(0 0, 100% 0, 78% 100%, 22% 100%); border-radius:5px;
+  }
+  .stage{position:relative; margin-bottom:20px;}
+  .stage:last-child{margin-bottom:0;}
+  .stage .node{
+    position:absolute; left:-42px; top:24px; width:34px; height:34px; border-radius:50%;
+    background:var(--parchment); border:2.5px solid var(--olive); color:var(--olive-deep);
+    display:flex; align-items:center; justify-content:center; font-family:'Amiri',serif;
+    font-weight:700; font-size:1rem; z-index:2; box-shadow:0 0 0 5px var(--parchment);
+  }
+  .stage:nth-child(n+6) .node{border-color:var(--copper); color:var(--copper);}
+  .stage-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px; padding:18px 22px;
+    box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .stage-card .level-name{font-family:'Amiri',serif; font-size:1.05rem; color:var(--olive-deep); font-weight:700; margin:0 0 6px;}
+  .stage-card .verdict-line{font-size:0.94rem; margin:0 0 8px;}
+  .stage-card .verdict-line b{color:var(--olive-deep);}
+  .stage-card .pass{color:var(--olive-deep); font-weight:700;}
+  .stage-card .fail{color:var(--copper); font-weight:700;}
+
+  .final-verdict{
+    margin-top:36px; border-radius:8px; padding:26px 28px; text-align:center;
+    background:var(--olive-deep); color:var(--parchment); border:2px solid var(--gold);
+  }
+  .final-verdict h2{margin:0 0 10px; font-size:1.3rem; color:var(--gold);}
+  .final-verdict p{margin:0; max-width:var(--max-w); margin-inline:auto; opacity:0.92;}
+
+  .refs-list{margin:0; padding-inline-start:22px; font-size:0.92rem;}
+  .refs-list li{margin-bottom:10px;}
+
+  .placeholder-badge{
+    display:inline-block; margin-bottom:14px; font-size:0.72rem; background:var(--parchment-deep);
+    color:var(--copper); padding:3px 10px; border-radius:10px; border:1px dashed var(--copper);
+  }
+
+  footer{background:var(--olive-deep); color:rgba(245,239,224,0.75); padding:36px 24px 24px; margin-top:40px; text-align:center; font-size:0.88rem;}
+  footer .meta{opacity:0.7;}
+
+  @media (max-width:600px){
+    .page-card{padding:22px 18px;}
+    .toc-card{padding:18px 20px;}
+    header.page-hero{padding:20px 18px 16px;}
+    .cascade{padding-inline-start:34px;}
+    .stage .node{left:-34px; width:28px; height:28px; font-size:0.86rem;}
+    .stage-card{padding:14px 16px;}
+  }
+
+  .print-bar{text-align:center; margin:0 0 8px;}
+  .print-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--olive); color:var(--parchment); border:1px solid var(--gold);
+    border-radius:20px; padding:8px 20px; font-family:inherit; font-size:0.9rem; cursor:pointer;
+  }
+  .print-btn:hover{background:var(--olive-deep);}
+  .print-btn svg{width:16px; height:16px;}
+
+  @media print{
+    .topbar, .navbar, .verse-marquee, .breadcrumb, .print-bar, .ornament, footer, #lightbox, .toc-card{display:none !important;}
+    body{background:#fff; background-image:none;}
+    .page-card, .final-verdict, .narrator-block, .no-isnad-notice{box-shadow:none; border:1px solid #999;}
+    main{padding:0;}
+    a{color:var(--ink); text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left"></div>
+  <div class="brandmark">Onlar Hakkında Dilinizi Tutun</div>
+  <div class="topbar-right">
+    <div class="langswitch">
+      <a href="../../index.html">العربية</a>
+      <a href="../../en/figures/sample-figure-sample-claim-2.html">English</a>
+      <span class="active">Türkçe</span>
+    </div>
+    <div class="visitor-counter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Site ziyaretçileri:</span>
+      <span id="visitorCount">···</span>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Ana Sayfa</span>
+  </a>
+  <a href="../index.html">Bu Sitenin Amacı</a>
+  <a href="../terms/index.html">Önemli Terimler</a>
+  <a href="../standards/index.html">Standartlar ve Ölçütler</a>
+  <a href="index.html" class="active-page">Şahsiyetler</a>
+  <a href="../contact/index.html">Bize Ulaşın</a>
+</nav>
+
+<div class="verse-marquee" aria-hidden="true">
+  <div class="verse-marquee-track">
+    <span class="v">"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." — Hucurât Suresi 49:6</span>
+    <span class="sep">—</span>
+    <span class="v">"Bu iftirayı işittiğinizde, iman eden erkek ve kadınlar, kendi (din kardeş)leri hakkında iyi zan besleyip de, 'Bu, apaçık bir iftiradır' deselerdi ya!" — Nûr Suresi 24:12</span>
+    <span class="sep">—</span>
+    <span class="v">"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." — Hucurât Suresi 49:6</span>
+    <span class="sep">—</span>
+    <span class="v">"Bu iftirayı işittiğinizde, iman eden erkek ve kadınlar, kendi (din kardeş)leri hakkında iyi zan besleyip de, 'Bu, apaçık bir iftiradır' deselerdi ya!" — Nûr Suresi 24:12</span>
+    <span class="sep">—</span>
+  </div>
+</div>
+
+<p class="breadcrumb">
+  <a href="../index.html">Ana Sayfa</a> ← <a href="index.html">Şahsiyetler</a> ← <a href="sample-figure.html">Sultan Mehmed Fâtih, Allah ona rahmet etsin</a> ← İstanbul'un Fethine Dair Nebevî Müjdenin Gerçekleşip Gerçekleşmediği
+</p>
+
+<header class="page-hero">
+  <h1 class="page-title">İstanbul'un Fethine Dair Nebevî Müjdenin Gerçekleşip Gerçekleşmediği</h1>
+  <p class="page-subtitle">"İstanbul mutlaka fethedilecektir; onu fetheden emir ne güzel emirdir, o ordu da ne güzel ordudur" hadisinin, eksiksiz bir tahric yöntemine göre kaynak ve isnad açısından incelenmesi.</p>
+  <div class="claim-statement">
+    <b>İddianın metni:</b> "İstanbul mutlaka fethedilecektir; onu fetheden emir ne güzel emirdir, o ordu da ne güzel ordudur" hadisinde geçen İstanbul'un fethine dair nebevî müjdenin, Sultan Mehmed Fâtih'in, Allah ona rahmet etsin, 857 H. / 1453 M. yılında İstanbul'u fethetmesiyle gerçekleştiği iddia edilir.
+  </div>
+</header>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+    <span>Araştırmayı PDF Olarak İndir</span>
+  </button>
+</div>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<main>
+
+  <div class="toc-card">
+    <h2>Araştırma Fihristi</h2>
+    <ol>
+      <li><a href="#sources">Tahric Kaynakları</a></li>
+      <li><a href="#tree">İsnad Ağacı</a></li>
+      <li><a href="#narrators">Ravilerin İncelenmesi</a></li>
+      <li><a href="#connection">Bağlantı ve Gizli Kusurların (İlel) İncelenmesi</a></li>
+      <li><a href="#analysis">On Standardın Uygulanması</a></li>
+      <li><a href="#imams">İmamların Bizzat Bu Hadis Hakkındaki Sözleri</a></li>
+      <li><a href="#verdict">Sonuç ve Nihaî Hüküm</a></li>
+    </ol>
+  </div>
+
+  <div class="page-card" id="sources">
+    <h2>1. Tahric Kaynakları</h2>
+    <p>Bu hadis, Ebû Zer el-Herevî rivayetiyle Sahîh-i Buhârî'de, Sahîh-i Müslim'de, ya da İmam Mâlik'in Muvatta'ında (ne el-Ka'nebî rivayetinde ne de başka bir rivayette) yer almamaktadır. Ravilerine dair bir işaret, İmam Buhârî'nin diğer eserlerinde bulunmaktadır: hadisi "et-Târîhu'l-Kebîr"de (2/81; ayrıca 5/49, 443; ve no. 1760) ve "et-Târîhu'l-Evsat"ta (no. 1482), ravi Übeyd bin Bişr el-Ğanevî ve babasının biyografilerinde zikretmiş, ancak "ed-Duafâu's-Sağîr"de zikretmemiştir.</p>
+    <p>İmam Mâlik'in Muvatta'ı, Sahîh-i Müslim ve diğer büyük hadis derlemeleri incelendikten sonra, hadisin şu kaynaklarda tahric edildiği görülmüştür:</p>
+    <ul>
+      <li>İmam Ahmed bin Hanbel'in Müsned'i, no. (18957).</li>
+      <li>el-Beğavî'nin Mu'cemü's-Sahâbe'si, no. (20).</li>
+      <li>Ebû Nuaym el-İsfahânî'nin Ma'rifetü's-Sahâbe'si, no. (1177) ve (1178).</li>
+      <li>İbn Kâni'in Mu'cemü's-Sahâbe'si (1/81).</li>
+      <li>et-Taberânî'nin el-Mu'cemü'l-Kebîr'i, no. (1216).</li>
+      <li>İbn Mende'nin Ma'rifetü's-Sahâbe'si (s. 229).</li>
+      <li>el-Hâkim en-Nîsâbûrî'nin el-Müstedrek ale's-Sahîhayn'i, no. (8300).</li>
+      <li>İbn Asâkir'in Târîhu Dımaşk'ı (58/34-36), yukarıdaki yollardan bir kısmına dayanarak.</li>
+    </ul>
+    <p>Bu araştırmanın tespit edebildiği kadarıyla hadis, Ebû Dâvûd'un Sünen'inde, Tirmizî'nin Câmi'inde, Nesâî'nin Sünen'inde, İbn Mâce'nin Sünen'inde ve Dârimî'nin Sünen'inde bulunmamaktadır; İbn Ebî Şeybe'nin ve Abdürrezzâk es-San'ânî'nin musannaflarında da bulunmamaktadır.</p>
+    <p>Bu hadisin Ebû Zer el-Herevî rivayeti yoluyla Sahîh-i Buhârî'de rivayet edildiği sabit olmadığından, sitede sened incelemesini tekrarlamamak için benimsenen kural burada geçerli değildir; ayrıntılı ve eksiksiz bir isnad incelemesine duyulan ihtiyaç devam etmektedir.</p>
+  </div>
+
+  <div class="page-card" id="tree">
+    <h2>2. İsnad Ağacı</h2>
+    <p>Bu hadis, bütün yollarıyla tek bir raviye, Zeyd bin el-Hubâb bin er-Reyyân el-Ukaylî'ye (ö. 203 H.) dayanır; onun hocası el-Velîd bin el-Muğîre el-Meâfirî'den rivayette altı öğrencisi tek başına bulunmuş, bu da altı tahric yoluna ayrılmıştır.</p>
+    <div class="fig-gallery">
+      <div class="fig-item">
+        <img class="isnad-img" src="../../images/bishr-ghanawi-isnad-tr.png" alt="'İstanbul mutlaka fethedilecektir' hadisinin birleşik isnad ağacı" onclick="openLightbox(this.src, true)">
+        <figcaption>Altı yolun tamamını kapsayan birleşik isnad ağacı (büyütmek ve kaydetmek için tıklayın)</figcaption>
+      </div>
+    </div>
+    <p class="footnote">Merkez nokta: Zeyd bin el-Hubâb el-Ukaylî — el-Velîd bin el-Muğîre el-Meâfirî, ara ravi (İbn Bişr)'den rivayette tek başına bulunmuş; bu sonuncusu da iddia edilen sahabi babası Bişr'den rivayette tek başına bulunmuştur.</p>
+  </div>
+
+  <div class="page-card" id="narrators">
+    <h2>3. Ravilerin İncelenmesi</h2>
+    <p>Aşağıda bu senedin her tabakası incelenmekte, hakkında ihtilaf edilen her ravide cerh, ta'dilden önce sunulmaktadır.</p>
+
+    <div class="narrator-block">
+      <h3>Bişr el-Ğanevî (İddia Edilen Sahabi)</h3>
+      <p><b>Cerh:</b> Sahabiliğin ispatı için, İbn Hibbân'ın onu sahabe tabakasında sınıflandırması veya ravinin kendi iddiası tek başına yeterli değildir. İbnü's-Salâh —ondan en-Nevevî, İbn Cemâa, İbn Kesîr ve Hâfız Zeynüddin el-Irâkî'nin naklettiği üzere— bir kişinin sahabi olduğunun dört yoldan biriyle sabit olacağını belirlemiştir: mütevatir olarak, mütevatir derecesine ulaşmayan bir yaygınlıkla, tek tek sahabilerin ondan sahabi olduğuna dair rivayetiyle, ya da adaleti sabit olduktan sonra kendisinin kendisi hakkında bunu bildirmesiyle. Bişr el-Ğanevî'nin sahabiliği ilk üç yoldan hiçbiriyle sabit olmamış, kendisi hakkındaki haberinin kabulünü caiz kılacak bağımsız bir adalet de ona ispatlanmamıştır; dolayısıyla sahabilik iddiası, bu hadisin kendisinden bağımsız bir delille sabit olmamış olarak kalır.</p>
+      <p><b>Ta'dil:</b> Ebû Hâtim er-Râzî: "Mısırlıdır, sohbeti vardır" demiştir. İbn Hibbân onu "es-Sikât"ta sahabe tabakasında zikretmiş ve "İstanbul'un fethinde Peygamber'i ﷺ işitmiştir" demiştir. İbn Hacer, "el-İsâbe"de Ebû Ali bin es-Seken'den, onun "Şam ehli arasında sayılır" dediğini nakletmiştir.</p>
+      <p><b>Tercih:</b> Bu sözler birer nitelemedir; sahabiliği ispatlayacak bağımsız bir ta'dile ulaşmaz. Bu tür durumlarda dikkat edilmesi gereken tam da şu döngüdür: hadisin kendisiyle ravisinin sahabiliğine delil getirmek, sonra da onun sahabiliğiyle hadisin sıhhatine delil getirmek.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>Übeyd / Übeydullah / Abdullah bin Bişr (Oğul, Ara Ravi)</h3>
+      <p><b>Cerh:</b> Ali bin el-Medînî onun meçhul olduğunu açıkça belirtmiş, bu yol hakkında "ravisi meçhuldür" demiştir (İbn Asâkir bunu "Târîhu Dımaşk"ta 58/36'da, ez-Zehebî de "Târîhu'l-İslâm"da buna aykırı bir yorum yapmaksızın nakletmiştir). Ondan başka rivayet eden yalnızca el-Velîd bin el-Muğîre el-Meâfirî'dir; Zeyd bin el-Hubâb'dan rivayet edenler arasında onun adı ve nesebi konusunda açık bir ihtilaf vardır: "Abdullah" denmiş, "Übeydullah" denmiş, izafetsiz "Übeyd" denmiş; kimi zaman "el-Ha'semî"ye, kimi zaman "el-Ğanevî"ye nispet edilmiştir.</p>
+      <p><b>Ta'dil:</b> İbn Hibbân onu "es-Sikât"ta tâbiîn tabakası içinde zikretmiştir. Ebû Hâtim er-Râzî "Abdullah bin Lehîa'nın akranlarındandır" demiştir — bu, ta'dil ifade etmeyen betimleyici bir ifadedir.</p>
+      <p><b>Tercih:</b> İbn Hibbân'ın tek başına tevsiki, kabul mertebesini ispatlamaya yetmez; çünkü o tevsikte gevşek davrananlardandır — özellikle de el-Velîd bin el-Muğîre dışında desteklenebileceği başka bir ravi bulunmadığı için. Bu ravi mechulü'l-hâldir (durumu bilinmeyen). Çağdaş araştırmacı Salâhaddin el-İdlibî, onu "el-Ha'semî" diye isimlendiren (Ebû Bekr bin Ebî Şeybe) kişinin yanıldığını ve onu, es-Sevrî ile Şu'be'nin ricalinden Kûfeli "Abdullah bin Bişr el-Ha'semî el-Kâtib" adlı farklı bir raviyle karıştırdığını tercih etmiştir; ne Buhârî, ne Ebû Hâtim, ne de İbn Hibbân bu kâtibin babasından rivayet ettiğini zikretmemiştir, bu da onun tamamen başka bir kişi olduğunu doğrulamaktadır.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>el-Velîd bin el-Muğîre bin Süleymân el-Meâfirî, Ebü'l-Abbâs, Mısırlı</h3>
+      <p><b>Cerh:</b> Kendisi hakkında öncekilerden herhangi bir cerh tespit edilememiştir. Bu senetteki sorun onun kendisinde değil, durumu bilinmeyen bir raviden tek başına rivayet etmesindedir.</p>
+      <p><b>Ta'dil:</b> Salâhaddin el-İdlibî onu "Mısırlı, sadûk (doğru sözlü)" diye nitelemiştir; Buhârî "et-Târîhu'l-Kebîr"de, İbn Ebî Hâtim "el-Cerh ve't-Ta'dîl"de ve İbn Hibbân "es-Sikât"ta ona herhangi bir tenkit olmaksızın yer vermiştir. 172 H. yılında vefat etmiştir.</p>
+      <p><b>Tercih:</b> Kendisi rivayeti kabul edilebilir bir ravidir; sorun yalnızca durumu bilinmeyen birinden tek başına rivayet etmesindedir.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>Zeyd bin el-Hubâb bin er-Reyyân, Ebü'l-Hüseyin el-Ukaylî, Kûfeli (Hadisin Merkez Noktası)</h3>
+      <p><b>Cerh:</b> Ahmed bin Hanbel, oğlu Abdullah'ın naklettiğine göre, "Zeyd bin el-Hubâb sadûktu... ama çok hata yapardı" demiştir (Süâlâtü Ebî Dâvûd li-Ahmed, no. 432; el-İlel, Abdullah rivayeti, no. 77). Yahyâ bin Maîn ise, İbn Adî'nin naklettiğine göre, "es-Sevrî'nin hadisini altüst ederdi" demiştir.</p>
+      <p><b>Ta'dil:</b> el-Iclî onu tevsik etmiş, "Kûfeli, güvenilirdir" demiştir. İbn Adî onu savunarak "Zeyd bin el-Hubâb'ın çok sayıda hadisi vardır; doğruluğundan şüphe edilmeyen, Kûfe'nin sağlam hocalarındandır" demiş, İbn Maîn'de geçen zaafın özellikle onun es-Sevrî'den rivayetine has olduğunu açıklamıştır.</p>
+      <p><b>Tercih:</b> Zeyd bin el-Hubâb genel olarak güvenilirdir; ondaki zaaf özellikle Süfyân es-Sevrî'den rivayetine hastır, bu da burada el-Velîd bin el-Muğîre'den olan rivayetini etkilemez, çünkü es-Sevrî yoluyla değildir. Bu senette Zeyd bin el-Hubâb'ın bizzat kendisine yönelik bir tenkidi gerektiren bir şey yoktur; zayıflık noktası ondan yukarıdaki ravilerdedir.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>Zeyd bin el-Hubâb'ın Altı Öğrencisi (Altı Yolun Nakilcileri)</h3>
+      <p><b>Cerh:</b> Bu konuda hiçbiri hakkında etkili bir cerh zikredilmemiştir.</p>
+      <p><b>Ta'dil:</b> Hepsi, kabullerinde ciddi bir ihtilaf bulunmayan tanınmış, güvenilir ve hâfız ravilerdendir: Abdullah bin Muhammed bin Ebî Şeybe (ö. 235 H.), Osman bin Ebî Şeybe (ö. 239 H.), Ebû Mes'ûd Ahmed bin el-Fürât er-Râzî (ö. 258 H.), Abde bin Abdullah es-Saffâr el-Hüzâî, Ebû Küreyb Muhammed bin el-Alâ (ö. 248 H.) ve Muhammed bin Ali bin Mihrez.</p>
+      <p><b>Tercih:</b> Aralarındaki ihtilaf, Zeyd bin el-Hubâb'dan rivayetin aslında değil, el-Velîd bin el-Muğîre'nin hocasının (hocalarının hocası) adının tespitindedir. Bu senedin ravileri arasında teşeyyu' veya başka bir bid'atle itham edilen bir ravi yoktur.</p>
+    </div>
+  </div>
+
+  <div class="page-card" id="connection">
+    <h2>4. Bağlantı ve Gizli Kusurların (İlel) İncelenmesi</h2>
+    <p>Zeyd bin el-Hubâb ile hocası el-Velîd bin el-Muğîre arasındaki ve el-Velîd ile hocası İbn Bişr arasındaki eda sîgaları, işitmeyi açıkça belirtmektedir ("bana anlattı"); ikisinden de tedlis yaptığına dair bir nitelik bilinmemektedir, dolayısıyla bu iki tabakanın bağlantısı sabittir. İbn Bişr ile babası arasındaki rivayet ise an'ane iledir ("babasından"); aralarında işitmeyi açıkça belirten bir ifade tespit edilememiştir; ancak İbn Bişr'in de tedlisle nitelendiği bilinmemektedir; dolayısıyla buradaki an'ane bir tedlis karinesi taşımamaktadır. Bu senetteki asıl sorun, baba ile oğulun kimliği ve ikisinin de meçhul olması olarak kalmaktadır, aralarındaki eda sîgasında değil.</p>
+    <p>Babanın (Bişr'in) Peygamber'den ﷺ işitmesi iddiası ise lafız olarak açıktır ("Peygamber'i ﷺ şöyle derken işitti"), fakat bu, en başta onun sahabiliğinin sabit olmasına dayanır; onun sahabiliğinin bağımsız bir delille sabit olmadığı daha önce geçmiştir.</p>
+    <p><b>Bu senedi çevreleyen en önemli gizli kusurlar (ilel):</b></p>
+    <ul>
+      <li>Ara ravinin adı ve nesebindeki tutarsızlık: "Abdullah bin Bişr", "Übeydullah bin Bişr" ve "Übeyd bin Bişr" diye isimlendirilmiş, kimi zaman "el-Ha'semî"ye, kimi zaman "el-Ğanevî"ye nispet edilmiştir.</li>
+      <li>Bu meçhul ravinin, benzer isimle bilinen farklı bir raviyle karıştırılması; bu karışıklık, isim ve neseplerin benzerliğinden kaynaklanmıştır.</li>
+      <li>Ara ravinin (İbn Bişr) durumunun meçhul olması: ondan yalnızca tek bir ravi rivayet etmiş, onu yalnızca İbn Hibbân tevsik etmiş, Ali bin el-Medînî ise onun meçhul olduğunu açıkça belirtmiştir.</li>
+      <li>Babanın (Bişr'in) sahabiliğinin, bu hadisin kendisinden bağımsız bir delille sabit olmaması.</li>
+      <li>el-Velîd bin el-Muğîre'nin İbn Bişr'den rivayette tek başına bulunması, bu yolun aynı tabakada ondan bağımsız başka bir yolla desteklenmesini engellemektedir.</li>
+    </ul>
+    <p>Zeyd bin el-Hubâb'dan gelen altı tahric yolunun çokluğu bunu telafi etmez; çünkü bu yolların tamamı, İbn Bişr'den rivayette tek başına bulunan el-Velîd bin el-Muğîre adlı tek bir kaynağa dayanmaktadır. Dolayısıyla bunlar rivayeti kuvvetlendiren bağımsız yollar değil, belirtilen meçhuliyeti taşıyan tek bir kökten geç dönemde ayrılan dallardır; burada "sahih li-gayrihi" (başkasıyla sahih) kavramı uygulanamaz, çünkü bunun temel şartı olan, başka rivayetlerin eklenebileceği bağımsız bir sahih senedin varlığı yerine getirilmemiştir.</p>
+  </div>
+
+  <div class="page-card" id="analysis">
+    <h2>5. On Standart ve Ölçütün Uygulanması</h2>
+    <p>Aşağıdaki hadis, "Standartlar ve Ölçütler" bölümünde benimsenen on seviyeye göre değerlendirilir. Bu ölçütlerin bir kısmı, doğrudan bir hadisi kaynaklandırmak için değil, belirli bir kişinin itham edildiği tarihî bir olayı incelemek için tasarlanmıştır; bu durum, uygulanmayan her ölçütün yanında belirtilmiştir.</p>
+
+    <div class="cascade">
+
+      <div class="stage">
+        <div class="node">1</div>
+        <div class="stage-card">
+          <p class="level-name">Sahîh-i Buhârî (Ebû Zer el-Herevî Rivayeti)</p>
+          <p class="verdict-line"><b>Sonuç:</b> Hadis bu rivayette hiç yer almamaktadır.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">2</div>
+        <div class="stage-card">
+          <p class="level-name">Mâlik'in Muvatta'ı (el-Ka'nebî Rivayeti) / Büyük ve Küçük Tarih</p>
+          <p class="verdict-line"><b>Sonuç:</b> Mâlik'in Muvatta'ında yer almamaktadır, ancak Buhârî'nin bizzat kendi "et-Târîhu'l-Kebîr" ve "et-Târîhu'l-Evsat" eserlerinde yer almakta olup, bu da yukarıdaki eksiksiz isnad incelemesini gerekli kılmıştır.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">3</div>
+        <div class="stage-card">
+          <p class="level-name">Kütüb-i Sitte'nin Geri Kalanı ve Müsned</p>
+          <p class="verdict-line"><b>Sonuç:</b> Kütüb-i Sitte'de yer almamaktadır; İmam Ahmed'in Müsned'inde, yukarıda eksiksiz incelemeye tabi tutulan bir senetle yer almaktadır.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">4</div>
+        <div class="stage-card">
+          <p class="level-name">Tarihçiler</p>
+          <p class="verdict-line"><b>Sonuç:</b> İbn Asâkir'in "Târîhu Dımaşk"ında, yukarıdaki yollara dayanarak yer almakta olup, güç katan bağımsız bir senedi yoktur.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">5</div>
+        <div class="stage-card">
+          <p class="level-name">Âdil Çağdaşların Tanıklığı</p>
+          <p class="verdict-line"><b>Sonuç:</b> Bu müjde bu derece büyük olsaydı ve İstanbul'un fethi gibi büyük bir tarihî olayla ilgili olsaydı, onu Peygamber'den ﷺ yalnızca tek bir kişinin rivayet etmesi akla yatkın mıdır — özellikle de sahabiliği bazı ilim ehli nezdinde tartışmalı ya da sabit değilken? Sahabenin bu hadisi kendi aralarında hiç aktarmamış olması, İstanbul'u fethetmeye defalarca çıkan ve bu müjdenin muhatabı olmayı uman komutan ve askerlerin ona hiç dayanmamış olması mantıklı mıdır? Sonra fetih nihayet gerçekleştiğinde, bu hadisin devrin en meşhur sözü haline gelmesi, âlimlerin hutbelerinde, tarihçilerin kitap ve mektuplarında sıkça zikredilmesi doğal değil midir? Sultan Mehmed Fâtih'in bizzat kendisinden veya çağdaşlarından, fethinde bu müjdenin gerçekleştiğini gördüğüne dair bir nakil beklenmez mi? Daha da tuhafı, bu araştırmanın tespit edebildiği kadarıyla, erken dönem Osmanlı kaynaklarının Mehmed Fâtih'i "müjdelenen emir" diye nitelendirdiği bilinmemektedir; oysa bu nitelendirme o dönemde sabit ve yaygın olsaydı, onun siyerinde ve menkıbelerinde zikredilen en belirgin hususlardan biri olurdu.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">6</div>
+        <div class="stage-card">
+          <p class="level-name">İlmî Sükût Delili</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="fail">Uygulanmaz</span></p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">7</div>
+        <div class="stage-card">
+          <p class="level-name">Muhaliflerin Rivayeti Delil Olarak Kullanmaması</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="fail">Uygulanmaz</span></p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">8</div>
+        <div class="stage-card">
+          <p class="level-name">Maddî ve Arkeolojik Deliller</p>
+          <p class="verdict-line"><b>Sonuç:</b> Şehrin fethi, tek başına, müjdenin sıhhatine dair maddî bir delil sayılmaz; bu, tarih boyunca fethedilen pek çok başka şehir gibi gerçekleşebilecek tarihî bir olaydır. Müjdeyle delil getirmek ancak rivayet sabit olur ve isnadı sahih çıkarsa geçerli olur, sadece olayın kendisinin gerçekleşmesiyle değil.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">9</div>
+        <div class="stage-card">
+          <p class="level-name">Sanığın Nebevî Tezkiyesi</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="fail">Uygulanmaz</span> — bu ölçüt, kendisiyle ölçülecek bir sonuç değil, bu araştırmanın bizzat konusudur.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">10</div>
+        <div class="stage-card">
+          <p class="level-name">Düşmanlığı Bilinen Kişilerin Rivayetleri</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="fail">Uygulanmaz</span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="page-card" id="imams">
+    <h2>6. İmamların Bizzat Bu Hadis Hakkındaki Sözleri</h2>
+
+    <div class="narrator-block">
+      <h3>Önceki Âlimlerin Sözleri</h3>
+      <p><b>Ali bin el-Medînî (ö. 234 H.):</b> Bu yol hakkında "ravisi meçhuldür" demiştir (İbn Asâkir "Târîhu Dımaşk" 58/36'da, ez-Zehebî de "Târîhu'l-İslâm"da buna aykırı bir yorum yapmaksızın nakletmiştir). Dikkat çekicidir ki Ali bin el-Medînî'nin kendisi bu hadisin ravilerinden biridir; onu naklederken aynı zamanda ravilerinden birine meçhul hükmü vermiştir.</p>
+      <p><b>Ebû Hâtim er-Râzî (ö. 277 H.):</b> İbn Bişr hakkında "Abdullah bin Lehîa'nın akranlarındandır" demiş, baba Bişr hakkında ise "Mısırlıdır, sohbeti vardır" demiştir — her iki söz de betimleyicidir, bağımsız bir ta'dile ulaşmaz.</p>
+      <p><b>Muhammed bin İsmâil el-Buhârî (ö. 256 H.):</b> Hadisi "et-Târîhu'l-Kebîr" ve "et-Târîhu'l-Evsat"ta, sahih veya zayıf olduğunu açıkça belirtmeksizin zikretmiştir; bu, onun "Târih" türü eserlerindeki bilinen metodudur.</p>
+      <p><b>İbn Hibbân (ö. 354 H.):</b> Bişr'i sahabe tabakasına, oğlunu ise tâbiîn tabakasına, tevsikte gevşekliğiyle bilinen "es-Sikât" adlı eserinde yerleştirmiş, hadisin kendisi hakkında açık bir hüküm belirtmemiştir.</p>
+    </div>
+
+    <div class="narrator-block">
+      <h3>Sonraki ve Çağdaş Âlimlerin Sözleri</h3>
+      <p>el-Hâkim en-Nîsâbûrî hadisi "el-Müstedrek"te tahric etmiş, bazı ikincil kaynaklarda ona ve ez-Zehebî'ye bu hadisi sahihleme isnad edilmiştir; ancak ez-Zehebî bizzat kendisi "Târîhu'l-İslâm"da Ali bin el-Medînî'nin meçhul hükmünü, buna aykırı bir yorum yapmaksızın zikretmiştir; bu, onun eserlerindeki iki yer arasında dikkat edilmesi gereken bir tutarsızlıktır.</p>
+      <p><b>Muhammed Nâsırüddin el-Elbânî:</b> Hadisi "es-Silsiletü'd-Daîfe"de (no. 878) ve "Zaîfü'l-Câmi'i's-Sağîr"de (no. 4655) zayıf saymış, "İbn Bişr el-Ğanevî"nin adındaki ihtilafı zikretmiş ve kendisine göre İbn Hibbân'ın tek başına tevsikine güven duyulmadığı için hadisin sahih olmadığını söylemiştir.</p>
+      <p><b>Şuayb el-Arnaût</b> (Müsned tahkikinde): Abdullah bin Bişr el-Ha'semî'nin meçhul olması sebebiyle senedinin zayıf olduğuna hükmetmiştir; çünkü el-Velîd bin el-Muğîre el-Meâfirî ondan tek başına rivayet etmiştir ve İbn Hibbân dışında onu tevsik eden nakledilmemiştir.</p>
+      <p><b>Salâhaddin el-İdlibî</b> (çağdaş uzman hadis araştırmacısı): Bütün yolları takip ettikten, "İbn Bişr el-Ğanevî" ile "İbn Bişr el-Ha'semî el-Kâtib" arasındaki karışıklığı ayırt ettikten ve sahabiliğin sabit olma şartını inceledikten sonra, bu hadisin senedinin zayıf olduğu sonucuna varmıştır.</p>
+      <p class="footnote">Ek doğrulama olarak: ed-Dürerü's-Seniyye hadis ansiklopedisi de yukarıda zikredilen aynı tahric kaynaklarını kaydetmekte ve el-Elbânî'nin zayıflık hükmünü aktarmakta olup, bu, bu araştırmanın sonucuyla örtüşmektedir.</p>
+    </div>
+  </div>
+
+  <div class="final-verdict" id="verdict">
+    <h2>Sonuç ve Nihaî Hüküm</h2>
+    <p>Sultan Mehmed Fâtih'in İslam tarihinin büyük şahsiyetlerinden biri olduğuna şüphe yoktur; Allah'ın onun eliyle nice ülkeleri fethettiği mücahit bir sultandır, onun sayesinde çok sayıda insan İslam'a girmiştir ve o fetihlerin izleri bugüne kadar sürmektedir; nice halk, o fetihler sayesinde dinini korumuştur.</p>
+    <p>Bu noktadan hareketle, Sultan Mehmed Fâtih'i seviyor ve yüceltiyoruz; hatta Peygamber'e ﷺ isnad edilen İstanbul'un fethiyle ilgili müjdenin sahih olduğu sabit olsaydı, insanların en mutlularından olurduk. Fakat hakikate uymak daha evladır; Allah Resûlü'ne ﷺ, yalnızca sevdiğimize veya arzuladığımıza uygun düştüğü için bir hadis isnad etmemiz caiz değildir.</p>
+    <p>Bu sitedeki yöntemimiz açıktır: bir hadisi, ancak sıhhati bizzat kendi başına sabit olursa —yani Peygamber'e ﷺ ulaşan sahih ve muttasıl bir senetle— dış güçlendiriciler veya karinelere dayanmaksızın kabul ederiz. Olayın gerçekleşmiş olması tek başına, Peygamber'in ﷺ bunu söylediğini ispatlamaya yetmez; kesinlikle "Allah Resûlü ﷺ şöyle buyurdu" diyebilmemiz için, aktarımın kendisinin sahih olarak sabit olması gerekir.</p>
+    <p>Bununla birlikte, benimsediğimiz yönteme göre bu rivayetin sabit olmaması, Sultan Mehmed Fâtih'in mevkiinden veya büyük başarısından hiçbir şey eksiltmez. Onu İslam'a hizmet eden emirlerin en hayırlılarından, İstanbul'u fetheden orduyu da orduların en hayırlılarından sayarız. Bu fethi gerçekleştirmedeki başarı, başlı başına büyük bir tarihî başarıdır; ordusunu bir fethe götüren her emir gerçekten güzel bir emirdir, fethi gerçekleştiren her ordu da gerçekten güzel bir ordudur.</p>
+    <p>Doğrusunu en iyi Allah bilir.</p>
+  </div>
+
+
+</main>
+
+<footer>
+  <p class="meta">© Kuffo Alsinatakum — Tüm araştırmalar gözden geçirilmekte ve sürekli güncellenmektedir.</p>
+</footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox(event)">×</button>
+  <div class="lb-tools">
+    <button onclick="zoomLightbox(event, 0.25)" title="Yakınlaştır">+</button>
+    <button onclick="zoomLightbox(event, -0.25)" title="Uzaklaştır">−</button>
+    <button onclick="downloadLightboxImage(event)" title="Görseli kaydet">⭳</button>
+  </div>
+  <div class="lb-img-wrap" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script>
+  let lbZoom = 1;
+  function openLightbox(src, isIsnad){
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    lbZoom = 1;
+    img.style.transform = 'scale(1)';
+    lb.classList.toggle('with-tools', !!isIsnad);
+    lb.classList.add('open');
+  }
+  function closeLightbox(e){
+    if(e) e.stopPropagation();
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  function zoomLightbox(e, delta){
+    e.stopPropagation();
+    lbZoom = Math.min(4, Math.max(0.5, lbZoom + delta));
+    document.getElementById('lightbox-img').style.transform = `scale(${lbZoom})`;
+  }
+  function downloadLightboxImage(e){
+    e.stopPropagation();
+    const src = document.getElementById('lightbox-img').src;
+    const a = document.createElement('a');
+    a.href = src;
+    a.download = src.split('/').pop() || 'isnad-tree.jpg';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  (function(){
+    const counterEl = document.getElementById('visitorCount');
+    if(!counterEl) return;
+    const namespace = 'kuffo-alsinatakum-github-io';
+    const key = 'site-visits';
+    fetch(`https://countapi.mileshilliard.com/api/v1/hit/${namespace}_${key}`)
+      .then(res => res.json())
+      .then(data => {
+        if(data && typeof data.value === 'number'){
+          counterEl.textContent = data.value.toLocaleString();
+        } else {
+          counterEl.textContent = '—';
+        }
+      })
+      .catch(() => { counterEl.textContent = '—'; });
+  })();
+</script>
+
+</body>
+</html>
