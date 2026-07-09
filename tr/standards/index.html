@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standartlar ve Ölçütler — Kuffo Alsinatakum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:760px;
+    --max-w-wide:980px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Lora','Amiri',serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .topbar{
+    background:var(--olive-deep);
+    color:var(--parchment);
+    padding:10px 24px;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:14px;
+    font-size:0.85rem;
+    border-bottom:1px solid rgba(201,162,39,0.25);
+  }
+  .topbar .brandmark{
+    grid-column:2;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    color:var(--gold);
+    font-family:'Lora',serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.015em;
+    text-shadow:0 1px 8px rgba(201,162,39,0.35);
+    white-space:normal;
+    text-align:center;
+    max-width:420px;
+  }
+  .topbar .brandmark::before, .topbar .brandmark::after{
+    content:"❊";
+    font-size:0.7rem;
+    color:rgba(201,162,39,0.6);
+    flex-shrink:0;
+  }
+  .topbar-left{grid-column:1; justify-content:flex-start;}
+  .topbar-right{grid-column:3; justify-content:flex-end;}
+  @media (max-width:760px){
+    .topbar{grid-template-columns:1fr; text-align:center;}
+    .topbar-left, .topbar-right, .topbar .brandmark{grid-column:1; justify-content:center;}
+    .topbar .brandmark{font-size:1.02rem; order:-1; margin-bottom:6px;}
+  }
+
+  .topbar-right{display:flex; align-items:center; gap:18px;}
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button, .langswitch a{
+    background:none;
+    border:1px solid rgba(245,239,224,0.3);
+    color:rgba(245,239,224,0.75);
+    font-size:0.78rem;
+    padding:3px 10px;
+    border-radius:14px;
+    cursor:pointer;
+    font-family:inherit;
+    text-decoration:none;
+    display:inline-block;
+  }
+  .langswitch button:disabled{opacity:0.4; cursor:not-allowed;}
+  .langswitch .active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
+  .visitor-counter{
+    display:flex; align-items:center; gap:6px;
+    color:rgba(245,239,224,0.75);
+    font-size:0.8rem;
+    white-space:nowrap;
+  }
+  .visitor-counter svg{width:15px; height:15px; flex-shrink:0; color:var(--gold);}
+  .visitor-counter #visitorCount{color:var(--gold); font-weight:700;}
+  @media (max-width:600px){
+    .topbar{flex-wrap:wrap; gap:8px;}
+    .topbar-right{flex-wrap:wrap; gap:10px;}
+    .visitor-counter{font-size:0.74rem;}
+  }
+
+  .navbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--olive);
+    border-bottom:2px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12);
+    flex-wrap:wrap;
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85);
+    font-size:0.92rem;
+    padding:13px 18px;
+    display:inline-block;
+    border-bottom:3px solid transparent;
+    transition:color 0.2s, border-color 0.2s, background 0.2s;
+    white-space:nowrap;
+  }
+  .navbar a:hover{color:var(--gold); background:rgba(245,239,224,0.06); text-decoration:none;}
+  .navbar a.active-page{color:var(--gold); border-bottom-color:var(--gold); font-weight:600;}
+  .navbar a.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    color:var(--gold);
+    border-inline-end:1px solid rgba(245,239,224,0.25);
+    margin-inline-end:6px;
+    font-weight:600;
+  }
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0;}
+  @media (max-width:700px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+    .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
+  }
+
+  .breadcrumb{
+    max-width:var(--max-w-wide);
+    margin:18px auto 0;
+    padding:0 24px;
+    font-size:0.85rem;
+    color:var(--copper);
+  }
+  .breadcrumb a{color:var(--copper); text-decoration:underline;}
+
+  header.page-hero{
+    max-width:var(--max-w-wide);
+    margin:0 auto;
+    padding:26px 24px 22px;
+    text-align:center;
+  }
+  h1.page-title{
+    font-size:clamp(1.8rem, 4.5vw, 2.6rem);
+    margin:0;
+    color:var(--olive-deep);
+    font-weight:700;
+    font-family:'Amiri',serif;
+  }
+  p.page-subtitle{
+    max-width:var(--max-w);
+    margin:14px auto 0;
+    color:var(--copper);
+    font-size:1rem;
+  }
+
+  .ornament{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    margin:8px auto 30px; max-width:var(--max-w); padding:0 24px;
+    color:var(--copper); opacity:0.85;
+  }
+  .ornament .line{flex:1; height:1px; background:linear-gradient(to right, transparent, var(--copper) 50%, transparent);}
+  .ornament svg{width:24px; height:24px; flex-shrink:0;}
+
+  .verse-marquee{
+    background:linear-gradient(90deg, var(--olive-deep) 0%, #1a3a28 50%, var(--olive-deep) 100%);
+    border-top:2px solid var(--gold);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:14px 0;
+    position:relative;
+  }
+  .verse-marquee::before, .verse-marquee::after{
+    content:"";
+    position:absolute;
+    top:0; bottom:0;
+    width:60px;
+    z-index:2;
+    pointer-events:none;
+  }
+  .verse-marquee::before{left:0; background:linear-gradient(to right, var(--olive-deep), transparent);}
+  .verse-marquee::after{right:0; background:linear-gradient(to left, var(--olive-deep), transparent);}
+  .verse-marquee-track{
+    display:inline-flex;
+    align-items:center;
+    animation:marquee-scroll 38s linear infinite;
+    will-change:transform;
+  }
+  .verse-marquee-track span.v{
+    display:inline-block;
+    padding:0 48px;
+    font-family:'Amiri',serif;
+    font-size:1.15rem;
+    font-weight:700;
+    background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:shimmer-gold 4s linear infinite;
+  }
+  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
+  @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
+  @media (max-width:600px){
+    .verse-marquee-track span.v{font-size:0.95rem; padding:0 28px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .verse-marquee-track{animation:none;}
+  }
+
+  main{
+    max-width:var(--max-w-wide);
+    margin:0 auto;
+    padding:0 24px 50px;
+  }
+
+  .page-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:32px 30px;
+    box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .page-card p{margin:0 0 18px; font-size:1.06rem; color:var(--ink);}
+  .page-card p:last-child{margin-bottom:0;}
+
+  .intro-card{margin-bottom:28px;}
+  .intro-card .to-reader{
+    border-inline-start:3px solid var(--gold);
+    padding-inline-start:16px;
+    color:var(--copper);
+  }
+
+  .method-card{
+    margin-bottom:34px;
+    background:var(--parchment-deep);
+    border:1px solid var(--line);
+    border-inline-start:4px solid var(--gold);
+  }
+  .method-card h2{
+    margin:0 0 14px;
+    font-size:1.3rem;
+    color:var(--olive-deep);
+    font-weight:700;
+  }
+  .method-card strong{color:var(--olive-deep);}
+
+  figure.diagram{
+    margin:0 0 40px;
+    text-align:center;
+  }
+  figure.diagram img{
+    max-width:100%;
+    border-radius:8px;
+    border:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(27,58,47,0.1);
+  }
+  figure.diagram figcaption{
+    margin-top:10px;
+    font-size:0.85rem;
+    color:var(--copper);
+  }
+
+  .section-heading{
+    text-align:center;
+    margin:0 0 30px;
+  }
+  .section-heading h2{
+    font-size:1.5rem;
+    color:var(--olive-deep);
+    margin:0 0 8px;
+    font-weight:700;
+  }
+  .section-heading p{
+    color:var(--copper);
+    max-width:var(--max-w);
+    margin:0 auto;
+    font-size:0.96rem;
+  }
+
+  .cascade{
+    position:relative;
+    padding-inline-start:42px;
+  }
+  .cascade::before{
+    content:"";
+    position:absolute;
+    top:6px; bottom:6px;
+    left:13px;
+    width:7px;
+    background:linear-gradient(to bottom, var(--olive) 0%, var(--olive) 78%, var(--copper) 100%);
+    clip-path:polygon(0 0, 100% 0, 78% 100%, 22% 100%);
+    border-radius:5px;
+  }
+
+  .stage{
+    position:relative;
+    margin-bottom:20px;
+  }
+  .stage:last-child{margin-bottom:0;}
+
+  .stage .node{
+    position:absolute;
+    left:-42px;
+    top:24px;
+    width:34px; height:34px;
+    border-radius:50%;
+    background:var(--parchment);
+    border:2.5px solid var(--olive);
+    color:var(--olive-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Amiri',serif;
+    font-weight:700;
+    font-size:1rem;
+    z-index:2;
+    box-shadow:0 0 0 5px var(--parchment);
+  }
+  .stage:nth-child(n+6) .node{
+    border-color:var(--copper);
+    color:var(--copper);
+  }
+
+  .stage-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:20px 24px;
+    box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .stage-card .level-name{
+    font-family:'Amiri',serif;
+    font-size:1.12rem;
+    color:var(--olive-deep);
+    font-weight:700;
+    margin:0 0 6px;
+  }
+  .stage-card .source-line{
+    color:var(--ink);
+    font-size:0.98rem;
+    margin:0 0 12px;
+  }
+  .stage-card .rule{
+    background:var(--parchment-deep);
+    border-inline-start:3px solid var(--gold);
+    border-radius:6px;
+    padding:9px 14px;
+    font-size:0.9rem;
+    color:var(--copper);
+    margin:0;
+  }
+  .stage-card .rule b{color:var(--olive-deep);}
+
+  .verdict-row{
+    margin-top:36px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  @media (max-width:680px){.verdict-row{grid-template-columns:1fr;}}
+  .verdict{
+    border-radius:8px;
+    padding:20px 22px;
+    border:1px solid var(--line);
+    background:#fff;
+  }
+  .verdict.accept{border-inline-start:4px solid var(--olive);}
+  .verdict.reject{border-inline-start:4px solid var(--copper);}
+  .verdict h3{
+    margin:0 0 8px;
+    font-family:'Amiri',serif;
+    font-size:1.05rem;
+    font-weight:700;
+  }
+  .verdict.accept h3{color:var(--olive-deep);}
+  .verdict.reject h3{color:var(--copper);}
+  .verdict p{margin:0; font-size:0.92rem; color:var(--ink);}
+
+  .closing-note{
+    margin-top:44px;
+    text-align:center;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+  }
+  .closing-note p{
+    max-width:var(--max-w);
+    margin:0 auto;
+    color:var(--copper);
+    font-size:0.92rem;
+  }
+
+  footer{
+    background:var(--olive-deep);
+    color:rgba(245,239,224,0.75);
+    padding:36px 24px 24px;
+    margin-top:40px;
+    text-align:center;
+    font-size:0.88rem;
+  }
+  footer .meta{opacity:0.7;}
+
+  @media (max-width:600px){
+    .page-card{padding:24px 18px;}
+    header.page-hero{padding:20px 18px 16px;}
+    .cascade{padding-inline-start:34px;}
+    .stage .node{left:-34px; width:28px; height:28px; font-size:0.86rem;}
+    .stage-card{padding:16px 18px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left"></div>
+  <div class="brandmark">Onlar Hakkında Dilinizi Tutun</div>
+  <div class="topbar-right">
+    <div class="langswitch">
+      <a href="../index.html">العربية</a>
+      <a href="../en/standards/index.html">English</a>
+      <span class="active">Türkçe</span>
+    </div>
+    <div class="visitor-counter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Site ziyaretçileri:</span>
+      <span id="visitorCount">···</span>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Ana Sayfa</span>
+  </a>
+  <a href="../index.html">Bu Sitenin Amacı</a>
+  <a href="../terms/index.html">Önemli Terimler</a>
+  <a href="index.html" class="active-page">Standartlar ve Ölçütler</a>
+  <a href="../figures/index.html">Şahsiyetler</a>
+  <a href="../contact/index.html">Bize Ulaşın</a>
+</nav>
+
+<div class="verse-marquee" aria-hidden="true">
+  <div class="verse-marquee-track">
+    <span class="v">"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." — Hucurât Suresi 49:6</span>
+    <span class="sep">—</span>
+    <span class="v">"Bu iftirayı işittiğinizde, iman eden erkek ve kadınlar, kendi (din kardeş)leri hakkında iyi zan besleyip de, 'Bu, apaçık bir iftiradır' deselerdi ya!" — Nûr Suresi 24:12</span>
+    <span class="sep">—</span>
+    <span class="v">"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." — Hucurât Suresi 49:6</span>
+    <span class="sep">—</span>
+    <span class="v">"Bu iftirayı işittiğinizde, iman eden erkek ve kadınlar, kendi (din kardeş)leri hakkında iyi zan besleyip de, 'Bu, apaçık bir iftiradır' deselerdi ya!" — Nûr Suresi 24:12</span>
+    <span class="sep">—</span>
+  </div>
+</div>
+
+<p class="breadcrumb">
+  <a href="../index.html">Ana Sayfa</a> ← Standartlar ve Ölçütler
+</p>
+
+<header class="page-hero">
+  <h1 class="page-title">Standartlar ve Ölçütler</h1>
+  <p class="page-subtitle">Tarihî bir rivayeti kabul etme yöntemi: rivayetin geçmesi gereken art arda sıralanmış süzgeçler. Hepsini geçen kabul edilir; bunlardan yalnızca birinde bile takılan reddedilir ve dikkate alınmaz.</p>
+</header>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<main>
+
+  <div class="page-card intro-card">
+    <p>Tarihî rivayetlerle ilgilenmenin temeli, herhangi bir haberi veya rivayeti, kademeli bir dizi ölçüte tabi tutmadan kabul etmemektir; bu ölçütler, rivayeti kirlerden arındıran ve içindeki zayıflık ve şüphe noktalarını ortaya çıkaran art arda süzgeçler gibi işler. Bu ölçütleri geçen kabul edilip esas alınır; birinde veya daha fazlasında takılan ise reddedilir ve dikkate alınmaz.</p>
+    <p class="to-reader">Okuyucunun, üzerinde yetiştiği veya öğrendiği bir inanca aykırı bir şeyle karşılaşınca şaşırabileceğinin gayet farkındayız. Burada bir tartışmaya girmek istemiyoruz; yalnızca bize ulaşan haberleri —eski olsun yeni olsun— kirlerden ve mantıksızlıktan arındırmak için üzerinde anlaşabileceğimiz bir yöntem ortaya koymak istiyoruz.</p>
+    <p>Mantıken şuna da dikkat etmek gerekir: bir kaynak, ancak telifi olayın vuku bulduğu zamandan sonraysa geçerli sayılır; örneğin olay, müellifin veya tarihçinin vefatından sonra gerçekleşmişse, bu mantıken o kaynakla amel edilemeyeceği anlamına gelir.</p>
+  </div>
+
+  <div class="page-card method-card">
+    <h2>Neden Önce Buhârî ve Mâlik?</h2>
+    <p>Kur'an'dan sonra âlimlerin genelinin üzerinde ittifak ettiği kaynağa, yani <strong>Sahîh-i Buhârî</strong>'ye başvururuz. Ancak zihin şimdi anladığı şeye atlamadan önce şunu belirtelim: Buhârî de, insan eliyle yazılmış her kitap gibi, tahrif veya yazım hatasına açıktır. Bu yüzden, elyazmalarını en iyi bilen, en dakik ve en sağlam nüshaları belirleyen muhakkiklere başvururuz: hadis âlimleri ve muhakkikler, Buhârî'nin en sağlam ve en dakik öğrencisinin allâme <strong>el-Ferebrî</strong> olduğunda, onun en dakik öğrencilerinden —el-Küşmihenî, el-Müstemlî ve es-Serahsî— ise İmam <strong>Ebû Zer el-Herevî</strong>'nin rivayet ettiğinde ittifak etmişlerdir. Bu yüzden bu sitede yalnızca bu rivayete dayanıyoruz.</p>
+    <p>Buhârî'den sonra ise, değeri, ravi seçimindeki titizliği ve Kûfeli ravilerin rivayetlerinden son derece sakınması sebebiyle <strong>İmam Mâlik'in Muvatta'ı</strong>na dayanırız; o, ancak dinine ve zaptına güvendiği kişilerden rivayet ederdi. Biz de onun en dakik ve en güçlü öğrencisi olan <strong>el-Ka'nebî</strong>'ye dayandık.</p>
+    <p>Kısacası, insan eliyle telif edilmiş hiçbir kitabı, hangi rivayetlerin en sağlam ve en doğru olduğunu araştırıp doğrulamadan kabul etmiyoruz; büyük muhakkiklere ve âlimlere başvurmadan hiçbir rivayeti kabul etmiyoruz.</p>
+  </div>
+
+  <figure class="diagram">
+    <img src="../images/criteria-infographic-tr.png" alt="Tarihî rivayeti kabul etme yönteminin şeması — zaman şartından, düşmanlığı bilinen kişilerin rivayetlerine kadar kademeli seviyeler">
+    <figcaption>Yöntemin on bir seviyesinin sırasıyla gösterildiği tam açıklayıcı şema</figcaption>
+  </figure>
+
+  <div class="section-heading">
+    <h2>On Seviye Ayrıntılı Olarak</h2>
+    <p>Bir haber bu seviyelere sırasıyla sunulur. Seviyede aşağı inmek daha fazla doğrulama ihtiyacı demektir; öyle ki bir noktada hiçbir şey ancak sıkı şartlarla kabul edilir hale gelir.</p>
+  </div>
+
+  <div class="cascade">
+
+    <div class="stage">
+      <div class="node">1</div>
+      <div class="stage-card">
+        <p class="level-name">Sahîh-i Buhârî — Ebû Zer el-Herevî Rivayeti</p>
+        <p class="source-line">Allah'ın kitabı dışındaki her kitap tahrif ve yazım hatasına açıktır. Sahîh-i Buhârî'nin esas alınan nüshası, Buhârî'nin en sağlam ve en güvenilir öğrencisi olan el-Ferebrî'den; onun da üç hocası —el-Küşmihenî, es-Serahsî ve el-Müstemlî— aracılığıyla Ebû Zer el-Herevî'nin rivayetidir.</p>
+        <p class="rule"><b>Şart:</b> Ne yazık ki kütüphanelerde şu anda meşhur olan nüsha bu değildir. Ancak telifi olayın vuku bulduğu zamandan sonraysa dikkate alınır.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">2</div>
+      <div class="stage-card">
+        <p class="level-name">İmam Mâlik'in Muvatta'ı (el-Ka'nebî Rivayeti) ve Buhârî'nin Büyük ve Küçük Tarihi</p>
+        <p class="source-line">O, Medine ehlinin imamıdır ve Medineli sahabilerin hadislerini senetleyerek toplayan en üstün âlimdir; öyle ki Buhârî, Mâlik'in Nâfi'den, onun da İbn Ömer'den (Allah ikisinden de razı olsun) rivayet ettiği zinciri en sahih isnad olarak adlandırmıştır. Mâlik, hocalarını seçmede ve ravileri kabul etmede en titiz imamlardan biriydi; özellikle Kûfeli raviler konusunda.</p>
+        <p class="rule"><b>Şart:</b> Esas alınan, el-Ka'nebî'nin İmam Mâlik'ten rivayetidir; kütüphanelerde meşhur olan nüsha bu da değildir. Senedin tam olarak incelenmesi ve rivayetin doğrulanması şartıyla, Sahîh-i Buhârî'deki açık bir rivayetle çelişmemesi kaydıyla kabul edilir.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">3</div>
+      <div class="stage-card">
+        <p class="level-name">Kütüb-i Sitte'nin Geri Kalanı ve Müsned</p>
+        <p class="source-line">Müslim, Ebû Dâvûd, Tirmizî, Nesâî, İbn Mâce ve Ahmed'in Müsned'i ile diğerleri.</p>
+        <p class="rule"><b>Şart:</b> Senedin tam olarak zikredilmesi, her ravinin incelenmesi (mezhep taassubu, yalan, zayıflık, tadlis, işitmenin sabit olması ve bid'at açısından) ve rivayetin Buhârî'de veya Mâlik'te açık bir nassla çelişmemesi.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">4</div>
+      <div class="stage-card">
+        <p class="level-name">Tarihçiler</p>
+        <p class="source-line">Olayı Taberî, Zehebî, İbn Kesîr, İbn Haldûn ve benzerleri gibi tarihçiler zikretmişse, tarihçinin yöntemi ve mezhebi, yaşadığı dönem, eserlerini hangi devletin gölgesinde yazdığı —taraf tutma şüphesi sebebiyle— ve Dr. Beşşâr Avvâd Ma'rûf gibi güvenilir muhakkiklerin onun ve rivayetleri hakkındaki görüşleri mutlaka dikkate alınmalıdır.</p>
+        <p class="rule"><b>Şart:</b> Mürsel veya senetsiz rivayetler kesinlikle dikkate alınmaz.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">5</div>
+      <div class="stage-card">
+        <p class="level-name">Olaya Taraf Tutmakla Suçlanmayan Âdil Çağdaşların Tanıklığı</p>
+        <p class="source-line">Olayın çağdaşı olan, mezhep taassubundan ve bid'atten uzak âdil raviler — özellikle kendi bid'atlerini veya yöntemlerini destekleyen rivayetler, varsayılan taraf tutma sebebiyle cerhedilmiş sayılır.</p>
+        <p class="rule"><b>Şart:</b> Ravilerin olayı bizzat gözleriyle görmüş olmaları ve rivayetin desteklediği bid'atten uzak olmaları şarttır. İspat şartı, şer'î mahkemelerin bir iddiayı kabul etme ölçütüyle aynıdır: iki âdil şahit.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">6</div>
+      <div class="stage-card">
+        <p class="level-name">İlmî Sükût Delili</p>
+        <p class="source-line">Olayın çağdaşı olan âdil Müslüman âlimler —özellikle İbn Ömer ve İbn Mesud gibi ilim ve fıkıhla tanınan sahabilerden biri— onu inkâr etmemiş ve hiçbiri ona ne inkârla ne de kabulle değinmemişse, bu, olayın iddia edilen şekilde vuku bulmadığına dair çok güçlü bir olumsuz delildir.</p>
+        <p class="rule"><b>Mantıklı bir soru:</b> Tek bir Müslüman âlimin bile Fâtih'in kardeşi Ahmed'i öldürmesine, Baybars'ın Kutuz'u öldürmesine ya da Yezîd'in Hüseyin'i öldürmesine karşı çıkmaması ya da tepki göstermemesi akılca nasıl mümkün olabilir?</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">7</div>
+      <div class="stage-card">
+        <p class="level-name">Muhaliflerin Rivayeti Delil Olarak Kullanmaması</p>
+        <p class="source-line">Sanığın muhaliflerinin bu hikâyeyi delil olarak kullanmamış olması, rivayetin sahih olmadığına güçlü bir işarettir; çünkü rivayet doğru olsaydı onların davasına ve mezheplerine hizmet ederdi.</p>
+        <p class="rule"><b>Örneği:</b> İbnü'z-Zübeyr'in Kâbe'nin taşlanması rivayetini delil olarak kullanmaması ve Ali taraftarlarının, hakem olayı gününde "onu azgın taife öldürecek" sözünü delil olarak kullanmaması.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">8</div>
+      <div class="stage-card">
+        <p class="level-name">Maddî ve Arkeolojik Deliller</p>
+        <p class="source-line">Olayın gerçekleştiğini destekleyen ya da onu çürüten maddî kalıntılar.</p>
+        <p class="rule"><b>Örneği:</b> Fâtih'e atfedilen "kardeş katli kanunu"nun asıl elyazmasının bulunmayışı, bunun sabit olmadığının delilidir.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">9</div>
+      <div class="stage-card">
+        <p class="level-name">Sanığın Nebevî Tezkiyesi</p>
+        <p class="source-line">Kur'an'da genel bir tezkiye veya Peygamber'den ﷺ özel bir tezkiye.</p>
+        <p class="rule"><b>Şart:</b> Nebevî tezkiyeye aykırı, şüpheli bir rivayet, zayıflığı arttıkça daha şiddetle reddedilir. Örneği: İstanbul'un fatihi hakkındaki "Onun emiri ne güzel emirdir" hadisi, onu cinayetle suçlayan zayıf rivayetlere karşı.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">10</div>
+      <div class="stage-card">
+        <p class="level-name">Düşmanlığı Bilinen Kişilerin Rivayetleri</p>
+        <p class="source-line">Düşmanlığı sabit olan birinin rivayeti, önceki şartlara göre sahih bir rivayetle desteklenmiyorsa, böyle bir durumda ortaya çıkacak taraf tutma niteliği sebebiyle kabul edilmez.</p>
+        <p class="rule"><b>Şart:</b> Kaynağı düşmanlar veya meçhul kişiler olan her rivayet otomatik olarak düşer ve kabul edilmez. Örneği: Bizanslı tarihçilerin Osmanlılar hakkındaki rivayetleri — doğaları gereği düşmanca olup, haberlerin kabulü için gereken şer'î şartlardan yoksundurlar.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="verdict-row">
+    <div class="verdict accept">
+      <h3>✓ Tüm Testleri Geçerse</h3>
+      <p>Haber kabul edilir ve onunla amel edilir; bu sitenin olay hakkında oluşturduğu tablonun bir parçası haline gelir.</p>
+    </div>
+    <div class="verdict reject">
+      <h3>✕ Tek Bir Testte Takılırsa</h3>
+      <p>Haber, o aşamada ortaya çıkan kusurun türüne göre reddedilir ya da beklemeye alınır.</p>
+    </div>
+  </div>
+
+  <div class="closing-note">
+    <p>Bu site, mantık ile en otantik rivayetlerin birleşimidir — hipotezlerin, iftiraların, kendi başına kimliği olmayan anlatım zincirlerinin, uydurmaların, muhaliflerin anlatımlarının ve fiziksel delil eksikliğinin değil.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p class="meta">© Kuffo Alsinatakum — Tüm araştırmalar gözden geçirilmekte ve sürekli güncellenmektedir.</p>
+</footer>
+
+<script>
+(function(){
+  const counterEl = document.getElementById('visitorCount');
+  if(!counterEl) return;
+  const namespace = 'kuffo-alsinatakum-github-io';
+  const key = 'site-visits';
+  fetch(`https://countapi.mileshilliard.com/api/v1/hit/${namespace}_${key}`)
+    .then(res => res.json())
+    .then(data => {
+      if(data && typeof data.value === 'number'){
+        counterEl.textContent = data.value.toLocaleString();
+      } else {
+        counterEl.textContent = '—';
+      }
+    })
+    .catch(() => { counterEl.textContent = '—'; });
+})();
+</script>
+
+</body>
+</html>
