@@ -76,7 +76,7 @@
 
   .topbar-right{display:flex; align-items:center; gap:18px;}
   .langswitch{display:flex; gap:6px;}
-  .langswitch button{
+  .langswitch button, .langswitch a{
     background:none;
     border:1px solid rgba(245,239,224,0.3);
     color:rgba(245,239,224,0.75);
@@ -85,8 +85,11 @@
     border-radius:14px;
     cursor:pointer;
     font-family:inherit;
+    text-decoration:none;
+    display:inline-block;
   }
-  .langswitch button.active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
+  .langswitch button:disabled{opacity:0.4; cursor:not-allowed;}
+  .langswitch .active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
   .visitor-counter{
     display:flex; align-items:center; gap:6px;
     color:rgba(245,239,224,0.75);
@@ -562,7 +565,7 @@
   <div class="topbar-right">
     <div class="langswitch">
       <button class="active">العربية</button>
-      <button>English</button>
+      <a href="../en/terms/sanad.html">English</a>
       <a href="../tr/terms/sanad.html">Türkçe</a>
     </div>
     <div class="visitor-counter">
