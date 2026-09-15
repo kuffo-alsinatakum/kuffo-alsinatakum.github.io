@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sultan el-Muzaffer Kutuz'u Öldürme Suçlaması | ez-Zâhir Baybars | Kuffo Alsinatakum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:760px;
+    --max-w-wide:980px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--parchment); color:var(--ink);
+    font-family:'Lora','Amiri',serif; line-height:1.85; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .topbar{
+    background:var(--olive-deep); color:var(--parchment); padding:10px 24px;
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px;
+    font-size:0.85rem; border-bottom:1px solid rgba(201,162,39,0.25);
+  }
+  .topbar .brandmark{
+    grid-column:2; display:flex; align-items:center; justify-content:center; gap:10px;
+    color:var(--gold); font-family:'Lora',serif; font-style:italic; font-weight:600; font-size:1.05rem;
+    letter-spacing:0.015em; text-shadow:0 1px 8px rgba(201,162,39,0.35); white-space:normal; text-align:center; max-width:420px;
+  }
+  .topbar .brandmark::before, .topbar .brandmark::after{content:"❊"; font-size:0.7rem; color:rgba(201,162,39,0.6); flex-shrink:0;}
+  .topbar-left{grid-column:1; justify-content:flex-start;}
+  .topbar-right{grid-column:3; justify-content:flex-end; display:flex; align-items:center; gap:18px;}
+  @media (max-width:760px){
+    .topbar{grid-template-columns:1fr; text-align:center;}
+    .topbar-left, .topbar-right, .topbar .brandmark{grid-column:1; justify-content:center;}
+    .topbar .brandmark{font-size:1.02rem; order:-1; margin-bottom:6px;}
+  }
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button, .langswitch a{
+    background:none; border:1px solid rgba(245,239,224,0.3); color:rgba(245,239,224,0.75);
+    font-size:0.78rem; padding:3px 10px; border-radius:14px; cursor:pointer; font-family:inherit;
+    text-decoration:none; display:inline-block;
+  }
+  .langswitch button:disabled{opacity:0.4; cursor:not-allowed;}
+  .langswitch .active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
+  .visitor-counter{display:flex; align-items:center; gap:6px; color:rgba(245,239,224,0.75); font-size:0.8rem; white-space:nowrap;}
+  .visitor-counter svg{width:15px; height:15px; flex-shrink:0; color:var(--gold);}
+  .visitor-counter #visitorCount{color:var(--gold); font-weight:700;}
+  @media (max-width:600px){
+    .topbar{flex-wrap:wrap; gap:8px;}
+    .topbar-right{flex-wrap:wrap; gap:10px;}
+    .visitor-counter{font-size:0.74rem;}
+  }
+
+  .navbar{
+    position:sticky; top:0; z-index:50; background:var(--olive); border-bottom:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; gap:6px; padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12); flex-wrap:wrap;
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85); font-size:0.92rem; padding:13px 18px; display:inline-block;
+    border-bottom:3px solid transparent; transition:color 0.2s, border-color 0.2s, background 0.2s; white-space:nowrap;
+  }
+  .navbar a:hover{color:var(--gold); background:rgba(245,239,224,0.06); text-decoration:none;}
+  .navbar a.active-page{color:var(--gold); border-bottom-color:var(--gold); font-weight:600;}
+  .navbar a.back-link{
+    display:inline-flex; align-items:center; gap:7px; color:var(--gold);
+    border-inline-end:1px solid rgba(245,239,224,0.25); margin-inline-end:6px; font-weight:600;
+  }
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0;}
+  @media (max-width:700px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+    .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
+  }
+
+  .breadcrumb{max-width:var(--max-w-wide); margin:18px auto 0; padding:0 24px; font-size:0.85rem; color:var(--copper);}
+  .breadcrumb a{color:var(--copper); text-decoration:underline;}
+
+  header.page-hero{max-width:var(--max-w-wide); margin:0 auto; padding:26px 24px 18px; text-align:center;}
+  h1.page-title{font-size:clamp(1.6rem, 4vw, 2.3rem); margin:0; color:var(--olive-deep); font-weight:700; font-family:'Amiri',serif;}
+  p.page-subtitle{max-width:var(--max-w); margin:14px auto 0; color:var(--copper); font-size:1rem;}
+
+  .claim-statement{
+    max-width:var(--max-w); margin:18px auto 0; background:var(--parchment-deep);
+    border-inline-start:4px solid var(--gold); border-radius:6px; padding:14px 18px;
+    font-size:0.98rem; color:var(--ink); text-align:left;
+  }
+  .claim-statement b{color:var(--olive-deep);}
+
+  .ornament{display:flex; align-items:center; justify-content:center; gap:14px; margin:8px auto 30px; max-width:var(--max-w); padding:0 24px; color:var(--copper); opacity:0.85;}
+  .ornament .line{flex:1; height:1px; background:linear-gradient(to right, transparent, var(--copper) 50%, transparent);}
+  .ornament svg{width:24px; height:24px; flex-shrink:0;}
+
+  .verse-marquee{
+    background:linear-gradient(90deg, var(--olive-deep) 0%, #1a3a28 50%, var(--olive-deep) 100%);
+    border-top:2px solid var(--gold); overflow:hidden; white-space:nowrap; padding:14px 0; position:relative;
+  }
+  .verse-marquee::before, .verse-marquee::after{content:""; position:absolute; top:0; bottom:0; width:60px; z-index:2; pointer-events:none;}
+  .verse-marquee::before{left:0; background:linear-gradient(to right, var(--olive-deep), transparent);}
+  .verse-marquee::after{right:0; background:linear-gradient(to left, var(--olive-deep), transparent);}
+  .verse-marquee-track{display:inline-flex; align-items:center; animation:marquee-scroll 38s linear infinite; will-change:transform;}
+  .verse-marquee-track span.v{
+    display:inline-block; padding:0 48px; font-family:'Amiri',serif; font-size:1.15rem; font-weight:700;
+    background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227); background-size:200% auto;
+    -webkit-background-clip:text; background-clip:text; color:transparent; animation:shimmer-gold 4s linear infinite;
+  }
+  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
+  @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
+  @media (max-width:600px){.verse-marquee-track span.v{font-size:0.95rem; padding:0 28px;}}
+  @media (prefers-reduced-motion: reduce){.verse-marquee-track{animation:none;}}
+
+  main{max-width:var(--max-w-wide); margin:0 auto; padding:0 24px 50px;}
+
+  .toc-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:22px 26px; margin-bottom:32px; box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .toc-card h2{margin:0 0 12px; font-size:1.1rem; color:var(--olive-deep); font-weight:700;}
+  .toc-card ol{margin:0; padding-inline-start:22px; columns:2; column-gap:28px;}
+  .toc-card li{margin-bottom:8px; font-size:0.94rem; break-inside:avoid;}
+  @media (max-width:640px){.toc-card ol{columns:1;}}
+
+  .page-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:32px 30px; box-shadow:0 4px 16px rgba(27,58,47,0.06); margin-bottom:28px;
+  }
+  .page-card h2{margin:0 0 16px; font-size:1.3rem; color:var(--olive-deep); font-weight:700; scroll-margin-top:80px;}
+  .page-card h3{margin:22px 0 10px; font-size:1.08rem; color:var(--olive-deep); font-weight:700;}
+  .page-card p{margin:0 0 16px; font-size:1.04rem;}
+  .page-card p:last-child{margin-bottom:0;}
+  .page-card ul, .page-card ol.content-list{margin:0 0 16px; padding-inline-start:24px;}
+  .page-card li{margin-bottom:6px;}
+
+  blockquote.src-quote{
+    margin:0 0 18px; padding:12px 18px; background:var(--parchment-deep);
+    border-inline-start:3px solid var(--copper); border-radius:6px; font-size:0.98rem; color:var(--ink);
+  }
+  blockquote.src-quote cite{display:block; margin-top:8px; font-size:0.82rem; color:var(--copper); font-style:normal;}
+
+  table.data-table{width:100%; border-collapse:collapse; margin:0 0 18px; font-size:0.94rem;}
+  table.data-table th, table.data-table td{border:1px solid var(--line); padding:9px 12px; text-align:left;}
+  table.data-table th{background:var(--parchment-deep); color:var(--olive-deep); font-weight:700;}
+  table.data-table tbody tr:nth-child(even){background:rgba(236,226,200,0.35);}
+
+  .footnote{font-size:0.82rem; color:var(--copper); border-top:1px dashed var(--line); padding-top:10px; margin-top:10px;}
+
+  .narrator-block{
+    background:var(--parchment-deep); border-radius:8px; border-inline-start:4px solid var(--olive);
+    padding:18px 22px; margin:0 0 18px;
+  }
+  .narrator-block h3{margin:0 0 12px !important; font-size:1.05rem; color:var(--olive-deep); font-weight:700;}
+  .narrator-block p{margin:0 0 10px; font-size:0.98rem;}
+  .narrator-block p:last-child{margin-bottom:0;}
+  .narrator-block p b{color:var(--olive-deep);}
+
+  .no-isnad-notice{
+    background:var(--parchment-deep); border-inline-start:4px solid var(--copper);
+    border-radius:6px; padding:16px 20px; margin:0 0 18px;
+  }
+  .no-isnad-notice p{margin:0; font-size:0.98rem; color:var(--ink);}
+  .no-isnad-notice p b{color:var(--olive-deep);}
+
+  .fig-gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin:0 0 8px;}
+  .fig-item{text-align:center;}
+  .fig-item img{
+    width:100%; height:auto; border-radius:8px; border:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(27,58,47,0.1); cursor:zoom-in; transition:box-shadow 0.2s ease;
+  }
+  .fig-item img:hover{box-shadow:0 8px 24px rgba(27,58,47,0.18);}
+  .fig-item figcaption{margin-top:8px; font-size:0.85rem; color:var(--copper);}
+
+  #lightbox{
+    display:none; position:fixed; inset:0; background:rgba(18,40,31,0.92); z-index:200;
+    align-items:center; justify-content:center; padding:30px; cursor:zoom-out;
+  }
+  #lightbox.open{display:flex;}
+  #lightbox .lb-img-wrap{overflow:auto; max-width:95%; max-height:90vh; cursor:default;}
+  #lightbox img{
+    max-width:95%; max-height:90vh; border-radius:6px; box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    transition:transform 0.15s ease; transform-origin:center center;
+  }
+  #lightbox .lb-close{
+    position:absolute; top:18px; left:24px; color:var(--gold); font-size:2rem;
+    line-height:1; background:none; border:none; cursor:pointer; z-index:2;
+  }
+  #lightbox .lb-tools{
+    display:none; position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+    gap:10px; z-index:2; background:rgba(18,40,31,0.85); border:1px solid var(--gold);
+    border-radius:30px; padding:8px 14px;
+  }
+  #lightbox.with-tools .lb-tools{display:flex;}
+  #lightbox .lb-tools button{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--gold);
+    background:var(--olive-deep); color:var(--gold); font-size:1.1rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; line-height:1;
+  }
+  #lightbox .lb-tools button:hover{background:var(--gold); color:var(--olive-deep);}
+
+  .cascade{position:relative; padding-inline-start:42px;}
+  .cascade::before{
+    content:""; position:absolute; top:6px; bottom:6px; left:13px; width:7px;
+    background:linear-gradient(to bottom, var(--olive) 0%, var(--olive) 78%, var(--copper) 100%);
+    clip-path:polygon(0 0, 100% 0, 78% 100%, 22% 100%); border-radius:5px;
+  }
+  .stage{position:relative; margin-bottom:20px;}
+  .stage:last-child{margin-bottom:0;}
+  .stage .node{
+    position:absolute; left:-42px; top:24px; width:34px; height:34px; border-radius:50%;
+    background:var(--parchment); border:2.5px solid var(--olive); color:var(--olive-deep);
+    display:flex; align-items:center; justify-content:center; font-family:'Amiri',serif;
+    font-weight:700; font-size:1rem; z-index:2; box-shadow:0 0 0 5px var(--parchment);
+  }
+  .stage:nth-child(n+6) .node{border-color:var(--copper); color:var(--copper);}
+  .stage-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px; padding:18px 22px;
+    box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .stage-card .level-name{font-family:'Amiri',serif; font-size:1.05rem; color:var(--olive-deep); font-weight:700; margin:0 0 6px;}
+  .stage-card .verdict-line{font-size:0.94rem; margin:0 0 8px;}
+  .stage-card .verdict-line b{color:var(--olive-deep);}
+  .stage-card .pass{color:var(--olive-deep); font-weight:700;}
+  .stage-card .fail{color:var(--copper); font-weight:700;}
+
+  .final-verdict{
+    margin-top:36px; border-radius:8px; padding:26px 28px; text-align:center;
+    background:var(--olive-deep); color:var(--parchment); border:2px solid var(--gold);
+  }
+  .final-verdict h2{margin:0 0 10px; font-size:1.3rem; color:var(--gold);}
+  .final-verdict p{margin:0; max-width:var(--max-w); margin-inline:auto; opacity:0.92;}
+
+  .refs-list{margin:0; padding-inline-start:22px; font-size:0.92rem;}
+  .refs-list li{margin-bottom:10px;}
+
+  .placeholder-badge{
+    display:inline-block; margin-bottom:14px; font-size:0.72rem; background:var(--parchment-deep);
+    color:var(--copper); padding:3px 10px; border-radius:10px; border:1px dashed var(--copper);
+  }
+
+  footer{background:var(--olive-deep); color:rgba(245,239,224,0.75); padding:36px 24px 24px; margin-top:40px; text-align:center; font-size:0.88rem;}
+  footer .meta{opacity:0.7;}
+
+  @media (max-width:600px){
+    .page-card{padding:22px 18px;}
+    .toc-card{padding:18px 20px;}
+    header.page-hero{padding:20px 18px 16px;}
+    .cascade{padding-inline-start:34px;}
+    .stage .node{left:-34px; width:28px; height:28px; font-size:0.86rem;}
+    .stage-card{padding:14px 16px;}
+  }
+
+  .print-bar{text-align:center; margin:0 0 8px;}
+  .print-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--olive); color:var(--parchment); border:1px solid var(--gold);
+    border-radius:20px; padding:8px 20px; font-family:inherit; font-size:0.9rem; cursor:pointer;
+  }
+  .print-btn:hover{background:var(--olive-deep);}
+  .print-btn svg{width:16px; height:16px;}
+
+  @media print{
+    .topbar, .navbar, .verse-marquee, .breadcrumb, .print-bar, .ornament, footer, #lightbox, .toc-card{display:none !important;}
+    body{background:#fff; background-image:none;}
+    .page-card, .final-verdict, .narrator-block, .no-isnad-notice{box-shadow:none; border:1px solid #999;}
+    main{padding:0;}
+    a{color:var(--ink); text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left"></div>
+  <div class="brandmark">Onlar Hakkında Dilinizi Tutun</div>
+  <div class="topbar-right">
+    <div class="langswitch">
+      <a href="../../figures/baybars-qutuz.html">العربية</a>
+      <a href="../../en/figures/baybars-qutuz.html">English</a>
+      <span class="active">Türkçe</span>
+    </div>
+    <div class="visitor-counter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Site ziyaretçileri:</span>
+      <span id="visitorCount">···</span>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Ana Sayfa</span>
+  </a>
+  <a href="../index.html">Bu Sitenin Amacı</a>
+  <a href="../terms/index.html">Önemli Terimler</a>
+  <a href="../standards/index.html">Standartlar ve Ölçütler</a>
+  <a href="index.html" class="active-page">Şahsiyetler</a>
+  <a href="../contact/index.html">Bize Ulaşın</a>
+</nav>
+
+<div class="verse-marquee" aria-hidden="true">
+  <div class="verse-marquee-track">
+    <span class="v">"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." (Hucurât Suresi 49:6)</span>
+    <span class="sep">•</span>
+    <span class="v">"Bu iftirayı işittiğinizde, iman eden erkek ve kadınlar, kendi (din kardeş)leri hakkında iyi zan besleyip de, 'Bu, apaçık bir iftiradır' deselerdi ya!" (Nûr Suresi 24:12)</span>
+    <span class="sep">•</span>
+    <span class="v">"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." (Hucurât Suresi 49:6)</span>
+    <span class="sep">•</span>
+    <span class="v">"Bu iftirayı işittiğinizde, iman eden erkek ve kadınlar, kendi (din kardeş)leri hakkında iyi zan besleyip de, 'Bu, apaçık bir iftiradır' deselerdi ya!" (Nûr Suresi 24:12)</span>
+    <span class="sep">•</span>
+  </div>
+</div>
+
+<p class="breadcrumb">
+  <a href="../index.html">Ana Sayfa</a> ← <a href="index.html">Şahsiyetler</a> ← <a href="baybars.html">ez-Zâhir Rükneddin Baybars el-Bunduktârî, Allah ona rahmet etsin</a> ← Sultan el-Muzaffer Kutuz'u Öldürme Suçlaması
+</p>
+
+<header class="page-hero">
+  <h1 class="page-title">Sultan el-Muzaffer Kutuz'u Öldürme Suçlaması</h1>
+  <p class="page-subtitle">Sitede benimsenen on standart ve ölçütün, bizzat bu iddiaya uygulanması.</p>
+  <div class="claim-statement">
+    <b>İddianın metni:</b> Emir Rükneddin Baybars el-Bunduktârî'nin, Sultan el-Melikü'l-Muzaffer Seyfeddin Kutuz'u öldüren kişi olduğu iddia edilir. Bunun, Kutuz'un Ayn Câlût Savaşı'ndan (658 H. / 1260 M.) zaferle dönüşünün ardından, el-Gazâlî (veya el-Karâbî) ile es-Sâlihiyye arasındaki bölgede, bazı rivayetlerin belirttiğine göre Baybars'ın ganimetten aldığı pay yahut kendisine vaad edilip verilmeyen Halep iktâı ile ilgili bir anlaşmazlık üzerine gerçekleştiği söylenir.
+  </div>
+</header>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+    <span>Araştırmayı PDF Olarak İndir</span>
+  </button>
+</div>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<main>
+
+  <div class="toc-card">
+    <h2>Araştırma Fihristi</h2>
+    <ol>
+      <li><a href="#origin">Araştırma Konusunun Belirlenmesi</a></li>
+      <li><a href="#sources">Olaya Dair Kaynakların Tespiti ve Tenkidi</a></li>
+      <li><a href="#chain">İsnad İncelemesi</a></li>
+      <li><a href="#analysis">On Standart ve Ölçütün Uygulanması</a></li>
+      <li><a href="#hypotheses">Faraziyeler ve Tartışılması</a></li>
+      <li><a href="#verdict">Sonuç ve Nihaî Hüküm</a></li>
+    </ol>
+  </div>
+
+  <div class="page-card" id="origin">
+    <h2>1. Araştırma Konusunun Belirlenmesi</h2>
+    <p>İncelenen olay, Emir Rükneddin Baybars el-Bunduktârî'ye yöneltilen, Sultan el-Melikü'l-Muzaffer Seyfeddin Kutuz'u öldürenin kendisi olduğu suçlamasıdır. Bu, Kutuz'un Ayn Câlût Savaşı'ndan (658 H. / 1260 M.) zaferle dönüşünün ardından, el-Gazâlî (veya el-Karâbî) ile es-Sâlihiyye arasındaki bölgede, bazı rivayetlerin belirttiğine göre Baybars'ın ganimetten aldığı pay yahut kendisine vaad edilip verilmeyen Halep iktâı sebebiyle çıkan bir anlaşmazlık üzerine gerçekleşmiştir.</p>
+    <p>Baybars bu olaydan hemen sonra saltanata geçmiştir. Dolayısıyla doğrudan menfaat şüphesi, öldürme fiilinin kendisiyle birlikte hareket eden diğer emirlerden ayrı olarak bizzat ona nispet edilmesinin sıhhatini titizlikle araştırmayı gerektiren en açık sebeplerdendir.</p>
+  </div>
+
+  <div class="page-card" id="sources">
+    <h2>2. Olaya Dair Kaynakların Tespiti ve Tenkidi</h2>
+    <p>Olay, hem çağdaşı hem de sonraki dönem Memlük tarih kitaplarında zikredilmektedir ve bunların tamamı haberi muttasıl bir isnadla değil, mürsel anlatım biçiminde nakletmektedir. Aşağıda bu kaynakların metinleri ve her birinin durumu yer almaktadır:</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>Muhyiddin İbn Abdüzzâhir (ö. 692 H.), <i>er-Ravdü'z-Zâhir fî Sîreti'l-Meliki'z-Zâhir</i> adlı eserinde</h3>
+    <p>Bizzat Sultan Baybars'ın divân-ı inşâ kâtibi ve methiyecisiydi. Olayın çağdaşıdır; ancak övdüğü kişiyi temize çıkarmakta yahut ona yöneltilen suçlamayı hafifletmekte açık bir menfaati bulunmaktadır. Bu yüzden o, <b>taraf tutmakla cerhedilmiş bir şahittir</b>.</p>
+    <p>Kendisine nispet edilen metne göre Baybars "ordunun emirleriyle Kutuz'u öldürmek üzere anlaştı ve onu öldürdüler" denmektedir. Bu ifade hem anlaşma hem de fiil bakımından <b>çoğul kalıptadır</b>; dolayısıyla öldürücü darbeyi Baybars'ın tek başına indirdiğini ispat etmez, aksine onun da içinde yer aldığı toplu bir fiili tasvir eder.</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>İbn Şeddâd (ö. 684 H.), <i>Târîhu'l-Meliki'z-Zâhir</i> adlı eserinde</h3>
+    <p>Olayın çağdaşıdır; ifadesine dayanılmadan önce lafzının titizlikle takip edilmesi gerekir.</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>İbn Kesîr (ö. 774 H.), <i>el-Bidâye ve'n-Nihâye</i> adlı eserinde</h3>
+    <p>Metni şöyledir: "Şöyle ki, Sultan el-Melikü'l-Muzaffer Kutuz askerlerle birlikte Mısır diyarına yönelip dönerken el-Garâbî ile es-Sâlihiyye arasındaki yere ulaştığında, <b>emirler üzerine saldırıp onu orada öldürdüler</b>. O, cemaatle çokça namaz kılan salih bir adamdı; içkiye de, meliklerin düşkün olduğu başka şeylere de yanaşmazdı."</p>
+    <p>Görüldüğü üzere lafız <b>çoğul kalıptadır</b>, <b>ne Baybars'ı ne de bir başkasını isimlendirmektedir</b> ve darbeyi kimin indirdiğini belirlememektedir. Bu, araştırma titizliğiyle tanınan sonraki dönem bir âliminden gelmektedir ve buna rağmen haberin aslının taşıyabileceğinin ötesine geçmemiştir.</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>İbn Aybek ed-Devâdârî</h3>
+    <p>Olaya göre nispeten sonraki dönemdendir. Ayn Câlût günü bazı memlüklerin kaçması ve Kutuz'un onları azarlaması ile ilgili farklı bir saik zikreder; bunu da <b>muttasıl bir isnad olmaksızın</b> nakleder. Saikin kaynaklar arasında farklılaşması, ayrıntıların sabit olmadığına dair bir başka karinedir.</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>Makrîzî (ö. 845 H.), İbn Tağrîberdî (ö. 874 H.) ve sonrakiler</h3>
+    <p>Olaydan yaklaşık iki asır sonra gelmişlerdir. Haberi naklederler ve ona konuşma ayrıntıları ile isimler eklerler; ancak <b>yeni bir isnad eklemeksizin</b>, birbirlerinden nakletmek suretiyle.</p>
+  </div>
+
+  <div class="page-card">
+    <h3>Öldürme Biçimine Dair Ayrıntılı Rivayet</h3>
+    <p>Bu, nakledilenlerin en geniş olanıdır. Muhtevasına göre Kutuz yol üzerinde konaklamış, Baybars bir esir hakkında kendisine şefaatte bulunmak için izin istemiş, o da şefaatini kabul etmiştir. Bunun üzerine Baybars elini öpmek için atından inmiş, elini tutmuş ve tutmayı sürdürmüştür; "<b>Ans el-İsfahânî ona hücum edip kılıçla vurdu, Baybars ise elini tutuyordu</b>; geri kalanlar da üzerine hücum edip onu atından düşürdüler ve ölünceye kadar ok attılar."</p>
+    <p>Bu metnin dikkat çekici yönü şudur: O, <b>kaynakların en ayrıntılısıdır ve tam da aynı anda darbeyi Baybars'tan uzaklaştırmaktadır</b>. Onu vuran değil tutan kılmakta, kılıcı kullananı başka biri olarak isimlendirmekte ve öldürmenin geri kalanını, okla, bir topluluğa nispet etmektedir. Yani suçlamaya delil getirilen kaynağın kendisi, "Baybars onu kendi eliyle öldürdü" tablosunu yıkmaktadır.</p>
+    <p>Olayın ardından nispet edilen konuşmaya gelince, yani emirlere "Onu kim öldürdü?" diye sorulduğu, "Rükneddin Baybars" denildiği, ona "Onu sen mi öldürdün?" diye sorulduğu, onun "Evet" dediği ve "Öyleyse melik sensin" denildiği şeklinde nakledilen konuşmaya gelince, bizzat fiili işlediğine dair açık bir itiraf içeren bu konuşmanın, olayı gözleriyle gören ve adaletiyle bilinen râvilere ulaşan <b>muttasıl bir isnadı yoktur</b>. O, hikâye anlatımı kalıbında sonraki dönem bir nakildir ve zâhiri, vuranı başkası kılan ayrıntılı rivayetle çelişmektedir.</p>
+  </div>
+
+  <div class="page-card">
+    <h3>Kaynakların Haberin En Özel Ayrıntılarındaki Istırabı</h3>
+    <p><b>Birincisi: darbeyi indirenin tayinindeki ıstırap.</b> Bir yanda çoğul kalıpla İbn Kesîr ve İbn Abdüzzâhir gibi tayinden susanlar, bir yanda kılıçla vuranı Ans el-İsfahânî yapıp Baybars'ı sultanın elini tutar kılan ayrıntılı nakil, bir yanda da itirafı bizzat Baybars'a nispet eden sonraki dönem konuşma. Bir araya gelmesi mümkün olmayan üç durum.</p>
+    <p><b>İkincisi: katılanların listesindeki ıstırap.</b> Kaynaklarda Bedreddin Bektut el-Cükendâr el-Muizzî, Seyfeddin Bahâdır el-Muizzî, Bedreddin Ans el-İsfahânî, Seyfeddin Balaban er-Reşîdî, Baydagan er-Rüknî ve Balaban el-Hârûnî isimleri dönüşümlü olarak geçer; hangisinin zikredilip hangisinin düşürüldüğü hususunda aralarında ihtilaf vardır.</p>
+    <p><b>Üçüncüsü: saikteki ıstırap.</b> Kimi ganimetler olduğunu söyler, kimi kendisine vaad edilen Halep iktâı olduğunu söyler, kimi de Ayn Câlût günü kaçanları Kutuz'un azarlaması olduğunu söyler.</p>
+    <p><b>Dördüncüsü: yer ve tarihteki ıstırap.</b> İbn Kesîr olayı Zilkade'nin sonlarında "el-Garâbî ile es-Sâlihiyye arasında" gösterir; başka nakillerde el-Gazâlî, el-Karâbî yahut el-Kusayr geçer, bazılarında ise Zilkade'nin on yedisi olarak belirlenir.</p>
+    <p class="footnote">Metodolojik not: İbn Kesîr'in metni burada matbu nüshadan kaydedilmiştir. İbn Abdüzzâhir'in metni, ayrıntılı rivayet ve nispet edilen konuşma ise aracı nakiller yoluyla ulaşmıştır; bunların tahkikli asıllarla karşılaştırılması hâlâ gereklidir: Abdülazîz el-Huveytir tahkikiyle <i>er-Ravdü'z-Zâhir</i> (Riyad, 1396 H.) ve Makrîzî'nin <i>es-Sülûk</i> adlı eseri. Bu karşılaştırma araştırmanın sonucunu değiştirmez; çünkü araştırmanın dayanağı kaynakların tayin hususundaki ihtilafıdır ve bu, birden fazla yolla sabittir.</p>
+  </div>
+
+  <div class="page-card" id="chain">
+    <h2>3. İsnad İncelemesi</h2>
+    <div class="no-isnad-notice">
+      <p><b>Bu olayın esasen hiçbir isnadı yoktur.</b> Ne önceki ne de sonraki kaynakların hiçbirinde bu kıssa için, olayı gözleriyle gören, adaleti ve zaptı bilinen râvilere ulaşan muttasıl bir isnad bulunmamaktadır. Onda ne semâ, ne tahdîs, ne de cerh ve ta'dil kaidelerine arz edilebilecek bir tarik zikredilmiştir. Mevcut olanın tamamı mürsel anlatım metinleridir; zaman bakımından en yakını sultanın kâtibi ve methiyecisinden çıkmış, en uzağı ise olaydan yaklaşık iki asır sonra gelmiştir.</p>
+      <p>Bu kitaplardan bazılarında belirli bir ismin geçmesi de durumu değiştirmez; çünkü oradaki isimlendirme, aynı mürsel anlatımın içinde, semâsız, tahdîssiz ve tariksiz geçmektedir. Dolayısıyla o da diğerleri gibi isnadsız bir haberdir; ne şehâdettir ne rivayet. Bundan daha önemlisi, verilen isimlerin birbiriyle çelişmesidir.</p>
+      <p>İsnad bulunmayınca ricâl incelemesinin yeri de kalmaz; zira esasen râvisi olmayan bir haberde bir râvinin adaletini yahut zaptını araştırmak düşünülemez. Bu sebeple doğrudan iddianın on standart ve ölçüte arz edilmesine geçilmektedir.</p>
+    </div>
+  </div>
+
+  <div class="page-card" id="analysis">
+    <h2>4. On Standart ve Ölçütün Uygulanması</h2>
+    <p>Aşağıda iddia, sitede benimsenen on standarda, aynı sırayla arz edilmektedir:</p>
+
+    <div class="cascade">
+
+      <div class="stage">
+        <div class="node">1</div>
+        <div class="stage-card">
+          <p class="level-name">Sahîh-i Buhârî (Ebû Zer el-Herevî Rivayeti)</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="pass">Uygulanamaz; zira Buhârî, Kutuz ve Baybars'ın döneminden asırlarca öncedir, dolayısıyla bu olaya dair bir rivayeti yoktur</span>.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">2</div>
+        <div class="stage-card">
+          <p class="level-name">Mâlik'in Muvatta'ı (el-Ka'nebî Rivayeti) / Büyük ve Küçük Tarih</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="pass">Uygulanamaz; zira İmam Mâlik de aynı şekilde olayın döneminden asırlarca öncedir</span>.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">3</div>
+        <div class="stage-card">
+          <p class="level-name">Kütüb-i Sitte'nin Geri Kalanı ve Müsned</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="pass">Uygulanamaz; zira Kütüb-i Sitte müellifleri, Kutuz ve Baybars'ın döneminden asırlarca öncedir</span>.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">4</div>
+        <div class="stage-card">
+          <p class="level-name">Tarihçiler</p>
+          <p class="verdict-line"><b>Sonuç:</b> Fiilen uygulanabilen yegâne mertebe budur. İbn Kesîr, Makrîzî ve İbn Şeddâd olayı naklederler; <span class="fail">ancak adaletiyle bilinen râvilere ulaşan muttasıl bir isnad olmaksızın ve semâ şartlarının doğrulanması olmaksızın</span>. Zaman bakımından en yakın olan İbn Abdüzzâhir ise Baybars'ın kâtibi ve methiyecisidir; bu yüzden rivayeti, övdüğü kişi lehine varsayılan taraftarlıkla cerhedilmiştir. Bununla birlikte bu kaynakların kendileri fiili bizzat işleyenin tayininde ittifak etmemekte, hatta en ayrıntılı olanı Baybars'ı sultanın elini tutar kılmakta ve kılıçla vuranı başkası olarak isimlendirmektedir.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">5</div>
+        <div class="stage-card">
+          <p class="level-name">Taraf Tutmakla İtham Edilmemiş Âdil Çağdaşların Tanıklığı</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="fail">Gerçekleşmemiştir</span>; zira olayı gözleriyle gören ve öldürücü darbeyi Baybars'ın tek başına indirdiğini ispat eden, taraf tutmakla itham edilmemiş iki âdil şahit sabit olmamıştır. En yakın şahit (İbn Abdüzzâhir) ise yeni sultanla olan menfaati sebebiyle taraf tutmakla ithamlıdır.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">6</div>
+        <div class="stage-card">
+          <p class="level-name">İlmî Sükût Delili</p>
+          <p class="verdict-line"><b>Sonuç:</b> Dönemin muteber âlimlerinden hiçbirinden, bu olayda bizzat Baybars'a yönelik açık ve belgelenmiş bir inkâr sabit olmamıştır.</p>
+          <p>Failin bilindiği, sabit bir öldürme cinayeti karşısında dönemin âlimlerinin sükût üzerinde birleşmesi düşünülemez; zira onlar iyiliği emreden ve kötülükten sakındıran kimselerdir.</p>
+          <p>Bunların başında, olay sırasında Kahire'de bulunan ve ardından Baybars'ın saltanatı altında iki yıl yaşayan sultânü'l-ulemâ <b>İzzeddin ibn Abdüsselâm (ö. 660 H.)</b> gelir. O, yöneticilere karşı en şiddetli inkârıyla tanınır; el-Melikü's-Sâlih Necmeddin Eyyûb ile olan meşhur tavırları ve azatlıkları sabit olmadığı için Memlük emirlerinin satılmasına dair meşhur fetvası vardır ki bu fetva fiilen uygulanmıştır. Bir kölelik meselesi yüzünden bir devleti altüst eden kimsenin, ülkenin sultanının öldürülmesi karşısında susması düşünülemez. <b>Buna rağmen ondan bu olaya dair bir inkâr nakledilmemiştir.</b></p>
+          <p>Onun sükûtunu korkuyla mazur göstermek de doğru değildir; çünkü bizzat hasmı bunun aksine tanıklık etmiştir. Baybars, onun ölüm haberi kendisine ulaştığında şöyle demiştir: "Mülküm ancak şimdi yerleşti; zira o, insanlara benim hakkımda dilediğini emretseydi emrini yerine getirmeye koşarlardı." Bu, bizzat sultanın, şeyhin dilediği takdirde insanları kendisine karşı ayaklandırma gücüne sahip olduğunu itiraf etmesidir. Öyleyse onun sükûtu, sözü elinde tutup da söylemeyen birinin sükûtudur; korkanın yahut âciz kalanın sükûtu değildir.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">7</div>
+        <div class="stage-card">
+          <p class="level-name">Muhaliflerin Rivayeti Delil Olarak Kullanmaması</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="pass">Gerçekleşmiştir</span>; zira olaya en yakın ve onu en iyi bilen hasım, bu isimlendirmeyi delil olarak kullanmamış, aksine kendi hutbesinde ve kendi sikkesinde Baybars'ı fiilen tanımıştır.</p>
+          <p>Bu ölçütün gereği şudur: Suçlama çağdaşlar nezdinde mevcut olsaydı, onu ilan etmeye en lâyık kimseler sanığın muhalifleri olurdu; özellikle de maktule en yakın olan, onun durumunu en iyi bilen ve bunu yaymakta doğrudan siyasî menfaati bulunan kimse.</p>
+          <p>Bütün bunlar <b>Alemüddin Sancar el-Halebî</b>'de mevcuttu. O, bizzat Kutuz'un tayiniyle Şam'daki nâibiydi, olaydan günler sonra Baybars'a karşı ayaklandı ve kendi adına bağımsız bir davet başlattı. Eğer öldürme suçlaması bilinen ve bizzat Baybars'a nispet edilen bir şey olsaydı, bu, onun ortaya atılacağı andı.</p>
+          <p>İbn Kesîr <i>el-Bidâye ve'n-Nihâye</i>'de (Saâde baskısı, 13/223) şöyle demiştir: "el-Melikü'l-Muzaffer Kutuz, Allah ona rahmet etsin, Şam'a Türklerden Emir Alemüddin Sancar el-Halebî'yi nâib tayin etmişti. <b>Muzaffer'in öldürüldüğü haberi kendisine ulaşınca kaleye girdi ve kendi adına davette bulundu</b>, el-Melikü'l-Mücâhid unvanını aldı. el-Melikü'z-Zâhir'e biat gelince, Zilhicce'nin altıncı günü, cuma günü onun adına hutbe okundu; <b>hatip önce Mücâhid'e, sonra ikinci olarak Zâhir'e dua etti ve sikke ikisinin adına birlikte basıldı</b>."</p>
+          <p>Haberde iki husus vardır. <b>Birincisi</b>, ayaklanmasının zikredilen saiki, öldürülme haberinin kendisine ulaşması olup bunun üzerine kaleye girmesi ve kendi adına davette bulunmasıdır; haberde ne bir kan talebi, ne bir katil ismi, ne de bizzat Baybars'a karşı bir itiraz vardır. <b>İkincisi</b>, onun döneminde Şam'daki hutbenin kendi adı ile Baybars'ın adını bir araya getirmesi ve sikkenin ikisinin adına birlikte basılmasıdır.</p>
+          <p>Hutbe ve sikke, kimsenin gözünden kaçmayacak iki resmî ilandır ve her ikisi de Şam halkının geneline yöneliktir. Ayaklanan kimse, efendisinin kanını bizzat bilinen bir katile karşı talep ediyor olsaydı, o katilin adının minberlerinde anılmasına ve parasına nakşedilmesine asla izin vermezdi. Dolayısıyla haber, hasmın isimlendirmeden susmasıyla sınırlı kalmaz, bunu aşarak <b>siyasî çekişmenin doruğunda Baybars'ın meşruiyetinin fiilen tanınmasına</b> ulaşır.</p>
+          <p class="footnote">Metodolojik ölçüt: İbn Kesîr çağdaş değil, sonraki dönem bir nakilcidir; ayaklanma rivayetinde isimlendirmenin bulunmaması, rivayette bir yokluktur, olayın bizzat nefyi değildir. Bu sebeple bu ölçüt, müstakil ve kesin bir delil olarak değil, benzerlerine eklenen bir karine olarak sunulmaktadır.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">8</div>
+        <div class="stage-card">
+          <p class="level-name">Maddî ve Arkeolojik Deliller</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="fail">Darbeyi bizzat kimin indirdiğini ispat eden doğrudan arkeolojik bir delil yoktur</span> (çağdaş bir belge yahut bir kitabe gibi); mevcut olanın tamamı sonraki dönem anlatı metinleridir.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">9</div>
+        <div class="stage-card">
+          <p class="level-name">Sanığın Nebevî Tezkiyesi</p>
+          <p class="verdict-line"><b>Sonuç:</b> Doğrudan uygulanamaz; zira cihad ve fetih ehli hakkında nakledilen umumî tezkiyelerin aksine, bu rivayetin karşısına konulabilecek, bizzat Baybars'a ait bilinen hususî bir nebevî tezkiye yoktur.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">10</div>
+        <div class="stage-card">
+          <p class="level-name">Düşmanlığı Bilinen Kişilerin Rivayetleri</p>
+          <p class="verdict-line"><b>Sonuç:</b> Bu olaya doğrudan uygulanamaz; zira râviler, düşmanlıkları bilinen kimseler değil, sonraki dönem Müslüman tarihçilerdir.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="page-card" id="hypotheses">
+    <h2>5. Faraziyeler ve Tartışılması</h2>
+
+    <h3>Birinci faraziye: Baybars'ın Kutuz'u tek başına ve doğrudan öldürmüş olması</h3>
+    <p>Bu faraziye, şer'î ispat şartına göre en az iki âdil şahit gerektirir ve bu gerçekleşmemiştir. Zaman bakımından en yakın olan (İbn Abdüzzâhir) övdüğü kişi lehine taraf tutmakla cerhedilmiştir ve lafzı tekil değil çoğul kalıptadır. İbn Kesîr ise kimseyi isimlendirmez. Rivayetlerin en ayrıntılısı da kılıçla vuranı Baybars'tan başkası yapar.</p>
+
+    <h3>İkinci faraziye: Kutuz'un, aralarında anlaşmış bir grup emir tarafından öldürülmüş olması</h3>
+    <p>Baybars'ın da onlardan biri yahut başları olması ve kesin darbeyi bizzat kimin indirdiğinin kesin olarak belirlenmemesi. Bu faraziye, çoğul kalıbı sebebiyle İbn Abdüzzâhir'in lafzının ("ordunun emirleriyle anlaştı... ve onu öldürdüler") taşıyabileceğine daha yakındır.</p>
+
+    <h3>Üçüncü faraziye: Nispet edilen konuşmanın ayrıntısının sonraki dönem hikâye anlatımına yapılan eklerden olması</h3>
+    <p>Yani "Onu sen mi öldürdün?" sorusu ile "Evet" cevabının, saltanatın Baybars'a geçişinin meşruiyetini temellendirmeyi amaçlayan eklerden olması ("Öyleyse melik sensin, dediler") ve isnadla belgelenmiş bir tarihî nakil olmaması. Bu faraziyeyi güçlendiren husus, nispet edilen konuşmanın bizzat ayrıntılı rivayetle çelişmesidir: O rivayet Baybars'ı vuran değil tutan kılarken, bu konuşma onu fiili bizzat işlediğini itiraf eder kılmaktadır.</p>
+  </div>
+
+  <div class="final-verdict" id="verdict">
+    <h2>Sonuç ve Nihaî Hüküm</h2>
+    <p>Yukarıda geçenlere dayanarak ve şer'î ispat şartı (zina suçlaması dışındakiler için iki âdil şahit) uygulandığında, Kutuz'un öldürülmesinin tek başına ve isnadı belgelenmiş biçimde Baybars'a nispeti, bu metodolojide gereken ölçüte göre sabit olmamıştır. Aksine, isnadsız olarak nakledilegelen kaynaklar fiili bizzat işleyenin tayininde, katılanların listesinde, saikte, yerde ve tarihte ihtilaf hâlindedir; en ayrıntılı olanı ise Baybars'ı ona vuran değil sultanın elini tutan kılmaktadır. İttifak ettikleri miktar ise şudur: Kutuz, 658 H. yılında Şam'dan dönüş yolunda, aralarında Baybars'ın da bulunduğu bir grup emirin elinde öldürülmüş ve Baybars bunun hemen ardından saltanata geçmiştir.</p>
+    <p>Bunu güçlendiren husus şudur: Olaya en yakın ve isimlendirmede en fazla menfaati bulunan hasım, bunu delil olarak kullanmamıştır. Bizzat Kutuz'un tayiniyle Şam nâibi olan Alemüddin Sancar el-Halebî, olaydan günler sonra Baybars'a karşı ayaklanmış ve kendi adına saltanatı ilan etmiştir; ardından Şam'daki hutbe kendi adı ile Baybars'ın adını bir araya getirmiş ve sikke ikisinin adına birlikte basılmıştır. Efendisinin kanı için belirli bir katile karşı ayaklanan kimsenin minberlerinde o katile dua edilmez, parasına da onun adı nakşedilmez.</p>
+    <p>Bir haberin kabul edilmesi için, özellikle de bir Müslümanın yahut herhangi bir insanın öldürme gibi bir suçla mahkûm edilmesi için, şer'î, örfî ve hukukî şartları eksiksiz taşıması gerekir; bu meselede ise böyle bir durum mevcut değildir. Allah, Kutuz'a da Baybars'a da ve o gün dine yardım etmek ve Müslümanları savunmak yolunda cihad eden herkese rahmet eylesin.</p>
+    <p>"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." (Hucurât Suresi 49:6). Bir kıraatte de: "iyice sağlam olun (fe-tesebbetû)."</p>
+  </div>
+
+</main>
+
+
+<footer>
+  <p class="meta">© Kuffo Alsinatakum. Tüm araştırmalar gözden geçirilmekte ve sürekli güncellenmektedir.</p>
+</footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox(event)">×</button>
+  <div class="lb-tools">
+    <button onclick="zoomLightbox(event, 0.25)" title="Yakınlaştır">+</button>
+    <button onclick="zoomLightbox(event, -0.25)" title="Uzaklaştır">−</button>
+    <button onclick="downloadLightboxImage(event)" title="Görseli kaydet">⭳</button>
+  </div>
+  <div class="lb-img-wrap" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script>
+  let lbZoom = 1;
+  function openLightbox(src, isIsnad){
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    lbZoom = 1;
+    img.style.transform = 'scale(1)';
+    lb.classList.toggle('with-tools', !!isIsnad);
+    lb.classList.add('open');
+  }
+  function closeLightbox(e){
+    if(e) e.stopPropagation();
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  function zoomLightbox(e, delta){
+    e.stopPropagation();
+    lbZoom = Math.min(4, Math.max(0.5, lbZoom + delta));
+    document.getElementById('lightbox-img').style.transform = `scale(${lbZoom})`;
+  }
+  function downloadLightboxImage(e){
+    e.stopPropagation();
+    const src = document.getElementById('lightbox-img').src;
+    const a = document.createElement('a');
+    a.href = src;
+    a.download = src.split('/').pop() || 'isnad-tree.jpg';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  (function(){
+    const counterEl = document.getElementById('visitorCount');
+    if(!counterEl) return;
+    const namespace = 'kuffo-alsinatakum-github-io';
+    const key = 'site-visits';
+    fetch(`https://countapi.mileshilliard.com/api/v1/hit/${namespace}_${key}`)
+      .then(res => res.json())
+      .then(data => {
+        if(data && typeof data.value === 'number'){
+          counterEl.textContent = data.value.toLocaleString();
+        } else {
+          counterEl.textContent = '···';
+        }
+      })
+      .catch(() => { counterEl.textContent = '···'; });
+  })();
+</script>
+
+</body>
+</html>
