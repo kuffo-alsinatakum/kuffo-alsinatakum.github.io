@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sultan el-Muazzam Turan Şah'ı Öldürme Suçlaması | ez-Zâhir Baybars | Kuffo Alsinatakum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:760px;
+    --max-w-wide:980px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--parchment); color:var(--ink);
+    font-family:'Lora','Amiri',serif; line-height:1.85; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .topbar{
+    background:var(--olive-deep); color:var(--parchment); padding:10px 24px;
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px;
+    font-size:0.85rem; border-bottom:1px solid rgba(201,162,39,0.25);
+  }
+  .topbar .brandmark{
+    grid-column:2; display:flex; align-items:center; justify-content:center; gap:10px;
+    color:var(--gold); font-family:'Lora',serif; font-style:italic; font-weight:600; font-size:1.05rem;
+    letter-spacing:0.015em; text-shadow:0 1px 8px rgba(201,162,39,0.35); white-space:normal; text-align:center; max-width:420px;
+  }
+  .topbar .brandmark::before, .topbar .brandmark::after{content:"❊"; font-size:0.7rem; color:rgba(201,162,39,0.6); flex-shrink:0;}
+  .topbar-left{grid-column:1; justify-content:flex-start;}
+  .topbar-right{grid-column:3; justify-content:flex-end; display:flex; align-items:center; gap:18px;}
+  @media (max-width:760px){
+    .topbar{grid-template-columns:1fr; text-align:center;}
+    .topbar-left, .topbar-right, .topbar .brandmark{grid-column:1; justify-content:center;}
+    .topbar .brandmark{font-size:1.02rem; order:-1; margin-bottom:6px;}
+  }
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button, .langswitch a{
+    background:none; border:1px solid rgba(245,239,224,0.3); color:rgba(245,239,224,0.75);
+    font-size:0.78rem; padding:3px 10px; border-radius:14px; cursor:pointer; font-family:inherit;
+    text-decoration:none; display:inline-block;
+  }
+  .langswitch button:disabled{opacity:0.4; cursor:not-allowed;}
+  .langswitch .active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
+  .visitor-counter{display:flex; align-items:center; gap:6px; color:rgba(245,239,224,0.75); font-size:0.8rem; white-space:nowrap;}
+  .visitor-counter svg{width:15px; height:15px; flex-shrink:0; color:var(--gold);}
+  .visitor-counter #visitorCount{color:var(--gold); font-weight:700;}
+  @media (max-width:600px){
+    .topbar{flex-wrap:wrap; gap:8px;}
+    .topbar-right{flex-wrap:wrap; gap:10px;}
+    .visitor-counter{font-size:0.74rem;}
+  }
+
+  .navbar{
+    position:sticky; top:0; z-index:50; background:var(--olive); border-bottom:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; gap:6px; padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12); flex-wrap:wrap;
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85); font-size:0.92rem; padding:13px 18px; display:inline-block;
+    border-bottom:3px solid transparent; transition:color 0.2s, border-color 0.2s, background 0.2s; white-space:nowrap;
+  }
+  .navbar a:hover{color:var(--gold); background:rgba(245,239,224,0.06); text-decoration:none;}
+  .navbar a.active-page{color:var(--gold); border-bottom-color:var(--gold); font-weight:600;}
+  .navbar a.back-link{
+    display:inline-flex; align-items:center; gap:7px; color:var(--gold);
+    border-inline-end:1px solid rgba(245,239,224,0.25); margin-inline-end:6px; font-weight:600;
+  }
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0;}
+  @media (max-width:700px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+    .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
+  }
+
+  .breadcrumb{max-width:var(--max-w-wide); margin:18px auto 0; padding:0 24px; font-size:0.85rem; color:var(--copper);}
+  .breadcrumb a{color:var(--copper); text-decoration:underline;}
+
+  header.page-hero{max-width:var(--max-w-wide); margin:0 auto; padding:26px 24px 18px; text-align:center;}
+  h1.page-title{font-size:clamp(1.6rem, 4vw, 2.3rem); margin:0; color:var(--olive-deep); font-weight:700; font-family:'Amiri',serif;}
+  p.page-subtitle{max-width:var(--max-w); margin:14px auto 0; color:var(--copper); font-size:1rem;}
+
+  .claim-statement{
+    max-width:var(--max-w); margin:18px auto 0; background:var(--parchment-deep);
+    border-inline-start:4px solid var(--gold); border-radius:6px; padding:14px 18px;
+    font-size:0.98rem; color:var(--ink); text-align:left;
+  }
+  .claim-statement b{color:var(--olive-deep);}
+
+  .ornament{display:flex; align-items:center; justify-content:center; gap:14px; margin:8px auto 30px; max-width:var(--max-w); padding:0 24px; color:var(--copper); opacity:0.85;}
+  .ornament .line{flex:1; height:1px; background:linear-gradient(to right, transparent, var(--copper) 50%, transparent);}
+  .ornament svg{width:24px; height:24px; flex-shrink:0;}
+
+  .verse-marquee{
+    background:linear-gradient(90deg, var(--olive-deep) 0%, #1a3a28 50%, var(--olive-deep) 100%);
+    border-top:2px solid var(--gold); overflow:hidden; white-space:nowrap; padding:14px 0; position:relative;
+  }
+  .verse-marquee::before, .verse-marquee::after{content:""; position:absolute; top:0; bottom:0; width:60px; z-index:2; pointer-events:none;}
+  .verse-marquee::before{left:0; background:linear-gradient(to right, var(--olive-deep), transparent);}
+  .verse-marquee::after{right:0; background:linear-gradient(to left, var(--olive-deep), transparent);}
+  .verse-marquee-track{display:inline-flex; align-items:center; animation:marquee-scroll 38s linear infinite; will-change:transform;}
+  .verse-marquee-track span.v{
+    display:inline-block; padding:0 48px; font-family:'Amiri',serif; font-size:1.15rem; font-weight:700;
+    background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227); background-size:200% auto;
+    -webkit-background-clip:text; background-clip:text; color:transparent; animation:shimmer-gold 4s linear infinite;
+  }
+  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
+  @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
+  @media (max-width:600px){.verse-marquee-track span.v{font-size:0.95rem; padding:0 28px;}}
+  @media (prefers-reduced-motion: reduce){.verse-marquee-track{animation:none;}}
+
+  main{max-width:var(--max-w-wide); margin:0 auto; padding:0 24px 50px;}
+
+  .toc-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:22px 26px; margin-bottom:32px; box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .toc-card h2{margin:0 0 12px; font-size:1.1rem; color:var(--olive-deep); font-weight:700;}
+  .toc-card ol{margin:0; padding-inline-start:22px; columns:2; column-gap:28px;}
+  .toc-card li{margin-bottom:8px; font-size:0.94rem; break-inside:avoid;}
+  @media (max-width:640px){.toc-card ol{columns:1;}}
+
+  .page-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:32px 30px; box-shadow:0 4px 16px rgba(27,58,47,0.06); margin-bottom:28px;
+  }
+  .page-card h2{margin:0 0 16px; font-size:1.3rem; color:var(--olive-deep); font-weight:700; scroll-margin-top:80px;}
+  .page-card h3{margin:22px 0 10px; font-size:1.08rem; color:var(--olive-deep); font-weight:700;}
+  .page-card p{margin:0 0 16px; font-size:1.04rem;}
+  .page-card p:last-child{margin-bottom:0;}
+  .page-card ul, .page-card ol.content-list{margin:0 0 16px; padding-inline-start:24px;}
+  .page-card li{margin-bottom:6px;}
+
+  blockquote.src-quote{
+    margin:0 0 18px; padding:12px 18px; background:var(--parchment-deep);
+    border-inline-start:3px solid var(--copper); border-radius:6px; font-size:0.98rem; color:var(--ink);
+  }
+  blockquote.src-quote cite{display:block; margin-top:8px; font-size:0.82rem; color:var(--copper); font-style:normal;}
+
+  table.data-table{width:100%; border-collapse:collapse; margin:0 0 18px; font-size:0.94rem;}
+  table.data-table th, table.data-table td{border:1px solid var(--line); padding:9px 12px; text-align:left;}
+  table.data-table th{background:var(--parchment-deep); color:var(--olive-deep); font-weight:700;}
+  table.data-table tbody tr:nth-child(even){background:rgba(236,226,200,0.35);}
+
+  .footnote{font-size:0.82rem; color:var(--copper); border-top:1px dashed var(--line); padding-top:10px; margin-top:10px;}
+
+  .narrator-block{
+    background:var(--parchment-deep); border-radius:8px; border-inline-start:4px solid var(--olive);
+    padding:18px 22px; margin:0 0 18px;
+  }
+  .narrator-block h3{margin:0 0 12px !important; font-size:1.05rem; color:var(--olive-deep); font-weight:700;}
+  .narrator-block p{margin:0 0 10px; font-size:0.98rem;}
+  .narrator-block p:last-child{margin-bottom:0;}
+  .narrator-block p b{color:var(--olive-deep);}
+
+  .no-isnad-notice{
+    background:var(--parchment-deep); border-inline-start:4px solid var(--copper);
+    border-radius:6px; padding:16px 20px; margin:0 0 18px;
+  }
+  .no-isnad-notice p{margin:0; font-size:0.98rem; color:var(--ink);}
+  .no-isnad-notice p b{color:var(--olive-deep);}
+
+  .fig-gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin:0 0 8px;}
+  .fig-item{text-align:center;}
+  .fig-item img{
+    width:100%; height:auto; border-radius:8px; border:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(27,58,47,0.1); cursor:zoom-in; transition:box-shadow 0.2s ease;
+  }
+  .fig-item img:hover{box-shadow:0 8px 24px rgba(27,58,47,0.18);}
+  .fig-item figcaption{margin-top:8px; font-size:0.85rem; color:var(--copper);}
+
+  #lightbox{
+    display:none; position:fixed; inset:0; background:rgba(18,40,31,0.92); z-index:200;
+    align-items:center; justify-content:center; padding:30px; cursor:zoom-out;
+  }
+  #lightbox.open{display:flex;}
+  #lightbox .lb-img-wrap{overflow:auto; max-width:95%; max-height:90vh; cursor:default;}
+  #lightbox img{
+    max-width:95%; max-height:90vh; border-radius:6px; box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    transition:transform 0.15s ease; transform-origin:center center;
+  }
+  #lightbox .lb-close{
+    position:absolute; top:18px; left:24px; color:var(--gold); font-size:2rem;
+    line-height:1; background:none; border:none; cursor:pointer; z-index:2;
+  }
+  #lightbox .lb-tools{
+    display:none; position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+    gap:10px; z-index:2; background:rgba(18,40,31,0.85); border:1px solid var(--gold);
+    border-radius:30px; padding:8px 14px;
+  }
+  #lightbox.with-tools .lb-tools{display:flex;}
+  #lightbox .lb-tools button{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--gold);
+    background:var(--olive-deep); color:var(--gold); font-size:1.1rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; line-height:1;
+  }
+  #lightbox .lb-tools button:hover{background:var(--gold); color:var(--olive-deep);}
+
+  .cascade{position:relative; padding-inline-start:42px;}
+  .cascade::before{
+    content:""; position:absolute; top:6px; bottom:6px; left:13px; width:7px;
+    background:linear-gradient(to bottom, var(--olive) 0%, var(--olive) 78%, var(--copper) 100%);
+    clip-path:polygon(0 0, 100% 0, 78% 100%, 22% 100%); border-radius:5px;
+  }
+  .stage{position:relative; margin-bottom:20px;}
+  .stage:last-child{margin-bottom:0;}
+  .stage .node{
+    position:absolute; left:-42px; top:24px; width:34px; height:34px; border-radius:50%;
+    background:var(--parchment); border:2.5px solid var(--olive); color:var(--olive-deep);
+    display:flex; align-items:center; justify-content:center; font-family:'Amiri',serif;
+    font-weight:700; font-size:1rem; z-index:2; box-shadow:0 0 0 5px var(--parchment);
+  }
+  .stage:nth-child(n+6) .node{border-color:var(--copper); color:var(--copper);}
+  .stage-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px; padding:18px 22px;
+    box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .stage-card .level-name{font-family:'Amiri',serif; font-size:1.05rem; color:var(--olive-deep); font-weight:700; margin:0 0 6px;}
+  .stage-card .verdict-line{font-size:0.94rem; margin:0 0 8px;}
+  .stage-card .verdict-line b{color:var(--olive-deep);}
+  .stage-card .pass{color:var(--olive-deep); font-weight:700;}
+  .stage-card .fail{color:var(--copper); font-weight:700;}
+
+  .final-verdict{
+    margin-top:36px; border-radius:8px; padding:26px 28px; text-align:center;
+    background:var(--olive-deep); color:var(--parchment); border:2px solid var(--gold);
+  }
+  .final-verdict h2{margin:0 0 10px; font-size:1.3rem; color:var(--gold);}
+  .final-verdict p{margin:0; max-width:var(--max-w); margin-inline:auto; opacity:0.92;}
+
+  .refs-list{margin:0; padding-inline-start:22px; font-size:0.92rem;}
+  .refs-list li{margin-bottom:10px;}
+
+  .placeholder-badge{
+    display:inline-block; margin-bottom:14px; font-size:0.72rem; background:var(--parchment-deep);
+    color:var(--copper); padding:3px 10px; border-radius:10px; border:1px dashed var(--copper);
+  }
+
+  footer{background:var(--olive-deep); color:rgba(245,239,224,0.75); padding:36px 24px 24px; margin-top:40px; text-align:center; font-size:0.88rem;}
+  footer .meta{opacity:0.7;}
+
+  @media (max-width:600px){
+    .page-card{padding:22px 18px;}
+    .toc-card{padding:18px 20px;}
+    header.page-hero{padding:20px 18px 16px;}
+    .cascade{padding-inline-start:34px;}
+    .stage .node{left:-34px; width:28px; height:28px; font-size:0.86rem;}
+    .stage-card{padding:14px 16px;}
+  }
+
+  .print-bar{text-align:center; margin:0 0 8px;}
+  .print-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--olive); color:var(--parchment); border:1px solid var(--gold);
+    border-radius:20px; padding:8px 20px; font-family:inherit; font-size:0.9rem; cursor:pointer;
+  }
+  .print-btn:hover{background:var(--olive-deep);}
+  .print-btn svg{width:16px; height:16px;}
+
+  @media print{
+    .topbar, .navbar, .verse-marquee, .breadcrumb, .print-bar, .ornament, footer, #lightbox, .toc-card{display:none !important;}
+    body{background:#fff; background-image:none;}
+    .page-card, .final-verdict, .narrator-block, .no-isnad-notice{box-shadow:none; border:1px solid #999;}
+    main{padding:0;}
+    a{color:var(--ink); text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left"></div>
+  <div class="brandmark">Onlar Hakkında Dilinizi Tutun</div>
+  <div class="topbar-right">
+    <div class="langswitch">
+      <a href="../../figures/baybars-turanshah.html">العربية</a>
+      <a href="../../en/figures/baybars-turanshah.html">English</a>
+      <span class="active">Türkçe</span>
+    </div>
+    <div class="visitor-counter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Site ziyaretçileri:</span>
+      <span id="visitorCount">···</span>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Ana Sayfa</span>
+  </a>
+  <a href="../index.html">Bu Sitenin Amacı</a>
+  <a href="../terms/index.html">Önemli Terimler</a>
+  <a href="../standards/index.html">Standartlar ve Ölçütler</a>
+  <a href="index.html" class="active-page">Şahsiyetler</a>
+  <a href="../contact/index.html">Bize Ulaşın</a>
+</nav>
+
+<div class="verse-marquee" aria-hidden="true">
+  <div class="verse-marquee-track">
+    <span class="v">"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." (Hucurât Suresi 49:6)</span>
+    <span class="sep">•</span>
+    <span class="v">"Bu iftirayı işittiğinizde, iman eden erkek ve kadınlar, kendi (din kardeş)leri hakkında iyi zan besleyip de, 'Bu, apaçık bir iftiradır' deselerdi ya!" (Nûr Suresi 24:12)</span>
+    <span class="sep">•</span>
+    <span class="v">"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." (Hucurât Suresi 49:6)</span>
+    <span class="sep">•</span>
+    <span class="v">"Bu iftirayı işittiğinizde, iman eden erkek ve kadınlar, kendi (din kardeş)leri hakkında iyi zan besleyip de, 'Bu, apaçık bir iftiradır' deselerdi ya!" (Nûr Suresi 24:12)</span>
+    <span class="sep">•</span>
+  </div>
+</div>
+
+<p class="breadcrumb">
+  <a href="../index.html">Ana Sayfa</a> ← <a href="index.html">Şahsiyetler</a> ← <a href="baybars.html">ez-Zâhir Rükneddin Baybars el-Bunduktârî, Allah ona rahmet etsin</a> ← Sultan el-Muazzam Turan Şah'ı Öldürme Suçlaması
+</p>
+
+<header class="page-hero">
+  <h1 class="page-title">Sultan el-Muazzam Turan Şah'ı Öldürme Suçlaması</h1>
+  <p class="page-subtitle">Sitede benimsenen on standart ve ölçütün, bizzat bu iddiaya uygulanması.</p>
+  <div class="claim-statement">
+    <b>İddianın metni:</b> Emir Rükneddin Baybars el-Bunduktârî'nin, Mısır'daki son Eyyûbî sultanı olan, el-Melikü's-Sâlih Eyyûb'un oğlu Sultan el-Melikü'l-Muazzam Gıyâseddin Turan Şah'ı, Yedinci Haçlı Seferi'ne karşı kazandığı zafer ve IX. Louis'nin esir alınmasının ardından, 648 H. yılında Fâriskûr ordugâhında öldüren kişi olduğu iddia edilir. Bazı nakiller, ilk darbeyle saldırıyı başlatanın ve sultanın parmaklarını kesenin bizzat o olduğunu zikreder.
+  </div>
+</header>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+    <span>Araştırmayı PDF Olarak İndir</span>
+  </button>
+</div>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<main>
+
+  <div class="toc-card">
+    <h2>Araştırma Fihristi</h2>
+    <ol>
+      <li><a href="#origin">Araştırma Konusunun Belirlenmesi</a></li>
+      <li><a href="#sources">Olaya Dair Kaynakların Tespiti ve Tenkidi</a></li>
+      <li><a href="#chain">İsnad İncelemesi</a></li>
+      <li><a href="#analysis">On Standart ve Ölçütün Uygulanması</a></li>
+      <li><a href="#hypotheses">Faraziyeler ve Tartışılması</a></li>
+      <li><a href="#verdict">Sonuç ve Nihaî Hüküm</a></li>
+    </ol>
+  </div>
+
+  <div class="page-card" id="origin">
+    <h2>1. Araştırma Konusunun Belirlenmesi</h2>
+    <p>İncelenen olay, el-Melikü's-Sâlih Necmeddin Eyyûb'un oğlu Sultan el-Melikü'l-Muazzam Gıyâseddin Turan Şah'ın, 648 H. yılında Fâriskûr'daki ordugâhta öldürülmesidir. Bu, onun saltanatı devralmak üzere Hısnıkeyfâ'dan gelişinden yaklaşık yetmiş gün sonra ve Yedinci Haçlı Seferi'ne karşı kazanılan zafer ile Fransa kralı IX. Louis'nin esir alınmasının ardından gerçekleşmiştir. Onun öldürülmesiyle Mısır'daki Eyyûbî devleti sona ermiş ve Memlük devleti kurulmuştur.</p>
+    <p>Burada araştırma konusu, öldürme fiilinin bizzat vuku bulması değildir; zira o, birçok kişinin şahit olduğu ve ardından muazzam siyasî sonuçlar doğuran umumî bir hadisedir. Araştırma konusu, <b>öldürme fiilinin bizzat Emir Rükneddin Baybars el-Bunduktârî'ye nispet edilmesi</b> ve onu kendi eliyle işleyip ilk darbeyle başlattığı iddiasıdır ki suçlama da bu ayrıntı üzerine bina edilmektedir.</p>
+  </div>
+
+  <div class="page-card" id="sources">
+    <h2>2. Olaya Dair Kaynakların Tespiti ve Tenkidi</h2>
+    <p>Olay iki tabaka kaynakta zikredilmektedir: hadisenin çağdaşları ve ondan sonraki dönem müellifleri. Bunların tamamı istisnasız haberi muttasıl bir isnadla değil, mürsel anlatım biçiminde nakletmektedir. Aşağıda her iki tabakanın metinleri yer almaktadır:</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>Sıbt İbnü'l-Cevzî (ö. 654 H., çağdaş), <i>Mir'âtü'z-Zamân</i> adlı eserinde</h3>
+    <p>Metni şöyledir: "Muharrem'in yirmi yedisi, pazartesi günü olunca Muazzam sofraya oturdu. Bahrî memlüklerden biri ona kılıçla vurdu; o da eliyle karşıladı ve parmaklarının bir kısmı kesildi. Kalkıp kuleye girdi ve haykırdı: 'Beni kim yaraladı?' 'Mülhid Haşîşîler' dediler. O: 'Hayır, vallahi ancak Bahriyye' dedi, 'vallahi onlardan hiçbirini bırakmayacağım.'" Haberinin sonunda ise: "Onun öldürülmesini bizzat işleyenler dört kişiydi" demektedir.</p>
+    <p>Çağdaşların en eskisi olan bu zat, ne ilk darbede ne de fiilin bizzat işlenmesinde <b>hiç kimseyi isimlendirmemiştir</b>; fiili işleyenlerin dört kişi olduğunu haber vermiş, fakat onlardan tek birinin adını dahi vermemiştir.</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>Ebû Şâme (ö. 665 H., çağdaş), <i>ez-Zeyl ale'r-Ravdateyn</i> adlı eserinde</h3>
+    <p>648 H. yılının Safer ayında Muazzam'ın öldürüldüğü haberinin geldiğini, ona kılıçla vurulduğunu ve onun kaçtığını, ahşap kuleye girdiğini ve kulenin yakıldığını, kendisini Nil tarafına attığını, yetişilip Fâriskûr köyünde parçalandığını zikreder: "Bu, babasının Bahrî gulâmları eliyle olmuştur."</p>
+    <p>Lafız <b>isimlendirmesiz çoğul kalıptadır</b>; ayrıca Ebû Şâme'nin Şam'da bulunduğu ve haberin kendisine <b>ulaştığı</b> açıkça ifade edilmektedir. Dolayısıyla o, olayın şahidi değil, gelen bir haberin nakilcisidir.</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>İbn Vâsıl (ö. 697 H., Mısır'da ikamet etmiş çağdaş), <i>Müferricü'l-Kürûb</i> adlı eserinde</h3>
+    <p>Rükneddin Baybars el-Bunduktârî'yi, Muazzam'ın huzuruna girip ona vuran kişi olarak isimlendirmekle tek kalır. Darbenin parmaklarından ikisinin arasına düştüğünü ve onu hafif bir şekilde yaraladığını, ardından kılıcı elinden atıp kaçtığını, öldürme fiilinin ise bundan sonra, Bahriyye ile başları Fârisüddin Aktay'ın ve Muazzam'ın ahşap kulede bir araya gelmesiyle vuku bulduğunu belirtir.</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>İbn Kesîr (ö. 774 H.), <i>el-Bidâye ve'n-Nihâye</i> adlı eserinde</h3>
+    <p>Tayin hususunda ona açıkça muhalefet ederek şöyle der: "Ona emirlerden biri, yani İzzeddin Aybek et-Türkmânî vurdu; eline vurdu ve parmaklarının bir kısmını kesti." Sonra Baybars'ı ilk değil, sonraki bir vurucu olarak zikreder: "Ona vuranlar arasında el-Bunduktârî de vardı; omzuna vurdu ve kılıç öbür koltuk altından çıktı."</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>İbn Tağrîberdî (ö. 874 H.), <i>en-Nücûmü'z-Zâhire</i> adlı eserinde</h3>
+    <p>Olaydan iki asırdan fazla sonra gelmiştir. Olayı, sultanın merasimde oturduğu ve emirlerin önünde bulunduğu, ardından <b>Bahrî memlüklerden bir topluluğun</b> ellerinde kılıçlarla ona doğru ilerleyip parmaklarına vurarak onları kestikleri, bunun üzerine kalkıp kaçtığı ve ahşap bir kuleye girdiği, sonra kulenin ateşe verildiği, onun da kendisini suya attığı ve yanarak, öldürülerek ve boğularak vefat ettiği şeklinde tasvir eder. Lafız <b>çoğul kalıptadır</b> ve ilk darbeyi bizzat indiren hiç kimseyi isimlendirmez; ayrıca şöyle der: "Onun öldürülmesini bizzat işleyenler dört kişiydi."</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>İbn İyâs (ö. 930 H.), <i>Bedâiu'z-Zühûr</i> adlı eserinde</h3>
+    <p>Olaydan yaklaşık üç asır sonra gelmiştir. Turan Şah'ın mizacına ve Bahrî memlüklere mumlara yaptığını yapacağını söylediğine dair ayrıntılar nakleder; bunlar <b>isnadla ispatı mümkün olmayan</b> psikolojik ve konuşmaya dayalı ayrıntılardır. Bu kıssanın aslı ondan önce Makrîzî'nin <i>es-Sülûk</i>'ünde ve İbn Tağrîberdî'de zikredilmiştir; dolayısıyla ona mahsus değildir.</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>Haçlı Esirlerinin Rivayeti</h3>
+    <p>Bu olayda görgü tanıklığı diye nitelenebilecek en yakın şey, olay sırasında ordugâhta tutulan Haçlı Seferi esirlerinin, başlarında da Jean de Joinville'in naklettikleridir. Bunlar, henüz esir düşmüş <b>muharip düşmanlardır</b> ve rivayetleri, bu sitede benimsenen onuncu ölçütün açık hükmüyle düşmektedir.</p>
+  </div>
+
+  <div class="page-card">
+    <h3>Kaynakların Haberin En Özel Ayrıntılarındaki Istırabı</h3>
+    <p><b>Birincisi: ilk darbeyi bizzat indirenin tayinindeki ıstırap.</b> Suçlamanın üzerine bina edildiği ayrıntı budur ve bu hususta birbiriyle bağdaşmayan üç görüş vardır: çağdaşların en eskileri olan Sıbt İbnü'l-Cevzî ile Ebû Şâme'de ve çoğul kalıpla İbn Tağrîberdî'de <b>bizzat hiç kimse</b>; İbn Vâsıl'da <b>Baybars el-Bunduktârî</b>; İbn Kesîr'de ise <b>İzzeddin Aybek et-Türkmânî</b> ki o, Baybars'ı ilk darbenin sahibi değil, omza vuran sonraki bir kişi kılmaktadır.</p>
+    <p><b>İkincisi: sayıdaki ıstırap.</b> Sıbt İbnü'l-Cevzî ile İbn Tağrîberdî'de isimlendirilmeksizin "dört", diğerlerinde ise "bir topluluk".</p>
+    <p><b>Üçüncüsü: tarihteki ıstırap.</b> Sıbt İbnü'l-Cevzî'den yapılan nakilde Muharrem'in yirmi yedisi, pazartesi günü; <i>Mir'âtü'z-Zamân</i>'ın tahkikli baskısından yapılan nakilde ise yirmi sekizi olarak geçmektedir.</p>
+    <p><b>Dördüncüsü: bizzat maktulün sözü.</b> Ona "Seni kim yaraladı?" diye sorulmuştur ve kendisine vuranı gören de odur; buna rağmen "Hayır, vallahi ancak Bahriyye" demiş, hiç kimseyi adıyla belirlememiştir.</p>
+    <p class="footnote">Metodolojik not: Burada kaydedilen Sıbt İbnü'l-Cevzî ve İbn Vâsıl metinleri, tahkikli baskılardan aracı nakiller yoluyla ulaşmıştır; bunların matbu asıllarla karşılaştırılması hâlâ gereklidir: <i>Müferricü'l-Kürûb</i> (6/128 ve devamı), <i>Mir'âtü'z-Zamân</i> (22/413 ve devamı) ve <i>ez-Zeyl ale'r-Ravdateyn</i>. Bu karşılaştırma bu araştırmanın sonucunu değiştirmez; çünkü araştırmanın dayanağı kaynakların tayin hususundaki ihtilafıdır ve bu, birden fazla yolla sabittir.</p>
+  </div>
+
+  <div class="page-card" id="chain">
+    <h2>3. İsnad İncelemesi</h2>
+    <div class="no-isnad-notice">
+      <p><b>Bu olayın esasen hiçbir isnadı yoktur.</b> Eyyûbî ve Memlük tarih kitapları haberlerini isnadlarla değil, mürsel anlatım kalıbıyla nakleder: "memlüklerden bir topluluk ona doğru ilerledi", "Şecerüddür falan ve falan ile anlaştı" gibi. Bunların hiçbirinde ne "bana falan haber verdi ve dedi ki: şahit oldum" vardır, ne de onun yerini tutacak bir şey. Dolayısıyla ne semâ, ne tahdîs, ne de cerh ve ta'dil kaidelerine arz edilebilecek bir tarik vardır.</p>
+      <p>Bu kitaplardan bazılarında belirli bir ismin geçmesi de durumu değiştirmez; çünkü oradaki isimlendirme, aynı mürsel anlatımın içinde, semâsız, tahdîssiz ve tariksiz geçmektedir. Dolayısıyla o da diğerleri gibi isnadsız bir haberdir; ne şehâdettir ne rivayet.</p>
+      <p>İsnad bulunmayınca ricâl incelemesinin yeri de kalmaz; zira esasen râvisi olmayan bir haberde bir râvinin adaletini yahut zaptını araştırmak düşünülemez. Bu sebeple doğrudan iddianın on standart ve ölçüte arz edilmesine geçilmektedir.</p>
+    </div>
+  </div>
+
+  <div class="page-card" id="analysis">
+    <h2>4. On Standart ve Ölçütün Uygulanması</h2>
+    <p>Aşağıda iddia, sitede benimsenen on standarda, aynı sırayla arz edilmektedir:</p>
+
+    <div class="cascade">
+
+      <div class="stage">
+        <div class="node">1</div>
+        <div class="stage-card">
+          <p class="level-name">Sahîh-i Buhârî (Ebû Zer el-Herevî Rivayeti)</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="pass">Uygulanamaz; zira Buhârî, olayın döneminden asırlarca öncedir</span>.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">2</div>
+        <div class="stage-card">
+          <p class="level-name">Mâlik'in Muvatta'ı (el-Ka'nebî Rivayeti) / Büyük ve Küçük Tarih</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="pass">Uygulanamaz; zira İmam Mâlik, olayın döneminden asırlarca öncedir</span>.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">3</div>
+        <div class="stage-card">
+          <p class="level-name">Kütüb-i Sitte'nin Geri Kalanı ve Müsned</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="pass">Uygulanamaz; zira Kütüb-i Sitte müellifleri, olayın döneminden asırlarca öncedir</span>.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">4</div>
+        <div class="stage-card">
+          <p class="level-name">Tarihçiler</p>
+          <p class="verdict-line"><b>Sonuç:</b> Uygulanabilen yegâne mertebe budur. Buradaki kaynaklar çok sayıda ve birbirine yakındır, <span class="fail">ancak hepsi muttasıl bir isnaddan yoksundur</span>; lafız bakımından en eskisi ise bizzat belirli bir kişiyi değil, çoğul kalıpla "Bahrî memlüklerden bir topluluk" ifadesini zikretmektedir.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">5</div>
+        <div class="stage-card">
+          <p class="level-name">Taraf Tutmakla İtham Edilmemiş Âdil Çağdaşların Tanıklığı</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="fail">Gerçekleşmemiştir</span>; zira olayı gözleriyle gören ve öldürme fiilini bizzat Baybars'ın işlediğini ispat eden iki âdil Müslüman şahit sabit olmamıştır. Çağdaş tarihçiler olay yerinde hazır bulunmamış ve hazır bulunan birinden isnadla nakletmemişlerdir.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">6</div>
+        <div class="stage-card">
+          <p class="level-name">İlmî Sükût Delili</p>
+          <p class="verdict-line"><b>Sonuç:</b> Dönemin muteber âlimlerinden hiçbirinden, bu olayda bizzat Baybars'a yönelik açık ve belgelenmiş bir inkâr sabit olmamıştır.</p>
+          <p>Failin bilindiği, sabit bir öldürme cinayeti karşısında dönemin âlimlerinin sükût üzerinde birleşmesi düşünülemez; zira onlar iyiliği emreden ve kötülükten sakındıran kimselerdir.</p>
+          <p>Bunu en açık gösteren örnek <b>Sıbt İbnü'l-Cevzî (ö. 654 H.)</b>'nin durumudur. O, Şam vâizlerinin en meşhuru ve meliklere karşı en cesurudur; el-Melikü'l-Kâmil Kudüs'ü teslim ettiğinde ona alenen karşı çıkması, kayıtlara geçmiş bir sabıkasıdır. Turan Şah'ın öldürülmesini, istinkâr damlayan bir üslupla nakletmiştir: Onun "Saltanat istemiyorum, bırakın kaleye döneyim; ey Müslümanlar, içinizde bana sahip çıkacak kimse yok mu?" diye feryat ettiğini, bütün askerlerin ayakta durduğu hâlde kimsenin ona cevap vermediğini, halifenin elçisi şefaatte bulununcaya kadar üç gün kıyıda kaldığını ve kimsenin onu defnetmeye cesaret edemediğini zikretmiştir. <b>Sonra bizzat bir fail ismi vermemiş, bilakis "Bahrî memlüklerden biri" demiştir.</b></p>
+          <p>Bunu korkuyla mazur göstermek de doğru değildir; zira o, Şam'da, Memlüklere muhalif olan ve sonrasında onlarla savaşan Eyyûbî el-Melikü'n-Nâsır Yûsuf'un hâkimiyeti altındaydı. Dolayısıyla isim vermek ve teşhir etmek, ülke sahibinin arzusuna aykırı değil, tam aksine uygun olurdu. Saikler tam olarak mevcut, engeller tamamen yok iken yine de tayinde bulunmamıştır. Böyle birinin, buna gücü yeterken ve bu hususta emniyette iken tayinden susması, tayinin onun nezdinde sabit olmadığına delildir.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">7</div>
+        <div class="stage-card">
+          <p class="level-name">Muhaliflerin Rivayeti Delil Olarak Kullanmaması</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="pass">Gerçekleşmiştir</span>; zira hasımların en yakını ve isimlendirmede en fazla menfaati bulunanı, ferdî değil toplu bir suçlamayla harekete geçmiş, sonra da bizzat itham edilen kişiyi hizmetine kabul etmiş, ona iktâ vermiş ve yıllarca ondan istifade etmiştir.</p>
+          <p>Bu ölçütün gereği şudur: Suçlama çağdaşlar nezdinde mevcut ve bilinir olsaydı, onu yaymaya en lâyık kimseler sanığın muhalifleri olurdu; özellikle de maktulle akrabalığı ve kan davası bulunan, bunu ortaya atmakta doğrudan siyasî menfaati olan kimse.</p>
+          <p>Bütün bunlar <b>Halep sahibi el-Melikü'n-Nâsır Yûsuf</b>'ta mevcuttu. O, maktulün amcasının oğlu ve Eyyûboğulları hanedanındandır; olaydan haftalar sonra harekete geçip Şam'ı ele geçirmiş, ardından ordusuyla Memlüklerle savaşmak üzere Mısır'a yürümüştür. Eğer öldürme fiili bizzat belirli bir kişiye nispet ediliyor olsaydı, isimlendirmenin ortaya atılacağı ve insanların onunla kışkırtılacağı an, işte bu andı.</p>
+          <p>İbn Kesîr <i>el-Bidâye ve'n-Nihâye</i>'de 648 H. yılı olayları içinde şöyle demiştir: "Sonra Muharrem ayı çıkmadan <b>emirler</b>, efendilerinin oğlu Turan Şah'ı <b>öldürdüler</b> ve onu Nil'in öbür yakasında, nehrin kenarına defnettiler." Aynı şekilde Halep halkının harekete geçişini tasvir ederken de şöyle der: "Mısır diyarında <b>emirlerin</b>, es-Sâlih Eyyûb'un oğlu el-Muazzam Turan Şah'ı <b>öldürmesi</b> vuku bulunca, Halepliler, yanlarında efendilerinin oğlu, el-Azîz Muhammed b. ez-Zâhir Gâzî'nin oğlu en-Nâsır Yûsuf ile birlikte atlarına bindiler... Şam'a gelip onu kuşattılar ve çabucak ele geçirdiler."</p>
+          <p>Görüldüğü üzere seferin ilan edilmiş saiki, iki kez, çoğul kalıpla "emirler"e nispet edilmektedir: bir kez olayın tasvirinde, bir kez de onun üzerine kurulan seferin tasvirinde. Her iki yerde de bizzat belirli bir fail isimlendirilmemektedir.</p>
+          <p>Bir kan davası için çıkılan sefer, meçhul birine karşı çıkılmaz. Fail belirli ve bilinir olsaydı, onun adını zikretmek, davette daha etkili ve insanları toplamada muğlak bir topluluğu delil göstermekten daha derleyici olurdu. <b>Dolayısıyla failin bizzat hasmın dilinde muğlak bırakılması, tayinin o gün sabit olmadığına bir karinedir.</b></p>
+          <p>Mesele burada, sadece isimlendirmeden susmayı aşarak daha da güçlü bir noktaya varır. Olaydan dört yıl sonra, 652 H. yılında Mısır'da Fâris Aktay öldürülüp Bahrî memlükler Kahire'den Şam'a çıktıklarında, hedefleri bizzat el-Melikü'n-Nâsır Yûsuf idi.</p>
+          <p>Makrîzî <i>el-Mevâiz ve'l-İ'tibâr bi Zikri'l-Hıtat ve'l-Âsâr</i> adlı eserinde (2/245) şöyle der: "Mısır'dan Şam'a çıkmak üzere sözleştiler; <b>o gün en ileri gelenleri Baybars el-Bunduktârî</b>, Kalavun el-Elfî, Sungur el-Eşkar, Baysarı, Sükuz ve Baramık idi." Sonra şöyle der: "O topluluğa gelince, <b>Şam sahibi el-Azîz'in oğlu el-Melikü'n-Nâsır Yûsuf'a gittiler; o da onları kabul etti, onlara ihsanda bulundu, iktâlar verdi ve onlardan istifade etti</b>." Ardından, Kutuz sultan oluncaya kadar Şam'da kaldıklarını ve onun döneminde Mısır'a döndüklerini zikreder.</p>
+          <p>İbn Kesîr de Baybars'ı, en-Nâsır'ın ordusunda son günlerine kadar adıyla zikreder. 658 H. yılı olaylarında en-Nâsır ve el-Mugîs hakkında şöyle der: "O, Şam sahibi en-Nâsır ile birlikte Mısırlılara karşı savaş hâlindeydi, <b>yanlarında da Emir Rükneddin Baybars el-Bunduktârî vardı</b>; Mısırlılarla savaşmaya ve Mısır'ı onlardan almaya karar vermişlerdi." Tatarlar karşısında en-Nâsır'ın işinin çöküşünü anlatırken de şöyle der: "en-Nâsır bunu öğrenince kaleye kaçtı, askerler darmadağın oldu <b>ve Emir Rükneddin Baybars adamlarıyla Gazze tarafına sürdü</b>."</p>
+          <p>Bu süre zarfında en-Nâsır ile Bahriyye arasında bir soğukluk vuku bulmuş, onlar da ondan ayrılıp Kerek'e gitmiş, sonra tekrar ona dönmüşlerdir. Dolayısıyla kabul bir kez değil, iki kez gerçekleşmiştir.</p>
+          <p>Bu metinlerin ortaya koyduğu şudur: Maktulün amcasının oğlu ve onun kanını talep etmeye dair ilan edilmiş davetin sahibi olan el-Melikü'n-Nâsır Yûsuf, başlarında Baybars olduğu hâlde bu kimseleri kabul etmiş, onlara ihsanda bulunmuş, iktâlar vermiş ve ordusunda onlardan istifade etmiştir; Baybars da 658 H. yılına kadar onun yanında kalmıştır. <b>Bu, sadece isimlendirmeden susmak değildir; bu, kan talebine en lâyık olan kimsenin fiilî davranışıdır ve onun nezdinde bizzat Baybars'a yönelik sabit ve belirli bir suçlamanın bulunmasıyla bağdaşmaz.</b></p>
+          <p class="footnote">Metodolojik ölçüt: Makrîzî ve İbn Kesîr çağdaş değil, sonraki dönem nakilcilerdir; isimlendirmenin bulunmaması, rivayette bir yokluktur, olayın bizzat nefyi değildir. en-Nâsır Yûsuf'un yazışmalarının ve propagandasının metnine ulaşamadık; bunlar İbn Vâsıl'ın <i>Müferricü'l-Kürûb</i>'unda ve Ebû Şâme'nin <i>ez-Zeyl ale'r-Ravdateyn</i>'inde bulunmaktadır ve bu iki esere ulaşmak mümkün olmamıştır. Bu sebeple bu ölçüt, müstakil ve kesin bir delil olarak değil, benzerlerine eklenen bir karine olarak sunulmaktadır.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">8</div>
+        <div class="stage-card">
+          <p class="level-name">Maddî ve Arkeolojik Deliller</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="fail">Darbeyi kimin indirdiğini tayin eden maddî bir delil yoktur</span>, çağdaş ve tahkike dayalı bir belge de yoktur; mevcut olanın tamamı anlatı metinleridir.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">9</div>
+        <div class="stage-card">
+          <p class="level-name">Sanığın Nebevî Tezkiyesi</p>
+          <p class="verdict-line"><b>Sonuç:</b> Doğrudan uygulanamaz; zira bu rivayetin karşısına konulabilecek, bizzat Baybars'a ait bilinen hususî bir nebevî tezkiye yoktur.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">10</div>
+        <div class="stage-card">
+          <p class="level-name">Düşmanlığı Bilinen Kişilerin Rivayetleri</p>
+          <p class="verdict-line"><b>Sonuç:</b> <span class="fail">Bu meselede güçlü biçimde uygulanır</span>. Görgü tanıklığı diye nitelenebilecek en yakın şey, ordugâhta tutulan Haçlı Seferi esirlerinin naklidir; onlar ise henüz esir düşmüş muharip düşmanlardır, dolayısıyla rivayetleri bu ölçütün açık hükmüyle düşmektedir.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="page-card" id="hypotheses">
+    <h2>5. Faraziyeler ve Tartışılması</h2>
+
+    <h3>Birinci faraziye: Baybars'ın Turan Şah'ı kendi eliyle öldürmesi ve ilk darbeyle başlatması</h3>
+    <p>Bu faraziye, şer'î ispat şartına göre en az iki âdil şahit gerektirir ve bu gerçekleşmemiştir. Ayrıca kaynakların kendileri fiili işleyenin tayininde ihtilaf hâlindedir: Çağdaşların en eskisi hiç kimseyi isimlendirmez ve "Bahrî memlüklerden biri" der; İbn Vâsıl Baybars'ı isimlendirir; İbn Kesîr ise Aybek et-Türkmânî'yi isimlendirir ve Baybars'ı omza vuran sonraki bir kişi kılar. Bir haber en özel ayrıntılarında ıstıraba düştüğünde, üzerine suçlama bina edilmez.</p>
+
+    <h3>İkinci faraziye: Öldürme fiilinin Memlük emirlerinden bir topluluk tarafından işlenmesi</h3>
+    <p>Kesin darbeyi bizzat kimin indirdiğinin kesin olarak belirlenmemesiyle birlikte. Bu faraziye, bizzat kaynakların lafzının taşıyabileceğine daha yakındır.</p>
+
+    <h3>Üçüncü faraziye: İsimlerin ve ayrıntıların tayininin sonraki dönem anlatı eklerinden olması</h3>
+    <p>Yani Baybars, Kalavun ve Aktay'ın isimlendirilmesi, konuşmanın ayrıntısı, kılıç ve mumlar tasviri, Memlük devletinin kuruluşundan sonra, saltanatın onlara geçişini açıklamak için oluşmuş eklerdendir. Bu faraziyeyi iki husus güçlendirir: Çağdaşların en eskilerinin, isimlendirmeden en uzak kaynaklar olması; ve bizzat maktulün, kendisine vuran hakkında sorulduğunda hiç kimseyi belirlemeyip "Hayır, vallahi ancak Bahriyye" demesi.</p>
+  </div>
+
+  <div class="final-verdict" id="verdict">
+    <h2>Sonuç ve Nihaî Hüküm</h2>
+    <p>Burada, birbirine karıştırılması caiz olmayan iki hususu ayırmak gerekir:</p>
+    <p><b>Birincisi: umumî ve müşahede edilmiş hadise.</b> Bu, Turan Şah'ın 648 H. yılında ordugâhta öldürülmesi, Mısır'daki Eyyûbî devletinin yıkılması ve Memlük devletinin kurulmasıdır. Buna koca bir ordu şahit olmuş ve ardından bölgenin çehresini değiştiren siyasî sonuçlar doğmuştur; dolayısıyla bu, isnadla değil, istifâza ve müşahede edilen neticeleriyle sabittir.</p>
+    <p><b>İkincisi: suçlamanın üzerine bina edildiği hususî ayrıntı.</b> Yani darbeyi kendi eliyle kimin indirdiği, kimin neyi niyet ettiği ve çadırda ne söylendiği. Bu ise ancak muttasıl bir isnad ve âdil şahitlerin tanıklığıyla sabit olur ki bu olayda o, <b>tamamen mevcut değildir</b>. Ne isnad vardır, ne taraf tutmayan âdil bir şahit, ne de maddî bir delil; hazır bulunan yegâne şahit ise onuncu ölçütümüzle rivayeti düşen Haçlı bir düşmandır.</p>
+    <p>Buna göre Turan Şah'ın öldürülmesinin tek başına ve isnadı belgelenmiş biçimde ez-Zâhir Baybars'a nispeti, <b>bu metodolojide gereken ölçüte göre sabit olmamıştır</b>. Aksine, isnadsız olarak nakledilegelen kaynaklar ilk darbeyi bizzat kimin indirdiği hususunda üç ayrı görüşle ihtilaf hâlindedir; ittifak ettikleri miktar ise Turan Şah'ın Bahrî memlüklerden bir topluluğun elinde öldürüldüğüdür.</p>
+    <p>Bir haberin kabul edilmesi için, özellikle de bir Müslümanın yahut herhangi bir insanın öldürme gibi bir suçla mahkûm edilmesi için, şer'î, örfî ve hukukî şartları eksiksiz taşıması gerekir; bu meselede ise böyle bir durum mevcut değildir.</p>
+    <p>"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." (Hucurât Suresi 49:6). Bir kıraatte de: "iyice sağlam olun (fe-tesebbetû)."</p>
+  </div>
+
+</main>
+
+
+<footer>
+  <p class="meta">© Kuffo Alsinatakum. Tüm araştırmalar gözden geçirilmekte ve sürekli güncellenmektedir.</p>
+</footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox(event)">×</button>
+  <div class="lb-tools">
+    <button onclick="zoomLightbox(event, 0.25)" title="Yakınlaştır">+</button>
+    <button onclick="zoomLightbox(event, -0.25)" title="Uzaklaştır">−</button>
+    <button onclick="downloadLightboxImage(event)" title="Görseli kaydet">⭳</button>
+  </div>
+  <div class="lb-img-wrap" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script>
+  let lbZoom = 1;
+  function openLightbox(src, isIsnad){
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    lbZoom = 1;
+    img.style.transform = 'scale(1)';
+    lb.classList.toggle('with-tools', !!isIsnad);
+    lb.classList.add('open');
+  }
+  function closeLightbox(e){
+    if(e) e.stopPropagation();
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  function zoomLightbox(e, delta){
+    e.stopPropagation();
+    lbZoom = Math.min(4, Math.max(0.5, lbZoom + delta));
+    document.getElementById('lightbox-img').style.transform = `scale(${lbZoom})`;
+  }
+  function downloadLightboxImage(e){
+    e.stopPropagation();
+    const src = document.getElementById('lightbox-img').src;
+    const a = document.createElement('a');
+    a.href = src;
+    a.download = src.split('/').pop() || 'isnad-tree.jpg';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  (function(){
+    const counterEl = document.getElementById('visitorCount');
+    if(!counterEl) return;
+    const namespace = 'kuffo-alsinatakum-github-io';
+    const key = 'site-visits';
+    fetch(`https://countapi.mileshilliard.com/api/v1/hit/${namespace}_${key}`)
+      .then(res => res.json())
+      .then(data => {
+        if(data && typeof data.value === 'number'){
+          counterEl.textContent = data.value.toLocaleString();
+        } else {
+          counterEl.textContent = '···';
+        }
+      })
+      .catch(() => { counterEl.textContent = '···'; });
+  })();
+</script>
+
+</body>
+</html>
