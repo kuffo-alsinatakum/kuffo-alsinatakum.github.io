@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="tr" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الظاهر ركن الدين بيبرس البندقداري رحمه الله | كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</title>
+<title>ez-Zâhir Rükneddin Baybars el-Bunduktârî, Allah ona rahmet etsin | Kuffo Alsinatakum</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0; background:var(--parchment); color:var(--ink);
-    font-family:'Amiri','Lora',serif; line-height:1.85; -webkit-font-smoothing:antialiased;
+    font-family:'Lora','Amiri',serif; line-height:1.85; -webkit-font-smoothing:antialiased;
     background-image:
       radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
       radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
@@ -39,8 +39,8 @@
   }
   .topbar .brandmark{
     grid-column:2; display:flex; align-items:center; justify-content:center; gap:10px;
-    color:var(--gold); font-family:'Amiri',serif; font-weight:700; font-size:1.18rem;
-    letter-spacing:0.015em; text-shadow:0 1px 8px rgba(201,162,39,0.35); white-space:nowrap;
+    color:var(--gold); font-family:'Lora',serif; font-style:italic; font-weight:600; font-size:1.05rem;
+    letter-spacing:0.015em; text-shadow:0 1px 8px rgba(201,162,39,0.35); white-space:normal; text-align:center; max-width:420px;
   }
   .topbar .brandmark::before, .topbar .brandmark::after{content:"❊"; font-size:0.7rem; color:rgba(201,162,39,0.6); flex-shrink:0;}
   .topbar-left{grid-column:1; justify-content:flex-start;}
@@ -52,16 +52,9 @@
   }
   .langswitch{display:flex; gap:6px;}
   .langswitch button, .langswitch a{
-    background:none;
-    border:1px solid rgba(245,239,224,0.3);
-    color:rgba(245,239,224,0.75);
-    font-size:0.78rem;
-    padding:3px 10px;
-    border-radius:14px;
-    cursor:pointer;
-    font-family:inherit;
-    text-decoration:none;
-    display:inline-block;
+    background:none; border:1px solid rgba(245,239,224,0.3); color:rgba(245,239,224,0.75);
+    font-size:0.78rem; padding:3px 10px; border-radius:14px; cursor:pointer; font-family:inherit;
+    text-decoration:none; display:inline-block;
   }
   .langswitch button:disabled{opacity:0.4; cursor:not-allowed;}
   .langswitch .active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
@@ -89,7 +82,7 @@
     display:inline-flex; align-items:center; gap:7px; color:var(--gold);
     border-inline-end:1px solid rgba(245,239,224,0.25); margin-inline-end:6px; font-weight:600;
   }
-  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0; transform:scaleX(-1);}
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0;}
   @media (max-width:700px){
     .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
     .navbar a{padding:12px 12px; font-size:0.84rem;}
@@ -100,7 +93,7 @@
   .breadcrumb a{color:var(--copper); text-decoration:underline;}
 
   header.page-hero{max-width:var(--max-w-wide); margin:0 auto; padding:26px 24px 22px; text-align:center;}
-  h1.page-title{font-size:clamp(1.8rem, 4.5vw, 2.6rem); margin:0; color:var(--olive-deep); font-weight:700;}
+  h1.page-title{font-size:clamp(1.8rem, 4.5vw, 2.6rem); margin:0; color:var(--olive-deep); font-weight:700; font-family:'Amiri',serif;}
   p.page-subtitle{max-width:var(--max-w); margin:14px auto 0; color:var(--copper); font-size:1rem;}
   p.figure-dates{max-width:var(--max-w); margin:6px auto 0; color:var(--copper); font-size:0.95rem; font-weight:600;}
 
@@ -129,7 +122,6 @@
 
   main{max-width:var(--max-w-wide); margin:0 auto; padding:0 24px 50px;}
 
-  /* ===== Figure bio card ===== */
   .bio-card{
     background:#fff; border:1px solid var(--line); border-radius:8px;
     padding:28px 30px; box-shadow:0 4px 16px rgba(27,58,47,0.06); margin-bottom:36px;
@@ -143,7 +135,6 @@
     color:var(--copper); padding:3px 10px; border-radius:10px; border:1px dashed var(--copper);
   }
 
-  /* ===== Claims list (LEVEL 2: distinct from figure cards) ===== */
   .section-heading{text-align:center; margin:0 0 26px;}
   .section-heading h2{font-size:1.4rem; color:var(--olive-deep); margin:0 0 8px; font-weight:700;}
   .section-heading p{color:var(--copper); max-width:var(--max-w); margin:0 auto; font-size:0.95rem;}
@@ -157,8 +148,7 @@
     text-decoration:none;
     transition:background 0.2s ease, transform 0.2s ease, padding-inline-start 0.2s ease;
   }
-  .claim-row:hover{background:#1a3a28; transform:translateX(-4px); text-decoration:none;}
-  html[dir="rtl"] .claim-row:hover{transform:translateX(4px);}
+  .claim-row:hover{background:#1a3a28; transform:translateX(4px); text-decoration:none;}
   .claim-row .claim-icon{
     flex-shrink:0; width:34px; height:34px; border-radius:50%;
     background:rgba(201,162,39,0.14); border:1.5px solid var(--gold);
@@ -167,7 +157,7 @@
   .claim-row .claim-icon svg{width:17px; height:17px;}
   .claim-row .claim-text{flex:1; font-size:1rem; font-weight:600;}
   .claim-row .claim-arrow{flex-shrink:0; color:var(--gold); opacity:0.75;}
-  .claim-row .claim-arrow svg{width:18px; height:18px; transform:scaleX(-1);}
+  .claim-row .claim-arrow svg{width:18px; height:18px;}
 
   footer{background:var(--olive-deep); color:rgba(245,239,224,0.75); padding:36px 24px 24px; margin-top:40px; text-align:center; font-size:0.88rem;}
   footer .meta{opacity:0.7;}
@@ -184,16 +174,16 @@
 
 <div class="topbar">
   <div class="topbar-left"></div>
-  <div class="brandmark">كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</div>
+  <div class="brandmark">Onlar Hakkında Dilinizi Tutun</div>
   <div class="topbar-right">
     <div class="langswitch">
-      <button class="active">العربية</button>
-      <a href="../en/figures/baybars.html">English</a>
-      <a href="../tr/figures/baybars.html">Türkçe</a>
+      <a href="../../figures/baybars.html">العربية</a>
+      <a href="../../en/figures/baybars.html">English</a>
+      <span class="active">Türkçe</span>
     </div>
     <div class="visitor-counter">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-      <span>زوار الموقع:</span>
+      <span>Site ziyaretçileri:</span>
       <span id="visitorCount">···</span>
     </div>
   </div>
@@ -202,36 +192,36 @@
 <nav class="navbar">
   <a href="../index.html" class="back-link">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-    <span>عودة للرئيسية</span>
+    <span>Ana Sayfa</span>
   </a>
-  <a href="../about/index.html">الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ</a>
-  <a href="../terms/index.html">مُصْطَلَحَاتٌ هَامَّةٌ</a>
-  <a href="../standards/index.html">الْمَعَايِيرُ وَالضَّوَابِطُ</a>
-  <a href="index.html" class="active-page">الشَّخْصِيَّاتُ</a>
-  <a href="../index.html#contact">تَوَاصَلْ مَعَنَا</a>
+  <a href="../index.html">Bu Sitenin Amacı</a>
+  <a href="../terms/index.html">Önemli Terimler</a>
+  <a href="../standards/index.html">Standartlar ve Ölçütler</a>
+  <a href="index.html" class="active-page">Şahsiyetler</a>
+  <a href="../contact/index.html">Bize Ulaşın</a>
 </nav>
 
 <div class="verse-marquee" aria-hidden="true">
   <div class="verse-marquee-track">
-    <span class="v">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ (سورة الحجرات: ٦)</span>
+    <span class="v">"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." (Hucurât Suresi 49:6)</span>
     <span class="sep">•</span>
-    <span class="v">﴿لَّوْلَا إِذْ سَمِعْتُمُوهُ ظَنَّ الْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بِأَنفُسِهِمْ خَيْرًا وَقَالُوا هَـٰذَا إِفْكٌ مُّبِينٌ﴾ (سورة النور: ١٢)</span>
+    <span class="v">"Bu iftirayı işittiğinizde, iman eden erkek ve kadınlar, kendi (din kardeş)leri hakkında iyi zan besleyip de, 'Bu, apaçık bir iftiradır' deselerdi ya!" (Nûr Suresi 24:12)</span>
     <span class="sep">•</span>
-    <span class="v">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ (سورة الحجرات: ٦)</span>
+    <span class="v">"Ey iman edenler! Size bir fasık bir haber getirirse, bilmeyerek bir topluluğa zarar verip yaptığınıza pişman olmamak için o haberin doğruluğunu araştırın." (Hucurât Suresi 49:6)</span>
     <span class="sep">•</span>
-    <span class="v">﴿لَّوْلَا إِذْ سَمِعْتُمُوهُ ظَنَّ الْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بِأَنفُسِهِمْ خَيْرًا وَقَالُوا هَـٰذَا إِفْكٌ مُّبِينٌ﴾ (سورة النور: ١٢)</span>
+    <span class="v">"Bu iftirayı işittiğinizde, iman eden erkek ve kadınlar, kendi (din kardeş)leri hakkında iyi zan besleyip de, 'Bu, apaçık bir iftiradır' deselerdi ya!" (Nûr Suresi 24:12)</span>
     <span class="sep">•</span>
   </div>
 </div>
 
 <p class="breadcrumb">
-  <a href="../index.html">الرئيسية</a> ← <a href="index.html">الشَّخْصِيَّاتُ</a> ← الظاهر ركن الدين بيبرس البندقداري رحمه الله
+  <a href="../index.html">Ana Sayfa</a> ← <a href="index.html">Şahsiyetler</a> ← ez-Zâhir Rükneddin Baybars el-Bunduktârî, Allah ona rahmet etsin
 </p>
 
 <header class="page-hero">
-  <h1 class="page-title">الظاهر ركن الدين بيبرس البندقداري رحمه الله</h1>
-  <p class="figure-dates">(٦٢٠ – ٦٧٦هـ / ١٢٢٣ – ١٢٧٧م)</p>
-  <p class="page-subtitle">أحد سلاطين الدولة المملوكية، قاهر المغول والصليبيين، ومحيي الخلافة العباسية بالقاهرة. تناولته الروايات التاريخية باتهاماتٍ نُقلت دون إسنادٍ متصلٍ ولا بيّنةٍ شرعية.</p>
+  <h1 class="page-title">ez-Zâhir Rükneddin Baybars el-Bunduktârî, Allah ona rahmet etsin</h1>
+  <p class="figure-dates">(620 &ndash; 676 H. / 1223 &ndash; 1277 M.)</p>
+  <p class="page-subtitle">Memlük devletinin sultanlarından biri, Moğolları ve Haçlıları bozguna uğratan kumandan ve Kahire'de Abbâsî hilafetini ihya eden kişi. Tarihî rivayetler, muttasıl bir isnad ve şer'î bir beyyine olmaksızın nakledilen ithamlarla onu konu edinmiştir.</p>
 </header>
 
 <div class="ornament" aria-hidden="true">
@@ -245,26 +235,26 @@
 <main>
 
   <div class="bio-card">
-    <p>هو السلطان الملك الظاهر ركن الدين بيبرس البندقداري، من سلاطين الدولة المملوكية، أصله من قبائل القِفْجَاق شمال البحر الأسود، سُبي صغيرًا وبيع مملوكًا، ونُسب إلى الأمير علاء الدين أيدكين البُنْدُقْداري الذي تربّى في خدمته. ارتقى بالكفاءة العسكرية حتى صار من كبار قادة المماليك البحرية، ثم تولّى السلطنة سنة ٦٥٨هـ.</p>
-    <p><b>أبرز إنجازاته الثابتة:</b></p>
+    <p>O, Memlük devleti sultanlarından Sultan el-Melikü'z-Zâhir Rükneddin Baybars el-Bunduktârî'dir. Aslen Karadeniz'in kuzeyindeki Kıpçak kabilelerindendir; küçük yaşta esir alınıp memlük olarak satılmış ve hizmetinde yetiştiği Emir Alâeddin Aydekin el-Bunduktârî'ye nispet edilmiştir. Askerî kabiliyetiyle yükselerek Bahrî memlüklerin büyük kumandanlarından biri olmuş, ardından 658 H. yılında saltanata geçmiştir.</p>
+    <p><b>En önemli sabit başarıları:</b></p>
     <ul>
-      <li>بلاؤه في معركة المنصورة سنة ٦٤٨هـ ضد الحملة الصليبية السابعة بقيادة لويس التاسع ملك فرنسا، وكان من أبرز قادة المعركة التي انتهت بهزيمة الحملة وأسر ملكها.</li>
-      <li>قيادته مقدّمة الجيش في معركة عين جالوت سنة ٦٥٨هـ التي كسرت أسطورة عدم قابلية المغول للهزيمة، وأوقفت زحفهم نحو مصر والحجاز.</li>
-      <li>تصدّيه المتصل لغارات المغول بعد عين جالوت، وتأمين حدود الشام والجزيرة، ومن أبرز ذلك انتصاره في معركة الأبلستين سنة ٦٧٥هـ.</li>
-      <li>إحياء الخلافة العباسية في القاهرة سنة ٦٥٩هـ بعد سقوط بغداد، فبايع الخليفة المستنصر بالله، فأعاد للأمة رمزها الجامع بعد انقطاعه.</li>
-      <li>فتوحه المتوالية على الإمارات الصليبية في الشام: قيسارية وأرسوف وصفد ويافا والشقيف، ثم أنطاكية سنة ٦٦٦هـ، وحصن الأكراد سنة ٦٦٩هـ، فقلّص الوجود الصليبي تقليصًا حاسمًا.</li>
-      <li>إخضاع حصون الإسماعيلية (الحشاشين) في جبال الشام وإنهاء خطرهم.</li>
-      <li>تعيينه قضاةً أربعة من المذاهب الأربعة سنة ٦٦٣هـ، وهو تنظيم قضائي استمر العمل به قرونًا بعده.</li>
-      <li>إنشاء نظام البريد المنتظم بين القاهرة ودمشق، وتجديد الأسطول، وترميم القلاع والحصون والجسور، وحفر الترع.</li>
-      <li>عمارته الدينية والعلمية: الجامع الظاهري بالقاهرة، والمدرسة الظاهرية بالقاهرة ودمشق.</li>
-      <li>عنايته بالحرمين وطريق الحج: تأمين الطريق، وكسوة الكعبة، وإصلاحات في الحرمين الشريفين.</li>
+      <li>648 H. yılında, Fransa kralı IX. Louis'nin komutasındaki Yedinci Haçlı Seferi'ne karşı Mansûre Savaşı'ndaki üstün gayreti; seferin bozguna uğraması ve kralının esir alınmasıyla sonuçlanan bu savaşın önde gelen kumandanlarındandı.</li>
+      <li>658 H. yılında, Moğolların yenilmezliği efsanesini kıran ve onların Mısır ile Hicaz'a doğru ilerleyişini durduran Ayn Câlût Savaşı'nda ordunun öncü kuvvetlerine kumanda etmesi.</li>
+      <li>Ayn Câlût'tan sonra Moğol akınlarına karşı kesintisiz mukavemeti, Şam ve Cezîre sınırlarının emniyete alınması ve bunların en önemlisi olarak 675 H. yılında Elbistan Savaşı'ndaki zaferi.</li>
+      <li>Bağdat'ın düşüşünün ardından 659 H. yılında Kahire'de Abbâsî hilafetini ihya etmesi; halife el-Müstansır Billâh'a biat ederek ümmete, kesintiye uğrayan birleştirici sembolünü geri kazandırması.</li>
+      <li>Şam'daki Haçlı beyliklerine karşı ardı ardına fetihleri: Kayseriyye, Arsûf, Safed, Yafa ve Şakîf; ardından 666 H. yılında Antakya ve 669 H. yılında Hısnülekrâd, böylece Haçlı varlığını kesin biçimde daraltması.</li>
+      <li>Şam dağlarındaki İsmâilî (Haşîşî) kalelerini itaat altına alması ve onların tehlikesine son vermesi.</li>
+      <li>663 H. yılında dört mezhepten dört kadı tayin etmesi; bu, kendisinden sonra asırlarca yürürlükte kalan bir yargı düzenlemesidir.</li>
+      <li>Kahire ile Şam arasında düzenli berîd (posta) teşkilatının kurulması, donanmanın yenilenmesi, kalelerin, hisarların ve köprülerin onarılması ve kanalların açılması.</li>
+      <li>Dinî ve ilmî imar faaliyetleri: Kahire'de Zâhirî Camii, Kahire ve Şam'da Zâhiriyye Medresesi.</li>
+      <li>Harameyn'e ve hac yoluna gösterdiği ihtimam: yolun emniyete alınması, Kâbe örtüsü ve Harameyn-i Şerîfeyn'deki tamir faaliyetleri.</li>
     </ul>
-    <p>توفي رحمه الله بدمشق سنة ٦٧٦هـ ودُفن بها، تاركًا دولةً مستقرة قويةً واجهت المغول والصليبيين في آنٍ واحد، وبنيةً إدارية وعسكرية ظلّت عماد الدولة المملوكية بعده.</p>
+    <p>Allah ona rahmet etsin, 676 H. yılında Şam'da vefat etmiş ve orada defnedilmiştir. Ardında, aynı anda hem Moğollarla hem Haçlılarla karşılaşmış istikrarlı ve güçlü bir devlet ile kendisinden sonra da Memlük devletinin dayanağı olmayı sürdüren idarî ve askerî bir yapı bırakmıştır.</p>
   </div>
 
   <div class="section-heading">
-    <h2>الزَّعْمُ المتعلقة بهذه الشخصية</h2>
-    <p>كل زعمٍ أدناه يُحلَّل في صفحة مستقلة وفق المعايير والضوابط العشرة المعتمدة في الموقع.</p>
+    <h2>Bu Şahsiyetle İlgili İddialar</h2>
+    <p>Aşağıdaki her iddia, sitede benimsenen on standart ve ölçüte göre ayrı bir sayfada incelenir.</p>
   </div>
 
   <div class="claims-list">
@@ -273,7 +263,7 @@
       <span class="claim-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
       </span>
-      <span class="claim-text">تهمة قتل السلطان المظفر قطز</span>
+      <span class="claim-text">Sultan el-Muzaffer Kutuz'u Öldürme Suçlaması</span>
       <span class="claim-arrow">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </span>
@@ -283,7 +273,7 @@
       <span class="claim-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
       </span>
-      <span class="claim-text">تهمة قتل السلطان المعظم توران شاه</span>
+      <span class="claim-text">Sultan el-Muazzam Turan Şah'ı Öldürme Suçlaması</span>
       <span class="claim-arrow">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </span>
@@ -294,7 +284,7 @@
 </main>
 
 <footer>
-  <p class="meta">© كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ. جميع الأبحاث مرجعة ومحدّثة باستمرار.</p>
+  <p class="meta">© Kuffo Alsinatakum. Tüm araştırmalar gözden geçirilmekte ve sürekli güncellenmektedir.</p>
 </footer>
 
 <script>
