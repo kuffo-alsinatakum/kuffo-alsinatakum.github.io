@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Accusation of Killing Sultan al-Muzaffar Qutuz | Al-Zahir Baybars | Kuffo Alsinatakum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2118;
+    --parchment:#F5EFE0;
+    --parchment-deep:#ECE2C8;
+    --olive:#1B3A2F;
+    --olive-deep:#12281F;
+    --copper:#8B5A2B;
+    --gold:#C9A227;
+    --line:rgba(42,33,24,0.18);
+    --max-w:760px;
+    --max-w-wide:980px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--parchment); color:var(--ink);
+    font-family:'Lora','Amiri',serif; line-height:1.85; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(139,90,43,0.05) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(27,58,47,0.05) 0, transparent 45%);
+  }
+  a{color:var(--copper); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .topbar{
+    background:var(--olive-deep); color:var(--parchment); padding:10px 24px;
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px;
+    font-size:0.85rem; border-bottom:1px solid rgba(201,162,39,0.25);
+  }
+  .topbar .brandmark{
+    grid-column:2; display:flex; align-items:center; justify-content:center; gap:10px;
+    color:var(--gold); font-family:'Lora',serif; font-style:italic; font-weight:600; font-size:1.05rem;
+    letter-spacing:0.015em; text-shadow:0 1px 8px rgba(201,162,39,0.35); white-space:normal; text-align:center; max-width:420px;
+  }
+  .topbar .brandmark::before, .topbar .brandmark::after{content:"❊"; font-size:0.7rem; color:rgba(201,162,39,0.6); flex-shrink:0;}
+  .topbar-left{grid-column:1; justify-content:flex-start;}
+  .topbar-right{grid-column:3; justify-content:flex-end; display:flex; align-items:center; gap:18px;}
+  @media (max-width:760px){
+    .topbar{grid-template-columns:1fr; text-align:center;}
+    .topbar-left, .topbar-right, .topbar .brandmark{grid-column:1; justify-content:center;}
+    .topbar .brandmark{font-size:1.02rem; order:-1; margin-bottom:6px;}
+  }
+  .langswitch{display:flex; gap:6px;}
+  .langswitch button, .langswitch a{
+    background:none; border:1px solid rgba(245,239,224,0.3); color:rgba(245,239,224,0.75);
+    font-size:0.78rem; padding:3px 10px; border-radius:14px; cursor:pointer; font-family:inherit;
+    text-decoration:none; display:inline-block;
+  }
+  .langswitch button:disabled{opacity:0.4; cursor:not-allowed;}
+  .langswitch .active{background:var(--gold); color:var(--olive-deep); border-color:var(--gold); font-weight:600;}
+  .visitor-counter{display:flex; align-items:center; gap:6px; color:rgba(245,239,224,0.75); font-size:0.8rem; white-space:nowrap;}
+  .visitor-counter svg{width:15px; height:15px; flex-shrink:0; color:var(--gold);}
+  .visitor-counter #visitorCount{color:var(--gold); font-weight:700;}
+  @media (max-width:600px){
+    .topbar{flex-wrap:wrap; gap:8px;}
+    .topbar-right{flex-wrap:wrap; gap:10px;}
+    .visitor-counter{font-size:0.74rem;}
+  }
+
+  .navbar{
+    position:sticky; top:0; z-index:50; background:var(--olive); border-bottom:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; gap:6px; padding:0 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12); flex-wrap:wrap;
+  }
+  .navbar a{
+    color:rgba(245,239,224,0.85); font-size:0.92rem; padding:13px 18px; display:inline-block;
+    border-bottom:3px solid transparent; transition:color 0.2s, border-color 0.2s, background 0.2s; white-space:nowrap;
+  }
+  .navbar a:hover{color:var(--gold); background:rgba(245,239,224,0.06); text-decoration:none;}
+  .navbar a.active-page{color:var(--gold); border-bottom-color:var(--gold); font-weight:600;}
+  .navbar a.back-link{
+    display:inline-flex; align-items:center; gap:7px; color:var(--gold);
+    border-inline-end:1px solid rgba(245,239,224,0.25); margin-inline-end:6px; font-weight:600;
+  }
+  .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0;}
+  @media (max-width:700px){
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar a{padding:12px 12px; font-size:0.84rem;}
+    .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
+  }
+
+  .breadcrumb{max-width:var(--max-w-wide); margin:18px auto 0; padding:0 24px; font-size:0.85rem; color:var(--copper);}
+  .breadcrumb a{color:var(--copper); text-decoration:underline;}
+
+  header.page-hero{max-width:var(--max-w-wide); margin:0 auto; padding:26px 24px 18px; text-align:center;}
+  h1.page-title{font-size:clamp(1.6rem, 4vw, 2.3rem); margin:0; color:var(--olive-deep); font-weight:700; font-family:'Amiri',serif;}
+  p.page-subtitle{max-width:var(--max-w); margin:14px auto 0; color:var(--copper); font-size:1rem;}
+
+  .claim-statement{
+    max-width:var(--max-w); margin:18px auto 0; background:var(--parchment-deep);
+    border-inline-start:4px solid var(--gold); border-radius:6px; padding:14px 18px;
+    font-size:0.98rem; color:var(--ink); text-align:left;
+  }
+  .claim-statement b{color:var(--olive-deep);}
+
+  .ornament{display:flex; align-items:center; justify-content:center; gap:14px; margin:8px auto 30px; max-width:var(--max-w); padding:0 24px; color:var(--copper); opacity:0.85;}
+  .ornament .line{flex:1; height:1px; background:linear-gradient(to right, transparent, var(--copper) 50%, transparent);}
+  .ornament svg{width:24px; height:24px; flex-shrink:0;}
+
+  .verse-marquee{
+    background:linear-gradient(90deg, var(--olive-deep) 0%, #1a3a28 50%, var(--olive-deep) 100%);
+    border-top:2px solid var(--gold); overflow:hidden; white-space:nowrap; padding:14px 0; position:relative;
+  }
+  .verse-marquee::before, .verse-marquee::after{content:""; position:absolute; top:0; bottom:0; width:60px; z-index:2; pointer-events:none;}
+  .verse-marquee::before{left:0; background:linear-gradient(to right, var(--olive-deep), transparent);}
+  .verse-marquee::after{right:0; background:linear-gradient(to left, var(--olive-deep), transparent);}
+  .verse-marquee-track{display:inline-flex; align-items:center; animation:marquee-scroll 38s linear infinite; will-change:transform;}
+  .verse-marquee-track span.v{
+    display:inline-block; padding:0 48px; font-family:'Amiri',serif; font-size:1.15rem; font-weight:700;
+    background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227); background-size:200% auto;
+    -webkit-background-clip:text; background-clip:text; color:transparent; animation:shimmer-gold 4s linear infinite;
+  }
+  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
+  @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
+  @media (max-width:600px){.verse-marquee-track span.v{font-size:0.95rem; padding:0 28px;}}
+  @media (prefers-reduced-motion: reduce){.verse-marquee-track{animation:none;}}
+
+  main{max-width:var(--max-w-wide); margin:0 auto; padding:0 24px 50px;}
+
+  .toc-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:22px 26px; margin-bottom:32px; box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .toc-card h2{margin:0 0 12px; font-size:1.1rem; color:var(--olive-deep); font-weight:700;}
+  .toc-card ol{margin:0; padding-inline-start:22px; columns:2; column-gap:28px;}
+  .toc-card li{margin-bottom:8px; font-size:0.94rem; break-inside:avoid;}
+  @media (max-width:640px){.toc-card ol{columns:1;}}
+
+  .page-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:32px 30px; box-shadow:0 4px 16px rgba(27,58,47,0.06); margin-bottom:28px;
+  }
+  .page-card h2{margin:0 0 16px; font-size:1.3rem; color:var(--olive-deep); font-weight:700; scroll-margin-top:80px;}
+  .page-card h3{margin:22px 0 10px; font-size:1.08rem; color:var(--olive-deep); font-weight:700;}
+  .page-card p{margin:0 0 16px; font-size:1.04rem;}
+  .page-card p:last-child{margin-bottom:0;}
+  .page-card ul, .page-card ol.content-list{margin:0 0 16px; padding-inline-start:24px;}
+  .page-card li{margin-bottom:6px;}
+
+  blockquote.src-quote{
+    margin:0 0 18px; padding:12px 18px; background:var(--parchment-deep);
+    border-inline-start:3px solid var(--copper); border-radius:6px; font-size:0.98rem; color:var(--ink);
+  }
+  blockquote.src-quote cite{display:block; margin-top:8px; font-size:0.82rem; color:var(--copper); font-style:normal;}
+
+  table.data-table{width:100%; border-collapse:collapse; margin:0 0 18px; font-size:0.94rem;}
+  table.data-table th, table.data-table td{border:1px solid var(--line); padding:9px 12px; text-align:left;}
+  table.data-table th{background:var(--parchment-deep); color:var(--olive-deep); font-weight:700;}
+  table.data-table tbody tr:nth-child(even){background:rgba(236,226,200,0.35);}
+
+  .footnote{font-size:0.82rem; color:var(--copper); border-top:1px dashed var(--line); padding-top:10px; margin-top:10px;}
+
+  .narrator-block{
+    background:var(--parchment-deep); border-radius:8px; border-inline-start:4px solid var(--olive);
+    padding:18px 22px; margin:0 0 18px;
+  }
+  .narrator-block h3{margin:0 0 12px !important; font-size:1.05rem; color:var(--olive-deep); font-weight:700;}
+  .narrator-block p{margin:0 0 10px; font-size:0.98rem;}
+  .narrator-block p:last-child{margin-bottom:0;}
+  .narrator-block p b{color:var(--olive-deep);}
+
+  .no-isnad-notice{
+    background:var(--parchment-deep); border-inline-start:4px solid var(--copper);
+    border-radius:6px; padding:16px 20px; margin:0 0 18px;
+  }
+  .no-isnad-notice p{margin:0; font-size:0.98rem; color:var(--ink);}
+  .no-isnad-notice p b{color:var(--olive-deep);}
+
+  .fig-gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin:0 0 8px;}
+  .fig-item{text-align:center;}
+  .fig-item img{
+    width:100%; height:auto; border-radius:8px; border:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(27,58,47,0.1); cursor:zoom-in; transition:box-shadow 0.2s ease;
+  }
+  .fig-item img:hover{box-shadow:0 8px 24px rgba(27,58,47,0.18);}
+  .fig-item figcaption{margin-top:8px; font-size:0.85rem; color:var(--copper);}
+
+  #lightbox{
+    display:none; position:fixed; inset:0; background:rgba(18,40,31,0.92); z-index:200;
+    align-items:center; justify-content:center; padding:30px; cursor:zoom-out;
+  }
+  #lightbox.open{display:flex;}
+  #lightbox .lb-img-wrap{overflow:auto; max-width:95%; max-height:90vh; cursor:default;}
+  #lightbox img{
+    max-width:95%; max-height:90vh; border-radius:6px; box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    transition:transform 0.15s ease; transform-origin:center center;
+  }
+  #lightbox .lb-close{
+    position:absolute; top:18px; left:24px; color:var(--gold); font-size:2rem;
+    line-height:1; background:none; border:none; cursor:pointer; z-index:2;
+  }
+  #lightbox .lb-tools{
+    display:none; position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+    gap:10px; z-index:2; background:rgba(18,40,31,0.85); border:1px solid var(--gold);
+    border-radius:30px; padding:8px 14px;
+  }
+  #lightbox.with-tools .lb-tools{display:flex;}
+  #lightbox .lb-tools button{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--gold);
+    background:var(--olive-deep); color:var(--gold); font-size:1.1rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; line-height:1;
+  }
+  #lightbox .lb-tools button:hover{background:var(--gold); color:var(--olive-deep);}
+
+  .cascade{position:relative; padding-inline-start:42px;}
+  .cascade::before{
+    content:""; position:absolute; top:6px; bottom:6px; left:13px; width:7px;
+    background:linear-gradient(to bottom, var(--olive) 0%, var(--olive) 78%, var(--copper) 100%);
+    clip-path:polygon(0 0, 100% 0, 78% 100%, 22% 100%); border-radius:5px;
+  }
+  .stage{position:relative; margin-bottom:20px;}
+  .stage:last-child{margin-bottom:0;}
+  .stage .node{
+    position:absolute; left:-42px; top:24px; width:34px; height:34px; border-radius:50%;
+    background:var(--parchment); border:2.5px solid var(--olive); color:var(--olive-deep);
+    display:flex; align-items:center; justify-content:center; font-family:'Amiri',serif;
+    font-weight:700; font-size:1rem; z-index:2; box-shadow:0 0 0 5px var(--parchment);
+  }
+  .stage:nth-child(n+6) .node{border-color:var(--copper); color:var(--copper);}
+  .stage-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px; padding:18px 22px;
+    box-shadow:0 4px 16px rgba(27,58,47,0.06);
+  }
+  .stage-card .level-name{font-family:'Amiri',serif; font-size:1.05rem; color:var(--olive-deep); font-weight:700; margin:0 0 6px;}
+  .stage-card .verdict-line{font-size:0.94rem; margin:0 0 8px;}
+  .stage-card .verdict-line b{color:var(--olive-deep);}
+  .stage-card .pass{color:var(--olive-deep); font-weight:700;}
+  .stage-card .fail{color:var(--copper); font-weight:700;}
+
+  .final-verdict{
+    margin-top:36px; border-radius:8px; padding:26px 28px; text-align:center;
+    background:var(--olive-deep); color:var(--parchment); border:2px solid var(--gold);
+  }
+  .final-verdict h2{margin:0 0 10px; font-size:1.3rem; color:var(--gold);}
+  .final-verdict p{margin:0; max-width:var(--max-w); margin-inline:auto; opacity:0.92;}
+
+  .refs-list{margin:0; padding-inline-start:22px; font-size:0.92rem;}
+  .refs-list li{margin-bottom:10px;}
+
+  .placeholder-badge{
+    display:inline-block; margin-bottom:14px; font-size:0.72rem; background:var(--parchment-deep);
+    color:var(--copper); padding:3px 10px; border-radius:10px; border:1px dashed var(--copper);
+  }
+
+  footer{background:var(--olive-deep); color:rgba(245,239,224,0.75); padding:36px 24px 24px; margin-top:40px; text-align:center; font-size:0.88rem;}
+  footer .meta{opacity:0.7;}
+
+  @media (max-width:600px){
+    .page-card{padding:22px 18px;}
+    .toc-card{padding:18px 20px;}
+    header.page-hero{padding:20px 18px 16px;}
+    .cascade{padding-inline-start:34px;}
+    .stage .node{left:-34px; width:28px; height:28px; font-size:0.86rem;}
+    .stage-card{padding:14px 16px;}
+  }
+
+  .print-bar{text-align:center; margin:0 0 8px;}
+  .print-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--olive); color:var(--parchment); border:1px solid var(--gold);
+    border-radius:20px; padding:8px 20px; font-family:inherit; font-size:0.9rem; cursor:pointer;
+  }
+  .print-btn:hover{background:var(--olive-deep);}
+  .print-btn svg{width:16px; height:16px;}
+
+  @media print{
+    .topbar, .navbar, .verse-marquee, .breadcrumb, .print-bar, .ornament, footer, #lightbox, .toc-card{display:none !important;}
+    body{background:#fff; background-image:none;}
+    .page-card, .final-verdict, .narrator-block, .no-isnad-notice{box-shadow:none; border:1px solid #999;}
+    main{padding:0;}
+    a{color:var(--ink); text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left"></div>
+  <div class="brandmark">Restrain Your Tongues Concerning Them</div>
+  <div class="topbar-right">
+    <div class="langswitch">
+      <a href="../../figures/baybars-qutuz.html">العربية</a>
+      <span class="active">English</span>
+      <a href="../../tr/figures/baybars-qutuz.html">Türkçe</a>
+    </div>
+    <div class="visitor-counter">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>Site visitors:</span>
+      <span id="visitorCount">···</span>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar">
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="../index.html">The Purpose of This Site</a>
+  <a href="../terms/index.html">Key Terms</a>
+  <a href="../standards/index.html">Standards &amp; Criteria</a>
+  <a href="index.html" class="active-page">Figures</a>
+  <a href="../contact/index.html">Contact Us</a>
+</nav>
+
+<div class="verse-marquee" aria-hidden="true">
+  <div class="verse-marquee-track">
+    <span class="v">"O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful." (Surah Al-Hujurat 49:6)</span>
+    <span class="sep">•</span>
+    <span class="v">"Why, when you heard it, did not the believing men and believing women think good of one another and say, 'This is an obvious falsehood'?" (Surah An-Nur 24:12)</span>
+    <span class="sep">•</span>
+    <span class="v">"O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful." (Surah Al-Hujurat 49:6)</span>
+    <span class="sep">•</span>
+    <span class="v">"Why, when you heard it, did not the believing men and believing women think good of one another and say, 'This is an obvious falsehood'?" (Surah An-Nur 24:12)</span>
+    <span class="sep">•</span>
+  </div>
+</div>
+
+<p class="breadcrumb">
+  <a href="../index.html">Home</a> ← <a href="index.html">Figures</a> ← <a href="baybars.html">Al-Zahir Rukn al-Din Baybars al-Bunduqdari, may Allah have mercy on him</a> ← The Accusation of Killing Sultan al-Muzaffar Qutuz
+</p>
+
+<header class="page-hero">
+  <h1 class="page-title">The Accusation of Killing Sultan al-Muzaffar Qutuz</h1>
+  <p class="page-subtitle">Applying the ten standards and criteria adopted on this site to this particular claim.</p>
+  <div class="claim-statement">
+    <b>The claim as stated:</b> Amir Rukn al-Din Baybars al-Bunduqdari is accused of being the one who killed Sultan al-Malik al-Muzaffar Sayf al-Din Qutuz, after Qutuz returned victorious from the Battle of Ain Jalut (658 AH / 1260 CE), in the area between al-Ghazali (or al-Qarabi) and al-Salihiyya, following a dispute relating, as some narrations mention, to Baybars' share of the spoils or to the iqta (land grant) of Aleppo that he had been promised and that was not carried out.
+  </div>
+</header>
+
+<div class="print-bar">
+  <button class="print-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+    <span>Download Research as PDF</span>
+  </button>
+</div>
+
+<div class="ornament" aria-hidden="true">
+  <span class="line"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M12 2 L14 9 L21 9 L15.5 13.2 L17.5 20 L12 15.8 L6.5 20 L8.5 13.2 L3 9 L10 9 Z"/>
+  </svg>
+  <span class="line"></span>
+</div>
+
+<main>
+
+  <div class="toc-card">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#origin">Defining the Question at Issue</a></li>
+      <li><a href="#sources">Surveying and Critiquing the Sources for the Incident</a></li>
+      <li><a href="#chain">Chain of Transmission Analysis</a></li>
+      <li><a href="#analysis">Applying the Ten Standards and Criteria</a></li>
+      <li><a href="#hypotheses">Hypotheses and Their Discussion</a></li>
+      <li><a href="#verdict">Conclusion and Final Verdict</a></li>
+    </ol>
+  </div>
+
+  <div class="page-card" id="origin">
+    <h2>1. Defining the Question at Issue</h2>
+    <p>The incident under study is the accusation attached to Amir Rukn al-Din Baybars al-Bunduqdari that he was the one who killed Sultan al-Malik al-Muzaffar Sayf al-Din Qutuz, after Qutuz returned victorious from the Battle of Ain Jalut (658 AH / 1260 CE), in the area between al-Ghazali (or al-Qarabi) and al-Salihiyya, following a dispute relating, as some narrations mention, to Baybars' share of the spoils or to the iqta (land grant) of Aleppo that he had been promised and that was not carried out.</p>
+    <p>Baybars assumed the sultanate immediately after this incident, so the suspicion of a direct interest is among the clearest reasons calling for a precise investigation into whether the killing is soundly attributable to him personally, as distinct from the other amirs who acted in concert with him.</p>
+  </div>
+
+  <div class="page-card" id="sources">
+    <h2>2. Surveying and Critiquing the Sources for the Incident</h2>
+    <p>The incident is mentioned in the Mamluk history books, by contemporaries and by later authors alike, and all of them relate it as unattributed narrative with no connected chain of transmission. What follows are their texts and the standing of each source:</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>Muhyi al-Din Ibn Abd al-Zahir (d. 692 AH) in <i>al-Rawd al-Zahir fi Sirat al-Malik al-Zahir</i></h3>
+    <p>He headed the chancery (diwan al-insha) for Sultan Baybars himself and was his panegyrist. He was a contemporary of the incident, but he had an evident interest in clearing the man he praised or in lightening the accusation against him, so he is <b>a witness impugned by bias</b>.</p>
+    <p>The text attributed to him is that Baybars "agreed with the amirs of the army to kill Qutuz, and they killed him," which is <b>in the plural form</b> in both the agreement and the act. It therefore does not establish that Baybars alone struck the fatal blow; it describes a collective act in which he took part.</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>Ibn Shaddad (d. 684 AH) in <i>Tarikh al-Malik al-Zahir</i></h3>
+    <p>A contemporary of the event. His exact wording needs to be traced carefully before any reliance is placed upon it.</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>Ibn Kathir (d. 774 AH) in <i>al-Bidaya wa al-Nihaya</i></h3>
+    <p>His text: "That was because, when Sultan al-Malik al-Muzaffar Qutuz returned with the armies heading for the lands of Egypt and reached the place between al-Gharabi and al-Salihiyya, <b>the amirs set upon him and killed him there</b>. He had been a righteous man who prayed much in congregation, and who did not indulge in drink nor in anything else that kings indulge in."</p>
+    <p>The wording is therefore <b>in the plural</b>, and it <b>names neither Baybars nor anyone else</b>, nor does it specify who delivered the blow. This comes from a later scholar known for his care in verification, and even so he added nothing beyond what the original report can bear.</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>Ibn Aybak al-Dawadari</h3>
+    <p>Relatively later than the event. He mentions a different motive, relating to the flight of some of the mamluks on the day of Ain Jalut and Qutuz's rebuke of them, <b>with no connected chain</b>. The divergence over the motive across the sources is a further indication that the details are not firmly fixed.</p>
+  </div>
+
+  <div class="narrator-block">
+    <h3>Al-Maqrizi (d. 845 AH), Ibn Taghribirdi (d. 874 AH), and those after them</h3>
+    <p>Later than the event by about two centuries. They pass the report along and add to it details of dialogue and names <b>without adding any new chain</b>, transmitting rather one from another.</p>
+  </div>
+
+  <div class="page-card">
+    <h3>The Detailed Narration of How the Killing Occurred</h3>
+    <p>This is the fullest account that has come down. Its substance is that Qutuz dismounted along his route, and Baybars asked his leave to intercede with him on behalf of a captive, and he granted the intercession. Baybars then dismounted from his horse to kiss his hand, took hold of it, and kept holding it, and "<b>Ans al-Isbahani charged at him and struck him with the sword while Baybars was holding his hand</b>, and the rest charged at him, threw him from his horse, and shot him with arrows until he died."</p>
+    <p>The significance of this text is that it is <b>the most detailed of the sources, and at the very same time it removes the blow from Baybars</b>. It makes him the one holding rather than the one striking, it names another man as the one who wielded the sword, and it assigns the rest of the killing, by arrows, to a group. So the very source invoked to establish guilt is the one that dismantles the picture of "Baybars killed him with his own hand."</p>
+    <p>As for the dialogue attributed to the aftermath of the incident, namely what is transmitted to the effect that the amirs were asked, "Who killed him?" and it was said, "Rukn al-Din Baybars," and he was asked, "Did you kill him?" and he said, "Yes," and they said, "Then you are the king," this dialogue, which contains an explicit confession in the form of direct perpetration, <b>has no connected chain</b> going back to men known for their probity who witnessed the incident with their own eyes. It is rather a later transmission in the form of storytelling narrative, and its apparent sense contradicts the detailed narration, which makes the man who struck someone other than him.</p>
+  </div>
+
+  <div class="page-card">
+    <h3>The Instability of the Sources in the Most Specific Details of the Report</h3>
+    <p><b>First: instability over who delivered the blow.</b> Some are silent about identifying him, such as Ibn Kathir and Ibn Abd al-Zahir with the plural form; a detailed account makes Ans al-Isbahani the one who struck with the sword while Baybars held the sultan's hand; and a later dialogue ascribes the confession to Baybars himself. Three positions that cannot be held together.</p>
+    <p><b>Second: instability in the list of participants.</b> The sources variously name Badr al-Din Baktut al-Jukandar al-Mu'izzi, Sayf al-Din Bahadur al-Mu'izzi, Badr al-Din Ans al-Isbahani, Sayf al-Din Balaban al-Rashidi, Baydaghan al-Rukni, and Balaban al-Haruni, differing among themselves as to whom they include and whom they leave out.</p>
+    <p><b>Third: instability over the motive.</b> Some say it was the spoils, some say it was the iqta of Aleppo that he had been promised, and some say it was Qutuz's rebuke of those who fled on the day of Ain Jalut.</p>
+    <p><b>Fourth: instability over the place and the date.</b> Ibn Kathir places it "between al-Gharabi and al-Salihiyya" in the final days of Dhu al-Qa'da, while other transmissions give al-Ghazali, or al-Qarabi, or al-Qusayr, and some of them specify the seventeenth of Dhu al-Qa'da.</p>
+    <p class="footnote">Methodological note: the text of Ibn Kathir is recorded here from the printed edition. As for the text of Ibn Abd al-Zahir, the detailed narration, and the attributed dialogue, they have reached us through intermediate transmissions, and it remains necessary to collate them against the critical editions: <i>al-Rawd al-Zahir</i>, edited by Abd al-Aziz al-Khuwaytir (Riyadh, 1396 AH), and <i>al-Suluk</i> of al-Maqrizi. This collation does not change the outcome of the study, because what the study turns on is the divergence of the sources over the identification, and that is established through more than one route.</p>
+  </div>
+
+  <div class="page-card" id="chain">
+    <h2>3. Chain of Transmission Analysis</h2>
+    <div class="no-isnad-notice">
+      <p><b>This incident has no chain of transmission at all.</b> In none of the earlier or later sources does this account carry a connected chain going back to men known for their probity and precision who witnessed the incident with their own eyes. No direct hearing, no act of transmission, and no route is mentioned for it that could be measured against the rules of impugnment and validation (al-jarh wa al-ta'dil). All that is available are unattributed narrative texts, the closest in time issuing from the sultan's own secretary and panegyrist, and the furthest coming about two centuries after the event.</p>
+      <p>Nor is that changed by the appearance of a particular name in some of these books, because the naming occurs within that same unattributed narrative, with no hearing, no act of transmission, and no route. It is therefore a report without a chain like any other, neither testimony nor transmission. Worse still, the names that are given contradict one another.</p>
+      <p>Since there is no chain, there is no place for the study of the narrators, for one cannot examine the probity or the precision of a transmitter in a report that has no transmitter to begin with. We therefore move directly to measuring the claim against the ten standards and criteria.</p>
+    </div>
+  </div>
+
+  <div class="page-card" id="analysis">
+    <h2>4. Applying the Ten Standards and Criteria</h2>
+    <p>What follows is the claim measured against the ten standards adopted on this site, in their own order:</p>
+
+    <div class="cascade">
+
+      <div class="stage">
+        <div class="node">1</div>
+        <div class="stage-card">
+          <p class="level-name">Sahih al-Bukhari (the Transmission of Abu Dharr al-Harawi)</p>
+          <p class="verdict-line"><b>Result:</b> <span class="pass">Not applicable, since al-Bukhari precedes the time of Qutuz and Baybars by centuries, so he has no narration of this incident</span>.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">2</div>
+        <div class="stage-card">
+          <p class="level-name">Malik's Muwatta (the Transmission of al-Qa'nabi) / Greater and Lesser History</p>
+          <p class="verdict-line"><b>Result:</b> <span class="pass">Not applicable, since Imam Malik likewise precedes the time of the incident by centuries</span>.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">3</div>
+        <div class="stage-card">
+          <p class="level-name">The Remaining Six Books and the Musnad</p>
+          <p class="verdict-line"><b>Result:</b> <span class="pass">Not applicable, since the authors of the Six Books precede the time of Qutuz and Baybars by centuries</span>.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">4</div>
+        <div class="stage-card">
+          <p class="level-name">The Historians</p>
+          <p class="verdict-line"><b>Result:</b> This is the only level that actually applies. Ibn Kathir, al-Maqrizi, and Ibn Shaddad transmit the incident, <span class="fail">but with no chain connected to men known for their probity, and with no verification of the conditions of direct hearing</span>. Ibn Abd al-Zahir, the closest in time, was Baybars' secretary and panegyrist, so his account is impugned by the bias to be presumed in favor of the man he praised. Even so, these same sources do not agree on identifying the direct perpetrator; indeed the most detailed of them makes Baybars the one holding the sultan's hand and names another man as the one who struck with the sword.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">5</div>
+        <div class="stage-card">
+          <p class="level-name">The Testimony of Just Contemporaries Not Suspected of Bias</p>
+          <p class="verdict-line"><b>Result:</b> <span class="fail">Not met</span>. No two just witnesses free of the suspicion of bias have been established who saw the incident with their own eyes and affirmed that Baybars by himself delivered the fatal blow. The closest witness (Ibn Abd al-Zahir) is suspected of bias because of his own interest with the new sultan.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">6</div>
+        <div class="stage-card">
+          <p class="level-name">The Argument From Scholarly Silence</p>
+          <p class="verdict-line"><b>Result:</b> No explicit, documented condemnation of Baybars by name over this incident has been established from any of the recognized scholars of the age.</p>
+          <p>It is inconceivable that the scholars of the age would agree upon silence over an established killing whose perpetrator was known, given that they were people who enjoined right and forbade wrong.</p>
+          <p>Foremost among them was the sultan of the scholars <b>al-Izz ibn Abd al-Salam (d. 660 AH)</b>, who was in Cairo at the time of the incident and lived two years afterward under Baybars' sultanate. He is the man known for the severest condemnation of rulers, with his well-known stands against al-Malik al-Salih Najm al-Din Ayyub, and his famous fatwa that the Mamluk amirs be sold because their manumission had not been established, a fatwa that was in fact carried out. One who overturned a state over a question of slave status cannot be imagined keeping silent over the killing of the sultan of the land. <b>Yet no condemnation from him regarding this incident has been recorded.</b></p>
+          <p>Nor is it sound to excuse his silence by fear, for his own adversary testified to the contrary. When news of his death reached Baybars, he said: "My rule has become secure only now, for had he ordered the people against me as he wished, they would have hastened to carry out his command." This is an admission by the sultan himself that the shaykh had the power to raise the people against him had he wished. His silence, then, is the silence of one who held the word and did not say it, not the silence of a man afraid or unable.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">7</div>
+        <div class="stage-card">
+          <p class="level-name">The Absence of Any Invocation of the Narration by Opponents</p>
+          <p class="verdict-line"><b>Result:</b> <span class="pass">Met</span>, for the opponent closest to the incident and best informed about it did not invoke the naming; on the contrary, he acknowledged Baybars in practice in his own Friday sermon and his own coinage.</p>
+          <p>The import of this standard is that if the accusation had been current among contemporaries, the first people to proclaim it would be the opponents of the accused, above all the one closest to the victim and best informed about his affair, and the one who had a direct political interest in publicizing it.</p>
+          <p>All of this was present in <b>Alam al-Din Sanjar al-Halabi</b>. He was Qutuz's deputy over Damascus by Qutuz's own appointment, he rose against Baybars within days of the incident, and he set up an independent claim to rule for himself. If the accusation of killing had been known and attributed to Baybars specifically, this was the moment for it to be raised.</p>
+          <p>Ibn Kathir said in <i>al-Bidaya wa al-Nihaya</i> (al-Sa'ada edition, 13/223): "Al-Malik al-Muzaffar Qutuz, may Allah have mercy on him, had appointed as his deputy over Damascus the amir Alam al-Din Sanjar al-Halabi, one of the Turks. <b>When news of al-Muzaffar's killing reached him, he entered the citadel and called the people to himself</b>, taking the title al-Malik al-Mujahid. Then, when the pledge of allegiance to al-Malik al-Zahir arrived, the sermon was given in his name on Friday the sixth of Dhu al-Hijja, <b>and the preacher invoked al-Mujahid first and al-Zahir second, and the coinage was struck in both their names together</b>."</p>
+          <p>Two things are in this report. <b>The first</b> is that the stated cause of his rising was that news of the killing reached him, whereupon he entered the citadel and called the people to himself. There is in the report no demand for blood, no naming of a killer, and no protest against Baybars by name. <b>The second</b> is that the sermon in Damascus under his rule combined his name and Baybars' name, and that the coinage was struck in both their names together.</p>
+          <p>The sermon and the coinage are official proclamations that no one could miss, and both were directed at the general population of Damascus. Had the man who rose been avenging his master's blood against a known and specified killer, he would never have let that killer's name be invoked from his pulpits and stamped on his currency. The report therefore goes beyond the opponent's mere silence about naming, and reaches <b>a practical acknowledgment of Baybars' legitimacy at the very height of the political contest with him</b>.</p>
+          <p class="footnote">Methodological control: Ibn Kathir is a later transmitter, not a contemporary, and the absence of a naming within the account of the rising is an absence in the narration, not a denial of the fact in itself. This standard is therefore presented as one indication joined to its fellows, not as an independent and decisive proof.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">8</div>
+        <div class="stage-card">
+          <p class="level-name">Material and Archaeological Evidence</p>
+          <p class="verdict-line"><b>Result:</b> <span class="fail">There is no direct archaeological evidence</span> (such as a contemporary document or an inscription) establishing who delivered the blow. All that is available are later narrative texts.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">9</div>
+        <div class="stage-card">
+          <p class="level-name">Prophetic Exoneration of the Accused</p>
+          <p class="verdict-line"><b>Result:</b> Not directly applicable, since there is no specific prophetic commendation known of Baybars in particular that could be set against this narration, unlike what is transmitted of general commendations of the people of jihad and conquest.</p>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="node">10</div>
+        <div class="stage-card">
+          <p class="level-name">Narrations From Known Enemies</p>
+          <p class="verdict-line"><b>Result:</b> Not directly applicable to this incident, since the transmitters are later Muslim historians and not enemies known for their enmity.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="page-card" id="hypotheses">
+    <h2>5. Hypotheses and Their Discussion</h2>
+
+    <h3>The First Hypothesis: that Baybars killed Qutuz by himself and directly</h3>
+    <p>This hypothesis requires at least two just witnesses according to the condition of legal proof, and that is not met. The closest in time (Ibn Abd al-Zahir) is impugned by bias toward the man he praised, and his wording is in the plural rather than the singular. Ibn Kathir names no one. And the most detailed of the narrations makes the man who struck with the sword someone other than Baybars.</p>
+
+    <h3>The Second Hypothesis: that Qutuz was killed by a group of amirs acting in concert</h3>
+    <p>Baybars being one of them or their head, with no decisive determination of who in particular delivered the fatal blow. This hypothesis is closer to what the wording of Ibn Abd al-Zahir ("he agreed with the amirs of the army... and they killed him") can bear, given its plural form.</p>
+
+    <h3>The Third Hypothesis: that the details of the attributed dialogue are additions of later storytelling narrative</h3>
+    <p>That is, that his being asked "Did you kill him?" and his answering "Yes" are among the additions intended to justify the legitimacy of the transfer of the sultanate to Baybars ("so they said: then you are the king"), and are not a documented historical transmission with a chain. This hypothesis is strengthened by the fact that the attributed dialogue contradicts the detailed narration itself, for that narration makes Baybars the one holding rather than the one striking, while this makes him confess to direct perpetration.</p>
+  </div>
+
+  <div class="final-verdict" id="verdict">
+    <h2>Conclusion and Final Verdict</h2>
+    <p>On the basis of what has preceded, and by applying the condition of legal proof (two just witnesses for anything short of an accusation of adultery), the attribution to Baybars of killing Qutuz by himself, with a documented chain, has not been established by the standard required in this methodology. On the contrary, the sources that have been passed along without any chain differ over the identification of the direct perpetrator, over the list of participants, over the motive, and over the place and the date, and the most detailed of them makes Baybars the one holding the sultan's hand rather than the one striking him. What they do agree upon is that Qutuz was killed on his way back from Syria in 658 AH at the hands of a group of amirs of whom Baybars was one, and that he assumed the sultanate immediately thereafter.</p>
+    <p>This is strengthened by the fact that the opponent closest to the incident, and the one with the greatest interest in naming a culprit, did not invoke that naming. Alam al-Din Sanjar al-Halabi, Qutuz's deputy over Damascus by Qutuz's own appointment, rose against Baybars within days of the incident and proclaimed the sultanate for himself; then the sermon in Damascus combined his name and Baybars' name, and the coinage was struck in both their names together. One who rises to avenge his master's blood against a specified killer does not have that killer invoked from his pulpits nor his name stamped on his currency.</p>
+    <p>For a report to be accepted, and above all for a Muslim or any human being to be convicted of a crime such as killing, it must satisfy the legal, customary, and juridical conditions, and that is not available in this matter. May Allah have mercy on Qutuz and on Baybars and on everyone who strove in the path of supporting the religion and defending the Muslims in their time.</p>
+    <p>"O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful." (Surah Al-Hujurat 49:6). And in another reading: "then ascertain the truth."</p>
+  </div>
+
+</main>
+</main>
+
+<footer>
+  <p class="meta">© Kuffo Alsinatakum. All research is reviewed and continuously updated.</p>
+</footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox(event)">×</button>
+  <div class="lb-tools">
+    <button onclick="zoomLightbox(event, 0.25)" title="Zoom in">+</button>
+    <button onclick="zoomLightbox(event, -0.25)" title="Zoom out">−</button>
+    <button onclick="downloadLightboxImage(event)" title="Save image">⭳</button>
+  </div>
+  <div class="lb-img-wrap" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script>
+  let lbZoom = 1;
+  function openLightbox(src, isIsnad){
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    lbZoom = 1;
+    img.style.transform = 'scale(1)';
+    lb.classList.toggle('with-tools', !!isIsnad);
+    lb.classList.add('open');
+  }
+  function closeLightbox(e){
+    if(e) e.stopPropagation();
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  function zoomLightbox(e, delta){
+    e.stopPropagation();
+    lbZoom = Math.min(4, Math.max(0.5, lbZoom + delta));
+    document.getElementById('lightbox-img').style.transform = `scale(${lbZoom})`;
+  }
+  function downloadLightboxImage(e){
+    e.stopPropagation();
+    const src = document.getElementById('lightbox-img').src;
+    const a = document.createElement('a');
+    a.href = src;
+    a.download = src.split('/').pop() || 'isnad-tree.jpg';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  (function(){
+    const counterEl = document.getElementById('visitorCount');
+    if(!counterEl) return;
+    const namespace = 'kuffo-alsinatakum-github-io';
+    const key = 'site-visits';
+    fetch(`https://countapi.mileshilliard.com/api/v1/hit/${namespace}_${key}`)
+      .then(res => res.json())
+      .then(data => {
+        if(data && typeof data.value === 'number'){
+          counterEl.textContent = data.value.toLocaleString();
+        } else {
+          counterEl.textContent = '···';
+        }
+      })
+      .catch(() => { counterEl.textContent = '···'; });
+  })();
+</script>
+
+</body>
+</html>
