@@ -340,7 +340,7 @@
     z-index:2;
     box-shadow:0 0 0 5px var(--parchment);
   }
-  .stage:nth-child(n+6) .node{
+  .stage:nth-child(n+7) .node{
     border-color:var(--copper);
     color:var(--copper);
   }
@@ -374,6 +374,11 @@
     margin:0;
   }
   .stage-card .rule b{color:var(--olive-deep);}
+  .stage-card .rule + .rule{margin-top:8px;}
+  .stage-card .rule ol, .stage-card .rule ul{margin:6px 0 0; padding-inline-start:22px;}
+  .stage-card .rule li{margin-bottom:4px;}
+  .stage-card .rule ol{list-style-type:decimal;}
+  .stage-card .rule .note{display:block; margin-top:6px; font-size:0.84rem; opacity:0.9;}
 
   .verdict-row{
     margin-top:36px;
@@ -498,24 +503,24 @@
   <div class="page-card intro-card">
     <p>Tarihî rivayetlerle ilgilenmenin temeli, herhangi bir haberi veya rivayeti, kademeli bir dizi ölçüte tabi tutmadan kabul etmemektir; bu ölçütler, rivayeti kirlerden arındıran ve içindeki zayıflık ve şüphe noktalarını ortaya çıkaran art arda süzgeçler gibi işler. Bu ölçütleri geçen kabul edilip esas alınır; birinde veya daha fazlasında takılan ise reddedilir ve dikkate alınmaz.</p>
     <p class="to-reader">Okuyucunun, üzerinde yetiştiği veya öğrendiği bir inanca aykırı bir şeyle karşılaşınca şaşırabileceğinin gayet farkındayız. Burada bir tartışmaya girmek istemiyoruz; yalnızca bize ulaşan haberleri, eski olsun yeni olsun, kirlerden ve mantıksızlıktan arındırmak için üzerinde anlaşabileceğimiz bir yöntem ortaya koymak istiyoruz.</p>
-    <p>Mantıken şuna da dikkat etmek gerekir: bir kaynak, ancak telifi olayın vuku bulduğu zamandan sonraysa geçerli sayılır; örneğin olay, müellifin veya tarihçinin vefatından sonra gerçekleşmişse, bu mantıken o kaynakla amel edilemeyeceği anlamına gelir.</p>
+    <p>Rivayet, ilki Zaman Şartı olan on bir seviyeye sırasıyla arz edilir. İkinci ve üçüncü seviyeler (Ebû Zer el-Herevî rivayetiyle Sahîh-i Buhârî ve Ka'nebî rivayetiyle Muvatta'), diğer bütün rivayetlerin arz edildiği <strong>mihenk</strong>tir: başka bir rivayetin bunlara ilave ettiği veya bunlara muhalefet ettiği hususlara itibar edilmez; meğer ki Buhârî'nin kendi uygulamasından bir delil ya da mütekaddim imamlardan birinin açık beyanı bulunsun.</p>
   </div>
 
   <div class="page-card method-card">
     <h2>Neden Önce Buhârî ve Mâlik?</h2>
-    <p>Kur'an'dan sonra âlimlerin genelinin üzerinde ittifak ettiği kaynağa, yani <strong>Sahîh-i Buhârî</strong>'ye başvururuz. Ancak zihin şimdi anladığı şeye atlamadan önce şunu belirtelim: Buhârî de, insan eliyle yazılmış her kitap gibi, tahrif veya yazım hatasına açıktır. Bu yüzden, elyazmalarını en iyi bilen, en dakik ve en sağlam nüshaları belirleyen muhakkiklere başvururuz: hadis âlimleri ve muhakkikler, Buhârî'nin en sağlam ve en dakik öğrencisinin allâme <strong>el-Ferebrî</strong> olduğunda, onun en dakik öğrencilerinden, el-Küşmihenî, el-Müstemlî ve es-Serahsî, ise İmam <strong>Ebû Zer el-Herevî</strong>'nin rivayet ettiğinde ittifak etmişlerdir. Bu yüzden bu sitede yalnızca bu rivayete dayanıyoruz.</p>
-    <p>Buhârî'den sonra ise, değeri, ravi seçimindeki titizliği ve Kûfeli ravilerin rivayetlerinden son derece sakınması sebebiyle <strong>İmam Mâlik'in Muvatta'ı</strong>na dayanırız; o, ancak dinine ve zaptına güvendiği kişilerden rivayet ederdi. Biz de onun en dakik ve en güçlü öğrencisi olan <strong>el-Ka'nebî</strong>'ye dayandık.</p>
+    <p>Kur'an'dan sonra âlimlerin genelinin üzerinde ittifak ettiği kaynağa, yani <strong>Sahîh-i Buhârî</strong>'ye başvururuz. Ancak zihin şimdi anladığı şeye atlamadan önce şunu belirtelim: Buhârî de, insan eliyle yazılmış her kitap gibi, tahrif veya yazım hatasına açıktır. Bu yüzden, elyazmalarını en iyi bilen, en dakik ve en sağlam nüshaları belirleyen muhakkiklere başvururuz: hadis âlimleri ve muhakkikler, Buhârî'nin en sağlam ve en dakik öğrencisinin allâme <strong>Firebrî</strong> olduğunda ve onun en dakik öğrencileri olan Küşmîhenî, Müstemlî ve Serahsî'den İmam <strong>Ebû Zer el-Herevî</strong>'nin rivayet ettiğinde ittifak etmişlerdir. Bu yüzden bu sitede yalnızca bu rivayete dayanıyor ve onu, Sahîh'in diğer rivayetlerinin arz edildiği mihenk kabul ediyoruz.</p>
+    <p>Buhârî'den sonra ise, değeri, ravi seçimindeki titizliği ve Kûfelilerin rivayetlerinden son derece sakınması sebebiyle <strong>İmam Mâlik'in Muvatta'ı</strong>na dayanırız; o, ancak dinine ve zaptına güvendiği kişilerden rivayet ederdi. Ondan rivayet edenlerin en zâbiti olan <strong>Abdullah b. Mesleme el-Ka'nebî</strong>'nin rivayetini esas aldık. Ali b. el-Medînî şöyle demiştir: "Muvatta' râvilerinden hiç kimse Ka'nebî'nin önüne geçirilmez." Yahyâ b. Maîn şöyle demiştir: "Muvatta' hususunda insanların en sağlamı Abdullah b. Mesleme el-Ka'nebî ile Abdullah b. Yûsuf et-Tinnîsî'dir." İmam Ahmed ise şöyle demiştir: "Onu Ka'nebî'den yaz." Dolayısıyla Ka'nebî rivayeti, bizim nezdimizde Muvatta'ın diğer rivayetlerinin arz edildiği <strong>mihenk</strong>tir: onlarda bu rivayete ilave edilen veya ona muhalefet edilen hususlara itibar etmeyiz.</p>
     <p>Kısacası, insan eliyle telif edilmiş hiçbir kitabı, hangi rivayetlerin en sağlam ve en doğru olduğunu araştırıp doğrulamadan kabul etmiyoruz; büyük muhakkiklere ve âlimlere başvurmadan hiçbir rivayeti kabul etmiyoruz.</p>
   </div>
 
   <figure class="diagram">
-    <img src="../../images/criteria-infographic-tr.png" alt="Tarihî rivayeti kabul etme yönteminin şeması, zaman şartından, düşmanlığı bilinen kişilerin rivayetlerine kadar kademeli seviyeler">
+    <img src="../../images/criteria-infographic-tr.png?v=2" alt="Tarihî rivayeti kabul etme yönteminin şeması: Zaman Şartı'ndan düşmanlığı bilinenlerin rivayetlerine kadar kademeli seviyeler">
     <figcaption>Yöntemin on bir seviyesinin sırasıyla gösterildiği tam açıklayıcı şema</figcaption>
   </figure>
 
   <div class="section-heading">
-    <h2>On Seviye Ayrıntılı Olarak</h2>
-    <p>Bir haber bu seviyelere sırasıyla sunulur. Seviyede aşağı inmek daha fazla doğrulama ihtiyacı demektir; öyle ki bir noktada hiçbir şey ancak sıkı şartlarla kabul edilir hale gelir.</p>
+    <h2>On Bir Seviye Ayrıntılı Olarak</h2>
+    <p>Bir haber bu seviyelere sırasıyla sunulur. Seviyede aşağı inmek daha fazla doğrulama ihtiyacı demektir; öyle ki sonunda hiçbir şeyin ancak sıkı şartlarla kabul edildiği bir seviyeye varılır.</p>
   </div>
 
   <div class="cascade">
@@ -523,68 +528,79 @@
     <div class="stage">
       <div class="node">1</div>
       <div class="stage-card">
-        <p class="level-name">Sahîh-i Buhârî. Ebû Zer el-Herevî Rivayeti</p>
-        <p class="source-line">Allah'ın kitabı dışındaki her kitap tahrif ve yazım hatasına açıktır. Sahîh-i Buhârî'nin esas alınan nüshası, Buhârî'nin en sağlam ve en güvenilir öğrencisi olan el-Ferebrî'den; onun da üç hocası, el-Küşmihenî, es-Serahsî ve el-Müstemlî, aracılığıyla Ebû Zer el-Herevî'nin rivayetidir.</p>
-        <p class="rule"><b>Şart:</b> Ne yazık ki kütüphanelerde şu anda meşhur olan nüsha bu değildir. Ancak telifi olayın vuku bulduğu zamandan sonraysa dikkate alınır.</p>
+        <p class="level-name">Zaman Şartı</p>
+        <p class="source-line">Sonraki seviyelerin tamamındaki her kaynak için geçerlidir; bu yüzden ilk olarak incelenir.</p>
+        <p class="rule"><b>Şart:</b> Bir kaynak, ancak telifi olayın vuku bulduğu zamandan sonraysa muteber sayılır; örneğin olay, müellifin veya tarihçinin vefatından sonra gerçekleşmişse, onun bu olay hakkındaki haberiyle mantıken amel edilemez.</p>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">2</div>
       <div class="stage-card">
-        <p class="level-name">İmam Mâlik'in Muvatta'ı (el-Ka'nebî Rivayeti) ve Buhârî'nin Büyük ve Küçük Tarihi</p>
-        <p class="source-line">O, Medine ehlinin imamıdır ve Medineli sahabilerin hadislerini senetleyerek toplayan en üstün âlimdir; öyle ki Buhârî, Mâlik'in Nâfi'den, onun da İbn Ömer'den (Allah ikisinden de razı olsun) rivayet ettiği zinciri en sahih isnad olarak adlandırmıştır. Mâlik, hocalarını seçmede ve ravileri kabul etmede en titiz imamlardan biriydi; özellikle Kûfeli raviler konusunda.</p>
-        <p class="rule"><b>Şart:</b> Esas alınan, el-Ka'nebî'nin İmam Mâlik'ten rivayetidir; kütüphanelerde meşhur olan nüsha bu da değildir. Senedin tam olarak incelenmesi ve rivayetin doğrulanması şartıyla, Sahîh-i Buhârî'deki açık bir rivayetle çelişmemesi kaydıyla kabul edilir.</p>
+        <p class="level-name">Sahîh-i Buhârî (Ebû Zer el-Herevî Rivayeti)</p>
+        <p class="source-line">Allah'ın kitabı dışındaki her kitap tahrif ve yazım hatasına açıktır. Sahîh-i Buhârî'nin esas alınan nüshası, Ebû Zer el-Herevî'nin üç hocası (Küşmîhenî, Müstemlî ve Serahsî) vasıtasıyla, Buhârî'nin en sağlam ve en güvenilir öğrencisi olan Firebrî'den yaptığı rivayettir. Ne yazık ki kütüphanelerde şu anda meşhur olan nüsha bu değildir.</p>
+        <p class="rule"><b>Şart:</b> Ebû Zer rivayeti esas alınan asıl metin ve mihenktir; Sahîh'in diğer rivayetlerinde ona ilave olarak veya lafızda ona muhalif olarak gelen hususlara itibar edilmez. Ancak Buhârî'nin Sahîh'inin veya eserlerinin başka bir yerindeki kendi uygulaması ya da yöntemimizde zikredilen mütekaddim imamlardan birinin açık beyanı, vehmin bizzat Ebû Zer rivayetinde olduğunu gösterirse durum farklıdır.</p>
+        <div class="rule"><b>Ebû Zer'in üç hocası kendi aralarında ihtilaf ettiğinde:</b><ol><li>Üzerinde ittifak ettikleri, esas alınan metindir.</li><li>Birinin diğer ikisine göre tek başına yaptığı ilaveye itibar edilmez; bu husus özellikle Küşmîhenî için geçerlidir, zira Ebû Zer'in kendisi ömrünün sonlarında onun tek başına rivayet ettiklerinin çoğunu siliyordu (Fethu'l-bârî, 1/17).</li><li>Bir lafızda ihtilaf ettiklerinde, ikisinin üzerinde ittifak ettiği alınır.</li><li>Bab sıralamasındaki ihtilaflarına dayanarak hüküm bina edilmez; çünkü hepsi tek bir asıldan istinsah etmiş ve her biri, ayrı kâğıtlarda ve derkenarlarda bulunanı kendi içtihadına göre eklemiştir (Bâcî; Umdetü'l-kārî, 23/180).</li></ol></div>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">3</div>
       <div class="stage-card">
-        <p class="level-name">Kütüb-i Sitte'nin Geri Kalanı ve Müsned</p>
-        <p class="source-line">Müslim, Ebû Dâvûd, Tirmizî, Nesâî, İbn Mâce ve Ahmed'in Müsned'i ile diğerleri.</p>
-        <p class="rule"><b>Şart:</b> Senedin tam olarak zikredilmesi, her ravinin incelenmesi (mezhep taassubu, yalan, zayıflık, tadlis, işitmenin sabit olması ve bid'at açısından) ve rivayetin Buhârî'de veya Mâlik'te açık bir nassla çelişmemesi.</p>
+        <p class="level-name">İmam Mâlik'in Muvatta'ı (Ka'nebî Rivayeti) ile Buhârî'nin et-Târîhu'l-kebîr ve et-Târîhu'l-evsat'ı</p>
+        <p class="source-line">O, Medine ehlinin imamıdır ve Medineli sahabilerin hadislerini senetleyerek toplayan en üstün âlimdir; öyle ki Buhârî, Mâlik'in Nâfi'den, onun da İbn Ömer'den (Allah ikisinden de razı olsun) rivayet ettiği zinciri en sahih isnad olarak adlandırmıştır. Mâlik, hocalarını seçmede ve ravileri kabul etmede en titiz imamlardan biriydi; özellikle Kûfeli raviler konusunda.</p>
+        <p class="rule"><b>Şart:</b> Ka'nebî rivayeti esas alınan asıl metin ve mihenktir; günümüze ulaşan kısmı itibarıyla yazma nüshasında (bu nüsha Hac kitabı ile Büyû' bahsinden bir babda sona erer) veya imamların (Buhârî, Müslim, Ebû Dâvûd ve Beyhakî gibi) kendi eserlerinde "Ka'nebî, Mâlik'ten" tarikiyle ondan senedli olarak naklettiklerinde. Muvatta'ın diğer rivayetlerinde ona ilave veya muhalif olarak gelen hususlara itibar edilmez; ancak Buhârî'nin Sahîh'indeki uygulaması ya da yöntemimizde zikredilen mütekaddim imamlardan birinin açık beyanı, vehmin bizzat Ka'nebî rivayetinde olduğunu gösterirse durum farklıdır. Ka'nebî tarikiyle hiç bulunmayan kısım, araştırmada açıkça belirtilmek kaydıyla, Abdullah b. Yûsuf et-Tinnîsî'nin, ardından Ma'n b. Îsâ'nın rivayetinden alınır. Senedin tam olarak tahlil edilmesi ve Sahîh-i Buhârî'deki açık bir rivayetle çelişmemesi şartıyla kabul edilir.</p>
+        <div class="rule"><b>et-Târîhu'l-kebîr ve et-Târîhu'l-evsat:</b> Buhârî'nin bu iki eserde ravilere ve senedlere dair hükümleri ("Falancadan işitmemiştir", "Fîhi nazar" ve "Bu hususta mütâbaat edilmez" gibi sözleri) muteberdir ve kendisinden sonrakilerin sözlerine takdim edilir. Bu eserlerde naklettiği rivayetler ise senedleri tam olarak tahlil edilmeden kabul edilmez; çünkü o, bu eserlerde sıhhati şart koşmamıştır ve çoğu zaman bir rivayeti illetini göstermek için nakleder.<span class="note">Uyarı: Eskiden "et-Târîhu's-sağīr" adıyla basılan eser, gerçekte "et-Târîhu'l-evsat"tır ve Muhammed b. İbrâhim el-Luhaydân'ın tahkikiyle doğru adıyla basılmıştır.</span></div>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">4</div>
       <div class="stage-card">
-        <p class="level-name">Tarihçiler</p>
-        <p class="source-line">Olayı Taberî, Zehebî, İbn Kesîr, İbn Haldûn ve benzerleri gibi tarihçiler zikretmişse, tarihçinin yöntemi ve mezhebi, yaşadığı dönem, eserlerini hangi devletin gölgesinde yazdığı, taraf tutma şüphesi sebebiyle, ve Dr. Beşşâr Avvâd Ma'rûf gibi güvenilir muhakkiklerin onun ve rivayetleri hakkındaki görüşleri mutlaka dikkate alınmalıdır.</p>
-        <p class="rule"><b>Şart:</b> Mürsel veya senetsiz rivayetler kesinlikle dikkate alınmaz.</p>
+        <p class="level-name">Kütüb-i Sitte'nin Geri Kalanı ve Müsned</p>
+        <p class="source-line">Müslim, Ebû Dâvûd, Tirmizî, Nesâî, İbn Mâce ve Ahmed'in Müsned'i ile diğerleri.</p>
+        <p class="rule"><b>Şart:</b> Senedin tam olarak zikredilmesi, her ravinin incelenmesi (mezhep taassubu, yalan, zayıflık, tadlis, işitmenin sabit olması, bid'at) ve rivayetin Sahîh-i Buhârî'deki (Ebû Zer rivayeti) veya Muvatta'daki (Ka'nebî rivayeti) açık bir nassla çelişmemesi.</p>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">5</div>
       <div class="stage-card">
-        <p class="level-name">Olaya Taraf Tutmakla Suçlanmayan Âdil Çağdaşların Tanıklığı</p>
-        <p class="source-line">Olayın çağdaşı olan, mezhep taassubundan ve bid'atten uzak âdil raviler, özellikle kendi bid'atlerini veya yöntemlerini destekleyen rivayetler, varsayılan taraf tutma sebebiyle cerhedilmiş sayılır.</p>
-        <p class="rule"><b>Şart:</b> Ravilerin olayı bizzat gözleriyle görmüş olmaları ve rivayetin desteklediği bid'atten uzak olmaları şarttır. İspat şartı, şer'î mahkemelerin bir iddiayı kabul etme ölçütüyle aynıdır: iki âdil şahit.</p>
+        <p class="level-name">Tarihçiler</p>
+        <p class="source-line">Olayı Taberî, Zehebî, İbn Kesîr, İbn Haldûn ve benzerleri gibi tarihçiler zikretmişse, tarihçinin yöntemi ve mezhebi, yaşadığı dönem, eserlerini hangi devletin gölgesinde yazdığı, taraf tutma şüphesi sebebiyle, ve Dr. Beşşâr Avvâd Ma'rûf gibi güvenilir muhakkiklerin onun ve rivayetleri hakkındaki görüşleri mutlaka dikkate alınmalıdır.</p>
+        <p class="rule"><b>Şart:</b> Mürsel veya senetsiz rivayetler kesinlikle dikkate alınmaz. Senedi olan rivayet ise tam olarak tahlil edilmesi, sıhhatinin doğrulanması ve Buhârî'deki veya Muvatta'daki açık bir rivayetle çelişmemesi şartıyla kabul edilir; Emevîlere ve onları destekleyen âlimlere karşı şiddetli düşmanlıklarıyla bilinen Abbâsî devleti ravilerine karşı da son derece dikkatli olunur.</p>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">6</div>
       <div class="stage-card">
-        <p class="level-name">İlmî Sükût Delili</p>
-        <p class="source-line">Olayın çağdaşı olan âdil Müslüman âlimler, özellikle İbn Ömer ve İbn Mesud gibi ilim ve fıkıhla tanınan sahabilerden biri, onu inkâr etmemiş ve hiçbiri ona ne inkârla ne de kabulle değinmemişse, bu, olayın iddia edilen şekilde vuku bulmadığına dair çok güçlü bir olumsuz delildir.</p>
-        <p class="rule"><b>Mantıklı bir soru:</b> Tek bir Müslüman âlimin bile Fâtih'in kardeşi Ahmed'i öldürmesine, Baybars'ın Kutuz'u öldürmesine ya da Yezîd'in Hüseyin'i öldürmesine karşı çıkmaması ya da tepki göstermemesi akılca nasıl mümkün olabilir?</p>
+        <p class="level-name">Olaya Taraf Tutmakla Suçlanmayan Âdil Çağdaşların Tanıklığı</p>
+        <p class="source-line">Olayın çağdaşı olan, mezhep taassubundan ve bid'atten uzak âdil raviler. Özellikle kendi bid'atlerini veya yöntemlerini destekleyen rivayetler, varsayılan taraf tutma sebebiyle cerhedilmiş sayılır.</p>
+        <div class="rule"><b>Şart:</b> Ravilerin olayı bizzat gözleriyle görmüş olmaları ve rivayetin desteklediği bid'atten uzak olmaları şarttır. İspat şartı, şer'î mahkemelerin bir iddiayı kabul etme ölçütüdür:<ul><li>Zina isnadı: dört âdil şahit gerektirir.</li><li>Bundan daha hafif isnadlar: iki âdil şahit.</li><li>Kaynağı düşmanlar veya meçhul kişiler olan her rivayet otomatik olarak düşer ve kabul edilmez.</li></ul></div>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">7</div>
       <div class="stage-card">
-        <p class="level-name">Muhaliflerin Rivayeti Delil Olarak Kullanmaması</p>
-        <p class="source-line">Sanığın muhaliflerinin bu hikâyeyi delil olarak kullanmamış olması, rivayetin sahih olmadığına güçlü bir işarettir; çünkü rivayet doğru olsaydı onların davasına ve mezheplerine hizmet ederdi.</p>
-        <p class="rule"><b>Örneği:</b> İbnü'z-Zübeyr'in Kâbe'nin taşlanması rivayetini delil olarak kullanmaması ve Ali taraftarlarının, hakem olayı gününde "onu azgın taife öldürecek" sözünü delil olarak kullanmaması.</p>
+        <p class="level-name">İlmî Sükût Delili</p>
+        <p class="source-line">Olayın çağdaşı olan âdil Müslüman âlimler, özellikle İbn Ömer ve İbn Mesud gibi ilim ve fıkıhla tanınan sahabilerden biri, onu inkâr etmemiş ve hiçbiri ona ne inkârla ne de kabulle değinmemişse, bu, olayın iddia edilen şekilde vuku bulmadığına dair çok güçlü bir olumsuz delildir.</p>
+        <p class="rule"><b>Mantıklı bir soru:</b> Tek bir Müslüman âlimin bile Fâtih'in kardeşi Ahmed'i öldürmesine, Baybars'ın Kutuz'u öldürmesine ya da Yezîd'in Hüseyin'i öldürmesine karşı ayağa kalkmaması veya itiraz etmemesi akılca nasıl mümkün olabilir? Ümmet o dönemde, Allah yolunda hiçbir kınayıcının kınamasından korkmadan itiraz edecek veya karşı çıkacak tek bir rabbânî âlimden yoksun muydu?</p>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">8</div>
+      <div class="stage-card">
+        <p class="level-name">Muhaliflerin Rivayeti Delil Olarak Kullanmaması</p>
+        <p class="source-line">Müddeâ aleyhin muhaliflerinin bu hikâyeyi delil olarak kullanmamış olması, rivayetin sahih olmadığına güçlü bir işarettir; çünkü rivayet doğru olsaydı onların davasına ve mezheplerine hizmet ederdi.</p>
+        <p class="rule"><b>Örneği:</b> İbnü'z-Zübeyr'in Kâbe'nin taşa tutulması rivayetini delil olarak kullanmaması ve Ali taraftarlarının, hakem olayı gününde "onu azgın taife öldürecek" sözünü delil olarak kullanmaması.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">9</div>
       <div class="stage-card">
         <p class="level-name">Maddî ve Arkeolojik Deliller</p>
         <p class="source-line">Olayın gerçekleştiğini destekleyen ya da onu çürüten maddî kalıntılar.</p>
@@ -593,19 +609,20 @@
     </div>
 
     <div class="stage">
-      <div class="node">9</div>
+      <div class="node">10</div>
       <div class="stage-card">
-        <p class="level-name">Sanığın Nebevî Tezkiyesi</p>
+        <p class="level-name">Müddeâ Aleyhin Kur'ânî veya Nebevî Tezkiyesi</p>
         <p class="source-line">Kur'an'da genel bir tezkiye veya Peygamber'den ﷺ özel bir tezkiye.</p>
-        <p class="rule"><b>Şart:</b> Nebevî tezkiyeye aykırı, şüpheli bir rivayet, zayıflığı arttıkça daha şiddetle reddedilir. Örneği: İstanbul'un fatihi hakkındaki "Onun emiri ne güzel emirdir" hadisi, onu cinayetle suçlayan zayıf rivayetlere karşı.</p>
+        <p class="rule"><b>Şart:</b> Tezkiyeye aykırı şüpheli rivayet daha da zayıflar ve daha şiddetle reddedilir. Bu seviyede bir hadis, ancak önceki seviyelerin şartlarıyla sabit olduktan sonra delil olarak kullanılır.</p>
+        <p class="rule"><b>Örneği:</b> İstanbul'un fatihi hakkındaki "Onun emiri ne güzel emirdir" hadisi, sahih olduğu farz edildiğinde, onu cinayetle suçlayan çok zayıf (vâhî) rivayetlere karşı.</p>
       </div>
     </div>
 
     <div class="stage">
-      <div class="node">10</div>
+      <div class="node">11</div>
       <div class="stage-card">
-        <p class="level-name">Düşmanlığı Bilinen Kişilerin Rivayetleri</p>
-        <p class="source-line">Düşmanlığı sabit olan birinin rivayeti, önceki şartlara göre sahih bir rivayetle desteklenmiyorsa, böyle bir durumda ortaya çıkacak taraf tutma niteliği sebebiyle kabul edilmez.</p>
+        <p class="level-name">Düşmanlığı Bilinenlerin Rivayetleri</p>
+        <p class="source-line">Düşmanlığı sabit olan birinin rivayeti, önceki şartlara göre sahih bir rivayetle desteklenmiyorsa, böyle bir durumda ortaya çıkan taraf tutma niteliği sebebiyle kabul edilmez.</p>
         <p class="rule"><b>Şart:</b> Kaynağı düşmanlar veya meçhul kişiler olan her rivayet otomatik olarak düşer ve kabul edilmez. Örneği: Bizanslı tarihçilerin Osmanlılar hakkındaki rivayetleri, doğaları gereği düşmanca olup, haberlerin kabulü için gereken şer'î şartlardan yoksundurlar.</p>
       </div>
     </div>
@@ -624,7 +641,7 @@
   </div>
 
   <div class="closing-note">
-    <p>Bu site, mantık ile en otantik rivayetlerin birleşimidir, hipotezlerin, iftiraların, kendi başına kimliği olmayan anlatım zincirlerinin, uydurmaların, muhaliflerin anlatımlarının ve fiziksel delil eksikliğinin değil.</p>
+    <p>Bu site, mantık ile en otantik rivayetlerin birleşimidir; hipotezlerin, iftiraların, kendi başına sabit olmayan isnad zincirlerinin, uydurmaların, muhaliflerin rivayetlerinin ve fiziksel delil eksikliğinin değil.</p>
   </div>
 
 </main>

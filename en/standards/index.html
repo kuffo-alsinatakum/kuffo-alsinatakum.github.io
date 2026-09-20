@@ -340,7 +340,7 @@
     z-index:2;
     box-shadow:0 0 0 5px var(--parchment);
   }
-  .stage:nth-child(n+6) .node{
+  .stage:nth-child(n+7) .node{
     border-color:var(--copper);
     color:var(--copper);
   }
@@ -374,6 +374,11 @@
     margin:0;
   }
   .stage-card .rule b{color:var(--olive-deep);}
+  .stage-card .rule + .rule{margin-top:8px;}
+  .stage-card .rule ol, .stage-card .rule ul{margin:6px 0 0; padding-inline-start:22px;}
+  .stage-card .rule li{margin-bottom:4px;}
+  .stage-card .rule ol{list-style-type:decimal;}
+  .stage-card .rule .note{display:block; margin-top:6px; font-size:0.84rem; opacity:0.9;}
 
   .verdict-row{
     margin-top:36px;
@@ -498,23 +503,23 @@
   <div class="page-card intro-card">
     <p>Dealing with historical narrations rests on refusing to accept any report or narration until it has been subjected to a set of graduated standards, functioning as successive filters that purify the narration of impurities and expose points of weakness and doubt within it. What clears these standards is accepted and relied upon; what fails one or more of them is rejected and disregarded.</p>
     <p class="to-reader">We are well aware that the reader may be surprised by something that conflicts with a belief they were raised on or have studied. We are not here to argue, we simply want to establish a method we can agree on for evaluating the reports that reach us, whether ancient or recent, in order to purify them of impurities and illogical content.</p>
-    <p>It must also be logically noted that a source is not counted as valid unless its composition postdates the time the event occurred; if, for example, the event occurred after the death of the author or historian, then it logically cannot be relied upon.</p>
+    <p>A narration is measured against the eleven levels in order, the first of which is the Time Condition. Levels two and three (Sahih al-Bukhari in the recension of Abu Dharr al-Harawi, and the Muwatta' in the recension of al-Qa'nabi) are the <strong>benchmark</strong> against which all other narrations are measured: whatever another recension adds to them or differs from them in is not counted, except on evidence from al-Bukhari's own practice or the explicit statement of one of the early imams.</p>
   </div>
 
   <div class="page-card method-card">
     <h2>Why Bukhari and Malik First?</h2>
-    <p>After the Qur'an, we turn to what the general body of scholars agree upon, which is <strong>Sahih al-Bukhari</strong>. But before your mind jumps to what it currently understands by that. Bukhari, like any work of human authorship, is subject to distortion or scribal error. So we turn to the most knowledgeable verifiers of manuscripts and the most precise and best-established copies to rely on: the hadith scholars and verifiers are unanimous that the most precise and well-established of Bukhari's students was the eminent <strong>al-Farabri</strong>, and that among al-Farabri's most precise students, al-Kushmihani, al-Mustamli, and al-Sarakhsi, it was Imam <strong>Abu Dharr al-Harawi</strong> who transmitted it. For this reason, we rely exclusively on this transmission on this site.</p>
-    <p>After Bukhari, we then rely on <strong>Imam Malik's Muwatta</strong>, for its stature and his rigor in selecting narrators, and his extreme caution regarding narrations from the people of Kufa, he would only narrate from those he trusted in both religious commitment and precision. We rely on the most precise and strongest of his students, <strong>al-Qa'nabi</strong>.</p>
+    <p>After the Qur'an, we turn to what the general body of scholars agree upon, which is <strong>Sahih al-Bukhari</strong>. But before the mind leaps to what it currently understands by that: Bukhari, like any work of human authorship, is subject to distortion or scribal error. So we turn to the most knowledgeable verifiers of manuscripts and the most precise and best-established copies to rely on: the hadith scholars and verifiers are unanimous that the most precise and well-established of Bukhari's students was the eminent <strong>al-Firabri</strong>, and that it was Imam <strong>Abu Dharr al-Harawi</strong> who transmitted the work from al-Firabri's most precise students (al-Kushmihani, al-Mustamli, and al-Sarakhsi). For this reason, we rely exclusively on this recension on this site, and make it the benchmark against which all other recensions of the Sahih are measured.</p>
+    <p>After Bukhari, we rely on <strong>Imam Malik's Muwatta'</strong>, for its stature, his rigor in selecting narrators, and his extreme caution regarding the narrations of the people of Kufa; he would narrate only from those whose religion and precision he trusted. We have adopted the recension of the most precise of those who transmitted it from him, <strong>'Abd Allah ibn Maslama al-Qa'nabi</strong>. 'Ali ibn al-Madini said: "No transmitter of the Muwatta' is to be placed ahead of al-Qa'nabi." Yahya ibn Ma'in said: "The most reliable of people in the Muwatta' are 'Abd Allah ibn Maslama al-Qa'nabi and 'Abd Allah ibn Yusuf al-Tinnisi." And Imam Ahmad said: "Write it from al-Qa'nabi." Al-Qa'nabi's recension is therefore our <strong>benchmark</strong> against which the other recensions of the Muwatta' are measured: whatever they add to it or differ from it in, we do not count.</p>
     <p>In other words, we do not accept any work of human authorship without first verifying and investigating which of its transmissions are the most precise and accurate, and we do not accept any narration without referring back to the foremost verifiers and scholars.</p>
   </div>
 
   <figure class="diagram">
-    <img src="../../images/criteria-infographic-en.png" alt="Diagram of the methodology for accepting historical narrations, the graduated levels from the condition of chronology to narrations of known enemies">
+    <img src="../../images/criteria-infographic-en.png?v=2" alt="Diagram of the methodology for accepting historical narrations: the graduated levels, from the Time Condition to the narrations of known enemies">
     <figcaption>The complete illustrative diagram of the methodology, in order of its eleven levels</figcaption>
   </figure>
 
   <div class="section-heading">
-    <h2>The Ten Levels in Detail</h2>
+    <h2>The Eleven Levels in Detail</h2>
     <p>A report is measured against these levels in order. Descending in rank means a greater need for verification, until it reaches a level where nothing is accepted except under strict conditions.</p>
   </div>
 
@@ -523,68 +528,79 @@
     <div class="stage">
       <div class="node">1</div>
       <div class="stage-card">
-        <p class="level-name">Sahih al-Bukhari. The Transmission of Abu Dharr al-Harawi</p>
-        <p class="source-line">Every book other than the Book of Allah is subject to distortion and scribal error. The authoritative copy of Sahih al-Bukhari is the transmission of Abu Dharr al-Harawi from his three teachers, al-Kushmihani, al-Sarakhsi, and al-Mustamli, from al-Farabri, the most precise and reliable of Bukhari's students.</p>
-        <p class="rule"><b>Condition:</b> The version currently well-known in libraries is unfortunately not that one. It is only relied upon if its composition postdates the time the event occurred.</p>
+        <p class="level-name">Time Condition</p>
+        <p class="source-line">It applies to every source in all of the levels that follow, and is therefore checked first.</p>
+        <p class="rule"><b>Condition:</b> A source is not counted unless its composition postdates the time the event occurred; if, for example, the event occurred after the death of the author or historian, then logically his report of it cannot be relied upon.</p>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">2</div>
       <div class="stage-card">
-        <p class="level-name">Imam Malik's Muwatta (the Transmission of al-Qa'nabi) and Bukhari's Greater and Lesser History</p>
-        <p class="source-line">He is the imam of the people of Medina, and the foremost compiler of chained hadith among the reports of the Medinan Companions, so much so that Bukhari called Malik's chain from Nafi' from Ibn Umar (may Allah be pleased with them) the soundest of chains. Malik was among the most rigorous imams in selecting his teachers and the strictest in accepting narrators, particularly regarding narrators from Kufa.</p>
-        <p class="rule"><b>Condition:</b> The authoritative source is al-Qa'nabi's transmission from Imam Malik; the version well-known in libraries is likewise not that one. It is accepted on condition of a full chain analysis and verification of the narration, and that it does not contradict an explicit narration in Sahih al-Bukhari.</p>
+        <p class="level-name">Sahih al-Bukhari (the Recension of Abu Dharr al-Harawi)</p>
+        <p class="source-line">Every book other than the Book of Allah is subject to distortion and scribal error. The authoritative copy of Sahih al-Bukhari is the recension of Abu Dharr al-Harawi from his three teachers (al-Kushmihani, al-Mustamli, and al-Sarakhsi), from al-Firabri, the most reliable and trustworthy of Bukhari's students. Unfortunately, the version currently well known in libraries is not that one.</p>
+        <p class="rule"><b>Condition:</b> The recension of Abu Dharr is the authoritative base text and the benchmark; whatever appears in other recensions of the Sahih as an addition to it or a divergence from it in wording is not counted, unless al-Bukhari's own practice elsewhere in his Sahih or in his other works, or the explicit statement of one of the early imams named in our methodology, shows that the error lies in the recension of Abu Dharr itself.</p>
+        <div class="rule"><b>When Abu Dharr's three teachers differ among themselves:</b><ol><li>What they agree on is the authoritative text.</li><li>An addition found with only one of them over the other two is not counted, and this applies with particular force to al-Kushmihani, since Abu Dharr himself, late in his life, used to delete much of what al-Kushmihani alone transmitted (Fath al-Bari 1/17).</li><li>Where they differ over a word, the reading on which two of them agree is adopted.</li><li>Their differences in the order of the chapters are not a basis for any ruling, because they copied from a single original, and each of them added what was on the loose sheets and in the margins according to his own judgment (al-Baji; 'Umdat al-Qari 23/180).</li></ol></div>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">3</div>
       <div class="stage-card">
-        <p class="level-name">The Remaining Six Books and the Musnad</p>
-        <p class="source-line">Muslim, Abu Dawud, al-Tirmidhi, al-Nasa'i, Ibn Majah, and Musnad Ahmad, among others.</p>
-        <p class="rule"><b>Condition:</b> The full chain of narration must be stated, each narrator must be verified (for sectarian bias, lying, weakness, tadlees, confirmed hearing, and innovation), and the narration must not contradict an explicit text in Bukhari or Malik.</p>
+        <p class="level-name">Imam Malik's Muwatta' (the Recension of al-Qa'nabi), and Bukhari's al-Tarikh al-Kabir and al-Tarikh al-Awsat</p>
+        <p class="source-line">He is the imam of the people of Medina, and the foremost compiler of chained hadith among the reports of the Medinan Companions, so much so that Bukhari called Malik's chain from Nafi' from Ibn Umar (may Allah be pleased with them) the soundest of chains. Malik was among the most rigorous imams in selecting his teachers and the strictest in accepting narrators, particularly regarding narrators from Kufa.</p>
+        <p class="rule"><b>Condition:</b> The recension of al-Qa'nabi is the authoritative base text and the benchmark, in its manuscript copy for the portion that has survived (which ends at the Book of Hajj and a chapter of the Book of Sales), or in what the imams transmitted from him with their chains in their own books (such as al-Bukhari, Muslim, Abu Dawud, and al-Bayhaqi) through the route "al-Qa'nabi from Malik." Whatever appears in other recensions of the Muwatta' as an addition to it or a divergence from it is not counted, unless al-Bukhari's practice in his Sahih, or the explicit statement of one of the early imams named in our methodology, shows that the error lies in the recension of al-Qa'nabi itself. Whatever is not found through al-Qa'nabi at all is taken from the recension of 'Abd Allah ibn Yusuf al-Tinnisi, then that of Ma'n ibn 'Isa, with this stated explicitly in the research. It is accepted on condition of a full chain analysis, and that it does not contradict an explicit narration in Sahih al-Bukhari.</p>
+        <div class="rule"><b>al-Tarikh al-Kabir and al-Tarikh al-Awsat:</b> Al-Bukhari's judgments in these two works on narrators and chains (such as his statements "he did not hear from so-and-so," "fihi nazar" (he is questionable), and "he is not corroborated in it") are relied upon and take precedence over the statements of those who came after him. As for the narrations he cites in them, they are not accepted until their chains have been fully analyzed, because he did not require authenticity in these works, and he often cites a narration in order to expose its hidden defect.<span class="note">Note: the work printed in the past under the title "al-Tarikh al-Saghir" is in fact "al-Tarikh al-Awsat," and it has been printed under its correct title, edited by Muhammad ibn Ibrahim al-Luhaydan.</span></div>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">4</div>
       <div class="stage-card">
-        <p class="level-name">The Historians</p>
-        <p class="source-line">If the event is mentioned by historians such as al-Tabari, al-Dhahabi, Ibn Kathir, Ibn Khaldun, and others like them, then the historian's methodology and school of thought must be taken into account, along with the era in which he lived and the patronage of any state under whose shadow he wrote his works, due to the risk of bias, as well as the views of established verifiers such as Dr. Bashar Awad Ma'ruf regarding him and his transmissions.</p>
-        <p class="rule"><b>Condition:</b> Reports that are unchained (mursal) or without any chain of narration are not relied upon at all.</p>
+        <p class="level-name">The Remaining Six Books and the Musnad</p>
+        <p class="source-line">Muslim, Abu Dawud, al-Tirmidhi, al-Nasa'i, Ibn Majah, and Musnad Ahmad, among others.</p>
+        <p class="rule"><b>Condition:</b> The full chain of narration must be stated, each narrator must be verified (sectarian bias, lying, weakness, tadlees, confirmed hearing, innovation), and the narration must not contradict an explicit text in Sahih al-Bukhari (the recension of Abu Dharr) or the Muwatta' (the recension of al-Qa'nabi).</p>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">5</div>
       <div class="stage-card">
-        <p class="level-name">The Testimony of Just Contemporaries Not Suspected of Bias Toward the Event</p>
-        <p class="source-line">Just narrators who were contemporaries of the event, free of sectarianism and innovation, particularly regarding narrations that support their own sect or school, in which case they would be considered impugned due to presumed bias.</p>
-        <p class="rule"><b>Condition:</b> The narrators must be established as having witnessed the event with their own eyes, and must be free of the very innovation the narration itself supports. The standard of proof here is the same standard used in religious courts for accepting a claim: two just witnesses.</p>
+        <p class="level-name">The Historians</p>
+        <p class="source-line">If the event is mentioned by historians such as al-Tabari, al-Dhahabi, Ibn Kathir, Ibn Khaldun, and others like them, then the historian's methodology and school of thought must be taken into account, along with the era in which he lived and the patronage of any state under whose shadow he wrote his works, due to the risk of bias, as well as the views of established verifiers such as Dr. Bashar Awad Ma'ruf regarding him and his narrations.</p>
+        <p class="rule"><b>Condition:</b> Narrations that are mursal or that have no chain at all are not relied upon whatsoever. Whatever has a chain is accepted on condition that the chain is fully analyzed and its authenticity verified, and that it does not contradict an explicit narration in al-Bukhari or the Muwatta', with great caution toward the narrators of the Abbasid state known for their intense hostility to the Umayyads and to the scholars who supported them.</p>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">6</div>
       <div class="stage-card">
-        <p class="level-name">The Argument From Scholarly Silence</p>
-        <p class="source-line">If the just Muslim scholars contemporary with the event, particularly any of the Companions renowned for knowledge and jurisprudence, such as Ibn Umar and Ibn Mas'ud, did not condemn it, and none of them so much as addressed it with either condemnation or acknowledgment, this is extremely strong negative evidence that it did not occur in the alleged manner.</p>
-        <p class="rule"><b>A logical question:</b> How could it be rationally conceivable that not a single Muslim scholar objected to or was outraged by the Conqueror killing his brother Ahmed, or Baybars killing Qutuz, or Yazid killing al-Husayn?</p>
+        <p class="level-name">The Testimony of Just Contemporaries Not Suspected of Bias Toward the Event</p>
+        <p class="source-line">Just narrators who were contemporaries of the event, free of sectarianism and innovation, especially in narrations that support their own innovation or school, which are then impugned due to presumed bias.</p>
+        <div class="rule"><b>Condition:</b> The narrators must have witnessed the event with their own eyes, and must be free of the very innovation the narration itself supports. The standard of proof is the standard used in religious courts for accepting a claim:<ul><li>An accusation of zina (unlawful sexual intercourse) requires four just witnesses.</li><li>Lesser accusations: two just witnesses.</li><li>Any narration whose source is enemies or unknown persons automatically falls and is not accepted.</li></ul></div>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">7</div>
       <div class="stage-card">
-        <p class="level-name">The Absence of Any Invocation of the Narration by Opponents</p>
-        <p class="source-line">The fact that the opposing party to the accused never invoked this very story is strong evidence the narration is not authentic, because it would have served their cause and their position had it been true.</p>
-        <p class="rule"><b>Example:</b> Ibn al-Zubayr never invoked the narration about the stoning of the Kaaba, and the supporters of Ali never invoked the statement "the transgressing faction will kill him" on the day of the arbitration.</p>
+        <p class="level-name">The Argument from Scholarly Silence</p>
+        <p class="source-line">If the just Muslim scholars contemporary with the event, particularly any of the Companions renowned for knowledge and jurisprudence, such as Ibn Umar and Ibn Mas'ud, did not condemn it, and none of them so much as addressed it with either condemnation or acknowledgment, this is extremely strong negative evidence that it did not occur in the alleged manner.</p>
+        <p class="rule"><b>A logical question:</b> How could it be rationally conceivable that not a single Muslim scholar rose up against or objected to the Conqueror killing his brother Ahmed, or Baybars killing Qutuz, or Yazid killing al-Husayn? Was the Ummah at that time devoid of a single godly scholar who feared no one's blame in the cause of Allah, to object or condemn?</p>
       </div>
     </div>
 
     <div class="stage">
       <div class="node">8</div>
+      <div class="stage-card">
+        <p class="level-name">The Absence of Any Invocation of the Narration by Opponents</p>
+        <p class="source-line">The fact that the opponents of the accused never invoked this very story is strong evidence that the narration is not authentic, because it would have served their cause and their position had it been true.</p>
+        <p class="rule"><b>Example:</b> Ibn al-Zubayr never invoked the narration about the bombardment of the Kaaba, and the supporters of Ali never invoked the statement "the transgressing faction will kill him" on the day of the arbitration.</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="node">9</div>
       <div class="stage-card">
         <p class="level-name">Material and Archaeological Evidence</p>
         <p class="source-line">Physical evidence that either supports or negates the occurrence of the event.</p>
@@ -593,20 +609,21 @@
     </div>
 
     <div class="stage">
-      <div class="node">9</div>
+      <div class="node">10</div>
       <div class="stage-card">
-        <p class="level-name">Prophetic Exoneration of the Accused</p>
-        <p class="source-line">General exoneration found in the Qur'an, or specific exoneration from the Prophet ﷺ.</p>
-        <p class="rule"><b>Condition:</b> A suspect narration that contradicts prophetic exoneration only grows weaker and is rejected all the more firmly. Example: the hadith "What an excellent commander its commander will be" regarding the conqueror of Constantinople, set against flimsy narrations that accuse him of murder.</p>
+        <p class="level-name">Qur'anic or Prophetic Endorsement of the Accused</p>
+        <p class="source-line">A general endorsement in the Qur'an, or a specific endorsement from the Prophet ﷺ.</p>
+        <p class="rule"><b>Condition:</b> A suspect narration that contradicts the endorsement only grows weaker and is rejected all the more firmly. No hadith is cited as evidence at this level until it has been established by the conditions of the preceding levels.</p>
+        <p class="rule"><b>Example:</b> The hadith "What an excellent commander its commander will be" regarding the conqueror of Constantinople, assuming it is authentic, set against flimsy narrations that accuse him of murder.</p>
       </div>
     </div>
 
     <div class="stage">
-      <div class="node">10</div>
+      <div class="node">11</div>
       <div class="stage-card">
-        <p class="level-name">Narrations From Known Enemies</p>
-        <p class="source-line">A narration from someone with established enmity, if unsupported by an authentic narration meeting the previous conditions, is not accepted, given the nature of bias that would exist in such a case.</p>
-        <p class="rule"><b>Condition:</b> Any narration whose source is an enemy or an unknown person automatically falls and is not accepted. Example: the accounts of Byzantine historians about the Ottomans, inherently hostile, and without the religious conditions required for accepting reports.</p>
+        <p class="level-name">Narrations of Known Enemies</p>
+        <p class="source-line">A narration from someone whose enmity is established, if unsupported by an authentic narration meeting the preceding conditions, is not accepted, given the nature of the bias that arises in such a case.</p>
+        <p class="rule"><b>Condition:</b> Any narration whose source is enemies or unknown persons automatically falls and is not accepted. Example: the accounts of Byzantine historians about the Ottomans, inherently hostile, and without the religious conditions required for accepting reports.</p>
       </div>
     </div>
 
