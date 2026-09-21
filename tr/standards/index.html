@@ -109,9 +109,6 @@
   }
 
   .navbar{
-    position:sticky;
-    top:0;
-    z-index:50;
     background:var(--olive);
     border-bottom:2px solid var(--gold);
     display:flex;
@@ -435,9 +432,25 @@
     .stage .node{left:-34px; width:28px; height:28px; font-size:0.86rem;}
     .stage-card{padding:16px 18px;}
   }
+
+  /* ===== Pinned site header (top bar + navigation) ===== */
+  html{scroll-padding-top:var(--header-h, 120px);}
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 12px rgba(0,0,0,0.18);
+  }
+  @media (max-width:760px){
+    .topbar{padding:6px 12px; gap:4px;}
+    .topbar .brandmark{margin-bottom:0;}
+    .topbar-right{justify-content:center; gap:10px;}
+  }
 </style>
 </head>
 <body>
+
+<div class="site-header">
 
 <div class="topbar">
   <div class="topbar-left"></div>
@@ -467,6 +480,8 @@
   <a href="../figures/index.html">Şahsiyetler</a>
   <a href="../contact/index.html">Bize Ulaşın</a>
 </nav>
+
+</div>
 
 <div class="verse-marquee" aria-hidden="true">
   <div class="verse-marquee-track">
@@ -651,6 +666,15 @@
 </footer>
 
 <script>
+(function(){
+  const header = document.querySelector('.site-header');
+  if(!header) return;
+  const setH = () => document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  setH();
+  window.addEventListener('resize', setH);
+  if(window.ResizeObserver){ new ResizeObserver(setH).observe(header); }
+})();
+
 (function(){
   const counterEl = document.getElementById('visitorCount');
   if(!counterEl) return;

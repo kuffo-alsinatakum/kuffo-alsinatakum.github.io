@@ -108,9 +108,6 @@
   }
 
   .navbar{
-    position:sticky;
-    top:0;
-    z-index:50;
     background:var(--olive);
     border-bottom:2px solid var(--gold);
     display:flex;
@@ -253,7 +250,7 @@
 
   .hero-illustration{
     position:sticky;
-    top:90px;
+    top:calc(var(--header-h, 120px) + 16px);
   }
   .hero-illustration-frame{
     position:relative;
@@ -524,9 +521,25 @@
     .lightbox-btn{width:38px; height:38px;}
     .lightbox-download{height:38px; padding:0 14px; font-size:0.85rem;}
   }
+
+  /* ===== Pinned site header (top bar + navigation) ===== */
+  html{scroll-padding-top:var(--header-h, 120px);}
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 12px rgba(0,0,0,0.18);
+  }
+  @media (max-width:760px){
+    .topbar{padding:6px 12px; gap:4px;}
+    .topbar .brandmark{margin-bottom:0;}
+    .topbar-right{justify-content:center; gap:10px;}
+  }
 </style>
 </head>
 <body>
+
+<div class="site-header">
 
 <div class="topbar">
   <div class="topbar-left"></div>
@@ -556,6 +569,8 @@
   <a href="../figures/index.html">Şahsiyetler</a>
   <a href="../contact/index.html">Bize Ulaşın</a>
 </nav>
+
+</div>
 
 <div class="verse-marquee" aria-hidden="true">
   <div class="verse-marquee-track">
@@ -659,6 +674,15 @@
 </div>
 
 <script>
+(function(){
+  const header = document.querySelector('.site-header');
+  if(!header) return;
+  const setH = () => document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  setH();
+  window.addEventListener('resize', setH);
+  if(window.ResizeObserver){ new ResizeObserver(setH).observe(header); }
+})();
+
 (function(){
   const counterEl = document.getElementById('visitorCount');
   if(!counterEl) return;
