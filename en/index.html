@@ -39,6 +39,15 @@
   a{color:var(--copper); text-decoration:none;}
   a:hover{text-decoration:underline;}
 
+  /* ===== Pinned site header (top bar + navigation) ===== */
+  html{scroll-padding-top:var(--header-h, 120px);}
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 12px rgba(0,0,0,0.18);
+  }
+
   /* ===== Top bar ===== */
   .topbar{
     background:var(--olive-deep);
@@ -76,7 +85,9 @@
   @media (max-width:760px){
     .topbar{grid-template-columns:1fr; text-align:center;}
     .topbar-left, .topbar-right, .topbar .brandmark{grid-column:1; justify-content:center;}
-    .topbar .brandmark{font-size:1.02rem; order:-1; margin-bottom:6px;}
+    .topbar{padding:6px 12px; gap:4px;}
+    .topbar .brandmark{font-size:1rem; order:-1; margin-bottom:0;}
+    .topbar-right{justify-content:center; gap:10px;}
   }
 
   .topbar-right{display:flex; align-items:center; gap:18px;}
@@ -108,11 +119,8 @@
     .visitor-counter{font-size:0.74rem;}
   }
 
-  /* ===== Navigation bar (sticky, identical across all pages) ===== */
+  /* ===== Navigation bar (identical across all pages) ===== */
   .navbar{
-    position:sticky;
-    top:0;
-    z-index:50;
     background:var(--olive);
     border-bottom:2px solid var(--gold);
     display:flex;
@@ -268,7 +276,7 @@
   /* ===== Hero illustration (site pillars) ===== */
   .hero-illustration{
     position:sticky;
-    top:90px;
+    top:calc(var(--header-h, 120px) + 16px);
   }
   .hero-illustration-frame{
     position:relative;
@@ -326,6 +334,8 @@
 </head>
 <body>
 
+<div class="site-header">
+
 <div class="topbar">
   <div class="topbar-left"></div>
   <div class="brandmark">Restrain Your Tongues Concerning Them</div>
@@ -354,6 +364,8 @@
   <a href="figures/index.html">Figures</a>
   <a href="contact/index.html">Contact Us</a>
 </nav>
+
+</div>
 
 <div class="verse-marquee" aria-hidden="true">
   <div class="verse-marquee-track">
@@ -409,6 +421,14 @@
 </footer>
 
 <script>
+(function(){
+  const header = document.querySelector('.site-header');
+  if(!header) return;
+  const setH = () => document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  setH();
+  window.addEventListener('resize', setH);
+  if(window.ResizeObserver){ new ResizeObserver(setH).observe(header); }
+})();
 (function(){
   const counterEl = document.getElementById('visitorCount');
   if(!counterEl) return;
