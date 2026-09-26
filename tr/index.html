@@ -270,6 +270,8 @@
     margin:0 auto;
     padding:0 24px 50px;
   }
+  /* the two-column split sets its own width; don't squeeze it into the 760px text column */
+  main.main-wide{max-width:none; padding-left:0; padding-right:0;}
   .page-split{
     max-width:1100px;
     margin:0 auto;
@@ -420,7 +422,7 @@
   <span class="line"></span>
 </div>
 
-<main>
+<main class="main-wide">
 <div class="page-split">
   <div class="hero-illustration">
     <div class="hero-illustration-frame">
