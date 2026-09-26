@@ -270,7 +270,7 @@
 
   .figures-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
     gap:18px;
   }
 
@@ -340,7 +340,7 @@
 
   @media (max-width:600px){
     header.page-hero{padding:20px 18px 16px;}
-    .figures-grid{grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:14px;}
+    .figures-grid{grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:14px;}
     .figure-btn{padding:22px 14px;}
   }
 
@@ -448,7 +448,8 @@
       <span class="figure-era">620 &ndash; 676 H.</span>
     </a>
 
-    <!-- PLACEHOLDER FIGURE 3 -->
+    <!--
+    ===== TEMPLATE: to add a figure, copy this card, set href to its page, and remove the badge =====
     <a class="figure-btn" href="#">
       <span class="avatar-ring">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -457,6 +458,7 @@
       <span class="figure-era">Hicrî ·· Yüzyıl</span>
       <span class="placeholder-badge">Örnek</span>
     </a>
+    -->
 
   </div>
 
