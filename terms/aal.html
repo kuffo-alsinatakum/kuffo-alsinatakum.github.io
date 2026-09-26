@@ -137,7 +137,10 @@
   }
   .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0; transform:scaleX(-1);}
   @media (max-width:700px){
-    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start; flex-wrap:nowrap; scrollbar-width:none; position:sticky; top:0; z-index:100;}
+    .navbar::-webkit-scrollbar{display:none;}
+    .site-header{display:contents;}
+    html{scroll-padding-top:56px !important;}
     .navbar a{padding:12px 12px; font-size:0.84rem;}
     .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
   }
@@ -338,10 +341,10 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
     <span>عودة للرئيسية</span>
   </a>
-  <a href="../about/index.html">الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ</a>
+  <a href="../index.html">الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ</a>
   <a href="index.html" class="active-page">مُصْطَلَحَاتٌ هَامَّةٌ</a>
   <a href="../standards/index.html">الْمَعَايِيرُ وَالضَّوَابِطُ</a>
-  <a href="../index.html#figures">الشَّخْصِيَّاتُ</a>
+  <a href="../figures/index.html">الشَّخْصِيَّاتُ</a>
   <a href="../contact/index.html">تَوَاصَلْ مَعَنَا</a>
 </nav>
 
