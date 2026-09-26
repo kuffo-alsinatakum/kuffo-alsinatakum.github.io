@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /project-summary
+
+Sitemap: https://kuffo-alsinatakum.github.io/sitemap.xml
