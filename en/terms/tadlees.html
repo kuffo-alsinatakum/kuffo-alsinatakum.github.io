@@ -4,6 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tadlees | Kuffo Alsinatakum</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="Tadlees, the slow poison in transmitting reports: its definition by Ibn al-Salah and later scholars, and why concealing an intermediary is so dangerous, with an illustrated example.">
+<link rel="canonical" href="https://kuffo-alsinatakum.github.io/en/terms/tadlees.html">
+<link rel="alternate" hreflang="ar" href="https://kuffo-alsinatakum.github.io/terms/tadlees.html">
+<link rel="alternate" hreflang="en" href="https://kuffo-alsinatakum.github.io/en/terms/tadlees.html">
+<link rel="alternate" hreflang="tr" href="https://kuffo-alsinatakum.github.io/tr/terms/tadlees.html">
+<link rel="alternate" hreflang="x-default" href="https://kuffo-alsinatakum.github.io/terms/tadlees.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kuffo Alsinatakum">
+<meta property="og:title" content="Tadlees | Kuffo Alsinatakum">
+<meta property="og:description" content="Tadlees, the slow poison in transmitting reports: its definition by Ibn al-Salah and later scholars, and why concealing an intermediary is so dangerous, with an illustrated example.">
+<meta property="og:url" content="https://kuffo-alsinatakum.github.io/en/terms/tadlees.html">
+<meta property="og:image" content="https://kuffo-alsinatakum.github.io/images/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -143,7 +164,10 @@
   }
   .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0;}
   @media (max-width:700px){
-    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start; flex-wrap:nowrap; scrollbar-width:none; position:sticky; top:0; z-index:100;}
+    .navbar::-webkit-scrollbar{display:none;}
+    .site-header{display:contents;}
+    html{scroll-padding-top:56px !important;}
     .navbar a{padding:12px 12px; font-size:0.84rem;}
     .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
   }
@@ -225,7 +249,7 @@
     color:transparent;
     animation:shimmer-gold 4s linear infinite;
   }
-  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  .verse-marquee-track span.sep{display:inline-block; font-size:1rem; padding:0 6px; background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:shimmer-gold 4s linear infinite;}
   @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
   @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
   @media (max-width:600px){
@@ -515,13 +539,13 @@
 <div class="verse-marquee" aria-hidden="true">
   <div class="verse-marquee-track">
     <span class="v">"O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful." (Surah Al-Hujurat 49:6)</span>
-    <span class="sep">•</span>
+    <span class="sep">—</span>
     <span class="v">"Why, when you heard it, did not the believing men and believing women think good of one another and say, 'This is an obvious falsehood'?" (Surah An-Nur 24:12)</span>
-    <span class="sep">•</span>
+    <span class="sep">—</span>
     <span class="v">"O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful." (Surah Al-Hujurat 49:6)</span>
-    <span class="sep">•</span>
+    <span class="sep">—</span>
     <span class="v">"Why, when you heard it, did not the believing men and believing women think good of one another and say, 'This is an obvious falsehood'?" (Surah An-Nur 24:12)</span>
-    <span class="sep">•</span>
+    <span class="sep">—</span>
   </div>
 </div>
 
@@ -548,7 +572,7 @@
   <figure class="tadlees-image-block">
     <div class="tadlees-image-frame">
       <div class="tadlees-image-inner">
-        <img src="../../images/tadlees-diagram-en.png" alt="Diagram illustrating the concept of tadlees: direct hearing versus hearing through a concealed intermediary" onclick="openLightbox(this.src, this.alt)">
+        <img src="../../images/tadlees-diagram-en.webp" width="2000" height="1116" alt="Diagram illustrating the concept of tadlees: direct hearing versus hearing through a concealed intermediary" onclick="openLightbox(this.src, this.alt)" loading="lazy" decoding="async">
       </div>
     </div>
     <figcaption>An illustration of the difference between direct hearing and tadlees by concealing the intermediary</figcaption>

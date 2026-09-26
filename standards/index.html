@@ -4,6 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>المعايير والضوابط | كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="منهجية قبول الرواية التاريخية: أحد عشر معيارًا متدرجًا تعمل كمرشحات متتابعة، فما اجتازها جميعًا قُبل، وما سقط في واحد منها رُدّ.">
+<link rel="canonical" href="https://kuffo-alsinatakum.github.io/standards/">
+<link rel="alternate" hreflang="ar" href="https://kuffo-alsinatakum.github.io/standards/">
+<link rel="alternate" hreflang="en" href="https://kuffo-alsinatakum.github.io/en/standards/">
+<link rel="alternate" hreflang="tr" href="https://kuffo-alsinatakum.github.io/tr/standards/">
+<link rel="alternate" hreflang="x-default" href="https://kuffo-alsinatakum.github.io/standards/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ">
+<meta property="og:title" content="المعايير والضوابط | كُفُّوا أَلْسِنَتَكُمْ عَنْهُمْ">
+<meta property="og:description" content="منهجية قبول الرواية التاريخية: أحد عشر معيارًا متدرجًا تعمل كمرشحات متتابعة، فما اجتازها جميعًا قُبل، وما سقط في واحد منها رُدّ.">
+<meta property="og:url" content="https://kuffo-alsinatakum.github.io/standards/">
+<meta property="og:image" content="https://kuffo-alsinatakum.github.io/images/og-ar.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -140,7 +161,10 @@
   }
   .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0; transform:scaleX(-1);}
   @media (max-width:700px){
-    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start; flex-wrap:nowrap; scrollbar-width:none; position:sticky; top:0; z-index:100;}
+    .navbar::-webkit-scrollbar{display:none;}
+    .site-header{display:contents;}
+    html{scroll-padding-top:56px !important;}
     .navbar a{padding:12px 12px; font-size:0.84rem;}
     .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
   }
@@ -222,7 +246,7 @@
     color:transparent;
     animation:shimmer-gold 4s linear infinite;
   }
-  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  .verse-marquee-track span.sep{display:inline-block; font-size:1rem; padding:0 6px; background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:shimmer-gold 4s linear infinite;}
   @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
   @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
   @media (max-width:600px){
@@ -277,6 +301,7 @@
     text-align:center;
   }
   figure.diagram img{
+    height:auto;
     max-width:100%;
     border-radius:8px;
     border:1px solid var(--line);
@@ -484,7 +509,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
     <span>عودة للرئيسية</span>
   </a>
-  <a href="../about/index.html">الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ</a>
+  <a href="../index.html">الْغَايَةُ مِنْ هَذَا الْمَوْقِعِ</a>
   <a href="../terms/index.html">مُصْطَلَحَاتٌ هَامَّةٌ</a>
   <a href="index.html" class="active-page">الْمَعَايِيرُ وَالضَّوَابِطُ</a>
   <a href="../figures/index.html">الشَّخْصِيَّاتُ</a>
@@ -496,13 +521,13 @@
 <div class="verse-marquee" aria-hidden="true">
   <div class="verse-marquee-track">
     <span class="v">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ (سورة الحجرات: ٦)</span>
-    <span class="sep">•</span>
+    <span class="sep">—</span>
     <span class="v">﴿لَّوْلَا إِذْ سَمِعْتُمُوهُ ظَنَّ الْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بِأَنفُسِهِمْ خَيْرًا وَقَالُوا هَـٰذَا إِفْكٌ مُّبِينٌ﴾ (سورة النور: ١٢)</span>
-    <span class="sep">•</span>
+    <span class="sep">—</span>
     <span class="v">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِن جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَن تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ (سورة الحجرات: ٦)</span>
-    <span class="sep">•</span>
+    <span class="sep">—</span>
     <span class="v">﴿لَّوْلَا إِذْ سَمِعْتُمُوهُ ظَنَّ الْمُؤْمِنُونَ وَالْمُؤْمِنَاتُ بِأَنفُسِهِمْ خَيْرًا وَقَالُوا هَـٰذَا إِفْكٌ مُّبِينٌ﴾ (سورة النور: ١٢)</span>
-    <span class="sep">•</span>
+    <span class="sep">—</span>
   </div>
 </div>
 
@@ -539,7 +564,7 @@
   </div>
 
   <figure class="diagram">
-    <img src="../images/criteria-infographic-ar.png?v=2" alt="مخطط منهجية قبول الرواية التاريخية: المستويات المتدرجة من شرط الزمن إلى روايات المعلوم عداؤهم">
+    <img src="../images/criteria-infographic-ar.webp" width="1800" height="1535" alt="مخطط منهجية قبول الرواية التاريخية: المستويات المتدرجة من شرط الزمن إلى روايات المعلوم عداؤهم" loading="lazy" decoding="async">
     <figcaption>المخطط التوضيحي الكامل للمنهجية، بترتيب المستويات الأحد عشر</figcaption>
   </figure>
 

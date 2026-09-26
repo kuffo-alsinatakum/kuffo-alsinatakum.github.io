@@ -4,6 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What Is the Sanad? | Kuffo Alsinatakum</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="What is the sanad? The chain of narrators leading to the text, how scholars examine it narrator by narrator, with a sanad tree diagram and the journey of a hadith into the books of Sunnah.">
+<link rel="canonical" href="https://kuffo-alsinatakum.github.io/en/terms/sanad.html">
+<link rel="alternate" hreflang="ar" href="https://kuffo-alsinatakum.github.io/terms/sanad.html">
+<link rel="alternate" hreflang="en" href="https://kuffo-alsinatakum.github.io/en/terms/sanad.html">
+<link rel="alternate" hreflang="tr" href="https://kuffo-alsinatakum.github.io/tr/terms/sanad.html">
+<link rel="alternate" hreflang="x-default" href="https://kuffo-alsinatakum.github.io/terms/sanad.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kuffo Alsinatakum">
+<meta property="og:title" content="What Is the Sanad? | Kuffo Alsinatakum">
+<meta property="og:description" content="What is the sanad? The chain of narrators leading to the text, how scholars examine it narrator by narrator, with a sanad tree diagram and the journey of a hadith into the books of Sunnah.">
+<meta property="og:url" content="https://kuffo-alsinatakum.github.io/en/terms/sanad.html">
+<meta property="og:image" content="https://kuffo-alsinatakum.github.io/images/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -140,7 +161,10 @@
   }
   .navbar a.back-link svg{width:15px; height:15px; flex-shrink:0;}
   @media (max-width:700px){
-    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start;}
+    .navbar{gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:flex-start; flex-wrap:nowrap; scrollbar-width:none; position:sticky; top:0; z-index:100;}
+    .navbar::-webkit-scrollbar{display:none;}
+    .site-header{display:contents;}
+    html{scroll-padding-top:56px !important;}
     .navbar a{padding:12px 12px; font-size:0.84rem;}
     .navbar a.back-link{border-inline-end:none; margin-inline-end:0;}
   }
@@ -213,7 +237,7 @@
     color:transparent;
     animation:shimmer-gold 4s linear infinite;
   }
-  .verse-marquee-track span.sep{display:inline-block; color:var(--copper); font-size:1rem; padding:0 6px;}
+  .verse-marquee-track span.sep{display:inline-block; font-size:1rem; padding:0 6px; background:linear-gradient(90deg, #C9A227, #F0D878, #C9A227); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:shimmer-gold 4s linear infinite;}
   @keyframes marquee-scroll{from{transform:translateX(0%);} to{transform:translateX(-50%);}}
   @keyframes shimmer-gold{from{background-position:200% center;} to{background-position:0% center;}}
   @media (max-width:600px){
@@ -575,13 +599,13 @@
 <div class="verse-marquee" aria-hidden="true">
   <div class="verse-marquee-track">
     <span class="v">"Indeed, it is We who sent down the message [i.e., the Qur'an], and indeed, We will be its guardian." (Surah Al-Hijr 15:9)</span>
-    <span class="sep">•</span>
+    <span class="sep">—</span>
     <span class="v">"O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful." (Surah Al-Hujurat 49:6)</span>
-    <span class="sep">•</span>
+    <span class="sep">—</span>
     <span class="v">"Indeed, it is We who sent down the message [i.e., the Qur'an], and indeed, We will be its guardian." (Surah Al-Hijr 15:9)</span>
-    <span class="sep">•</span>
+    <span class="sep">—</span>
     <span class="v">"O you who have believed, if there comes to you a disobedient one with information, investigate, lest you harm a people out of ignorance and become, over what you have done, regretful." (Surah Al-Hujurat 49:6)</span>
-    <span class="sep">•</span>
+    <span class="sep">—</span>
   </div>
 </div>
 
@@ -607,7 +631,7 @@
     <figure class="side-image">
       <div class="side-image-frame">
         <div class="side-image-inner">
-          <img src="../../images/sanad-tree-diagram-en.png" alt="Diagram illustrating the chain of narrators and terms of hearing between narrators" onclick="openLightbox(this.src, this.alt)">
+          <img src="../../images/sanad-tree-diagram-en.webp" width="1334" height="2000" alt="Diagram illustrating the chain of narrators and terms of hearing between narrators" onclick="openLightbox(this.src, this.alt)" loading="lazy" decoding="async">
         </div>
       </div>
       <figcaption>The Sanad Tree and the Terminology of Narration Between Narrators</figcaption>
@@ -620,7 +644,7 @@
     <figure class="side-image">
       <div class="side-image-frame">
         <div class="side-image-inner">
-          <img src="../../images/hadith-journey-diagram-en.png" alt="The journey of the Prophetic hadith from its utterance by the Prophet to the books of the Sunnah" onclick="openLightbox(this.src, this.alt)">
+          <img src="../../images/hadith-journey-diagram-en.webp" width="1076" height="2000" alt="The journey of the Prophetic hadith from its utterance by the Prophet to the books of the Sunnah" onclick="openLightbox(this.src, this.alt)" loading="lazy" decoding="async">
         </div>
       </div>
       <figcaption>The Journey of the Prophetic Hadith, From Its Utterance to the Books of the Sunnah</figcaption>
