@@ -324,28 +324,7 @@
   }
   .form-group textarea{min-height:140px; resize:vertical; line-height:1.7;}
 
-  .file-drop{
-    border:1.5px dashed var(--copper);
-    border-radius:8px;
-    padding:20px;
-    text-align:center;
-    background:var(--parchment-deep);
-    cursor:pointer;
-    transition:border-color 0.2s, background 0.2s;
-  }
-  .file-drop:hover, .file-drop.dragover{border-color:var(--gold); background:#f2e9cf;}
-  .file-drop input[type="file"]{display:none;}
-  .file-drop-label{display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--copper); font-size:0.92rem;}
-  .file-drop-label svg{width:26px; height:26px; color:var(--gold);}
-  .file-drop-hint{font-size:0.8rem; color:rgba(42,33,24,0.6); margin-top:4px;}
-  .file-name-display{
-    margin-top:12px;
-    font-size:0.9rem;
-    color:var(--olive-deep);
-    font-weight:600;
-    display:none;
-  }
-  .file-name-display.show{display:block;}
+  .field-hint{display:block; font-size:0.82rem; color:rgba(42,33,24,0.65); margin-top:6px; line-height:1.6;}
 
   .submit-btn{
     width:100%;
@@ -512,20 +491,8 @@
 
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="attachment">Attach a document or image (optional)</label>
-        <div class="file-drop" id="fileDrop">
-          <label class="file-drop-label" for="attachment">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v12"/><path d="M7 8l5-5 5 5"/><path d="M5 21h14"/></svg>
-            <span>Click to choose a file, or drag it here</span>
-            <span class="file-drop-hint">PDF, Word, JPG, PNG, max 5MB</span>
-          </label>
-          <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
-        </div>
-        <div class="file-name-display" id="fileNameDisplay"></div>
+        <textarea id="message" name="message" required aria-describedby="messageHint"></textarea>
+        <span class="field-hint" id="messageHint">To share a document or image, put a link to it (Google Drive, Dropbox…) in your message.</span>
       </div>
 
       <button type="submit" class="submit-btn" id="submitBtn">
@@ -569,48 +536,6 @@
       })
       .catch(() => { counterEl.textContent = '···'; });
   }
-})();
-
-(function(){
-  const fileInput = document.getElementById('attachment');
-  const fileDrop = document.getElementById('fileDrop');
-  const fileNameDisplay = document.getElementById('fileNameDisplay');
-  const MAX_SIZE = 5 * 1024 * 1024; // 5MB
-
-  fileInput.addEventListener('change', function(){
-    if(fileInput.files.length){
-      const file = fileInput.files[0];
-      if(file.size > MAX_SIZE){
-        fileNameDisplay.textContent = 'File is too large (max 5MB). Please choose another file.';
-        fileNameDisplay.classList.add('show');
-        fileInput.value = '';
-        return;
-      }
-      fileNameDisplay.textContent = 'Selected file: ' + file.name;
-      fileNameDisplay.classList.add('show');
-    } else {
-      fileNameDisplay.classList.remove('show');
-    }
-  });
-
-  ['dragover','dragenter'].forEach(evt => {
-    fileDrop.addEventListener(evt, function(e){
-      e.preventDefault();
-      fileDrop.classList.add('dragover');
-    });
-  });
-  ['dragleave','drop'].forEach(evt => {
-    fileDrop.addEventListener(evt, function(e){
-      e.preventDefault();
-      fileDrop.classList.remove('dragover');
-    });
-  });
-  fileDrop.addEventListener('drop', function(e){
-    if(e.dataTransfer.files.length){
-      fileInput.files = e.dataTransfer.files;
-      fileInput.dispatchEvent(new Event('change'));
-    }
-  });
 })();
 
 (function(){
@@ -691,7 +616,6 @@
           statusBox.textContent = 'Your message has been sent successfully. Thank you, we will get back to you soon.';
           statusBox.classList.add('show','success');
           form.reset();
-          document.getElementById('fileNameDisplay').classList.remove('show');
         } else {
           statusBox.textContent = 'An error occurred while sending your message. Please try again.';
           statusBox.classList.add('show','error');
