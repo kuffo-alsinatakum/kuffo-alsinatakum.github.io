@@ -3,3 +3,4 @@
 exclude:
   - project-summary.md
   - README.md
+  - CLAUDE.md
