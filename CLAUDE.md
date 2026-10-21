@@ -47,8 +47,10 @@ Scholarly trilingual website defending figures of Islamic history who were wrong
 
 ## Working rules
 - Do not modify the code of a section until Med explicitly says "انتهيت" (I'm done) for that section.
-- Build one section or page first as a model and get Med's approval before repeating it on other files or languages.
-- Work one step at a time. Before any commit, show a short plain-language summary of what changed and wait for approval.
+- For a page with a new design, build one page first as a model and get Med's approval before repeating it on other files or languages. Pages that follow an existing model (for example a new figure built like the al-Fatih and Baybars pages) skip this step.
+- When Med sends all the material for a task in one message, build everything in one go (all pages and all three languages) without asking questions along the way.
+- If something essential is missing (a text, a translation or an image), collect every missing item into one single message instead of asking one at a time.
+- When the work is done, show one short plain-language summary of everything that changed and wait for Med's approval before committing.
 - Never push to main without Med's explicit approval.
 - After adding images, confirm the file actually exists in images/ with the exact name and letter case used in the HTML.
 - Do not change the contact form (Web3Forms) setup or the visitor counter unless asked.
