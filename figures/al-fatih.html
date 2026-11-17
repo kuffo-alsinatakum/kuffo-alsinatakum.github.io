@@ -152,7 +152,24 @@
   @media (prefers-reduced-motion: reduce){.verse-marquee-track{animation:none;}}
 
   main{max-width:var(--max-w-wide); margin:0 auto; padding:0 24px 50px;}
-
+  /* ===== Hero painting ===== */
+  figure.hero-painting{
+    margin:0 0 36px;
+    text-align:center;
+  }
+  figure.hero-painting img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:8px;
+    border:1px solid var(--line);
+    box-shadow:0 4px 16px rgba(27,58,47,0.1);
+  }
+  figure.hero-painting figcaption{
+    margin-top:10px;
+    font-size:0.85rem;
+    color:var(--copper);
+  }
   /* ===== Figure bio card ===== */
   .bio-card{
     background:#fff; border:1px solid var(--line); border-radius:8px;
